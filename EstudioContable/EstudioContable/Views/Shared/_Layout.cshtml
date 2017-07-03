@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html class="no-focus" lang="en" ng-app="app" ng-cloak>
+<head>
+    <meta charset="utf-8" />
+
+    <title>Estudio Contable Villa</title>
+
+    <meta name="description" content="Estudio Contable Villa">
+    <meta name="author" content="SystemAs">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="/assets/img/favicons/favicon.png">
+
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-192x192.png" sizes="192x192">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Web fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+
+    @Styles.Render("~/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</head>
+<body ng-controller="AppCtrl">
+    @*<div id="page-loader"></div>*@
+    <div id="page-container" class="side-scroll header-navbar-fixed header-navbar-transparent">
+        <!-- Header -->
+        <header id="header-navbar" class="content-mini content-mini-full" ng-controller="HeaderCtrl">
+            <div class="content-boxed">
+                <!-- Header Navigation Right -->
+                <ul class="nav-header pull-right">
+                    <li class="hidden-md hidden-lg">
+                        <button class="btn btn-link text-white pull-right" data-js-toggle-class="{target: '.js-nav-main-header', class: 'nav-main-header-o'}" data-js-blur type="button">
+                            <i class="fa fa-navicon"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <div class="btn-group btn-group-nav" data-on-toggle="toggled(open)" data-uib-dropdown>
+                            <button class="btn btn-default btn-image btn-group-header" type="button" data-uib-dropdown-toggle>
+                                <img src="/assets/img/avatars/avatar1.jpg" alt="Avatar">
+                                <span class="caret"></span>
+                            </button>
+                            @Html.Partial("_LoginPartial")
+                        </div>
+                    </li>
+                </ul>
+                <!-- END Header Navigation Right -->
+                <!-- Main Header Navigation -->
+                <ul class="js-nav-main-header nav-main-header pull-right">
+                    <li class="text-right hidden-md hidden-lg">
+                        <button class="btn btn-link text-white" data-js-toggle-class="{target: '.js-nav-main-header', class: 'nav-main-header-o'}" data-js-blur type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <a class="active" href="/Home/Index">Inicio</a>
+                    </li>
+                    @using Microsoft.AspNet.Identity
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            <a class="nav-submenu" href="javascript:void(0)">Administración</a>
+                            <ul>
+                                <li>
+                                    <a href="/Manage/Categories">Categorías</a>
+                                </li>
+                                <li>
+                                    <a href="/Manage/Contenido">Contenido</a>
+                                </li>
+                                <li>
+                                    <a href="/Manage/Documentos">Documentos</a>
+                                </li>
+                                @*<li>
+                                    <a href="/Home/EnConstruccion">Usuarios</a>
+                                </li>*@
+                            </ul>
+                        </li>
+                    }
+                    <li>
+                        @*<a href="/Contenido/Index">Estudio</a>*@
+                        <a class="nav-submenu" href="javascript:void(0)">Estudio</a>
+                        <ul>
+                            <li>
+                                <a href="/Manage/Categories">Perfil</a>
+                            </li>
+                            <li>
+                                <a href="/Manage/Contenido">Organización</a>
+                            </li>
+                            <li>
+                                <a href="/Manage/Documentos">Directores</a>
+                            </li>
+                            @*<li>
+                <a href="/Home/EnConstruccion">Usuarios</a>
+            </li>*@
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/Documentos/Index">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="/Tools/CalculadoraLaboral">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="/Home/EnConstruccion">Sitios de interés</a>
+                    </li>
+                </ul>
+                <!-- END Main Header Navigation -->
+                <!-- Header Navigation Left -->
+                <ul class="nav-header pull-left">
+                    <li class="header-content">
+                        <a class="h5" href="/Home/Index">
+                            @*<img src="~/assets/img/logo.svg" style="width:150px;"/>*@
+                            <span class="h4 font-w600 text-white">Estudi</span><i class="fa fa-circle-o-notch text-primary"></i><span class="h4 font-w600 text-white"> C</span><i class="fa fa-circle-o-notch text-primary"></i><span class="h4 font-w600 text-white"> ontable Villa</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END Header Navigation Left -->
+            </div>
+        </header>
+        <!-- END Header -->
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Video -->
+            <div class="bg-video" data-vide-bg="assets/img/videos/hero_tech" data-vide-options="posterType: jpg, position: 50% 75%" style="position: relative;">
+                <div style="position: absolute; z-index: -1; top: 0px; left: 0px; bottom: 0px; right: 0px; overflow: hidden; background-size: cover; background-color: transparent; background-repeat: no-repeat; background-position: 50% 75%; background-image: none;"><video autoplay="" loop="" muted="" style="margin: auto; position: absolute; z-index: -1; top: 75%; left: 50%; transform: translate(-50%, -75%); visibility: visible; opacity: 1; width: 1905px; height: auto;"><source src="/assets/img/videos/hero_tech.mp4" type="video/mp4"><source src="/assets/img/videos/hero_tech.webm" type="video/webm"><source src="/assets/img/videos/hero_tech.ogv" type="video/ogg"></video></div>
+                <div class="bg-primary-dark-op">
+                    <section class="content content-full content-boxed">
+                        <div class="push-100-t push-50 text-center">
+                            <h1 class="h2 font-w700 text-white push-20 animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown" ng-if="header.title != null && header.title != undefined">{{header.title}}</h1>
+                            <div class="text-center push-30-t visibility-hidden" data-js-appear="{class:'animated fadeInDown', timeout:600}" ng-if="header.title == null || header.title == undefined">
+                                <a class="fa-2x text-white" href="/Home/Index">
+                                    Estudio Contable Villa
+                                </a>
+                            </div>
+                            <h2 class="h4 text-white-op visibility-hidden" data-js-appear="{class:'animated fadeInDown', timeout:800}"><em>{{header.description}}</em></h2>
+
+                            @using Microsoft.AspNet.Identity
+                            @if (!Request.IsAuthenticated)
+                            {
+                                <div class="push-50-t push-20 text-center" ng-if="isHome">
+                                    <a class="btn btn-lg btn-primary visibility-hidden push-10-r" data-js-appear="{class:'animated bounceInLeft', timeout:600}" href="/Account/Login"><i class="si si-login text-white"></i>&nbsp;&nbsp;&nbsp;&nbsp;Ingresar</a>
+                                    <a class="btn btn-lg btn-info visibility-hidden" data-js-appear="{class:'animated bounceInRight', timeout:600}" href="/Account/Register"><i class="si si-user-follow text-white"></i>&nbsp;&nbsp;&nbsp;&nbsp;Registrarse</a>
+                                </div>
+                            }
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            @RenderBody()
+        </main>
+        <!-- Footer -->
+        <footer id="page-footer" class="bg-white">
+            <div class="content content-boxed">
+                <!-- Footer Navigation -->
+                <div class="row push-30-t items-push-2x">
+                    <div class="col-sm-4">
+                        <h3 class="h5 font-w600 text-uppercase push-20">Principal</h3>
+                        <ul class="list list-simple-mini font-s13">
+                            <li>
+                                <a class="font-w600" href="/Home/Index">Inicio</a>
+                            </li>
+                            <li>
+                                <a class="font-w600" href="/Manage/Categories">Estudio</a>
+                            </li>
+                            <li>
+                                <a class="font-w600" href="/Contenido/Index">Servicios</a>
+                            </li>
+                            <li>
+                                <a class="font-w600" href="/Documentos/Index">Contacto</a>
+                            </li>
+                            <li>
+                                <a class="font-w600" href="/Home/EnConstruccion">Sitios de interés</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3 class="h5 font-w600 text-uppercase push-20">Soporte</h3>
+                        <ul class="list list-simple-mini font-s13">
+                            <li>
+                                <a class="font-w600" href="/Account/Login">Iniciar sesión</a>
+                            </li>
+                            <li>
+                                <a class="font-w600" href="/Account/Register">Registrarse</a>
+                            </li>
+                            <li>
+                                <a class="font-w600" href="/Home/EnConstruccion">FAQ</a>
+                            </li>
+                            <li>
+                                <a class="font-w600" href="/Home/EnConstruccion">Politica de privacidad</a>
+                            </li>
+                            <li>
+                                <a class="font-w600" href="/Home/EnConstruccion">Terminos y Condiciones</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3 class="h5 font-w600 text-uppercase push-20">Contacto</h3>
+                        <div class="font-s13 push">
+                            <strong>Estudio Villa</strong><br>
+                            Jujuy 257<br>
+                            Santa Rosa<br>
+                            La Pampa<br>
+                        </div>
+                        <div class="font-s13">
+                            <i class="fa fa-phone"></i> +54 02954 431900
+                        </div>
+                        <div class="font-s13">
+                            <i class="si si-envelope-open"></i> info@estudiovilla.com.ar
+                        </div>
+                    </div>
+                </div>
+                <!-- END Footer Navigation -->
+            </div>
+        </footer>
+        <!-- END Footer -->
+    </div>
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/angular")
+</body>
+</html>
