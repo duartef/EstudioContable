@@ -287,8 +287,11 @@
     <Content Include="assets\img\photos\photo9.jpg" />
     <Content Include="assets\js\app\app.js" />
     <Content Include="assets\js\app\controllers.js" />
+    <Content Include="assets\js\app\index-controller.js" />
     <Content Include="assets\js\core\angular-ui-bootstrap-tpls.min.js" />
     <Content Include="assets\js\core\angular-ui-router.min.js" />
+    <Content Include="assets\js\core\angular-validate.min.js" />
+    <Content Include="assets\js\core\angular.js" />
     <Content Include="assets\js\core\angular.min.js" />
     <Content Include="assets\js\core\bootstrap.min.js" />
     <Content Include="assets\js\core\jquery.appear.min.js" />
@@ -1095,6 +1098,11 @@
     <Content Include="assets\js\plugins\sweetalert2\sweetalert2.js" />
     <Content Include="assets\js\plugins\sweetalert2\sweetalert2.min.css" />
     <Content Include="assets\js\plugins\sweetalert2\sweetalert2.min.js" />
+    <Content Include="assets\img\videos\hero_sunrise.jpg" />
+    <Content Include="assets\img\videos\hero_sunrise.mp4" />
+    <Content Include="assets\img\videos\hero_tech.jpg" />
+    <Content Include="assets\img\videos\hero_tech.mp4" />
+    <Content Include="assets\views\ready_angularjs.html" />
     <Content Include="favicon.ico" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1207,6 +1215,10 @@
     <Content Include="assets\js\plugins\summernote\font\summernote.ttf" />
     <Content Include="assets\js\plugins\summernote\font\summernote.woff" />
     <Content Include="assets\js\plugins\sweetalert2\es6-promise.auto.min.map" />
+    <Content Include="assets\img\videos\hero_sunrise.ogv" />
+    <Content Include="assets\img\videos\hero_sunrise.webm" />
+    <Content Include="assets\img\videos\hero_tech.ogv" />
+    <Content Include="assets\img\videos\hero_tech.webm" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

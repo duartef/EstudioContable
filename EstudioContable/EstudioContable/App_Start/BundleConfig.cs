@@ -35,7 +35,7 @@ namespace EstudioContable
                       "~/assets/js/core/bootstrap.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                      "~/assets/js/core/angular.min.js",
+                      "~/assets/js/core/angular.js",
                       "~/assets/js/core/angular-ui-bootstrap-tpls.min.js",
                       "~/assets/js/core/angular-ui-router.min.js",
                       "~/assets/js/core/ngStorage.min.js",
