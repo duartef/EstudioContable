@@ -233,6 +233,7 @@
     <Content Include="assets\img\favicons\favicon.png" />
     <Content Include="assets\img\favicons\Logoo.png" />
     <Content Include="assets\img\photos\logo.png" />
+    <Content Include="assets\img\photos\LogoBlanco.png" />
     <Content Include="assets\img\photos\photo1%402x.jpg" />
     <Content Include="assets\img\photos\photo1.jpg" />
     <Content Include="assets\img\photos\photo10%402x.jpg" />
