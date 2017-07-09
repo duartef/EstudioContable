@@ -231,6 +231,8 @@
     <Content Include="assets\img\favicons\favicon-32x32.png" />
     <Content Include="assets\img\favicons\favicon-96x96.png" />
     <Content Include="assets\img\favicons\favicon.png" />
+    <Content Include="assets\img\favicons\Logoo.png" />
+    <Content Include="assets\img\photos\logo.png" />
     <Content Include="assets\img\photos\photo1%402x.jpg" />
     <Content Include="assets\img\photos\photo1.jpg" />
     <Content Include="assets\img\photos\photo10%402x.jpg" />
