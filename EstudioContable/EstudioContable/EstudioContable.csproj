@@ -180,6 +180,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -291,6 +292,8 @@
     <Content Include="assets\js\app\app.js" />
     <Content Include="assets\js\app\controllers.js" />
     <Content Include="assets\js\app\index-controller.js" />
+    <Content Include="assets\js\app\login-controller.js" />
+    <Content Include="assets\js\app\register-controller.js" />
     <Content Include="assets\js\core\angular-ui-bootstrap-tpls.min.js" />
     <Content Include="assets\js\core\angular-ui-router.min.js" />
     <Content Include="assets\js\core\angular-validate.min.js" />
@@ -1119,7 +1122,9 @@
     <Content Include="assets\fonts\Simple-Line-Icons.eot" />
     <Content Include="assets\fonts\Simple-Line-Icons.ttf" />
     <Content Include="assets\fonts\Simple-Line-Icons.woff" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

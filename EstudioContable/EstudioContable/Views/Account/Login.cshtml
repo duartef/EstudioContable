@@ -3,61 +3,57 @@
 @{
     ViewBag.Title = "Log in";
 }
-
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
+<div class="bg-white">
+    <section class="content content-boxed">
+        <div class="row items-push push-50-t push-30" ng-controller="LoginController">
+            <div class="col-md-6 col-md-offset-3">
+                <form class="form-horizontal" name="loginForm" ng-submit="login(loginForm)" ng-validate="validationOptions">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="username" name="username" ng-model="user.username">
+                                <label for="username">Usuario</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="password" id="password" name="password" ng-model="user.password">
+                                <label for="password">Contraseña</label>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
-            }
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 text-center">
+                            <label class="css-input switch switch-sm switch-primary">
+                                <input type="checkbox" id="remember-me" name="remember-me" ng-model="user.rememberMe"><span></span> Recordarme?
+                            </label>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger alert-dismissable" ng-show="showErrorMessage">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h3 class="font-w300 push-15">Error</h3>
+                        <p>El usuario o la contraseña ingresados no son correctos. Intente nuevamente.</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                            <button class="btn btn-block btn-primary visibility-hidden" data-js-appear="{class:'animated bounceIn', timeout:600}" type="submit"><i class="fa fa-arrow-right pull-right"></i> Entrar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<div class="bg-primary-dark">
+    <section class="content content-full content-boxed">
+        <!-- Section Content -->
+        <div class="push-20-t push-20 text-center">
+            <h3 class="h4 text-white-op push-20 visibility-hidden" data-js-appear="{class:'animated bounceIn', timeout:300}">No tienes una cuenta creada? Creala ahora mismo!</h3>
+            <a class="btn btn-noborder btn-info visibility-hidden" data-js-appear="{class:'animated bounceIn', timeout:600}" href="/Account/Register">Registrarse</a>
+        </div>
+        <!-- END Section Content -->
+    </section>
+</div>

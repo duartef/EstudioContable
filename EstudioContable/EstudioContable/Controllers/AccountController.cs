@@ -69,8 +69,16 @@ namespace EstudioContable.Controllers
         {
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = SignInManager.PasswordSignIn(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
-            return (int)result;
+            try
+            {
+                var result = SignInManager.PasswordSignIn(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
+                return (int)result;
+            }
+            catch (Exception ex)
+            {
+                return 1;
+            }
+            
         }
 
         //
@@ -130,15 +138,23 @@ namespace EstudioContable.Controllers
         [AllowAnonymous]
         public int Register(RegisterViewModel model)
         {
-            var user = new ApplicationUser { UserName = model.UserName, Email = model.UserName, Name = model.Name, Surname = model.SurName };
-            var result = UserManager.Create(user, model.Password);
-            if (result.Succeeded)
+            try
             {
-                SignInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                return 0;
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.UserName, Name = model.Name, Surname = model.SurName };
+                var result = UserManager.Create(user, model.Password);
+                if (result.Succeeded)
+                {
+                    SignInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                    return 0;
+                }
+                //Error
+                return 1;
             }
-            //Error
-            return 1;
+            catch (Exception ex)
+            {
+                return 1;
+            }
+            
         }
 
         //

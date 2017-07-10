@@ -12,6 +12,10 @@ namespace EstudioContable.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public bool Enabled { get; set; }
+        public string Cuit { get; set; }
+        public string Actividad { get; set; }
+        public decimal CuentaCorriente { get; set; }
+        public string Juridiccion { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -27,6 +31,7 @@ namespace EstudioContable.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            //Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
         }
 
         public static ApplicationDbContext Create()
