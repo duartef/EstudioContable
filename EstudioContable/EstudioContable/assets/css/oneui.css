@@ -11707,3 +11707,13 @@ div.tagsinput span.tag a:hover {
 .editor-preview {
   z-index: 1050;
 }
+.bg-about {
+  background-color: #009881;
+  color:#fff;
+}
+a.bg-about:hover,
+a.bg-about:focus {
+  background-color: #e6e6e6;
+}
+.bg-about-op {
+  background-color: rgba(255, 255, 255, 0.075);
