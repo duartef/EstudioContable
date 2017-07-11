@@ -289,6 +289,7 @@
     <Content Include="assets\img\photos\photo8.jpg" />
     <Content Include="assets\img\photos\photo9%402x.jpg" />
     <Content Include="assets\img\photos\photo9.jpg" />
+    <Content Include="assets\js\app\about-controller.js" />
     <Content Include="assets\js\app\app.js" />
     <Content Include="assets\js\app\controllers.js" />
     <Content Include="assets\js\app\index-controller.js" />

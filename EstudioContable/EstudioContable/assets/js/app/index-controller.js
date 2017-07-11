@@ -1,5 +1,5 @@
 ﻿App.controller('IndexController', ['$scope', '$window', function ($scope, $window) {
-    $scope.$parent.header = { title: null, description: "Consulte contenido, administre documentos y mucho más!" };
+    $scope.$parent.header = { title: null, description: "Dos generaciones brindándole confiabilidad" };
     $scope.$parent.isHome = true;
 
     $scope.modules = [
