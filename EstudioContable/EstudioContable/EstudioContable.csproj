@@ -290,11 +290,13 @@
     <Content Include="assets\img\photos\photo9%402x.jpg" />
     <Content Include="assets\img\photos\photo9.jpg" />
     <Content Include="assets\js\app\about-controller.js" />
+    <Content Include="assets\js\app\accountsList-controller.js" />
     <Content Include="assets\js\app\app.js" />
     <Content Include="assets\js\app\controllers.js" />
     <Content Include="assets\js\app\index-controller.js" />
     <Content Include="assets\js\app\login-controller.js" />
     <Content Include="assets\js\app\register-controller.js" />
+    <Content Include="assets\js\base_tables_datatables.js" />
     <Content Include="assets\js\core\angular-ui-bootstrap-tpls.min.js" />
     <Content Include="assets\js\core\angular-ui-router.min.js" />
     <Content Include="assets\js\core\angular-validate.min.js" />
@@ -1151,7 +1153,6 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\ManageLogins.cshtml" />
@@ -1229,6 +1230,7 @@
     <Content Include="assets\img\videos\hero_tech.ogv" />
     <Content Include="assets\img\videos\hero_tech.webm" />
     <None Include="Project_Readme.html" />
+    <Content Include="Views\Account\AccountsList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

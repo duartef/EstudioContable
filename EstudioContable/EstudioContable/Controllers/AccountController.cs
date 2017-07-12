@@ -53,6 +53,16 @@ namespace EstudioContable.Controllers
         }
 
         //
+        // GET: /Account/AccountsList
+        [Authorize (Roles = "Admin")]
+        public ActionResult AccountsList(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
+
+
+        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
