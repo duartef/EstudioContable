@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EstudioContable.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +10,8 @@ namespace EstudioContable.Controllers
 {
     public class ServiceController : ApiController
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: api/Service
         public IEnumerable<string> Get()
         {
@@ -34,6 +37,13 @@ namespace EstudioContable.Controllers
         // DELETE: api/Service/5
         public void Delete(int id)
         {
+        }
+
+        [Route("api/Service/GetAllUsuarios")]
+        public IEnumerable<ApplicationUser> GetAllUsuarios()
+        {
+            var a = db.Users.ToList();
+            return a;
         }
     }
 }

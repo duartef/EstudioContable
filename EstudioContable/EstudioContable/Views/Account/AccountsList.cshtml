@@ -25,6 +25,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr ng-repeat="usuario in usuarios track by usuario">
+                                <td class="text-center">{{usuario.Id}}</td>
+                                <td class="font-w600">{{usuario.Name}}</td>
+                                <td>{{usuario.Cuit}}</td>
+                                <td class="hidden-xs">{{usuario.Actividad}} </td>
+                                <td class="hidden-xs">{{usuario.CuentaCorriente}}</td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                        <button class="btn btn-xs btn-default" type="button" ng-click="editArticle(usuario.Id)"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-xs btn-default" type="button" ng-click="deleteArticle(usuario.Id)"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+
                             <tr>
                                 <td class="text-center">1</td>
                                 <td class="font-w600">Amy Hunter</td>
