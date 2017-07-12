@@ -1,9 +1,9 @@
 ﻿App.controller('IndexController', ['$scope', '$window', function ($scope, $window) {
-    $scope.$parent.header = { title: null, description: "Dos generaciones brindándole confiabilidad" };
+    $scope.$parent.header = { title: null, description: "Consulte contenido, administre documentos y mucho más!" };
     $scope.$parent.isHome = true;
 
     $scope.modules = [
-        { name: "Perfil", description: "Conozca un poco mas sobre nosotros!", colorClass: "bg-bold-blue", appearTimeout: 0, iconClass: "fa-users", link: "/Home/about" },
+        { name: "Documentos descargables", description: "Acceda a los distintos tipos de documentos!", colorClass: "bg-bold-blue", appearTimeout: 0, iconClass: "fa-newspaper-o", link: "/Home/Documentos" },
         { name: "Guía para emprendedores", description: "Contenido específico para los emprendedores", colorClass: "bg-pastel-green", appearTimeout: 0, iconClass: "fa-handshake-o", link: "/Home/EnConstruccion" },
         { name: "Calculadora laboral", description: "Use la nueva calculadora laboral y olvídese de los cálculos manuales", colorClass: "bg-pastel-blue", appearTimeout: 0, iconClass: "si si-calculator", link: "/Tools/CalculadoraLaboral" },
         { name: "Consulta tributaria", description: "Explore el contenido relacionado", colorClass: "bg-secondary-blue", appearTimeout: 0, iconClass: "fa-bank", link: "/Home/EnConstruccion" },

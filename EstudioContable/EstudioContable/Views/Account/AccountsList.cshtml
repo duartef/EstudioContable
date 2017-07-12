@@ -25,7 +25,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="usuario in usuarios track by usuario">
+                            <tr ng-repeat="usuario in usuarios track by $index">
                                 <td class="text-center">{{usuario.Id}}</td>
                                 <td class="font-w600">{{usuario.Name}}</td>
                                 <td>{{usuario.Cuit}}</td>
