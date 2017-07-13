@@ -10,6 +10,14 @@
  *
  */
 
+//App.directive('repeatDone', function() {
+//    return function(scope, element, attrs) {
+//        if (scope.$last) { // all are rendered
+//            scope.$eval(attrs.repeatDone);
+//        }
+//    }
+//})
+
 // View loader functionality
 // By adding the attribute 'data-js-view-loader'
 App.directive('jsViewLoader', function () {

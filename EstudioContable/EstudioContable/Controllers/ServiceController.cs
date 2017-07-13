@@ -42,8 +42,35 @@ namespace EstudioContable.Controllers
         [Route("api/Service/GetAllUsuarios")]
         public IEnumerable<ApplicationUser> GetAllUsuarios()
         {
-            var a = db.Users.ToList();
-            return a;
+            try
+            {
+                var a = db.Users.ToList();
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<ApplicationUser>();
+            }
+            
+        }
+
+        [Route("api/Service/GetClientes")]
+        public IEnumerable<ApplicationUser> GetAllClientes()
+        {
+            try
+            {
+                Microsoft.AspNet.Identity.EntityFramework.IdentityRole rolCliente = db.Roles.FirstOrDefault(x => x.Name == "Cliente");
+                if (rolCliente != null)
+                {
+                    return db.Users.Where(x => x.Roles.Any(y => y.RoleId == rolCliente.Id)).ToList();
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }
