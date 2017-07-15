@@ -3,6 +3,8 @@
     $scope.$parent.isHome = true;
     $scope.usuarios = [];
 
+    var editor;
+
     $scope.helpers.uiLoader('hide');
 
     var timer;
@@ -13,6 +15,7 @@
     function (response) {
         if (response != null && response.data != null) {
             $scope.usuarios = response.data;
+            //$("#myTable").dataTable().data = $scope.usuarios;
         }
 
         //$scope.helpers.uiLoader('hide');
@@ -42,6 +45,14 @@
 
     var countUp = function () {
         if ($scope.usuarios.length > 0) {
+            //$("#myTable").dataTable().fnDestroy();
+            //var table = $('#myTable').DataTable({
+            //    lengthChange: false,
+            //    data: $scope.usuarios,
+            //    select: true
+            //});
+            $scope.usuarios = $scope.usuarios;
+            //$("#myTable").dataTable().data = $scope.usuarios;
             //for (var i = 0; i < $scope.usuarios.length; i++) {
             //    t.row.add([
             //        $scope.usuarios[i].id,

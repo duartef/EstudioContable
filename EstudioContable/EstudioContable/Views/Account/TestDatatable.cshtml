@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "TestDatatable";
+}
+
+<div class="container">
+    <div ng-controller="TableController">
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th class="text-center">UserName</thclass="text-center">
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Surname</th>
+                    <th class="hidden-xs">Email</th>
+                    <th class="hidden-xs" style="width: 15%;">Access</th>
+                    <th class="text-center" style="width: 10%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="usuario in usuarios">
+                    <td class="text-center">{{usuario.Id}}</td>
+                    <td class="font-w600">{{usuario.UserName}}</td>
+                    <td>{{usuario.Name}}</td>
+                    <td>{{usuario.Surname}}</td>
+                    <td>{{usuario.Email}}</td>
+                    <td class="hidden-xs">
+                        <span class="label label-success">VIP</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="btn-group">
+                            <button class="btn btn-xs btn-default" type="button" ng-click="editArticle(usuario.Id)"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-xs btn-default" type="button" ng-click="deleteArticle(usuario.Id)"><i class="fa fa-times"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+
+<!-- Page JS Plugins -->
+<script src="/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+
+<!-- Page JS Code -->
+<script src="/assets/js/base_tables_datatables.js"></script>

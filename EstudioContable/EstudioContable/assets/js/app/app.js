@@ -5,6 +5,18 @@ var App = angular.module('app', [
     'oc.lazyLoad',
     'ngValidate'
 ]);
+
+
+//var App = angular.module('app', 'datatablesSampleApp'[
+//    'ngStorage',
+//    'ui.router',
+//    'ui.bootstrap',
+//    'oc.lazyLoad',
+//    'ngValidate',
+//    'datatables'
+//]);
+
+
 //    
 
 // Tooltips and Popovers configuration

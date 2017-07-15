@@ -296,6 +296,7 @@
     <Content Include="assets\js\app\index-controller.js" />
     <Content Include="assets\js\app\login-controller.js" />
     <Content Include="assets\js\app\register-controller.js" />
+    <Content Include="assets\js\app\testDatatable-controller.js" />
     <Content Include="assets\js\base_tables_datatables.js" />
     <Content Include="assets\js\core\angular-ui-bootstrap-tpls.min.js" />
     <Content Include="assets\js\core\angular-ui-router.min.js" />
@@ -1231,6 +1232,7 @@
     <Content Include="assets\img\videos\hero_tech.webm" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Account\AccountsList.cshtml" />
+    <Content Include="Views\Account\TestDatatable.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

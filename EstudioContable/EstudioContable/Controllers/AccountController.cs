@@ -61,6 +61,13 @@ namespace EstudioContable.Controllers
             return View();
         }
 
+        //
+        // GET: /Account/TestDatatable
+        public ActionResult TestDatatable(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
 
         //
         // GET: /Account/Login
