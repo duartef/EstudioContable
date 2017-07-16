@@ -5,14 +5,17 @@
     $scope.user = {
         name: '',
         surname: '',
-        username: '',
         password: '',
-        cuit: ''
+        cuit: '',
+        actividad: '',
+        jurisdiccion: '',
+        email: '',
+        phonenumber: ''
     }
 
     $scope.validationOptions = {
         rules: {
-            username: {
+            email: {
                 required: true,
                 email: true
             },
@@ -33,6 +36,15 @@
                 required: true,
                 minlength: 6,
                 equalTo: "#password"
+            },
+            actividad: {
+                required: true
+            },
+            jurisdiccion: {
+                required: false
+            },
+            phonenumber: {
+                required: false
             }
         }
     }
@@ -44,10 +56,22 @@
 
         if (form.validate()) {
             $scope.helpers.uiLoader('show');
+            $scope.username = $scope.user.email;
+
             $http({
-                url: '/Account/Register',
+                url: '/Account/RegisterCliente',
                 dataType: 'json',
-                data: { UserName: $scope.user.username, Password: $scope.user.password, Name: $scope.user.name, Surname: $scope.user.surname },
+                data: {
+                    UserName: $scope.user.cuit,
+                    Password: $scope.user.password,
+                    Name: $scope.user.name,
+                    Surname: $scope.user.surname,
+                    Email: $scope.user.email,
+                    Cuit: $scope.user.cuit,
+                    Actividad: $scope.user.actividad,
+                    Jurisdiccion: $scope.user.jurisdiccion,
+                    PhoneNumber: $scope.user.phonenumber
+                },
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

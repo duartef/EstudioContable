@@ -171,7 +171,42 @@ namespace EstudioContable.Controllers
             {
                 return 1;
             }
-            
+        }
+
+        //
+        // POST: /Account/RegisterCliente
+        [HttpPost]
+        [AllowAnonymous]
+        public int RegisterCliente(RegisterViewModel model)
+        {
+            try
+            {
+                var user = new ApplicationUser {
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    Name = model.Name,
+                    Surname = model.SurName,
+                    Cuit = model.Cuit,
+                    Actividad = model.Actividad,
+                    Juridiccion = model.Jurisdiccion,
+                    PhoneNumber = model.PhoneNumber
+                };
+
+                var result = UserManager.Create(user, model.Password);
+                if (result.Succeeded)
+                {
+                    UserManager.AddToRole(user.Id, "Cliente");
+
+                    SignInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                    return 0;
+                }
+                //Error
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 1;
+            }
         }
 
         //

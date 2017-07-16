@@ -3,45 +3,57 @@
     ViewBag.Title = "TestDatatable";
 }
 
-<div class="container">
-    <div ng-controller="TableController">
-        <table class="table table-bordered table-responsive">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th class="text-center">UserName</thclass="text-center">
-                    <th class="text-center">Name</th>
-                    <th class="text-center">Surname</th>
-                    <th class="hidden-xs">Email</th>
-                    <th class="hidden-xs" style="width: 15%;">Access</th>
-                    <th class="text-center" style="width: 10%;">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="usuario in usuarios">
-                    <td class="text-center">{{usuario.Id}}</td>
-                    <td class="font-w600">{{usuario.UserName}}</td>
-                    <td>{{usuario.Name}}</td>
-                    <td>{{usuario.Surname}}</td>
-                    <td>{{usuario.Email}}</td>
-                    <td class="hidden-xs">
-                        <span class="label label-success">VIP</span>
-                    </td>
-                    <td class="text-center">
-                        <div class="btn-group">
-                            <button class="btn btn-xs btn-default" type="button" ng-click="editArticle(usuario.Id)"><i class="fa fa-pencil"></i></button>
-                            <button class="btn btn-xs btn-default" type="button" ng-click="deleteArticle(usuario.Id)"><i class="fa fa-times"></i></button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="container" ng-app="sortApp" ng-controller="mainController">
+
+    <div class="alert alert-info">
+        <p>Sort Type: {{ sortType }}</p>
+        <p>Sort Reverse: {{ sortReverse }}</p>
+        <p>Search Query: {{ searchFish }}</p>
     </div>
-    </div>
+
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                <input type="text" class="form-control" placeholder="Search da Fish" ng-model="searchFish">
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>
+                    <a href="#" ng-click="sortType = 'Name'; sortReverse = !sortReverse">
+                        Name
+                        <span ng-show="sortType == 'Name' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'Name' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'Surname'; sortReverse = !sortReverse">
+                        Surname
+                        <span ng-show="sortType == 'Surname' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'Surname' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'Email'; sortReverse = !sortReverse">
+                        Email
+                        <span ng-show="sortType == 'Email' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'Email' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="usuario in usuarios | orderBy:sortType:sortReverse | filter:searchFish">
+                <td>{{usuario.Name}}</td>
+                <td>{{usuario.Surname}}</td>
+                <td>{{usuario.Email}}</td>
+            </tr>
+        </tbody>
+    </table>
+
 </div>
-
-<!-- Page JS Plugins -->
-<script src="/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
-
-<!-- Page JS Code -->
-<script src="/assets/js/base_tables_datatables.js"></script>

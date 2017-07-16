@@ -3,9 +3,9 @@ var App = angular.module('app', [
     'ui.router',
     'ui.bootstrap',
     'oc.lazyLoad',
-    'ngValidate'
+    'ngValidate',
+    'angularUtils.directives.dirPagination'
 ]);
-
 
 //var App = angular.module('app', 'datatablesSampleApp'[
 //    'ngStorage',

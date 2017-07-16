@@ -1,16 +1,31 @@
 ﻿
-angular.module("app").controller("TableController", function ($scope, UserService) {
+angular.module("app").controller('mainController', function ($scope, $http) {
+    $scope.sortType = 'name'; // set the default sort type
+    $scope.sortReverse = false;  // set the default sort order
+    $scope.searchFish = '';     // set the default search/filter term
     $scope.usuarios = [];
-    UserService.getUsers().then(function (d) {
-        $scope.usuarios = d.data;
-    }, function () {
-        alert("error occured try again");
+
+
+    $http.get('/api/Service/GetAllUsuarios').then(
+    function (response) {
+        if (response != null && response.data != null) {
+            $scope.usuarios = response.data;
+            //$("#myTable").dataTable().data = $scope.usuarios;
+        }
+
+        //$scope.helpers.uiLoader('hide');
+        //$scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+    },
+    function (error) {
+        $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
     });
-})
-.factory("UserService", function ($http) {
-    var fact = {};
-    fact.getUsers = function () {
-        return $http.get('/api/Service/GetAllUsuarios');
-    }
-    return fact;
+
+    // create the list of sushi rolls 
+    //$scope.sushi = [
+    //  { name: 'Cali Roll', fish: 'Crab', tastiness: 2 },
+    //  { name: 'Philly', fish: 'Tuna', tastiness: 4 },
+    //  { name: 'Tiger', fish: 'Eel', tastiness: 7 },
+    //  { name: 'Rainbow', fish: 'Variety', tastiness: 6 }
+    //];
+
 });

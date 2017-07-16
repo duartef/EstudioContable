@@ -43,7 +43,8 @@ namespace EstudioContable
                       "~/assets/js/core/angular-validate.min.js",
                       "~/assets/js/app/app.js",
                       "~/assets/js/app/directives.js",
-                      "~/assets/js/app/*-controller.js"
+                      "~/assets/js/app/*-controller.js",
+                      "~/assets/js/core/dirPagination.js"
                       ));
 
             bundles.Add(new StyleBundle("~/css").Include(

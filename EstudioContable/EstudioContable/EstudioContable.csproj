@@ -304,6 +304,7 @@
     <Content Include="assets\js\core\angular.js" />
     <Content Include="assets\js\core\angular.min.js" />
     <Content Include="assets\js\core\bootstrap.min.js" />
+    <Content Include="assets\js\core\dirPagination.js" />
     <Content Include="assets\js\core\jquery.appear.min.js" />
     <Content Include="assets\js\core\jquery.countTo.min.js" />
     <Content Include="assets\js\core\jquery.min.js" />

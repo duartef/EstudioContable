@@ -70,12 +70,31 @@ namespace EstudioContable.Models
         public string UserName { get; set; }
 
         [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Cuit")]
+        public string Cuit { get; set; }
+
+        [Required]
         [Display(Name = "Nombre")]
         public string Name { get; set; }
 
         [Required]
         [Display(Name = "Apellido")]
         public string SurName { get; set; }
+
+        [Required]
+        [Display(Name = "Actividad")]
+        public string Actividad { get; set; }
+
+        [Display(Name = "Jurisdiccion")]
+        public string Jurisdiccion { get; set; }
+
+        [Display(Name = "Telefono")]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
