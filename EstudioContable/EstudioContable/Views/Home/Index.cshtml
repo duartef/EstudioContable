@@ -5,21 +5,93 @@
     <section class="content content-boxed">
         <div class="container" ng-controller="IndexController">
             <div class="row">
-                <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules track by $index" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
-                    <a class="block block-rounded block-link-hover2" href="{{module.link}}">
-                        <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
-                            <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
-                                <i class="fa {{module.iconClass}} text-white-op"></i>
-                            </div>
-                            <div class="text-white-op">
-                                <em>{{module.name}}</em>
-                            </div>
+                @if (User.IsInRole("Cliente"))
+                {
+
+                }
+                else
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol >0" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
+                            <a class="block block-rounded block-link-hover2" href="{{module.link}}">
+                                <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
+                                    <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                                        <i class="fa {{module.iconClass}} text-white-op"></i>
+                                    </div>
+                                    <div class="text-white-op">
+                                        <em>{{module.name}}</em>
+                                    </div>
+                                </div>
+                                <div class="block-content">
+                                    <h4 class="mheight-125">{{module.description}}</h4>
+                                </div>
+                            </a>
                         </div>
-                        <div class="block-content">
-                            <h4 class="mheight-125">{{module.description}}</h4>
-                        </div>
-                    </a>
-                </div>
+
+                        
+                    }
+                    else
+                    {
+                        if (User.IsInRole("Tesoreria"))
+                        {
+                            <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol == 2" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
+                                <a class="block block-rounded block-link-hover2" href="{{module.link}}">
+                                    <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
+                                        <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                                            <i class="fa {{module.iconClass}} text-white-op"></i>
+                                        </div>
+                                        <div class="text-white-op">
+                                            <em>{{module.name}}</em>
+                                        </div>
+                                    </div>
+                                    <div class="block-content">
+                                        <h4 class="mheight-125">{{module.description}}</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                        else
+                        {
+                            if (User.IsInRole("Empleado"))
+                            {
+                                <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol == 1" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
+                                    <a class="block block-rounded block-link-hover2" href="{{module.link}}">
+                                        <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
+                                            <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                                                <i class="fa {{module.iconClass}} text-white-op"></i>
+                                            </div>
+                                            <div class="text-white-op">
+                                                <em>{{module.name}}</em>
+                                            </div>
+                                        </div>
+                                        <div class="block-content">
+                                            <h4 class="mheight-125">{{module.description}}</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol ==0" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
+                                    <a class="block block-rounded block-link-hover2" href="{{module.link}}">
+                                        <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
+                                            <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                                                <i class="fa {{module.iconClass}} text-white-op"></i>
+                                            </div>
+                                            <div class="text-white-op">
+                                                <em>{{module.name}}</em>
+                                            </div>
+                                        </div>
+                                        <div class="block-content">
+                                            <h4 class="mheight-125">{{module.description}}</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        }
+                    }
+                }
             </div>
         </div>
     </section>

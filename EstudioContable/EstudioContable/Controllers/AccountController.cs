@@ -197,7 +197,7 @@ namespace EstudioContable.Controllers
                 {
                     UserManager.AddToRole(user.Id, "Cliente");
 
-                    SignInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                    //SignInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                     return 0;
                 }
                 //Error

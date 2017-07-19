@@ -1234,6 +1234,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Views\Account\AccountsList.cshtml" />
     <Content Include="Views\Account\TestDatatable.cshtml" />
+    <None Include="Properties\PublishProfiles\Publish.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
