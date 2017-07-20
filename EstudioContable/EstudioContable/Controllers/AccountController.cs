@@ -209,6 +209,13 @@ namespace EstudioContable.Controllers
             }
         }
 
+        //GET: /Account/Cliente
+        [Authorize]
+        public ActionResult Cliente()
+        {
+            return View();
+        }
+
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
