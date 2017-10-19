@@ -85,7 +85,13 @@
                                 <a class="nav-submenu" href="javascript:void(0)">Administración</a>
                                 <ul>
                                     <li>
-                                        <a href="/Account/Register">Agregar Cliente</a>
+                                        <a href="/Account/Register">+ Persona Juridica</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Account/Register">+ Persona Fisica</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Account/Register">+ Empleado</a>
                                     </li>
                                     @if (!User.IsInRole("Empleado"))
                                     {
@@ -148,6 +154,9 @@
                     <li>
                         <a href="/Home/EnConstruccion">Sitios de interés</a>
                     </li>
+                    <li>
+                        <a href="/Home/EnConstruccion">Ingresar</a>
+                    </li>
                     @if (User.IsInRole("Cliente"))
                     {
                         <li>
@@ -160,7 +169,7 @@
                 <ul class="nav-header pull-left">
                     <li class="header-content">
                         <a class="h5" href="/Home/Index">
-                            <img src="~/assets/img/photos/LogoBlanco.png" style="width:150px;"/>
+                            @*<img src="~/assets/img/photos/LogoBlanco.png" style="width:150px;"/>*@
                             @*<span class="h4 font-w600 text-white">Estudi</span><i class="fa fa-circle-o-notch text-primary"></i><span class="h4 font-w600 text-white"> C</span><i class="fa fa-circle-o-notch text-primary"></i><span class="h4 font-w600 text-white"> ontable Villa</span>*@
                         </a>
                     </li>
@@ -172,8 +181,8 @@
         <!-- Main Container -->
         <main id="main-container">
             <!-- Video -->
-            <div class="bg-video" data-vide-bg="assets/img/videos/hero_tech" data-vide-options="posterType: jpg, position: 50% 75%" style="position: relative;">
-                <div style="position: absolute; z-index: -1; top: 0px; left: 0px; bottom: 0px; right: 0px; overflow: hidden; background-size: cover; background-color: transparent; background-repeat: no-repeat; background-position: 50% 75%; background-image: none;"><video autoplay="" loop="" muted="" style="margin: auto; position: absolute; z-index: -1; top: 75%; left: 50%; transform: translate(-50%, -75%); visibility: visible; opacity: 1; width: 1905px; height: auto;"><source src="/assets/img/videos/hero_tech.mp4" type="video/mp4"><source src="/assets/img/videos/hero_tech.webm" type="video/webm"><source src="/assets/img/videos/hero_tech.ogv" type="video/ogg"></video></div>
+            @*<div class="bg-video" data-vide-bg="assets/img/videos/hero_tech" data-vide-options="posterType: jpg, position: 50% 75%" style="position: relative;">*@
+                <div style="position: absolute; z-index: -1; top: 0px; left: 0px; bottom: 0px; right: 0px; overflow: hidden; background-size: cover; background-color: #ffffff; background-position: 50% 75%;"></div>
                 <div class="bg-primary-dark-op">
                     <section class="content content-full content-boxed">
                         <div class="push-100-t push-50 text-center">
@@ -181,7 +190,7 @@
                             <div class="text-center push-30-t visibility-hidden" data-js-appear="{class:'animated fadeInDown', timeout:600}" ng-if="header.title == null || header.title == undefined">
                                 <a class="fa-2x text-white" href="/Home/Index">
                                 </a>
-                                <img src="~/assets/img/photos/LogoBlanco.png" />
+                                <img src="~/assets/img/photos/Logo.png" />
                             </div>
                             <h2 class="h4 text-white-op visibility-hidden" data-js-appear="{class:'animated fadeInDown', timeout:800}"></br><em>{{header.description}}</em></h2>
 
@@ -196,7 +205,7 @@
                         </div>
                     </section>
                 </div>
-            </div>
+            @*</div>*@
 
             @RenderBody()
         </main>
@@ -222,6 +231,9 @@
                             </li>
                             <li>
                                 <a class="font-w600" href="/Home/EnConstruccion">Sitios de interés</a>
+                            </li>
+                            <li>
+                                <a class="font-w600" href="/Home/EnConstruccion">Ingresar</a>
                             </li>
                         </ul>
                     </div>
