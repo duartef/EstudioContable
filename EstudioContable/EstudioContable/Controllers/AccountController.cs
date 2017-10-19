@@ -150,6 +150,22 @@ namespace EstudioContable.Controllers
         }
 
         //
+        // GET: /Account/RegisterPersonaJuridica
+        [AllowAnonymous]
+        public ActionResult RegisterPersonaJuridica()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Account/RegisterPersonaHumana
+        [AllowAnonymous]
+        public ActionResult RegisterPersonaHumana()
+        {
+            return View();
+        }
+
+        //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
