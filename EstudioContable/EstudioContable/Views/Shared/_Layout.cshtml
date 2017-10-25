@@ -36,20 +36,21 @@
     <!-- Web fonts -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
-
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
     @Styles.Render("~/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 
 </head>
 <body ng-controller="AppCtrl">
+
     <div id="page-loader"></div>
     <div id="page-container" class="side-scroll header-navbar-fixed header-navbar-transparent">
         <!-- Header -->
         <header id="header-navbar" class="content-mini content-mini-full" ng-controller="HeaderCtrl">
             <div class="content-boxed">
                 <!-- Header Navigation Right -->
-                <ul class="nav-header pull-right">
+                @*<ul class="nav-header pull-right">
                     <li class="hidden-md hidden-lg">
                         <button class="btn btn-link text-white pull-right" data-js-toggle-class="{target: '.js-nav-main-header', class: 'nav-main-header-o'}" data-js-blur type="button">
                             <i class="fa fa-navicon"></i>
@@ -64,7 +65,7 @@
                             @Html.Partial("_LoginPartial")
                         </div>
                     </li>
-                </ul>
+                </ul>*@
                 <!-- END Header Navigation Right -->
                 <!-- Main Header Navigation -->
                 <ul class="js-nav-main-header nav-main-header pull-right">
@@ -166,14 +167,14 @@
                 </ul>
                 <!-- END Main Header Navigation -->
                 <!-- Header Navigation Left -->
-                <ul class="nav-header pull-left">
+                @*<ul class="nav-header pull-left">
                     <li class="header-content">
                         <a class="h5" href="/Home/Index">
-                            @*<img src="~/assets/img/photos/LogoBlanco.png" style="width:150px;"/>*@
-                            @*<span class="h4 font-w600 text-white">Estudi</span><i class="fa fa-circle-o-notch text-primary"></i><span class="h4 font-w600 text-white"> C</span><i class="fa fa-circle-o-notch text-primary"></i><span class="h4 font-w600 text-white"> ontable Villa</span>*@
+                            <img src="~/assets/img/photos/LogoBlanco.png" style="width:150px;"/>
+                            <span class="h4 font-w600 text-white">Estudi</span><i class="fa fa-circle-o-notch text-primary"></i><span class="h4 font-w600 text-white"> C</span><i class="fa fa-circle-o-notch text-primary"></i><span class="h4 font-w600 text-white"> ontable Villa</span>
                         </a>
                     </li>
-                </ul>
+                </ul>*@
                 <!-- END Header Navigation Left -->
             </div>
         </header>
@@ -181,27 +182,24 @@
         <!-- Main Container -->
         <main id="main-container">
             <!-- Video -->
-            @*<div class="bg-video" data-vide-bg="assets/img/videos/hero_tech" data-vide-options="posterType: jpg, position: 50% 75%" style="position: relative;">*@
-                <div style="position: absolute; z-index: -1; top: 0px; left: 0px; bottom: 0px; right: 0px; overflow: hidden; background-size: cover; background-color: #ffffff; background-position: 50% 75%;"></div>
+            
                 <div class="bg-primary-dark-op">
                     <section class="content content-full content-boxed">
                         <div class="push-100-t push-50 text-center">
-                            <h1 class="h2 font-w700 text-white push-20 animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown" ng-if="header.title != null && header.title != undefined">{{header.title}}</h1>
-                            <div class="text-center push-30-t visibility-hidden" data-js-appear="{class:'animated fadeInDown', timeout:600}" ng-if="header.title == null || header.title == undefined">
-                                <a class="fa-2x text-white" href="/Home/Index">
-                                </a>
-                                <img src="~/assets/img/photos/Logo.png" />
+                            
+                            <div class="text-center">
+                                  <img class="img-logo" src="~/assets/img/photos/logo.jpg" />
                             </div>
-                            <h2 class="h4 text-white-op visibility-hidden" data-js-appear="{class:'animated fadeInDown', timeout:800}"></br><em>{{header.description}}</em></h2>
+                            <h2 class="h4-dos text-white-op visibility-hidden" data-js-appear="{class:'animated fadeInDown', timeout:800}"></br>{{header.description}}</h2>
 
                             @using Microsoft.AspNet.Identity
-                            @if (!Request.IsAuthenticated)
+                            @*if (!Request.IsAuthenticated)
                             {
                                 <div class="push-50-t push-20 text-center" ng-if="isHome">
                                     <a class="btn btn-lg btn-primary visibility-hidden push-10-r" data-js-appear="{class:'animated bounceInLeft', timeout:600}" href="/Account/Login"><i class="si si-login text-white"></i>&nbsp;&nbsp;&nbsp;&nbsp;Ingresar</a>
                                     <a class="btn btn-lg btn-info visibility-hidden" data-js-appear="{class:'animated bounceInRight', timeout:600}" href="/Account/Register"><i class="si si-bubbles text-white"></i>&nbsp;&nbsp;&nbsp;&nbsp;Contactanos!</a>
                                 </div>
-                            }
+                            }*@
                         </div>
                     </section>
                 </div>
@@ -210,65 +208,65 @@
             @RenderBody()
         </main>
         <!-- Footer -->
-        <footer id="page-footer" class="bg-white">
+        <footer id="page-footer" class="bg-footer">
             <div class="content content-boxed">
                 <!-- Footer Navigation -->
                 <div class="row push-30-t items-push-2x">
-                    <div class="col-sm-4">
-                        <h3 class="h5 font-w600 text-uppercase push-20">Principal</h3>
-                        <ul class="list list-simple-mini font-s13">
+                    <div class="col-sm-3" >
+                        <h3 class="h5-footer font-w600 text-uppercase push-20" style="margin-left:40px">Principal</h3>
+                        <ul class="list list-simple-mini font-s13" style="margin-left:40px">
                             <li>
-                                <a class="font-w600" href="/Home/Index">Inicio</a>
+                                <a class="h4-footer" href="/Home/Index">Inicio</a>
                             </li>
                             <li>
-                                <a class="font-w600" href="/Manage/Categories">Estudio</a>
+                                <a class="h4-footer" href="/Manage/Categories">Estudio</a>
                             </li>
                             <li>
-                                <a class="font-w600" href="/Contenido/Index">Servicios</a>
+                                <a class="h4-footer" href="/Contenido/Index">Servicios</a>
                             </li>
                             <li>
-                                <a class="font-w600" href="/Documentos/Index">Contacto</a>
+                                <a class="h4-footer" href="/Documentos/Index">Contacto</a>
                             </li>
                             <li>
-                                <a class="font-w600" href="/Home/EnConstruccion">Sitios de interés</a>
+                                <a class="h4-footer" href="/Home/EnConstruccion">Sitios de interés</a>
                             </li>
                             <li>
-                                <a class="font-w600" href="/Home/EnConstruccion">Ingresar</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4">
-                        <h3 class="h5 font-w600 text-uppercase push-20">Soporte</h3>
-                        <ul class="list list-simple-mini font-s13">
-                            <li>
-                                <a class="font-w600" href="/Account/Login">Iniciar sesión</a>
-                            </li>
-                            <li>
-                                <a class="font-w600" href="/Account/Register">Registrarse</a>
-                            </li>
-                            <li>
-                                <a class="font-w600" href="/Home/EnConstruccion">FAQ</a>
-                            </li>
-                            <li>
-                                <a class="font-w600" href="/Home/EnConstruccion">Politica de privacidad</a>
-                            </li>
-                            <li>
-                                <a class="font-w600" href="/Home/EnConstruccion">Terminos y Condiciones</a>
+                                <a class="h4-footer" href="/Home/EnConstruccion">Ingresar</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-sm-4">
-                        <h3 class="h5 font-w600 text-uppercase push-20">Contacto</h3>
-                        <div class="font-s13 push">
+                    <div class="col-sm-3">
+                        <h3 class="h5-footer font-w600 text-uppercase push-20">Soporte</h3>
+                        <ul class="list list-simple-mini font-s13">
+                            <li>
+                                <a class="h4-footer" href="/Account/Login">Iniciar sesión</a>
+                            </li>
+                            <li>
+                                <a class="h4-footer" href="/Account/Register">Registrarse</a>
+                            </li>
+                            <li>
+                                <a class="h4-footer" href="/Home/EnConstruccion">FAQ</a>
+                            </li>
+                            <li>
+                                <a class="h4-footer" href="/Home/EnConstruccion">Politica de privacidad</a>
+                            </li>
+                            <li>
+                                <a class="h4-footer" href="/Home/EnConstruccion">Terminos y Condiciones</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <h3 class="h5-footer font-w600 text-uppercase push-20">Contacto</h3>
+                        <div class="h5-contac push">
                             <strong>Estudio Villa</strong><br>
                             Jujuy 257<br>
                             Santa Rosa<br>
                             La Pampa<br>
                         </div>
-                        <div class="font-s13">
+                        <div class="h4-footer">
                             <i class="fa fa-phone"></i> +54 02954 431900
                         </div>
-                        <div class="font-s13">
+                        <div class="h4-footer">
                             <i class="si si-envelope-open"></i> info@estudiovilla.com.ar
                         </div>
                     </div>

@@ -4,7 +4,10 @@
 <div class="bg-white">
     <section class="content content-boxed">
         <div class="container" ng-controller="IndexController">
-            <div class="row">
+            <div class="full-width">               
+                <img src="~/assets/img/photos/Back.jpg" />
+            </div>
+            @*<div class="row">
                 @if (User.IsInRole("Cliente"))
                 {
 
@@ -92,15 +95,16 @@
                         }
                     }
                 }
+            </div>*@
             </div>
-        </div>
+        
     </section>
     <div class="bg-primary-dark">
         <section class="content content-full content-boxed">
-            <div class="push-20-t push-20 text-center">
-                <h3 class="h4 text-white-op push-20 animated fadeIn" data-toggle="appear">Querés formar parte del estudio? Envianos tu CV!</h3>
-                <a class="btn btn-info visibility-hidden" data-js-appear="{class:'animated bounceIn'}" href="/Account/Register"><i class="si si-cursor text-white"></i>&nbsp;&nbsp;&nbsp;&nbsp;Enviar CV</a>
+            <div class="col-sm-12">
+                <h3 class="h4-cv text-white-op push-20 animated fadeIn" data-toggle="appear">Querés formar parte del estudio? Envianos tu CV!</h3><a class="btn btn-info visibility-hidden" data-js-appear="{class:'animated bounceIn'}" href="/Account/Register"><i class="si si-cursor text-white"></i>&nbsp;&nbsp;&nbsp;&nbsp;Enviar CV</a>
             </div>
+          
         </section>
     </div>
 </div>
