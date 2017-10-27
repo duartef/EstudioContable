@@ -41,12 +41,12 @@
 }
 
 .btn-group-nav>ul {
-    background-color: #3e4a59;
+    background-color: #009881;
 }
 
 .btn-group-nav>ul a {
     min-height: 32px;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 32px;
     color: rgba(255, 255, 255, 0.5);

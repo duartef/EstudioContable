@@ -5134,7 +5134,7 @@ a.list-group-item:focus {
   }
 }
 .header-navbar-transparent #header-navbar {
-  background-color: transparent;
+  background-color: #009881;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -6610,7 +6610,7 @@ a.block.block-link-hover3:active {
   padding: 20px;
   width: 100%;
   list-style: none;
-  background-color: #2c343f;
+  background-color: #009881;
   z-index: 1031;
   opacity: 0;
   overflow-y: auto;
@@ -6663,7 +6663,7 @@ a.block.block-link-hover3:active {
 }
 .nav-main-header ul a {
   min-height: 32px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 32px;
 }
@@ -11731,7 +11731,8 @@ a.bg-about:focus {
     background-color: rgba(255, 255, 255, 0.075);
 }
   .img-logo {
-      max-width:600px;
+     width: 100%;
+     max-width: 400px;
      
            }
 .h4-dos {
@@ -11740,7 +11741,7 @@ a.bg-about:focus {
 .h5-footer-left {
   margin: 30px;
   font-family: "Source Serif Pro", sans-serif;
-  /*font-weight: 600;*/
+  font-size:18px;
   line-height: 1.2;
   color: #fff;
 }
@@ -11749,6 +11750,7 @@ a.bg-about:focus {
   margin: 0;
   font-family: "Source Serif Pro", sans-serif;
   /*font-weight: 600;*/
+  font-size:18px;
   line-height: 1.2;
   color: #fff;
 }
@@ -11763,20 +11765,26 @@ a.bg-about:focus {
 .h5-contac {
   margin: 0;
   font-family: "Source Serif Pro", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.2;
   color: #fff;
 }
 .h4-cv {
   margin: 0;
   font-family: "Source Serif Pro", sans-serif;
-  font-size: 35px;
+  font-size: 22px;
   line-height: 1.2;
   color: #2c343f;
-  text-align: left !important;
-  margin: 15px;
+  text-align: center;
+ 
 }
 .full-width {
   width: 100%;
   height: auto;
+}
+.content-index {
+  margin: 0 auto;
+  padding: 0px 0px 0px;
+  max-width: 100%;
+  overflow-x: visible;
 }

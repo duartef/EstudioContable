@@ -47,30 +47,30 @@
     <div id="page-loader"></div>
     <div id="page-container" class="side-scroll header-navbar-fixed header-navbar-transparent">
         <!-- Header -->
-        <header id="header-navbar" class="content-mini content-mini-full" ng-controller="HeaderCtrl">
+        <header id="header-navbar" style="font-size:18px" class="content-mini content-mini-full" ng-controller="HeaderCtrl">
             <div class="content-boxed">
                 <!-- Header Navigation Right -->
-                @*<ul class="nav-header pull-right">
+                <ul class="nav-header pull-right">
                     <li class="hidden-md hidden-lg">
                         <button class="btn btn-link text-white pull-right" data-js-toggle-class="{target: '.js-nav-main-header', class: 'nav-main-header-o'}" data-js-blur type="button">
                             <i class="fa fa-navicon"></i>
                         </button>
                     </li>
                     <li>
-                        <div class="btn-group btn-group-nav" data-on-toggle="toggled(open)" data-uib-dropdown>
-                            <button class="btn btn-default btn-image btn-group-header" type="button" data-uib-dropdown-toggle>
-                                <img src="/assets/img/avatars/avatar1.jpg" alt="Avatar">
-                                <span class="caret"></span>
-                            </button>
-                            @Html.Partial("_LoginPartial")
-                        </div>
-                    </li>
-                </ul>*@
+        <div class="-group btn-group-nav"  data-on-toggle="toggled(open)" data-uib-dropdown>
+            <button class="btn btn-default btn-image btn-group-header" type="button" data-uib-dropdown-toggle style="background-color:transparent;border-color:transparent">
+                <img src="/assets/img/avatars/avatar1.jpg" alt="Avatar">
+                <span class="caret" style="color:#fff"></span>
+            </button>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </li>
+    </ul>
                 <!-- END Header Navigation Right -->
                 <!-- Main Header Navigation -->
                 <ul class="js-nav-main-header nav-main-header pull-right">
                     <li class="text-right hidden-md hidden-lg">
-                        <button class="btn btn-link text-white" data-js-toggle-class="{target: '.js-nav-main-header', class: 'nav-main-header-o'}" data-js-blur type="button">
+                        <button class="btn btn-link text-white"  data-js-toggle-class="{target: '.js-nav-main-header', class: 'nav-main-header-o'}" data-js-blur type="button">
                             <i class="fa fa-times"></i>
                         </button>
                     </li>
@@ -83,7 +83,7 @@
                         if (!User.IsInRole("Cliente"))
                         {
                             <li>
-                                <a class="nav-submenu" href="javascript:void(0)">Administración</a>
+                                <a class="nav-submenu" style="font-size:18px" href="javascript:void(0)">Administración</a>
                                 <ul>
                                     <li>
                                         <a href="/Account/RegisterPersonaJuridica">+ Persona Juridica</a>
@@ -130,7 +130,7 @@
                     }
                     <li>
                         @*<a href="/Contenido/Index">Estudio</a>*@
-                        <a class="nav-submenu" href="javascript:void(0)">Estudio</a>
+                        <a class="nav-submenu" style="font-size:18px" href="javascript:void(0)">Estudio</a>
                         <ul>
                             <li>
                                 <a href="/Home/About">Perfil</a>
@@ -156,7 +156,7 @@
                         <a href="/Home/EnConstruccion">Sitios de interés</a>
                     </li>
                     <li>
-                        <a href="/Home/EnConstruccion">Ingresar</a>
+                        <a href="/Account/Login">Ingresar</a>
                     </li>
                     @if (User.IsInRole("Cliente"))
                     {
@@ -231,7 +231,7 @@
                                 <a class="h4-footer" href="/Home/EnConstruccion">Sitios de interés</a>
                             </li>
                             <li>
-                                <a class="h4-footer" href="/Home/EnConstruccion">Ingresar</a>
+                                <a class="h4-footer" href="/Account/Login">Ingresar</a>
                             </li>
                         </ul>
                     </div>

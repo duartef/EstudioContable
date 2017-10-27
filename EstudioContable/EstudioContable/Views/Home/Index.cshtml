@@ -2,43 +2,22 @@
     ViewBag.Title = "Inicio";
 }
 <div class="bg-white">
-    <section class="content content-boxed">
+    <section class="content-index content-boxed" style="padding-left:'0px'">
+        <img class="img-responsive" src="~/assets/img/photos/Back.jpeg" />
         <div class="container" ng-controller="IndexController">
-            <div class="full-width">               
-                <img src="~/assets/img/photos/Back.jpg" />
+            <div class="full-width">
+
             </div>
             @*<div class="row">
-                @if (User.IsInRole("Cliente"))
-                {
-
-                }
-                else
-                {
-                    if (User.IsInRole("Admin"))
+                    @if (User.IsInRole("Cliente"))
                     {
-                        <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol >0" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
-                            <a class="block block-rounded block-link-hover2" href="{{module.link}}">
-                                <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
-                                    <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
-                                        <i class="fa {{module.iconClass}} text-white-op"></i>
-                                    </div>
-                                    <div class="text-white-op">
-                                        <em>{{module.name}}</em>
-                                    </div>
-                                </div>
-                                <div class="block-content">
-                                    <h4 class="mheight-125">{{module.description}}</h4>
-                                </div>
-                            </a>
-                        </div>
 
-                        
                     }
                     else
                     {
-                        if (User.IsInRole("Tesoreria"))
+                        if (User.IsInRole("Admin"))
                         {
-                            <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol > 0 && module.rol < 3" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
+                            <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol >0" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
                                 <a class="block block-rounded block-link-hover2" href="{{module.link}}">
                                     <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
                                         <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
@@ -53,12 +32,14 @@
                                     </div>
                                 </a>
                             </div>
+
+
                         }
                         else
                         {
-                            if (User.IsInRole("Empleado"))
+                            if (User.IsInRole("Tesoreria"))
                             {
-                                <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol == 1" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
+                                <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol > 0 && module.rol < 3" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
                                     <a class="block block-rounded block-link-hover2" href="{{module.link}}">
                                         <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
                                             <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
@@ -76,35 +57,52 @@
                             }
                             else
                             {
-                                <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol ==0" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
-                                    <a class="block block-rounded block-link-hover2" href="{{module.link}}">
-                                        <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
-                                            <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
-                                                <i class="fa {{module.iconClass}} text-white-op"></i>
+                                if (User.IsInRole("Empleado"))
+                                {
+                                    <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol == 1" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
+                                        <a class="block block-rounded block-link-hover2" href="{{module.link}}">
+                                            <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
+                                                <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                                                    <i class="fa {{module.iconClass}} text-white-op"></i>
+                                                </div>
+                                                <div class="text-white-op">
+                                                    <em>{{module.name}}</em>
+                                                </div>
                                             </div>
-                                            <div class="text-white-op">
-                                                <em>{{module.name}}</em>
+                                            <div class="block-content">
+                                                <h4 class="mheight-125">{{module.description}}</h4>
                                             </div>
-                                        </div>
-                                        <div class="block-content">
-                                            <h4 class="mheight-125">{{module.description}}</h4>
-                                        </div>
-                                    </a>
-                                </div>
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-sm-6 col-md-4 col-lg-4 visibility-hidden" ng-repeat="module in modules" ng-show="module.rol ==0" data-js-appear="{class:'animated zoomIn', timeout:{{module.appearTimeout}}}">
+                                        <a class="block block-rounded block-link-hover2" href="{{module.link}}">
+                                            <div class="block-content block-content-full text-center {{module.colorClass}} ribbon ribbon-bookmark ribbon-crystal">
+                                                <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                                                    <i class="fa {{module.iconClass}} text-white-op"></i>
+                                                </div>
+                                                <div class="text-white-op">
+                                                    <em>{{module.name}}</em>
+                                                </div>
+                                            </div>
+                                            <div class="block-content">
+                                                <h4 class="mheight-125">{{module.description}}</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                }
                             }
                         }
                     }
-                }
-            </div>*@
-            </div>
-        
-    </section>
-    <div class="bg-primary-dark">
+                </div>*@
+        </div>
+
         <section class="content content-full content-boxed">
-            <div class="col-sm-12">
-                <h3 class="h4-cv text-white-op push-20 animated fadeIn" data-toggle="appear">Querés formar parte del estudio? Envianos tu CV!</h3><a class="btn btn-info visibility-hidden" data-js-appear="{class:'animated bounceIn'}" href="/Account/Register"><i class="si si-cursor text-white"></i>&nbsp;&nbsp;&nbsp;&nbsp;Enviar CV</a>
+            <div class="push-20-t push-20 text-center">
+                <h3 class="h4-cv text-white-op push-20 animated fadeIn" data-toggle="appear">¿Querés formar parte del estudio? ¡Envianos tu CV!</h3>
+                <a class="btn btn-info animated bounceIn" style="background-color:#343333;color:#ffffff;border-color:#343333" data-js-appear="{class:'animated bounceIn'}" href="/Account/Register">Enviar CV</a>
             </div>
-          
         </section>
     </div>
-</div>
