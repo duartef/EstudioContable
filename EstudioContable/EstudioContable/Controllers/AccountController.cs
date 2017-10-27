@@ -202,9 +202,9 @@ namespace EstudioContable.Controllers
                     Email = model.Email,
                     Name = model.Name,
                     Surname = model.SurName,
-                    Cuit = model.Cuit,
-                    Actividad = model.Actividad,
-                    Juridiccion = model.Jurisdiccion,
+                    //Cuit = model.Cuit,
+                    //Actividad = model.Actividad,
+                    //Juridiccion = model.Jurisdiccion,
                     PhoneNumber = model.PhoneNumber
                 };
 

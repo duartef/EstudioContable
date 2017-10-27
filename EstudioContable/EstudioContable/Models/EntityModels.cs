@@ -14,10 +14,10 @@ namespace EstudioContable.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public bool Enabled { get; set; }
-        public string Cuit { get; set; }
-        public string Actividad { get; set; }
-        public decimal CuentaCorriente { get; set; }
-        public string Juridiccion { get; set; }
+        //public string Cuit { get; set; }
+        //public string Actividad { get; set; }
+        //public decimal CuentaCorriente { get; set; }
+        //public string Juridiccion { get; set; }
 
         public string TipoDeCliente { get; set; }
 
@@ -130,7 +130,16 @@ namespace EstudioContable.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
+            try
+            {
+                // 
+                Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public static ApplicationDbContext Create()
