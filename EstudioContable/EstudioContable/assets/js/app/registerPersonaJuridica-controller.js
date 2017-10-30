@@ -1,8 +1,8 @@
-﻿App.controller('RegisterController', ['$scope', '$window', '$http', function ($scope, $window, $http) {
-    $scope.$parent.header = { title: "Registro de usuario", description: "Crea una cuenta y empieza a crear y administrar el contenido." };
+﻿App.controller('RegisterPersonaJuridicaController', ['$scope', '$window', '$http', function ($scope, $window, $http) {
+    $scope.$parent.header = { title: "Registro de Persona Juridica", description: "Crea una cuenta y empieza a crear y administrar el contenido." };
     $scope.showErrorMessage = false;
 
-    $scope.user = {
+    $scope.personaJuridica = {
         name: '',
         surname: '',
         password: '',

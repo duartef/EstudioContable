@@ -11,15 +11,14 @@ namespace EstudioContable.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
         public bool Enabled { get; set; }
         //public string Cuit { get; set; }
         //public string Actividad { get; set; }
         //public decimal CuentaCorriente { get; set; }
         //public string Juridiccion { get; set; }
-
-        public string TipoDeCliente { get; set; }
+        //public string TipoDeCliente { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -133,14 +132,22 @@ namespace EstudioContable.Models
             try
             {
                 // 
-                Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
+                //Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
+                //Database.Initialize(true);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
             }
         }
+
+        public DbSet<PersonaHumana> PersonasHumanas { get; set; }
+        public DbSet<PersonaJuridica> PersonasJuridicas { get; set; }
+        public DbSet<Socio> Socios { get; set; }
+        public DbSet<Director> Directores { get; set; }
+        public DbSet<Sindico> Sindicos { get; set; }
+        public DbSet<ConvenioColectivoDeTrabajo> ConveniosColectivos { get; set; }
 
         public static ApplicationDbContext Create()
         {
