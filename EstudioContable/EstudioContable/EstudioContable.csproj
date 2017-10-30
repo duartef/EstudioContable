@@ -1241,6 +1241,7 @@
     <None Include="Properties\PublishProfiles\Publish.pubxml" />
     <Content Include="Views\Account\Cliente.cshtml" />
     <Content Include="Views\Account\RegisterPersonaJuridica.cshtml" />
+    <Content Include="Views\Account\RegisterPersonaHumana.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
