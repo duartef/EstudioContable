@@ -5,103 +5,373 @@
 }
 
 <div class="bg-white" ng-controller="RegisterController">
+    <h1 style="text-align:center">Registro de Persona Juridica</h1>
     <section class="content content-boxed">
         <!-- Section Content -->
         <div class="row items-push push-50-t push-30">
             <div class="col-md-6 col-md-offset-3">
                 <form class="form-horizontal" name="registerForm" ng-submit="register(registerForm)" ng-validate="validationOptions">
                     <div class="form-group">
-                        <div class="col-xs-12">
+                        <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
                                 <input class="form-control" type="text" id="name" name="name" ng-model="user.name">
-                                <label for="name">Nombre</label>
+                                <label for="name">Denomicación</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="cuit" name="cuit" ng-model="user.cuit">
+                                <label for="cuit">Cuit</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname">Tipo de Persona Juridica</label>
+                                <select class="form-control" name="TipoDePersonaJuridica">
+                                    <option value="SociedadderesponsabilidadLimitada">Sociedad de responsabilidad Limitada</option>
+                                    <option value="SociedadAnonima">Sociedad Anónima</option>
+                                    <option value="SociedadAnonima">Sociedad por acciones simplificada</option>
+                                    <option value="SociedadAnonima">Sociedad anónima unipersonal</option>
+                                    <option value="SociedadAnonima">Sociedad simple o residual (sección IV)</option>
+                                    <option value="SociedadAnonima">Sociedad en comandita por acciones</option>
+                                    <option value="SociedadAnonima">Sociedad en comandita simple</option>
+                                    <option value="SociedadAnonima">Sociedad colectiva</option>
+                                    <option value="SociedadAnonima">Sociedad de capital e industria</option>
+                                    <option value="SociedadAnonima">Fideicomiso</option>
+                                    <option value="SociedadAnonima">Asociación civil</option>
+                                    <option value="SociedadAnonima">Fundación</option>
+                                    <option value="SociedadAnonima">Condominio</option>
+                                    <option value="SociedadAnonima">Consorcio de propietarios</option>
+                                    <option value="SociedadAnonima">Consorcio de cooperación</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="actividad" name="actividad" ng-model="user.actividad">
+                                <label for="actividad">Domiciolio Legal</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="jurisdiccion" name="jurisdiccion" ng-model="user.jurisdiccion">
+                                <label for="jurisdiccion">Agencia Afip</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="tel" id="phone" name="TelefonoParticular" ng-model="user.phonenumber">
+                                <label for="phonenumber">Teléfono Particular</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="tel" id="email" name="TelefonoLaboral">
+                                <label for="email">Telefono Laboral</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="email" id="password" name="EmailLaboral">
+                                <label for="EmailLaboral">Email Laboral</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="email" id="password2" name="EmailPersonal">
+                                <label for="EmailPersonal">Email Personal</label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="surname" name="surname" ng-model="user.surname">
-                                <label for="surname">Apellido</label>
+                                <input class="form-control" type="text" id="password2" name="DomicilioComercial">
+                                <label for="DomicioComercial">Domicio Comercial</label>
                             </div>
                         </div>
                     </div>
-                    @*<div class="form-group">
-                            <div class="col-xs-12">
-                                <div class="form-material form-material-primary floating">
-                                    <input class="form-control" type="text" id="cuit" name="cuit" ng-model="user.cuit">
-                                    <label for="cuit">Cuit</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <div class="form-material form-material-primary floating">
-                                    <input class="form-control" type="text" id="actividad" name="actividad" ng-model="user.actividad">
-                                    <label for="actividad">Actividad</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <div class="form-material form-material-primary floating">
-                                    <input class="form-control" type="text" id="jurisdiccion" name="jurisdiccion" ng-model="user.jurisdiccion">
-                                    <label for="jurisdiccion">Jurisdiccion</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <div class="form-material form-material-primary floating">
-                                    <input class="form-control" type="text" id="phone" name="phone" ng-model="user.phonenumber">
-                                    <label for="phonenumber">Teléfono</label>
-                                </div>
-                            </div>
-                        </div>*@
+
                     <div class="form-group">
-                        <div class="col-xs-12">
+                        <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="email" name="email" ng-model="user.email">
-                                <label for="email">Email</label>
+                                <input class="form-control" type="text" name="NumeroDeIngresos">
+                                <label for="EmailPersonal">Numero de Ingresos Brutos</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <label>Fecha de Cierre de Ejericio</label>
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="date" name="FechaCierre">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-xs-12">
-                            <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="password" id="password" name="password" ng-model="user.password">
-                                <label for="password">Contraseña</label>
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname">Actividades</label>
+                                <select class="form-control" name="Actividades">
+                                    <option value="SociedadderesponsabilidadLimitada">Actividad1</option>
+                                    <option value="SociedadAnonima">Actividad2</option>
+                                    <option value="SociedadAnonima">Actividad3</option>
+                                    <option value="SociedadAnonima">Actividad4</option>
+                                    <option value="SociedadAnonima">Actividad5</option>
+
+                                </select>
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <div class="col-xs-12">
-                            <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="password" id="password2" name="password2" ng-model="user.password2">
-                                <label for="password2">Confirmar contraseña</label>
-                            </div>
-                        </div>
-                    </div>
-                    @*<div class="form-group">
-                            <div class="col-xs-12 text-center">
-                                <label class="css-input switch switch-sm switch-success">
-                                    <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
+                        <label class="col-xs-12">Es Empleador?</label>
+                        <div class="col-xs-6">
+                            <div class="radio">
+                                <label for="example-radio1">
+                                    <input type="radio" id="example-radio1" name="example-radios" value="option1">Si
                                 </label>
                             </div>
-                        </div>*@
-                    <div class="alert alert-danger alert-dismissable" ng-show="showErrorMessage">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h3 class="font-w300 push-15">Error</h3>
-                        <p>Ha ocurrido un error al intentar registar el usuario. Por favor intente nuevamente o pongase en contacto con el administrador del sistema.</p>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-6 col-sm-offset-3">
-                            <button class="btn btn-block btn-primary" type="submit"><i class="fa fa-plus pull-right"></i>Registrar</button>
+                            <div class="radio">
+                                <label for="example-radio2">
+                                    <input type="radio" id="example-radio2" name="example-radios" value="option2">No
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname">Convenio Colectivo de Trabajo</label>
+                                <select class="form-control" name="CCT">
+                                    <option value="SociedadAnonima">CCT 1</option>
+                                    <option value="SociedadAnonima">CCT 2</option>
+                                    <option value="SociedadAnonima">CCT 3</option>
+                                    <option value="SociedadAnonima">CCT 4</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </form>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname">Frecuencia de Atencion</label>
+                                <select class="form-control" name="Frecuencia">
+                                    <option value="SociedadAnonima">Mensual</option>
+                                    <option value="SociedadAnonima">Anual</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname">Responsable en el Estudio</label>
+                                <select class="form-control" name="ResponsableEstudio">
+                                    <option value="SociedadAnonima">Responsable 1</option>
+                                    <option value="SociedadAnonima">Responsable 2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" name="Res">
+                                <label for="cuit">Resolucion Numero</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" name="TomoN">
+                                <label for="cuit">Tomo Numero</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <label>Fecha de Resolucion</label>
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="date" name="FechaRes">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" name="FolioD">
+                                <label for="cuit">Folio Desde</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" name="FolioH">
+                                <label for="cuit">Folio Hasta</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" " name="Matricula">
+                                <label for="cuit">Matricula Numero</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6 ">
+                            <div class="block">
+                                <div class="block-header">
+                                    <h3 class="block-title">Director</h3>
+                                </div>
+                                <div class="block-content block-content-full">
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#modal-large" type="button" style="background-color:#009881; border-color:#009881">Agregar Director</button>
+                                </div>
+                            </div>
+
+                        </div>
+                   
+                    <div class="col-xs-6 ">
+                        <div class="block-content">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                       <th>Lista Directores</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="font-size:12px">
+                                        <td>Director 1</td>
+                                    </tr>
+                                    <tr style="font-size:12px">
+                                      
+                                        <td>Director 2</td>
+                                      </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
             </div>
+                    @*---------------------------------------*@
+                    <div class="form-group"> 
+                        <div class="col-xs-6 ">
+                            <div class="block">
+                                <div class="block-header">
+                                    <h3 class="block-title">Socios</h3>
+                                </div>
+                                <div class="block-content block-content-full">
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#modal-large" type="button" style="background-color:#009881; border-color:#009881">Agregar Socio</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-xs-6 ">
+                            <div class="block-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Lista Socios</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="font-size:12px">
+                                            <td>Socio 1</td>
+                                        </tr>
+                                        <tr style="font-size:12px">
+
+                                            <td>Socio 2</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    @*--------------------------------------------------*@
+                    <div class="form-group">
+                        <div class="col-xs-6 ">
+                            <div class="block">
+                                <div class="block-header">
+                                    <h3 class="block-title">Sindicos</h3>
+                                </div>
+                                <div class="block-content block-content-full">
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#modal-large" type="button" style="background-color:#009881; border-color:#009881">Agregar Sindicos</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-xs-6 ">
+                            <div class="block-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Lista Sindicos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="font-size:12px">
+                                            <td>Sindico 1</td>
+                                        </tr>
+                                        <tr style="font-size:12px">
+
+                                            <td>Sindico 2</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+            <div class="form-group">
+                <label class="col-xs-12" for="example-textarea-input">Observaciones</label>
+                <div class="col-xs-12">
+                    <textarea class="form-control" id="example-textarea-input" name="example-textarea-input" rows="6" placeholder="Observaciones"></textarea>
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                <div class="col-xs-12 text-center">
+                    <label class="css-input switch switch-sm switch-success">
+                        <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
+                    </label>
+                </div>
+            </div>*@
+            <div class="alert alert-danger alert-dismissable" ng-show="showErrorMessage">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h3 class="font-w300 push-15">Error</h3>
+                <p>Ha ocurrido un error al intentar registar el usuario. Por favor intente nuevamente o pongase en contacto con el administrador del sistema.</p>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>Registrar</button>
+                </div>
+            </div>
+            </form>
+        </div>
         </div>
         <!-- END Section Content -->
     </section>
+
 </div>

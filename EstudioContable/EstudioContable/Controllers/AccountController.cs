@@ -191,41 +191,41 @@ namespace EstudioContable.Controllers
 
         //
         // POST: /Account/RegisterPersonaHumana
-        [HttpPost]
-        [AllowAnonymous]
-        public int RegisterPersonaHumana(RegisterViewModel model)
-        {
-            try
-            {
-                var personaHumana = new PersonaHumana
-                {
-                    UserName = model.Email,
-                    Email = model.Email,
-                    Nombre = model.Name,
-                    Apellido = model.SurName,
-                    //Cuit = model.Cuit,
-                    //Actividad = model.Actividad,
-                    //Juridiccion = model.Jurisdiccion,
-                    //PhoneNumber = model.PhoneNumber
-                };
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public int RegisterPersonaHumana(RegisterViewModel model)
+        //{
+        //    try
+        //    {
+        //        var personaHumana = new PersonaHumana
+        //        {
+        //            UserName = model.Email,
+        //            Email = model.Email,
+        //            Nombre = model.Name,
+        //            Apellido = model.SurName,
+        //            //Cuit = model.Cuit,
+        //            //Actividad = model.Actividad,
+        //            //Juridiccion = model.Jurisdiccion,
+        //            //PhoneNumber = model.PhoneNumber
+        //        };
 
-                var result = UserManager.Create(user, model.Password);
-                if (result.Succeeded)
-                {
-                    UserManager.AddToRole(user.Id, "Cliente");
-                    UserManager.AddToRole(user.Id, "Admin");
+        //        var result = UserManager.Create(user, model.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            UserManager.AddToRole(user.Id, "Cliente");
+        //            UserManager.AddToRole(user.Id, "Admin");
 
-                    //SignInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                    return 0;
-                }
-                //Error
-                return 1;
-            }
-            catch (Exception ex)
-            {
-                return 1;
-            }
-        }
+        //            //SignInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+        //            return 0;
+        //        }
+        //        //Error
+        //        return 1;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return 1;
+        //    }
+        //}
 
         //
         // POST: /Account/RegisterCliente
