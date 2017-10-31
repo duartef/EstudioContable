@@ -6637,7 +6637,7 @@ a.block.block-link-hover3:active {
   padding: 0 12px;
   min-height: 34px;
   color: rgba(255, 255, 255, 0.5);
-  font-weight: 600;
+  font-weight: 200;
   line-height: 34px;
 }
 .nav-main-header a:hover,
@@ -6664,7 +6664,7 @@ a.block.block-link-hover3:active {
 .nav-main-header ul a {
   min-height: 32px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 200;
   line-height: 32px;
 }
 .nav-main-header > li:hover > a.nav-submenu {
