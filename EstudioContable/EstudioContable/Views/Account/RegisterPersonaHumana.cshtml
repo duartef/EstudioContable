@@ -1,0 +1,250 @@
+﻿
+@{
+    ViewBag.Title = "RegisterPersonaHumana";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-white" ng-controller="RegisterController">
+    <h1 style="text-align:center">Registro de Persona Humana</h1>
+    <section class="content content-boxed">
+        <!-- Section Content -->
+        <div class="row items-push push-50-t push-30">
+            <div class="col-md-6 col-md-offset-3">
+                <form class="form-horizontal" name="registerForm" ng-submit="register(registerForm)" ng-validate="validationOptions">
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="name" name="name" ng-model="user.name">
+                                <label for="name">Nombre</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="cuit" >
+                                <label for="cuit">Apellido</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="actividad" name="actividad" />
+                                <label for="actividad">DNI</label>
+                            </div>
+                        </div>
+                           <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="jurisdiccion" name="jurisdiccion" />
+                                <label for="jurisdiccion">CUIT</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Nacionalidad</em></label>
+                                <select class="form-control" name="Actividades">
+                                    <option value="SociedadderesponsabilidadLimitada">Argentina</option>
+                                    <option value="SociedadAnonima">Brasileña</option>
+                                    <option value="SociedadAnonima">Uruguaya</option>
+                                    <option value="SociedadAnonima">Chilena</option>
+                                    <option value="SociedadAnonima">Paraguaya</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                                <label>Fecha de Nacimiento</label>
+                                <div class="form-material form-material-primary floating">
+                                    <input class="form-control" type="date" name="FechaCierre">
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Estado Civil</em></label>
+                                <select class="form-control" name="Actividades">
+                                    <option value="SociedadderesponsabilidadLimitada">Soltero</option>
+                                    <option value="SociedadAnonima">Casado</option>
+                                    <option value="SociedadAnonima">Divorciado</option>
+                                    <option value="SociedadAnonima">Viudo</option>
+                                   </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" name="Profesion">
+                                <label for="cuit">Profesion</label>
+                            </div>
+                            </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="tel" id="phone" />
+                                <label for="phonenumber">Teléfono Particular</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="tel" id="email" name="TelefonoLaboral">
+                                <label for="email">Telefono Laboral</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="email" id="password" name="EmailLaboral">
+                                <label for="EmailLaboral">Email Laboral</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="email" id="password2" name="EmailPersonal">
+                                <label for="EmailPersonal">Email Personal</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="password2" name="DomicilioComercial">
+                                <label for="DomicioComercial">Domicio Comercial</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" name="NumeroDeIngresos">
+                                <label for="EmailPersonal">Numero de Ingresos Brutos</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <label>Fecha de Cierre de Ejericio</label>
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="date" name="FechaCierre">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Actividades</em></label>
+                                <select class="form-control" name="Actividades">
+                                    <option value="SociedadderesponsabilidadLimitada">Actividad1</option>
+                                    <option value="SociedadAnonima">Actividad2</option>
+                                    <option value="SociedadAnonima">Actividad3</option>
+                                    <option value="SociedadAnonima">Actividad4</option>
+                                    <option value="SociedadAnonima">Actividad5</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-12" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Es Empleador?</label>
+                        <div class="col-xs-6">
+                            <div class="radio">
+                                <label for="example-radio1">
+                                    <input type="radio" id="example-radio1" name="example-radios" value="option1">Si
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="example-radio2">
+                                    <input type="radio" id="example-radio2" name="example-radios" value="option2">No
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Convenio Colectivo de Trabajo</label>
+                                <select class="form-control" name="CCT">
+                                    <option value="SociedadAnonima">CCT 1</option>
+                                    <option value="SociedadAnonima">CCT 2</option>
+                                    <option value="SociedadAnonima">CCT 3</option>
+                                    <option value="SociedadAnonima">CCT 4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Frecuencia de Atencion</label>
+                                <select class="form-control" name="Frecuencia">
+                                    <option value="SociedadAnonima">Mensual</option>
+                                    <option value="SociedadAnonima">Anual</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Responsable en el Estudio</label>
+                                <select class="form-control" name="ResponsableEstudio">
+                                    <option value="SociedadAnonima">Responsable 1</option>
+                                    <option value="SociedadAnonima">Responsable 2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <div class="form-material form-material-primary ">
+                                    <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Situacion Impositiva</label>
+                                    <select class="form-control" name="Sit">
+                                        <option value="SociedadAnonima">Monotributista</option>
+                                        <option value="SociedadAnonima">Regimen General</option>
+                                    </select>
+                                </div>
+                            </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-xs-12" for="example-textarea-input" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Observaciones</label>
+                                <div class="col-xs-12">
+                                    <textarea class="form-control" id="example-textarea-input" name="example-textarea-input" rows="6" placeholder="Observaciones"></textarea>
+                                </div>
+                            </div>
+
+                            @*<div class="form-group">
+                <div class="col-xs-12 text-center">
+                    <label class="css-input switch switch-sm switch-success">
+                        <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
+                    </label>
+                </div>
+            </div>*@
+                            <div class="alert alert-danger alert-dismissable" ng-show="showErrorMessage">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h3 class="font-w300 push-15">Error</h3>
+                                <p>Ha ocurrido un error al intentar registar el usuario. Por favor intente nuevamente o pongase en contacto con el administrador del sistema.</p>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>Registrar</button>
+                                </div>
+                            </div>
+</form>
+            </div>
+        </div>
+        <!-- END Section Content -->
+    </section>
+
+</div>
+
