@@ -4,56 +4,183 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="bg-gray-lighter">
-    <section class="content content-boxed">
-        <div class="container" ng-controller="RegisterController">
-            <div class="article article-body">
-                <div class="row">
+<div class="bg-white" ng-controller="RegisterController">
+       <section class="content content-boxed">
+           <div class="col-sm-12">
+               <a class="block block-link-hover2" href="javascript:void(0)">
+                   <div class="block-content block-content-full text-center">
+                       <div>
+                           <img class="img-avatar img-avatar96" src="assets/img/avatars/avatar1.jpg" alt="Avatar">
+                       </div>
+                       <div class="h5 push-15-t push-5">Facundo Alecha</div>
+                       <div class="text-muted">Monotributo</div>
+                   </div>
+               </a>
+           </div>
+           <div class="block" style="padding-left:200px;padding-right:200px">
+               <div class="block-header">
+                   <h3 class="block-title">Datos Personales</h3>
+               </div>
+               <div class="block-content">
+                   <div class="table-responsive" >
+                       <table class="table table-striped table-vcenter">
+                           <thead>
+                               <tr>
+                                   <th style="width: 120px;"><i class="si si-user"></i></th>
+                                   <th>Nombre</th>
+                                   <th style="width: 15%;">Cuit</th>
+                                   <th style="width: 15%;">Telefono</th>
+                                   <th style="width: 20%;">Email</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                   <td>
+                                       <img class="img-avatar img-avatar48" src="assets/img/avatars/avatar7.jpg" alt="">
+                                   </td>
+                                   <td style="text-align:left" class="font-w600">Facundo Alecha</td>
+                                   <td style="text-align:left">20-33998844-8</td>
+                                   <td style="text-align:left">2954 600874</td>
+                                   <td style="text-align:left">alechaf@gmail.com</td>
+                               </tr>
 
-                    <div class="col-md-12">
-                        <div class="article-content">
+                              
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+           </div>
 
-                            <h1><strong>D</strong>atos</h1>
-                            <h3>
-                                <ul>
-                                    <li>Apellido</li>
-                                    <li>Nombre</li>
-                                    <li>CUIT</li>
-                                    <li>Actividad</li>
-                                    <li>Telefono</li>
-                                    <li>Mail</li>
-                                </ul>
-                            </h3>
-                            </br>
-                            <h1><strong>V</strong>encimientos</h1>
-                            <h3>
-                                <ul>
-                                    <li>Vencimiento:</li>
-                                    <li>Vencimiento:</li>
-                                    <li>Vencimiento:</li>
-                                    <li>Vencimiento:</li>
-                                </ul>
-                            </h3>
+           <div class="block" style="padding-left:200px;padding-right:200px">
+               <div class="block-header">
+                   <h3 class="block-title">Vencimientos</h3>
+               </div>
+               <div class="block-content">
+                   <div class="table-responsive">
+                       <table class="table table-striped table-vcenter">
+                           <thead>
+                               <tr>
+                                   <th style="width: 120px;"><i class="fa fa-bell-o"></i></th>
+                                   <th>Vencimeinto</th>
+                                   <th style="width: 15%;">Fecha</th>
+                                   <th style="width: 15%;">Monto</th>
+                             
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                    <td></td>
+                                    <td style="text-align:left" class="font-w600">Ingresos Brutos</td>
+                                   <td style="text-align:left">31/10/2017</td>
+                                   <td style="text-align:left">$1355</td>
+                                </tr>
+                               <tr>
+                                   <td></td>
+                                   <td style="text-align:left" class="font-w600">IVA</td>
+                                   <td style="text-align:left">31/10/2017</td>
+                                   <td style="text-align:left">$750</td>
+                               </tr>
+                               <tr>
+                                   <td></td>
+                                   <td style="text-align:left" class="font-w600">Ganacias</td>
+                                   <td style="text-align:left">31/10/2017</td>
+                                   <td style="text-align:left">$2578</td>
+                               </tr>
 
-                            <h1><strong>S</strong>aldos</h1>
-                            <h3>
-                                <ul>
-                                    <li>Al dia de la fecha usted debe abonar: $XXXX</li>
 
-                                </ul>
-                            </h3>
-                        </div>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+           </div>
 
+           <div class="block" style="padding-left:200px;padding-right:200px">
+               <div class="block-header">
+                   <h3 class="block-title">Saldos</h3>
+               </div>
+               <div class="block-content">
+                   <div class="table-responsive">
+                       <table class="table table-striped table-vcenter">
+                           <thead>
+                               <tr>
+                                   <th style="width: 120px;"><i class="fa fa-usd"></i></th>
+                                   <th>Concepto</th>
+                                   <th style="width: 15%;">Monto</th>
+                                   <th style="width: 15%;">Vencimiento</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                   <td></td>
+                                   <td style="text-align:left" class="font-w600">Honorarios Estudio</td>
+                                   <td style="text-align:left">$2350</td>
+                                   <td style="text-align:left">10/11/2017</td>
+                               </tr>
+                               <tr>
+                                   <td></td>
+                                   <td style="text-align:left" class="font-w600">Pago IVA</td>
+                                   <td style="text-align:left">$2788</td>
+                                   <td style="text-align:left">10/11/2017</td>
+                               </tr>
+
+
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+           </div>
+
+
+        @*<div class="article article-body">
+            <div class="row">
+                  <div class="col-md-6">
+                    <div class="article-content">
+
+                        <h3><strong>D</strong>atos</h3>
+
+                        <ul>
+                            <li>Apellido</li>
+                            <li>Nombre</li>
+                            <li>CUIT</li>
+                            <li>Actividad</li>
+                            <li>Telefono</li>
+                            <li>Mail</li>
+                        </ul>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="article-content">
+
+                        <h1><strong>V</strong>encimientos</h1>
+
+                        <ul>
+                            <li>Vencimiento:</li>
+                            <li>Vencimiento:</li>
+                            <li>Vencimiento:</li>
+                            <li>Vencimiento:</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h1><strong>S</strong>aldos</h1>
+
+                    <ul>
+                        <li>Al dia de la fecha usted debe abonar: $XXXX</li>
+
+                    </ul>
+
+                </div>
+
             </div>
-        </div>
+        </div>*@
+
     </section>
+
     <div class="bg-primary-dark">
         <section class="content content-full content-boxed">
             <div class="push-20-t push-20 text-center">
-                <h3 class="h4 text-white-op push-20 animated fadeIn" data-toggle="appear">Tenes duda sobre tu perfil? Consultanos!</h3>
-                <a class="btn btn-info visibility-hidden" data-js-appear="{class:'animated bounceIn'}" href="/Account/Register"><i class="si si-cursor text-white"></i>&nbsp;&nbsp;&nbsp;&nbsp;Consultar!</a>
+                <h3 class="h4-cv text-white-op push-20 animated fadeIn" data-toggle="appear">¿Tenes duda sobre tu perfil? Consultanos.</h3>
+                <a class="btn btn-info visibility-hidden" data-js-appear="{class:'animated bounceIn'}" href="/Account/Register" style="background-color:#009881; border-color:#009881;font-weight:100">Consultar</a>
             </div>
         </section>
     </div>

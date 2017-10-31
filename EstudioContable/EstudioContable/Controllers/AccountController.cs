@@ -265,7 +265,7 @@ namespace EstudioContable.Controllers
         }
 
         //GET: /Account/Cliente
-        [Authorize]
+        [AllowAnonymous]
         public ActionResult Cliente()
         {
             return View();

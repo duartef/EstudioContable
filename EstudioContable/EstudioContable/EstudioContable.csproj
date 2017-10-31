@@ -1242,6 +1242,7 @@
     <Content Include="Views\Account\Cliente.cshtml" />
     <Content Include="Views\Account\RegisterPersonaJuridica.cshtml" />
     <Content Include="Views\Account\RegisterPersonaHumana.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
