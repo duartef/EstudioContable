@@ -1,5 +1,5 @@
 ﻿App.controller('RegisterController', ['$scope', '$window', '$http', function ($scope, $window, $http) {
-    $scope.$parent.header = { title: "Registro de usuario", description: "Crea una cuenta." };
+    $scope.$parent.header = { title: "Registro de usuario", description: "Mis Perfil" };
     $scope.showErrorMessage = false;
 
     $scope.user = {

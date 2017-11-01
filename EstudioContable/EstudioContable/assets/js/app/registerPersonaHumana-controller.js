@@ -1,5 +1,5 @@
 ﻿App.controller('RegisterPersonaHumanaController', ['$scope', '$window', '$http', function ($scope, $window, $http) {
-    $scope.$parent.header = { title: "Registro de Persona Humana", description: "Crea una cuenta y empieza a crear y administrar el contenido." };
+    $scope.$parent.header = { title: "Registro de Persona Humana", description: "Crea una cuenta." };
     $scope.showErrorMessage = false;
 
     $scope.personaHumana = {

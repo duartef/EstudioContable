@@ -165,6 +165,13 @@ namespace EstudioContable.Controllers
             return View();
         }
 
+        // GET: /Account/RegisterEmpleado   
+        [AllowAnonymous]
+        public ActionResult RegisterEmpleado()
+        {
+            return View();
+        }
+
         //
         // POST: /Account/Register
         [HttpPost]

@@ -294,10 +294,12 @@
     <Content Include="assets\js\app\about-controller.js" />
     <Content Include="assets\js\app\accountsList-controller.js" />
     <Content Include="assets\js\app\app.js" />
+    <Content Include="assets\js\app\cliente-controller.js" />
     <Content Include="assets\js\app\controllers.js" />
     <Content Include="assets\js\app\index-controller.js" />
     <Content Include="assets\js\app\login-controller.js" />
     <Content Include="assets\js\app\register-controller.js" />
+    <Content Include="assets\js\app\registerEmpleado-controller.js" />
     <Content Include="assets\js\app\registerPersonaHumana-controller.js" />
     <Content Include="assets\js\app\registerPersonaJuridica-controller.js" />
     <Content Include="assets\js\app\testDatatable-controller.js" />
@@ -1243,6 +1245,7 @@
     <Content Include="Views\Account\RegisterPersonaJuridica.cshtml" />
     <Content Include="Views\Account\RegisterPersonaHumana.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Account\RegisterEmpleado.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
