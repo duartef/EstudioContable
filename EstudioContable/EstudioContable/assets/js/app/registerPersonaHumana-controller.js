@@ -27,7 +27,7 @@
             },
             cuit: {
                 required: true               
-            },            
+            },
             nacionalidad: {
                 required: true
             },
