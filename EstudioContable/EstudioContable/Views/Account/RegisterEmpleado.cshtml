@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "RegisterEmpleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-white" ng-controller="RegisterEmpleado">
+    <h1 style="text-align:center">Registro de Empleado</h1>
+    <section class="content content-boxed">
+        <!-- Section Content -->
+        <div class="row items-push push-50-t push-30">
+            <iv class="col-md-6 col-md-offset-3">
+                <form class="form-horizontal" name="registerForm" ng-submit="register(registerForm)" ng-validate="validationOptions">
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="name" name="name" >
+                                <label for="name">Nombre</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="cuit" name="apellido">
+                                <label for="cuit">Apellido</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="dni" name="dni" >
+                                <label for="actividad">DNI</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="telefono" name="telefono" >
+                                <label for="jurisdiccion">Telefono</label>
+                            </div>
+                        </div>
+                    </div>
+                 
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="email "name="Email">
+                                <label for="EmailPersonal">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <label>Fecha de Ingreso</label>
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="date" name="FechaIngreso">
+                            </div>
+                        </div>
+                    </div>
+                   
+                   
+                    <div class="alert alert-danger alert-dismissable" ng-show="showErrorMessage">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h3 class="font-w300 push-15">Error</h3>
+                        <p>Ha ocurrido un error al intentar registar el usuario. Por favor intente nuevamente o pongase en contacto con el administrador del sistema.</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>Registrar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+   
+        
+    </section>
+
+</div>
+
