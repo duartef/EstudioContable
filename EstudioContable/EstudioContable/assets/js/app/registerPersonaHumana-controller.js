@@ -5,13 +5,29 @@
     $scope.personaHumana = {
         nombre: '',
         apellido: '',
-        email: '',
         dni: '',
         cuit: '',
         nacionalidad: '',
         fechaNacimiento: '',
         estadoCivil: '',
-        profesion: ''
+        profesion: '',
+        celular: '',
+        telefonoLaboral: '',
+        emailLaboral: '',
+        emailPersonal: '',
+        domicilio: '',
+        localidad: '',
+        provincia: '',
+        domicilioComercial: '',
+        localidadComercial: '',
+        provinciaComercial: '',
+        nroIngresosBrutos: '',
+        fechaCierreEjercicios: '',
+        esEmpleador: '',
+        frecAtencion: '',
+        responsable: '',
+        situacionImpositiva: '',
+        observaciones: ''
     }
 
     $scope.validationOptions = {
@@ -40,11 +56,66 @@
             },
             profesion: {
                 required: false
+            },
+            celular: {
+                required: true,
+                dataType: tel
+            },
+            telefonoLaboral: {
+                required: false,
+                dataType: tel
+            },
+            emailLaboral: {
+                required: true,
+                dataType: email
+            },
+            emailPersonal: {
+                required: false,
+                dataType: email
+            },
+            domicilio: {
+                required: false
+            },
+            localidad: {
+                required: false
+            },
+            provincia: {
+                required: false
+            },
+            domicilioComercial: {
+                required: false
+            },
+            localidadComercial: {
+                required: false
+            },
+            provinciaComercial: {
+                required: false
+            },
+            nroIngresosBrutos: {
+                required: false
+            },
+            fechaCierreEjercicios: {
+                required: false,
+                dataType: Date
+            },
+            esEmpleador: {
+                required: false,
+                dataType: Boolean
+            },
+            frecAtencion: {
+                required: false
+            },
+            responsable: {
+                required: false
+            },
+            situacionImpositiva: {
+                required: false
+            },
+            observaciones: {
+                required: false
             }
         }
     }
-
-
 
     $scope.register = function (form) {
         $scope.showErrorMessage = false;
