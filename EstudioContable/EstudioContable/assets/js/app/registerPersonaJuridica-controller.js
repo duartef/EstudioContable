@@ -4,49 +4,132 @@
     
 
     $scope.personaJuridica = {
-        name: '',
-        surname: '',
-        password: '',
-        //cuit: '',
-        //actividad: '',
-        //jurisdiccion: '',
-        email: ''
-        //phonenumber: ''
+    Denomicacion: '',
+    cuit: '',
+    TipoDePersonaJuridica: '',
+    DomicilioLegal: '',
+    Localidad: '',
+    Provincia: '',
+    AgenciaAfip: '',
+    Celular: '',
+    TelefonoLaboral: '',
+    EmailLaboral: '',
+    EmailPersonal: '',
+    DomicioComercial: '',
+    LocalidadComercial: '',
+    ProvinciaComercial: '',
+    NumeroIngresosBrutos: '',
+    FechaCierre: '',
+    Actividades: '',
+    EsEmpleador: '',
+    CCT: '',
+    Frecuencia: '',
+    ResponsableEstudio: '',
+    ResNum: '',
+    TomoN: '',
+    FechaRes: '',
+    FolioD: '',
+    FolioH: '',
+    MatriculaNum: '',
+    Observacione: '',
+        
     }
 
     $scope.validationOptions = {
         rules: {
-            email: {
-                required: true,
-                email: true
-            },
-            //cuit: {
-            //    required: true               
-            //},
-            name: {
+            Denomicacion: {
                 required: true,
             },
-            surname: {
+            cuit: {
+                required: true,
+                maxlength: 9
+            },
+            TipoDePersonaJuridica: {
                 required: true,
             },
-            password: {
+            DomicilioLegal: {
                 required: true,
-                minlength: 6
             },
-            password2: {
+            Localidad: {
                 required: true,
-                minlength: 6,
-                equalTo: "#password"
-            }
-            //actividad: {
-            //    required: true
-            //},
-            //jurisdiccion: {
-            //    required: false
-            //},
-            //phonenumber: {
-            //    required: false
-            //}
+            },
+            Provincia: {
+               required: true
+            },
+            AgenciaAfip: {
+               required: false
+            },
+            Celular: {
+              required: true
+            },
+            TelefonoLaboral: {
+                required: true,
+                dataType: tel
+            },
+            EmailLaboral: {
+                required: true
+            },
+            EmailPersonal: {
+                required: false
+            },
+            DomicioComercial: {
+                required: false
+            },
+            LocalidadComercial: {
+                required: false
+            },
+            ProvinciaComercial: {
+                required: false
+            },
+            NumeroIngresosBrutos: {
+                required: false
+            },
+            FechaCierre: {
+                required: false,
+                dataType: Date
+            },
+            Actividades: {
+                required: true
+            },
+            EsEmpleador: {
+                required: false
+            },
+            DomicioComercial: {
+                required: false,
+                dataType: Boolean
+            },
+            CCT: {
+                required: false,
+            },
+            Frecuencia: {
+                required: false
+            },
+            ResponsableEstudio: {
+                required: true
+            },
+            ResNum: {
+                required: false
+            },
+            TomoN: {
+                required: false
+            },
+            FechaRes: {
+                required: false,
+                dataType: Date
+            },
+            FolioD: {
+                required: false
+            },
+            FolioH: {
+                required: false
+            },
+            MatriculaNum: {
+                required: false,
+                dataType: Boolean
+            },
+            Observaciones: {
+                required: false
+            },
         }
     }
 
@@ -57,21 +140,20 @@
 
         if (form.validate()) {
             $scope.helpers.uiLoader('show');
-            $scope.username = $scope.user.email;
-
+           
             $http({
-                url: '/Account/RegisterCliente',
+                url: '/Account/RegisterPersonaJuridica',
                 dataType: 'json',
                 data: {
-                    UserName: $scope.user.email,
-                    Password: $scope.user.password,
-                    Name: $scope.user.name,
-                    Surname: $scope.user.surname,
-                    Email: $scope.user.email
-                    //Cuit: $scope.user.cuit,
-                    //Actividad: $scope.user.actividad,
-                    //Jurisdiccion: $scope.user.jurisdiccion,
-                    //PhoneNumber: $scope.user.phonenumber
+                    Denomicacion: $scope.personaJuridica.Denomicacion,
+                    cuit: $scope.personaJuridica.cuit,
+                    TipoDePersonaJuridica: $scope.personaJuridica.TipoDePersonaJuridica,
+                    DomicilioLegal: $scope.personaJuridica.DomicilioLegal,
+                    Localidad: $scope.personaJuridica.Localidad,
+                    Provincia: $scope.personaJuridica.Provincia,
+                    Celular: $scope.personaJuridica.Celular,
+                    EmailLaboral: $scope.personaJuridica.EmailLaboral
+                   
                 },
                 method: 'POST',
                 headers: {
