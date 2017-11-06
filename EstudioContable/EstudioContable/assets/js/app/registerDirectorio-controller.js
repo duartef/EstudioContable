@@ -3,48 +3,88 @@
     $scope.showErrorMessage = false;
 
     $scope.Director = {
-        nombre: '',
-        apellido: '',
-        email: '',
-        dni: '',
-        cuit: '',
-        nacionalidad: '',
-        fechaNacimiento: '',
-        estadoCivil: '',
-        profesion: ''
+        Nombre: '',
+        Apellido: '',
+        DNI: '',
+        CUIT: '',
+        Nacionalidad: '',
+        FechaNacimiento: '',
+        EstadoCivil: '',
+        Profesion: '',
+        Celular: '',
+        TelefonoLaboral: '',
+        EmailLaboral: '',
+        Domicilio: '',
+        Localidad: '',
+        Provincia: '',
+        Cargo: '',
+        FechaDesignacion: '',
+        VencimientoMandato: '',
     }
 
     $scope.validationOptions = {
         rules: {
-            nombre: {
+            Nombre: {
                 required: true,
             },
-            apellido: {
+            Apellido: {
                 required: true,
             },
-            dni: {
+            DNI: {
                 required: true,
             },
-            cuit: {
+            CUIT: {
                 required: true
             },
-            nacionalidad: {
+            Nacionalidad: {
                 required: true
             },
-            fechaNacimiento: {
+            FechaNacimiento: {
                 required: false,
                 dataType: Date
             },
-            estadoCivil: {
+            EstadoCivil: {
                 required: false
             },
-            profesion: {
+            Profesion: {
                 required: false
-            }
+            },
+
+            Celular: {
+                required: true,
+                dataType: tel
+            },
+            TelefonoLaboral: {
+                required: false,
+                dataType: tel
+            },
+            EmailLaboral: {
+                required: false
+            },
+            Domicilio: {
+                required: false
+            },
+            Localidad: {
+                required: false
+            },
+            Provincia: {
+                required: false
+            },
+            Cargo: {
+                required: false
+            },
+            FechaDesignacion: {
+                required: false,
+                dataType: Date
+            },
+            VencimientoMandato: {
+                required: false,
+                dataType: Date
+            },
         }
     }
 
-
+    ///////////////////ESTO NO SE COMO ES EN ESTE CASO////////////////////////////
 
     $scope.register = function (form) {
         $scope.showErrorMessage = false;
@@ -53,17 +93,18 @@
             $scope.helpers.uiLoader('show');
 
             $http({
-                url: '/Account/RegisterPersonaHumana',
+                url: '/Account/RegisterPersonaJuridica',
                 dataType: 'json',
                 data: {
-                    Nombre: $scope.personaHumana.nombre,
-                    Apellido: $scope.personaHumana.apellido,
-                    Dni: $scope.personaHumana.dni,
-                    Cuit: $scope.personaHumana.cuit,
-                    Nacionalidad: $scope.personaHumana.nacionalidad,
-                    FechaNacimiento: $scope.personaHumana.fechaNacimiento,
-                    EstadoCivil: $scope.personaHumana.estadoCivil,
-                    Profesion: $scope.personaHumana.profesion
+                    Nombre: $scope.Director.nombre,
+                    Apellido: $scope.Director.apellido,
+                    Dni: $scope.Director.dni,
+                    Cuit: $scope.Director.cuit,
+                    Nacionalidad: $scope.Director.nacionalidad,
+                    FechaNacimiento: $scope.Director.fechaNacimiento,
+                    EstadoCivil: $scope.Director.estadoCivil,
+                    Celular: $scope.Director.profesion,
+                    EmailLaboral: $scope.Director.profesion,
                 },
                 method: 'POST',
                 headers: {

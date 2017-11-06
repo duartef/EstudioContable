@@ -3,44 +3,79 @@
     $scope.showErrorMessage = false;
 
     $scope.Socio = {
-        nombre: '',
-        apellido: '',
-        email: '',
-        dni: '',
-        cuit: '',
-        nacionalidad: '',
-        fechaNacimiento: '',
-        estadoCivil: '',
-        profesion: ''
+        Nombre: '',
+        Apellido: '',
+        DNI: '',
+        CUIT: '',
+        Nacionalidad: '',
+        FechaNacimiento: '',
+        EstadoCivil: '',
+        Profesion: '',
+        Celular: '',
+        TelefonoLaboral: '',
+        Email: '',
+        Domicilio: '',
+        Localidad: '',
+        Provincia: '',
+        CuotasAcciones: '',
+        PorcentajeParticipacion: '',
     }
 
     $scope.validationOptions = {
         rules: {
-            nombre: {
+            Nombre: {
                 required: true,
             },
-            apellido: {
+            Apellido: {
                 required: true,
             },
-            dni: {
+            DNI: {
                 required: true,
             },
-            cuit: {
+            CUIT: {
                 required: true
             },
-            nacionalidad: {
+            Nacionalidad: {
                 required: true
             },
-            fechaNacimiento: {
+            FechaNacimiento: {
                 required: false,
                 dataType: Date
             },
-            estadoCivil: {
+            EstadoCivil: {
                 required: false
             },
-            profesion: {
+            Profesion: {
                 required: false
-            }
+            },
+
+            Celular: {
+                required: true,
+                dataType: tel
+            },
+            TelefonoLaboral: {
+                required: false,
+                dataType: tel
+            },
+            EmailLaboral: {
+                required: false
+            },
+            Domicilio: {
+                required: false
+            },
+            Localidad: {
+                required: false
+            },
+            Provincia: {
+                required: false
+            },
+            CuotasAcciones: {
+                required: false
+            },
+            PorcentajeParticipacion: {
+                required: false,
+                dataType: Date
+            },
         }
     }
 
@@ -53,17 +88,17 @@
             $scope.helpers.uiLoader('show');
 
             $http({
-                url: '/Account/RegisterPersonaHumana',
+                url: '/Account/RegisterPersonaJuridica',
                 dataType: 'json',
                 data: {
-                    Nombre: $scope.personaHumana.nombre,
-                    Apellido: $scope.personaHumana.apellido,
-                    Dni: $scope.personaHumana.dni,
-                    Cuit: $scope.personaHumana.cuit,
-                    Nacionalidad: $scope.personaHumana.nacionalidad,
-                    FechaNacimiento: $scope.personaHumana.fechaNacimiento,
-                    EstadoCivil: $scope.personaHumana.estadoCivil,
-                    Profesion: $scope.personaHumana.profesion
+                    Nombre: $scope.Socio.Nombre,
+                    Apellido: $scope.Socio.Apellido,
+                    Dni: $scope.Socio.DNI,
+                    Cuit: $scope.Socio.CUIT,
+                    Nacionalidad: $scope.Socio.Nacionalidad,
+                    FechaNacimiento: $scope.Socio.FechaNacimiento,
+                    EstadoCivil: $scope.Socio.EstadoCivil,
+                    Profesion: $scope.Socio.Profesion
                 },
                 method: 'POST',
                 headers: {
