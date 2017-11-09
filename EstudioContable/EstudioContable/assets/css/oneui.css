@@ -644,7 +644,7 @@ a.bg-black:focus {
   background-color: #000000;
 }
 .bg-black-op {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .bg-gray {
   background-color: #c9c9c9;
@@ -7024,15 +7024,16 @@ a.block.block-link-hover3:active {
 }
 .img-avatar-thumb {
   margin: 5px;
-  -webkit-box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.4);
+  
+  -webkit-box-shadow: 0 0 0 5px rgba(0, 152, 129, 1);
+  box-shadow: 0 0 0 5px rgba(0, 152, 129, 1);
 }
 .img-rounded {
   border-radius: 4px;
 }
 .img-thumb {
   padding: 5px;
-  background-color: #fff;
+  background-color: #009881;
   border-radius: 2px;
 }
 .img-link {

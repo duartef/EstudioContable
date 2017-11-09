@@ -162,77 +162,6 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-xs-6">
-                            <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="nroIngresosBrutos" name="nroIngresosBrutos" ng-model="personaHumana.nroIngresosBrutos">
-                                <label for="nroIngresosBrutos">Numero de Ingresos Brutos</label>
-                            </div>
-                        </div>
-
-                        <div class="col-xs-6">
-                            <label>Fecha de Cierre de Ejericio</label>
-                            <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="date" id="fechaCierreEjercicios" name="fechaCierreEjercicios" ng-model="personaHumana.fechaCierreEjercicios">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <div class="form-material form-material-primary ">
-                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Actividades</em></label>
-                                <select class="form-control" name="Actividades">
-                                    <option value="SociedadderesponsabilidadLimitada">Actividad1</option>
-                                    <option value="SociedadAnonima">Actividad2</option>
-                                    <option value="SociedadAnonima">Actividad3</option>
-                                    <option value="SociedadAnonima">Actividad4</option>
-                                    <option value="SociedadAnonima">Actividad5</option>
-
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-xs-12" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Es Empleador?</label>
-                        <div class="col-xs-6">
-                            <div class="radio">
-                                <label for="example-radio1">
-                                    <input type="radio" id="example-radio1" name="example-radios" value="option1">Si
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label for="example-radio2">
-                                    <input type="radio" id="example-radio2" name="example-radios" value="option2">No
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="form-material form-material-primary ">
-                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Convenio Colectivo de Trabajo</label>
-                                <select class="form-control" name="CCT">
-                                    <option value="SociedadAnonima">CCT 1</option>
-                                    <option value="SociedadAnonima">CCT 2</option>
-                                    <option value="SociedadAnonima">CCT 3</option>
-                                    <option value="SociedadAnonima">CCT 4</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <div class="form-material">
-                                <select data-js-select2 class="form-control" id="example2-select2-multiple" data="actividades" name="example2-select2-multiple" style="width: 100%;" data-placeholder="Choose many.." multiple>
-                                    @*<option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->*@
-                                    @*<option ng-repeat="actividad in actividades" value={{actividad.id}}>{{actividad.descripcion}}</option>*@
-                                </select>
-                                <label for="example2-select2-multiple">Multiple Values</label>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
                         <div class="col-md-6">
                             <div class="form-material form-material-primary ">
                                 <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Frecuencia de Atencion</label>
@@ -252,6 +181,25 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <div class="form-material form-material-primary floating">
+                                    <input class="form-control" type="text" id="nroIngresosBrutos" name="nroIngresosBrutos" ng-model="personaHumana.nroIngresosBrutos">
+                                    <label for="nroIngresosBrutos">Numero de Ingresos Brutos</label>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <label>Fecha de Cierre de Ejericio</label>
+                                <div class="form-material form-material-primary floating">
+                                    <input class="form-control" type="date" id="fechaCierreEjercicios" name="fechaCierreEjercicios" ng-model="personaHumana.fechaCierreEjercicios">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                     </div>
                     <div class="form-group">
                         <div class="col-md-6">
@@ -263,8 +211,23 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    
 
+                    
+                        <label class="col-xs-6" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Es Empleador?</label>
+                        <div class="col-xs-6">
+                            <div class="radio">
+                                <label for="example-radio1">
+                                    <input type="radio" id="example-radio1" name="example-radios" value="option1">Si
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="example-radio2">
+                                    <input type="radio" id="example-radio2" name="example-radios" value="option2">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
 
                     <div class="form-group">
@@ -288,86 +251,97 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>Registrar</button>
+                            <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>Guardar</button>
                         </div>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881" >
-                            + Agregar Actividades
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Actividades</h5>
-                                        <div class="alert alert-info">
-                                            <p>Ordenado por: {{ sortType }}</p>
-                                            <p>Orden Ascendente: {{ sortReverse }}</p>
-                                            <p hidden="hidden">Search Query: {{ filtro }}</p>
-                                        </div>
+                      </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>
+                                    Actividades
+                             </button>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:scroll">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h5 class="modal-title" id="exampleModalLabel" style="font-family:'Source Serif Pro';color:#808080">Actividades</h5>
+                                            <div class="alert alert-info"style="background-color:#ffffff;color:#009881">
+                                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Ordenado por: {{ sortType }}</p>
+                                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
+                                                <p hidden="hidden" style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Search Query: {{ filtro }}</p>
+                                            </div>
 
-                                        <div class="form-group">
                                             <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                                                    <input type="text" class="form-control" placeholder="Buscar.." ng-model="filtro">
+                                                <div class="form-group">
+                                                    <div class="input-group" style="padding-left:20px;padding-right:20px">
+                                                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                                                        <input type="text" style="max-width:inherit" class="form-control" placeholder="Buscar.." ng-model="filtro">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
 
-                                        <div class="form-group">
-                                            <table class="table table-bordered table-striped">
+                                            <div class="form-group">
+                                                <table class="table table-bordered table-striped">
 
-                                                <thead>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
-                                                                Id
-                                                                <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
-                                                                <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
-                                                            </a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
-                                                                Descripción
-                                                                <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
-                                                                <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                </thead>
+                                                    <thead>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#" style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+                                                                    Id
+                                                                    <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                    <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="#" style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                                                    Descripción
+                                                                    <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                    <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </thead>
 
-                                                <tbody>
-                                                    <tr ng-repeat="actividad in actividades | orderBy:sortType:sortReverse | filter:filtro">
-                                                        <td>{{actividad.Id}}</td>
-                                                        <td>{{actividad.Descripcion}}</td>
-                                                        <td><button class="btn btn-block btn-primary" data-ng-click="addActividad($event)" id="{{actividad.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
-                                                    </tr>
-                                                </tbody>
+                                                    <tbody >
+                                                        <tr ng-repeat="actividad in actividades | orderBy:sortType:sortReverse | filter:filtro">
+                                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" >{{actividad.Id}}</td>
+                                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividad.Descripcion}}</td>
+                                                            <td><button class="btn btn-block btn-primary" data-ng-click="addActividad($event)" id="{{actividad.Id}}" style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><i class="fa fa-plus pull-right"></i></button></td>
+                                                        </tr>
+                                                    </tbody>
 
-                                            </table>
-                                        </div>
+                                                </table>
+                                            </div>
 
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                          
 
 
-                                        @*<div class="modal-body">
-                                                ...
+                                            @*<div class="modal-body">
+                                ...
+                            </div>*@
+                                            @*<div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="button" class="btn btn-primary" style="background-color:#009881; border-color:#009881">Agregar</button>
                                             </div>*@
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                            <button type="button" class="btn btn-primary" style="background-color:#009881; border-color:#009881">Agregar</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-block btn-primary" type="button" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881;max-width:100%"><i class="fa fa-plus pull-right"></i>CCT</button>
+                            </div>
+                        <div class="col-md-3">
+                            </div>
                         </div>
-                        <div class="col-sm-6 col-sm-offset-3">
-                            <button class="btn btn-block btn-primary" type="button" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>Convenios Colectivos de Trabajo</button>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>

@@ -233,10 +233,13 @@
     <Content Include="assets\img\favicons\favicon-96x96.png" />
     <Content Include="assets\img\favicons\favicon.png" />
     <Content Include="assets\img\favicons\Logoo.png" />
+    <Content Include="assets\img\photos\AvatarContador.jpg" />
     <Content Include="assets\img\photos\Back.jpeg" />
+    <Content Include="assets\img\photos\logoV.jpg" />
     <Content Include="assets\img\photos\logo.jpg" />
     <Content Include="assets\img\photos\logo.png" />
     <Content Include="assets\img\photos\LogoBlanco.png" />
+    <Content Include="assets\img\photos\Mauri.jpg" />
     <Content Include="assets\img\photos\photo1%402x.jpg" />
     <Content Include="assets\img\photos\photo1.jpg" />
     <Content Include="assets\img\photos\photo10%402x.jpg" />
@@ -299,6 +302,8 @@
     <Content Include="assets\js\app\controllers.js" />
     <Content Include="assets\js\app\index-controller.js" />
     <Content Include="assets\js\app\login-controller.js" />
+    <Content Include="assets\js\app\Organizacion-controller.js" />
+    <Content Include="assets\js\app\Profesionales-controller.js" />
     <Content Include="assets\js\app\register-controller.js" />
     <Content Include="assets\js\app\registerDirectorio-controller.js" />
     <Content Include="assets\js\app\registerEmpleado-controller.js" />
@@ -1252,6 +1257,7 @@
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Account\RegisterEmpleado.cshtml" />
     <Content Include="Views\Home\Profesionales.cshtml" />
+    <Content Include="Views\Home\Organizacion.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

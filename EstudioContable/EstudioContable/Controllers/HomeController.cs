@@ -13,6 +13,16 @@ namespace EstudioContable.Controllers
             return View();
         }
 
+        public ActionResult Profesionales()
+        {
+            return View();
+        }
+
+        public ActionResult Organizacion()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
