@@ -294,6 +294,7 @@
     <Content Include="assets\js\app\about-controller.js" />
     <Content Include="assets\js\app\accountsList-controller.js" />
     <Content Include="assets\js\app\app.js" />
+    <Content Include="assets\js\app\chosen.jquery.min.js" />
     <Content Include="assets\js\app\cliente-controller.js" />
     <Content Include="assets\js\app\controllers.js" />
     <Content Include="assets\js\app\index-controller.js" />
@@ -306,6 +307,8 @@
     <Content Include="assets\js\app\registerSocio-controller.js" />
     <Content Include="assets\js\app\testDatatable-controller.js" />
     <Content Include="assets\js\base_tables_datatables.js" />
+    <Content Include="assets\chosen\chosen-sprite.png" />
+    <Content Include="assets\chosen\chosen.min.css" />
     <Content Include="assets\js\core\angular-ui-bootstrap-tpls.min.js" />
     <Content Include="assets\js\core\angular-ui-router.min.js" />
     <Content Include="assets\js\core\angular-validate.min.js" />

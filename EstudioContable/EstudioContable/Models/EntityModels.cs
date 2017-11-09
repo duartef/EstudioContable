@@ -5,6 +5,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace EstudioContable.Models
 {
@@ -33,16 +35,33 @@ namespace EstudioContable.Models
     {
         [Key]
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         //Persona Humana
-        public string Apellido { get; set; }
         public string Nombre { get; set; }
+        public string Apellido { get; set; }
         public string Dni { get; set; }
         public string Cuit { get; set; }
         public string Nacionalidad { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string EstadoCivil { get; set; }
         public string Profesion { get; set; }
+        public string Celular { get; set; }
+        public string TelefonoLaboral { get; set; }
+        public string EmailLaboral { get; set; }
+        public string EmailPersonal { get; set; }
+        public string Domicilio { get; set; }
+        public string Localidad { get; set; }
+        public string Provincia { get; set; }
+        public string DomicilioComercial { get; set; }
+        public string LocalidadComercial { get; set; }
+        public string ProvinciaComercial { get; set; }
+        public string NroIngresosBrutos { get; set; }
+        public DateTime FechaCierreEjercicios { get; set; }
+        public bool EsEmpleador { get; set; }
+        public string FrecAtencion { get; set; }
+        public string Responsable { get; set; }
+        public string SituacionImpositiva { get; set; }
+        public string Observaciones { get; set; }
     }
 
     public class PersonaJuridica
@@ -122,6 +141,30 @@ namespace EstudioContable.Models
     {
         [Key]
         public int Id { get; set; }
+        public string Convenio { get; set; }
+    }
+
+    public class ConvenioDeLaPersonaHumana
+    {
+        [Key]
+        public int Id { get; set; }
+        public int CctId { get; set; }
+        public int PersonaHumanaId { get; set; }
+    }
+
+    public class Actividad
+    {
+        [Key]
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+    }
+
+    public class ActividadDeLaPersonaHumana
+    {
+        [Key]
+        public int Id { get; set; }
+        public int ActividadId { get; set; }
+        public int PersonaHumanaId { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -133,7 +176,8 @@ namespace EstudioContable.Models
             {
                 // 
                 //Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
-                //Database.Initialize(true);
+                Database.SetInitializer<ApplicationDbContext>(new CreateDatabaseIfNotExists<ApplicationDbContext>());
+                Database.Initialize(true);
             }
             catch (Exception ex)
             {
@@ -148,6 +192,9 @@ namespace EstudioContable.Models
         public DbSet<Director> Directores { get; set; }
         public DbSet<Sindico> Sindicos { get; set; }
         public DbSet<ConvenioColectivoDeTrabajo> ConveniosColectivos { get; set; }
+        public DbSet<ConvenioDeLaPersonaHumana> ConveniosDeLaPersonaHumana { get; set; }
+        public DbSet<Actividad> Actividades { get; set; }
+        public DbSet<ActividadDeLaPersonaHumana> ActividadesDeLaPersonaHumana { get; set; }
 
         public static ApplicationDbContext Create()
         {

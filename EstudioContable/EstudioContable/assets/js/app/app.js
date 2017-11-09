@@ -25,7 +25,7 @@ function ($uibTooltipProvider, $validatorProvider, $locationProvider, $compilePr
     $uibTooltipProvider.options({
         appendToBody: true
     });
-
+    
     $validatorProvider.setDefaults({
         errorClass: 'help-block text-right animated fadeInDown',
         errorElement: 'div',

@@ -39,6 +39,7 @@ namespace EstudioContable
                       "~/assets/js/core/angular-ui-bootstrap-tpls.min.js",
                       "~/assets/js/core/angular-ui-router.min.js",
                       "~/assets/js/core/ngStorage.min.js",
+                      "~/assets/js/plugins/select2/select2.js",
                       "~/assets/js/core/ocLazyLoad.min.js",
                       "~/assets/js/core/angular-validate.min.js",
                       "~/assets/js/app/app.js",
@@ -53,6 +54,7 @@ namespace EstudioContable
                       "~/assets/js/plugins/bootstrap-treeview/bootstrap-treeview.min.css",
                       "~/assets/js/plugins/datatables/jquery.dataTables.css",
                       "~/assets/js/plugins/dropzonejs/dropzone.min.css",
+                      "~/assets/js/plugins/select2/select2.css",
                       "~/assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker3.min.css",
                       "~/assets/css/oneui.css",
                       "~/assets/css/Site.css"));

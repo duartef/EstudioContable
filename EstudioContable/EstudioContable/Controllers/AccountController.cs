@@ -17,6 +17,7 @@ namespace EstudioContable.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -180,7 +181,7 @@ namespace EstudioContable.Controllers
         {
             try
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.UserName, Nombre = model.Name, Apellido = model.SurName };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.UserName};
                 var result = UserManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -200,51 +201,29 @@ namespace EstudioContable.Controllers
         // POST: /Account/RegisterPersonaHumana
         [HttpPost]
         [AllowAnonymous]
-        public int RegisterPersonaHumana(RegisterViewModel model)
+        public int RegisterPersonaHumana(PersonaHumana ph)
         {
             try
             {
                 var user = new ApplicationUser
                 {
-                    Apellido = model.SurName,
-                    Email = model.Email
-                    //UserName = model.Email,
-                    //Email = model.Email,
-                    //Nombre = model.Name,
-                    //Apellido = model.SurName,
-                    //Cuit = model.Cuit,
-                    //Actividad = model.Actividad,
-                    //Juridiccion = model.Jurisdiccion,
-                    //PhoneNumber = model.PhoneNumber
+                    UserName = ph.EmailLaboral,
+                    Email = ph.EmailLaboral
                 };
 
-
-
-                var personaHumana = new PersonaHumana
-                {
-                    
-
-                    //UserName = model.Email,
-                    //Email = model.Email,
-                    //Nombre = model.Name,
-                    //Apellido = model.SurName,
-                    //Cuit = model.Cuit,
-                    //Actividad = model.Actividad,
-                    //Juridiccion = model.Jurisdiccion,
-                    //PhoneNumber = model.PhoneNumber
-                };
-
-                var result = UserManager.Create(user, model.Password);
+                var result = UserManager.Create(user, new PasswordHasher().HashPassword("EstudioVilla18"));
                 if (result.Succeeded)
                 {
                     UserManager.AddToRole(user.Id, "Cliente");
-                    UserManager.AddToRole(user.Id, "Admin");
-
-                    //SignInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                    return 0;
+                    //return 0;
                 }
-                //Error
-                return 1;
+                
+                //ph.UserId = user.Id;
+
+                //db.PersonasHumanas.Add(ph);
+                //db.SaveChanges();
+                //return 
+                return 0;
             }
             catch (Exception ex)
             {
@@ -263,18 +242,19 @@ namespace EstudioContable.Controllers
                 var user = new ApplicationUser {
                     UserName = model.Email,
                     Email = model.Email,
-                    Nombre = model.Name,
-                    Apellido = model.SurName,
-                    //Cuit = model.Cuit,
-                    //Actividad = model.Actividad,
-                    //Juridiccion = model.Jurisdiccion,
-                    //PhoneNumber = model.PhoneNumber
+                    Enabled = true
+                    //Nombre = model.Name,
+                    //Apellido = model.SurName,
+                    ////Cuit = model.Cuit,
+                    ////Actividad = model.Actividad,
+                    ////Juridiccion = model.Jurisdiccion,
+                    ////PhoneNumber = model.PhoneNumber
                 };
 
                 var result = UserManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
-                    UserManager.AddToRole(user.Id, "Cliente");
+                    //UserManager.AddToRole(user.Id, "Cliente");
                     UserManager.AddToRole(user.Id, "Admin");
 
                     //SignInManager.SignIn(user, isPersistent: false, rememberBrowser: false);

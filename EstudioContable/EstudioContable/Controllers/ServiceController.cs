@@ -39,6 +39,21 @@ namespace EstudioContable.Controllers
         {
         }
 
+        [Route("api/Service/GetAllActividades")]
+        public IEnumerable<Actividad> GetAllActividades()
+        {
+            try
+            {
+                var a = db.Actividades.ToList();
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<Actividad>();
+            }
+
+        }
+
         [Route("api/Service/GetAllUsuarios")]
         public IEnumerable<ApplicationUser> GetAllUsuarios()
         {

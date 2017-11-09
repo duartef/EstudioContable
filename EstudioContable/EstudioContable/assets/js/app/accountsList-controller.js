@@ -22,6 +22,10 @@
         alert(error);
     });
 
+    $scope.addActividad = function(event)
+    {
+        alert(event.target.id);
+    }
 
     //$(document).ready(function () {
     //    timer = $timeout(countUp, 200, true)

@@ -38,9 +38,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
     @Styles.Render("~/css")
-    @Scripts.Render("~/bundles/jquery")
+    <link href="~/assets/chosen/chosen.min.css" rel="stylesheet" /> 
+     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-
+    <script src="~/assets/js/app/chosen.jquery.min.js"></script>
 </head>
 <body ng-controller="AppCtrl">
 

@@ -1,6 +1,8 @@
 ﻿App.controller('RegisterPersonaHumanaController', ['$scope', '$window', '$http', function ($scope, $window, $http) {
     $scope.$parent.header = { title: "Registro de Persona Humana", description: "Crea una cuenta." };
     $scope.showErrorMessage = false;
+    $scope.actividades = [];
+    $scope.personaHumanaCreada = false;
 
     $scope.personaHumana = {
         nombre: '',
@@ -30,6 +32,29 @@
         observaciones: ''
     }
 
+    $scope.addActividad = function (event) {
+        alert(event.target.id);
+    }
+
+    $scope.addCCT = function (event) {
+        $scope.personaHumanaCreada = true;
+    }
+
+    $http.get('/api/Service/GetAllActividades').then(
+       function (response) {
+           if (response != null && response.data != null) {
+               $scope.actividades = response.data;
+               //$("#myTable").dataTable().data = $scope.usuarios;
+           }
+
+           //$scope.helpers.uiLoader('hide');
+           //$scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       },
+       function (error) {
+           $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       }
+    );
+
     $scope.validationOptions = {
         rules: {
             nombre: {
@@ -42,14 +67,14 @@
                 required: true,
             },
             cuit: {
-                required: true               
+                required: true
             },
             nacionalidad: {
                 required: true
             },
             fechaNacimiento: {
-                required: false,
-                dataType: Date
+                required: false
+                //dataType: Date
             },
             estadoCivil: {
                 required: false
@@ -58,20 +83,20 @@
                 required: false
             },
             celular: {
-                required: true,
-                dataType: tel
+                required: true
+                //dataType: tel
             },
             telefonoLaboral: {
-                required: false,
-                dataType: tel
+                required: false
+                //dataType: tel
             },
             emailLaboral: {
                 required: true,
-                dataType: email
+                email: true
             },
             emailPersonal: {
                 required: false,
-                dataType: email
+                email: true
             },
             domicilio: {
                 required: false
@@ -95,12 +120,12 @@
                 required: false
             },
             fechaCierreEjercicios: {
-                required: false,
-                dataType: Date
+                required: false
+                //dataType: Date
             },
             esEmpleador: {
-                required: false,
-                dataType: Boolean
+                required: false
+                //dataType: Boolean
             },
             frecAtencion: {
                 required: false
@@ -134,7 +159,24 @@
                     Nacionalidad: $scope.personaHumana.nacionalidad,
                     FechaNacimiento: $scope.personaHumana.fechaNacimiento,
                     EstadoCivil: $scope.personaHumana.estadoCivil,
-                    Profesion: $scope.personaHumana.profesion
+                    Profesion: $scope.personaHumana.profesion,
+                    Celular: $scope.personaHumana.celular,
+                    TelefonoLaboral: $scope.personaHumana.telefonoLaboral,
+                    EmailLaboral: $scope.personaHumana.emailLaboral,
+                    EmailPersonal: $scope.personaHumana.emailPersonal,
+                    Domicilio: $scope.personaHumana.domicilio,
+                    Localidad: $scope.personaHumana.localidad,
+                    Provincia: $scope.personaHumana.provincia,
+                    DomicilioComercial: $scope.personaHumana.domicilioComercial,
+                    LocalidadComercial: $scope.personaHumana.localidadComercial,
+                    ProvinciaComercial: $scope.personaHumana.provinciaComercial,
+                    NroIngresosBrutos: $scope.personaHumana.nroIngresosBrutos,
+                    FechaCierreEjercicios: $scope.personaHumana.fechaCierreEjercicios,
+                    EsEmpleador: $scope.personaHumana.esEmpleador,
+                    FrecAtencion: $scope.personaHumana.frecAtencion,
+                    Responsable: $scope.personaHumana.responsable,
+                    SituacionImpositiva: $scope.personaHumana.situacionImpositiva,
+                    Observaciones: $scope.personaHumana.observaciones
                 },
                 method: 'POST',
                 headers: {
@@ -145,6 +187,7 @@
                 if (response != null && response.data > 0) {
                     $scope.showErrorMessage = true;
                 } else {
+                    $scope.personaHumanaCreada = true;
                     $window.location.href = "/Home/Index";
                 }
                 $scope.helpers.uiLoader('hide');
@@ -154,6 +197,8 @@
             });
         }
     }
+
+
 
     $scope.helpers.uiLoader('hide');
 }]);
