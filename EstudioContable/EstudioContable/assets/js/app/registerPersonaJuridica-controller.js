@@ -42,7 +42,7 @@
             },
             cuit: {
                 required: true,
-                maxlength: 9
+                //maxlength: 9
             },
             TipoDePersonaJuridica: {
                 required: true,
@@ -64,7 +64,7 @@
             },
             TelefonoLaboral: {
                 required: true,
-                dataType: tel
+                //dataType: tel
             },
             EmailLaboral: {
                 required: true
@@ -86,7 +86,7 @@
             },
             FechaCierre: {
                 required: false,
-                dataType: Date
+                //dataType: Date
             },
             Actividades: {
                 required: true
@@ -96,7 +96,7 @@
             },
             DomicioComercial: {
                 required: false,
-                dataType: Boolean
+                //dataType: Boolean
             },
             CCT: {
                 required: false,
@@ -115,7 +115,7 @@
             },
             FechaRes: {
                 required: false,
-                dataType: Date
+                //dataType: Date
             },
             FolioD: {
                 required: false
@@ -125,7 +125,7 @@
             },
             MatriculaNum: {
                 required: false,
-                dataType: Boolean
+                //dataType: Boolean
             },
             Observaciones: {
                 required: false

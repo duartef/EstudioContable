@@ -40,7 +40,7 @@
             },
             FechaNacimiento: {
                 required: false,
-                dataType: Date
+                //dataType: Date
             },
             EstadoCivil: {
                 required: false
@@ -51,11 +51,11 @@
 
             Celular: {
                 required: true,
-                dataType: tel
+                //dataType: tel
             },
             TelefonoLaboral: {
                 required: false,
-                dataType: tel
+                //dataType: tel
             },
             EmailLaboral: {
                 required: false
@@ -74,7 +74,7 @@
             },
             PorcentajeParticipacion: {
                 required: false,
-                dataType: Date
+                //dataType: Date
             },
         }
     }

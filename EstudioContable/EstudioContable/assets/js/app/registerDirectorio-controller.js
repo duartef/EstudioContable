@@ -41,7 +41,7 @@
             },
             FechaNacimiento: {
                 required: false,
-                dataType: Date
+                //dataType: Date
             },
             EstadoCivil: {
                 required: false
@@ -52,11 +52,11 @@
 
             Celular: {
                 required: true,
-                dataType: tel
+                //dataType: tel
             },
             TelefonoLaboral: {
                 required: false,
-                dataType: tel
+                //dataType: tel
             },
             EmailLaboral: {
                 required: false
@@ -75,11 +75,11 @@
             },
             FechaDesignacion: {
                 required: false,
-                dataType: Date
+                //dataType: Date
             },
             VencimientoMandato: {
                 required: false,
-                dataType: Date
+                //dataType: Date
             },
         }
     }
