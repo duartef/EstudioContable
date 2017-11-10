@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EstudioContable.Models;
+using System.ServiceModel.Web;
 
 namespace EstudioContable.Controllers
 {
@@ -201,7 +202,7 @@ namespace EstudioContable.Controllers
         // POST: /Account/RegisterPersonaHumana
         [HttpPost]
         [AllowAnonymous]
-        public int RegisterPersonaHumana(PersonaHumana ph)
+        public string RegisterPersonaHumana(PersonaHumana ph)
         {
             try
             {
@@ -217,17 +218,36 @@ namespace EstudioContable.Controllers
                     UserManager.AddToRole(user.Id, "Cliente");
                     //return 0;
                 }
-                
-                //ph.UserId = user.Id;
 
-                //db.PersonasHumanas.Add(ph);
-                //db.SaveChanges();
-                //return 
-                return 0;
+                ph.UserId = user.Id;
+
+                db.PersonasHumanas.Add(ph);
+                db.SaveChanges();
+                return ph.Id.ToString();
+                //return 0;
             }
             catch (Exception ex)
             {
-                return 1;
+                return "Error: " + ex.Message;
+            }
+        }
+
+        //
+        // POST: /Account/AddActividadToPersonaHumana
+        [HttpPost]
+        [AllowAnonymous]
+        public string AddActividad(ActividadDeLaPersonaHumana actividad)
+        {
+            try
+            {
+                db.ActividadesDeLaPersonaHumana.Add(actividad);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
             }
         }
 

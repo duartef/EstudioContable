@@ -3,6 +3,7 @@
     $scope.showErrorMessage = false;
     $scope.actividades = [];
     $scope.personaHumanaCreada = false;
+    $scope.personaHumanaId = '';
 
     $scope.personaHumana = {
         nombre: '',
@@ -33,7 +34,37 @@
     }
 
     $scope.addActividad = function (event) {
-        alert(event.target.id);
+        if (event.target.id == null || event.target.id == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/AddActividad',
+                dataType: 'json',
+                data: {
+                    ActividadId: event.target.id,
+                    PersonaHumanaId: $scope.personaHumanaId
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Actividad agregadad con éxito")
+                    //$scope.personaHumanaCreada = true;
+                    //$window.location.href = "/Home/Index";
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
     }
 
     $scope.addCCT = function (event) {
@@ -184,11 +215,11 @@
                 }
             }).
             then(function (response) {
-                if (response != null && response.data > 0) {
+                if (response != null && response.data.startsWith("Error") == true) {
                     $scope.showErrorMessage = true;
                 } else {
-                    $scope.personaHumanaCreada = true;
-                    $window.location.href = "/Home/Index";
+                    $scope.personaHumanaId = response.data;
+                    //$window.location.href = "/Home/Index";
                 }
                 $scope.helpers.uiLoader('hide');
             }, function (error) {

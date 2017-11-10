@@ -211,9 +211,9 @@
                                 </select>
                             </div>
                         </div>
-                    
 
-                    
+
+
                         <label class="col-xs-6" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Es Empleador?</label>
                         <div class="col-xs-6">
                             <div class="radio">
@@ -253,95 +253,90 @@
                         <div class="col-sm-6 col-sm-offset-3">
                             <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>Guardar</button>
                         </div>
-                      </div>
-                    
+                    </div>
+                </form>
+
+                <form class="form-horizontal" name="addActividadToPhForm">
                     <div class="form-group">
                         <div class="col-md-3">
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>
-                                    Actividades
-                             </button>
-                            </div>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:scroll">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <h5 class="modal-title" id="exampleModalLabel" style="font-family:'Source Serif Pro';color:#808080">Actividades</h5>
-                                            <div class="alert alert-info"style="background-color:#ffffff;color:#009881">
-                                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Ordenado por: {{ sortType }}</p>
-                                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
-                                                <p hidden="hidden" style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Search Query: {{ filtro }}</p>
-                                            </div>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881">
+                                <i class="fa fa-plus pull-right"></i>
+                                Agregar Actividades
+                            </button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" style="overflow-y:scroll" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">Actividades</h5>
+                                        <div style="background-color:#ffffff;color:#009881" class="alert alert-info">
+                                            <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Ordenado por: {{ sortType }}</p>
+                                            <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
+                                            <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px" hidden="hidden">Search Query: {{ filtro }}</p>
+                                        </div>
 
+                                        <div class="form-group">
                                             <div class="form-group">
-                                                <div class="form-group">
-                                                    <div class="input-group" style="padding-left:20px;padding-right:20px">
-                                                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                                                        <input type="text" style="max-width:inherit" class="form-control" placeholder="Buscar.." ng-model="filtro">
-                                                    </div>
+                                                <div class="input-group" style="padding-left:20px;padding-right:20px">
+                                                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                                                    <input type="text" class="form-control" placeholder="Buscar.." ng-model="filtro">
                                                 </div>
                                             </div>
-
-
-                                            <div class="form-group">
-                                                <table class="table table-bordered table-striped">
-
-                                                    <thead>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#" style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
-                                                                    Id
-                                                                    <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
-                                                                    <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
-                                                                </a>
-                                                            </td>
-                                                            <td>
-                                                                <a href="#" style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
-                                                                    Descripción
-                                                                    <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
-                                                                    <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <tbody >
-                                                        <tr ng-repeat="actividad in actividades | orderBy:sortType:sortReverse | filter:filtro">
-                                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" >{{actividad.Id}}</td>
-                                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividad.Descripcion}}</td>
-                                                            <td><button class="btn btn-block btn-primary" data-ng-click="addActividad($event)" id="{{actividad.Id}}" style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><i class="fa fa-plus pull-right"></i></button></td>
-                                                        </tr>
-                                                    </tbody>
-
-                                                </table>
-                                            </div>
-
-                                          
-
-
-                                            @*<div class="modal-body">
-                                ...
-                            </div>*@
-                                            @*<div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary" style="background-color:#009881; border-color:#009881">Agregar</button>
-                                            </div>*@
                                         </div>
+
+
+                                        <div class="form-group">
+                                            <table class="table table-bordered table-striped">
+
+                                                <thead>
+                                                    <tr>
+                                                        <td>
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+                                                                Id
+                                                                <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                                                Descripción
+                                                                <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr ng-repeat="actividad in actividades | orderBy:sortType:sortReverse | filter:filtro">
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividad.Id}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividad.Descripcion}}</tdstyle="font-family:'Source>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-block btn-primary" data-ng-click="addActividad($event)" id="{{actividad.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+
+
+
+
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-block btn-primary" type="button" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881;max-width:100%"><i class="fa fa-plus pull-right"></i>CCT</button>
-                            </div>
-                        <div class="col-md-3">
-                            </div>
                         </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-block btn-primary" type="button" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
