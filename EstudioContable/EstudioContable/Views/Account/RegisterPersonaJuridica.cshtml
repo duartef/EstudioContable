@@ -90,7 +90,7 @@
                     <div class="form-group">
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="tel" id="Celular" name="Celular" ng-model="personaJuridica.Celular">
+                                <input class="form-control" type="text" id="Celular" name="Celular" ng-model="personaJuridica.Celular">
                                 <label for="Celular">Celular</label>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
 
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="tel" id="TelefonoLaboral" name="TelefonoLaboral" ng-model="personaJuridica.TelefonoLaboral">
+                                <input class="form-control" type="text" id="TelefonoLaboral" name="TelefonoLaboral" ng-model="personaJuridica.TelefonoLaboral">
                                 <label for="TelefonoLaboral">Telefono Laboral</label>
                             </div>
                         </div>
@@ -300,15 +300,43 @@
                         </div>
                     </div>
                     
+                   
+
+
+                      <div class="form-group">
+                        <label class="col-xs-12" for="example-textarea-input" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Observaciones</label>
+                        <div class="col-xs-12">
+                            <textarea class="form-control" id="example-textarea-input" name="example-textarea-input" rows="6" placeholder="Observaciones"></textarea>
+                        </div>
+                    </div>
+
+                    @*<div class="form-group">
+                <div class="col-xs-12 text-center">
+                    <label class="css-input switch switch-sm switch-success">
+                        <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
+                    </label>
+                </div>
+            </div>*@
+                    <div class="alert alert-danger alert-dismissable" ng-show="showErrorMessage">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h3 class="font-w300 push-15">Error</h3>
+                        <p>Ha ocurrido un error al intentar registar el usuario. Por favor intente nuevamente o pongase en contacto con el administrador del sistema.</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>Guardar</button>
+                        </div>
+                    </div>
+
                     @*-------------------------------Socio-----------------------------*@
-                    
+
                     <div class="form-group" ng-controller="RegisterSocioController">
                         <div class="col-xs-6 ">
                             <div class="block-header">
                                 <h3 class="block-title">Socio</h3>
                             </div>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881">
-                                + Agregar Socio
+                                <i class="fa fa-plus pull-right"></i>Socio
                             </button>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -350,7 +378,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-material form-material-primary ">
                                                         <label for="surname">Nacionalidad</label>
-                                                        <select class="form-control" id="Nacionalidad" name="Nacionalidad" ng-model="Socio.Nacionalidad" >
+                                                        <select class="form-control" id="Nacionalidad" name="Nacionalidad" ng-model="Socio.Nacionalidad">
                                                             <option value="Argentina">Argentina</option>
                                                             <option value="Brasileña">Brasileña</option>
                                                             <option value="Uruguaya">Uruguaya</option>
@@ -390,7 +418,7 @@
                                             <div class="form-group">
                                                 <div class="col-xs-6">
                                                     <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="tel" id="Celular" name="Celular" ng-model="Socio.Celular">
+                                                        <input class="form-control" type="text" id="Celular" name="Celular" ng-model="Socio.Celular">
                                                         <label for="Celular">Celular</label>
                                                     </div>
                                                 </div>
@@ -398,7 +426,7 @@
 
                                                 <div class="col-xs-6">
                                                     <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="tel" id="TelefonoLaboral" name="TelefonoLaboral" ng-model="Socio.TelefonoLaboral">
+                                                        <input class="form-control" type="text" id="TelefonoLaboral" name="TelefonoLaboral" ng-model="Socio.TelefonoLaboral">
                                                         <label for="TelefonoLaboral">Telefono Laboral</label>
                                                     </div>
                                                 </div>
@@ -450,15 +478,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            
+
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+
 
                                             @*<div class="modal-body">
-                                                ...
-                                            </div>*@
+                                    ...
+                                </div>*@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                                 <button type="button" class="btn btn-primary" style="background-color:#009881; border-color:#009881">Agregar</button>
@@ -469,29 +497,29 @@
                             </div>
                         </div>
 
-                                <div class="col-xs-6 ">
-                                    <div class="block-content">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Lista Socios</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr style="font-size:12px">
-                                                    <td>Socio 1</td>
-                                                </tr>
-                                                <tr style="font-size:12px">
+                        <div class="col-xs-6 ">
+                            <div class="block-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Lista Socios</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="font-size:12px">
+                                            <td>Socio 1</td>
+                                        </tr>
+                                        <tr style="font-size:12px">
 
-                                                    <td>Socio 2</td>
-                                                </tr>
+                                            <td>Socio 2</td>
+                                        </tr>
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
-           
+                        </div>
+                    </div>
+
                     @*--------------------------------Directorio-------------------------*@
 
                     <div class="form-group" ng-controller="RegisterDirectorioController">
@@ -500,7 +528,8 @@
                                 <h3 class="block-title">Director</h3>
                             </div>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881">
-                                + Agregar Director
+                                <i class="fa fa-plus pull-right"></i>
+                                Director
                             </button>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -542,13 +571,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-material form-material-primary ">
                                                         <label for="Nacionalidad">Nacionalidad</label>
-                                                            <select class="form-control" id="Nacionalidad" name="Nacionalidad" ng-model="Director.Nacionalidad">
-                                                                <option value="Argentina">Argentina</option>
-                                                                <option value="Brasileña">Brasileña</option>
-                                                                <option value="Uruguaya">Uruguaya</option>
-                                                                <option value="Chilena">Chilena</option>
-                                                                <option value="Paraguaya">Paraguaya</option>
-                                                            </select>
+                                                        <select class="form-control" id="Nacionalidad" name="Nacionalidad" ng-model="Director.Nacionalidad">
+                                                            <option value="Argentina">Argentina</option>
+                                                            <option value="Brasileña">Brasileña</option>
+                                                            <option value="Uruguaya">Uruguaya</option>
+                                                            <option value="Chilena">Chilena</option>
+                                                            <option value="Paraguaya">Paraguaya</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-6">
@@ -582,7 +611,7 @@
                                             <div class="form-group">
                                                 <div class="col-xs-6">
                                                     <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="tel" id="Celular" name="Celular" ng-model="Director.Celular">
+                                                        <input class="form-control" type="text" id="Celular" name="Celular" ng-model="Director.Celular">
                                                         <label for="Celular"> Celular</label>
                                                     </div>
                                                 </div>
@@ -604,7 +633,7 @@
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Domicilio" name="Domicilio" ng-controller="Director.Domicilio" >
+                                                        <input class="form-control" type="text" id="Domicilio" name="Domicilio" ng-controller="Director.Domicilio">
                                                         <label for="Domicilio">Domicilio</label>
                                                     </div>
                                                 </div>
@@ -633,12 +662,13 @@
                                                             <option value="Presidente">Presidente</option>
                                                             <option value="Director Suplente">Director Suplente</option>
                                                             <option value="Gerente">Gerente</option>
-                                                            <option value="Fiduciario"> Fiduciario</option>                                                                                   </select>
+                                                            <option value="Fiduciario"> Fiduciario</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="date" id="FechaDesignacion" name="FechaDesignacion" ng-controller="Director.FechaDesignacion" >
+                                                        <input class="form-control" type="date" id="FechaDesignacion" name="FechaDesignacion" ng-controller="Director.FechaDesignacion">
                                                         <label for="FechaDesignacion">Fecha de Designacion</label>
                                                     </div>
                                                 </div>
@@ -650,7 +680,7 @@
                                                 <div class="col-xs-6">
                                                     <label>Vencimiento del Mandato</label>
                                                     <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="date" id="VencimientoMandato" name="VencimientoMandato" ng-controller="Director.VencimientoMandato" >
+                                                        <input class="form-control" type="date" id="VencimientoMandato" name="VencimientoMandato" ng-controller="Director.VencimientoMandato">
                                                     </div>
                                                 </div>
                                             </div>
@@ -693,31 +723,6 @@
                         </div>
                     </div>
 
-
-                      <div class="form-group">
-                        <label class="col-xs-12" for="example-textarea-input" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Observaciones</label>
-                        <div class="col-xs-12">
-                            <textarea class="form-control" id="example-textarea-input" name="example-textarea-input" rows="6" placeholder="Observaciones"></textarea>
-                        </div>
-                    </div>
-
-                    @*<div class="form-group">
-                <div class="col-xs-12 text-center">
-                    <label class="css-input switch switch-sm switch-success">
-                        <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
-                    </label>
-                </div>
-            </div>*@
-                    <div class="alert alert-danger alert-dismissable" ng-show="showErrorMessage">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h3 class="font-w300 push-15">Error</h3>
-                        <p>Ha ocurrido un error al intentar registar el usuario. Por favor intente nuevamente o pongase en contacto con el administrador del sistema.</p>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-6 col-sm-offset-3">
-                            <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>Registrar</button>
-                        </div>
-                    </div>
                 </form>
         </div>
         </div>
