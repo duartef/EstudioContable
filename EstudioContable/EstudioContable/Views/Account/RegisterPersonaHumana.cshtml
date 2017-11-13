@@ -238,12 +238,12 @@
                     </div>
 
                     @*<div class="form-group">
-                            <div class="col-xs-12 text-center">
-                                <label class="css-input switch switch-sm switch-success">
-                                    <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
-                                </label>
-                            </div>
-                        </div>*@
+                    <div class="col-xs-12 text-center">
+                        <label class="css-input switch switch-sm switch-success">
+                            <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
+                        </label>
+                    </div>
+                </div>*@
                     <div class="alert alert-danger alert-dismissable" ng-show="showErrorMessage">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                         <h3 class="font-w300 push-15">Error</h3>
@@ -256,14 +256,15 @@
                     </div>
                 </form>
 
+                @*------------------Form Actividad----------------------*@
+
                 <form class="form-horizontal" name="addActividadToPhForm">
                     <div class="form-group">
-                        <div class="col-md-3">
-                        </div>
-                        <div class="col-md-3">
+
+                        <div class="col-md-6">
                             <button class="btn btn-block btn-primaryy" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881;color:#fff">
                                 <i class="fa fa-plus pull-right"></i>
-                                 Actividades
+                                Actividades
                             </button>
                         </div>
                         <!-- Modal -->
@@ -276,23 +277,23 @@
                                         </button>
                                         <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">Actividades</h5>
                                         <div style="background-color:#ffffff;color:#009881">
-                                           <br />
+                                            <br />
                                             <div class="col-md-12">
-                                            <textarea class="form-control" readonly></textarea>
-                                        </div>
+                                                <textarea class="form-control" readonly></textarea>
+                                            </div>
                                             @*<p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Ordenado por: {{ sortType }}</p>
-                                            <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
-                                            <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px" hidden="hidden">Search Query: {{ filtro }}</p>*@
+                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
+                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px" hidden="hidden">Search Query: {{ filtro }}</p>*@
 
                                         </div>
-                                       
+
 
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <div class="input-group" style="padding-left:20px;padding-right:20px">
-                                                    
+
                                                     <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                                                   
+
                                                     <input type="text" class="form-control" placeholder="Buscar.." ng-model="filtro">
                                                 </div>
                                             </div>
@@ -331,23 +332,73 @@
 
                                             </table>
                                         </div>
-
-
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <button class="btn btn-block btn-primary" type="button" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
-                        </div>
-                        <div class="col-md-3">
-                        </div>
                     </div>
                 </form>
+
+                @*------------------Tabla Actividades------------------*@
+                <div class="col-xs-6 ">
+                    <div class="block-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Lista Actividades</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="font-size:12px">
+                                    <td>Actividad 1</td>
+                                </tr>
+                                <tr style="font-size:12px">
+
+                                    <td>Actividad 2</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+           
+                              
+                
+
+
+
+            
+                 @*--------------Form CCT---------------*@         
+                        <div class="col-md-6">
+                            <button class="btn btn-block btn-primary" type="button" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
+                        </div>
+                @*-----------------tabla cct---------------------*@
+                        <div class="col-xs-6 ">
+                            <div class="block-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>CCT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="font-size:12px">
+                                            <td>CCT 1</td>
+                                        </tr>
+                                        <tr style="font-size:12px">
+
+                                            <td>CCT 2</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                       
+                    </div>
             </div>
-        </div>
+                
+           
         <!-- END Section Content -->
     </section>
 
