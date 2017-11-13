@@ -54,6 +54,21 @@ namespace EstudioContable.Controllers
 
         }
 
+        [Route("api/Service/GetAllConvenios")]
+        public IEnumerable<ConvenioColectivoDeTrabajo> GetAllConvenios()
+        {
+            try
+            {
+                var a = db.ConveniosColectivos.ToList();
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<ConvenioColectivoDeTrabajo>();
+            }
+
+        }
+
         [Route("api/Service/GetAllUsuarios")]
         public IEnumerable<ApplicationUser> GetAllUsuarios()
         {

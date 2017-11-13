@@ -375,9 +375,75 @@
                 <form class="form-horizontal">
                     <div class="form-group">
                         <div class="col-md-6">
-                            <button class="btn btn-block btn-primary" type="button" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
+                            <button class="btn btn-block btn-primary" type="button"  data-toggle="modal" data-target="#CCTModal"  data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
                         </div>
-                        @*-----------------tabla cct---------------------*@
+                        <div class="modal fade" style="overflow-y:scroll" id="CCTModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">CCT</h5>
+                                        <div style="background-color:#ffffff;color:#009881">
+                                            
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" readonly></textarea>
+                                            </div>
+                                      
+
+                                        </div>
+                                        <br />
+
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <div class="input-group" style="padding-left:20px;padding-right:20px">
+
+                                                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+                                                    <input type="text" class="form-control" placeholder="Buscar.." ng-model="filtro">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <table class="table table-bordered table-striped">
+
+                                                <thead>
+                                                    <tr>
+                                                        <td hidden="hidden">
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+                                                                Id
+                                                                <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                                                Convenio
+                                                                <span ng-show="sortType == 'Convenio' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Convenio' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr ng-repeat="ConvenioColectivoDeTrabajo in ConveniosColectivos | orderBy:sortType:sortReverse | filter:filtro">
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{ConvenioColectivoDeTrabajo.Id}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{ConvenioColectivoDeTrabajo.Convenio}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-block btn-primary" data-ng-click="addActividad($event)" id="{{ConvenioColectivoDeTrabajo.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
                         <div class="col-md-6 ">
                             <div class="block-content">
                                 <table class="table">

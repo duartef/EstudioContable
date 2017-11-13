@@ -2,6 +2,7 @@
     $scope.$parent.header = { title: "Registro de Persona Humana", description: "Crea una cuenta." };
     $scope.showErrorMessage = false;
     $scope.actividades = [];
+    $scope.conveniosColectivos = [];
     $scope.personaHumanaCreada = false;
     $scope.personaHumanaId = '';
 
@@ -78,9 +79,23 @@
                //$("#myTable").dataTable().data = $scope.usuarios;
            }
 
+   
+
            //$scope.helpers.uiLoader('hide');
            //$scope.helpers.uiBlocks('#popUpWin', 'state_normal');
        },
+       function (error) {
+           $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       }
+    );
+
+    $http.get('/api/Service/GetAllConvenios').then(
+   function (response) {
+       if (response != null && response.data != null) {
+           $scope.conveniosColectivos = response.data;
+           //$("#myTable").dataTable().data = $scope.usuarios;
+       }
+   },
        function (error) {
            $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
        }
