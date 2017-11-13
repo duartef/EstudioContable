@@ -255,6 +255,8 @@
                         </div>
                     </div>
                 </form>
+                <br />
+                <br />
 
                 @*------------------Form Actividad----------------------*@
 
@@ -282,8 +284,8 @@
                                                 <textarea class="form-control" readonly></textarea>
                                             </div>
                                             @*<p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Ordenado por: {{ sortType }}</p>
-                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
-                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px" hidden="hidden">Search Query: {{ filtro }}</p>*@
+                                        <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
+                                        <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px" hidden="hidden">Search Query: {{ filtro }}</p>*@
 
                                         </div>
 
@@ -336,44 +338,47 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        @*------------------Tabla Actividades------------------*@
+                        <div class="col-xs-6 ">
+                            <div class="block-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Lista Actividades</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="font-size:12px">
+                                            <td>Actividad 1</td>
+                                        </tr>
+                                        <tr style="font-size:12px">
+
+                                            <td>Actividad 2</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </form>
 
-                @*------------------Tabla Actividades------------------*@
-                <div class="col-xs-6 ">
-                    <div class="block-content">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Lista Actividades</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="font-size:12px">
-                                    <td>Actividad 1</td>
-                                </tr>
-                                <tr style="font-size:12px">
-
-                                    <td>Actividad 2</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-           
-                              
-                
 
 
 
-            
-                 @*--------------Form CCT---------------*@         
+
+
+
+                @*--------------Form CCT---------------*@
+                <form class="form-horizontal">
+                    <div class="form-group">
                         <div class="col-md-6">
                             <button class="btn btn-block btn-primary" type="button" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
                         </div>
-                @*-----------------tabla cct---------------------*@
-                        <div class="col-xs-6 ">
+                        @*-----------------tabla cct---------------------*@
+                        <div class="col-md-6 ">
                             <div class="block-content">
                                 <table class="table">
                                     <thead>
@@ -394,12 +399,17 @@
                                 </table>
                             </div>
                         </div>
-                       
                     </div>
+
+                </form>
+
             </div>
-                
-           
-        <!-- END Section Content -->
+        </div>
+
+            
+
+
+            <!-- END Section Content -->
     </section>
 
 </div>
