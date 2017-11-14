@@ -238,12 +238,12 @@
                     </div>
 
                     @*<div class="form-group">
-                    <div class="col-xs-12 text-center">
-                        <label class="css-input switch switch-sm switch-success">
-                            <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
-                        </label>
-                    </div>
-                </div>*@
+                            <div class="col-xs-12 text-center">
+                                <label class="css-input switch switch-sm switch-success">
+                                    <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
+                                </label>
+                            </div>
+                        </div>*@
                     <div class="alert alert-danger alert-dismissable" ng-show="showErrorMessage">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                         <h3 class="font-w300 push-15">Error</h3>
@@ -284,8 +284,8 @@
                                                 <textarea class="form-control" readonly></textarea>
                                             </div>
                                             @*<p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Ordenado por: {{ sortType }}</p>
-                                        <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
-                                        <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px" hidden="hidden">Search Query: {{ filtro }}</p>*@
+                                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
+                                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px" hidden="hidden">Search Query: {{ filtro }}</p>*@
 
                                         </div>
 
@@ -339,7 +339,6 @@
                             </div>
                         </div>
 
-
                         @*------------------Tabla Actividades------------------*@
                         <div class="col-xs-6 ">
                             <div class="block-content">
@@ -351,20 +350,20 @@
                                     </thead>
                                     <tbody>
                                         <tr style="font-size:12px">
-                                            <td>Actividad 1</td>
-                                        </tr>
-                                        <tr style="font-size:12px">
-
-                                            <td>Actividad 2</td>
+                                        <tr ng-repeat="actividadDeLaPersona in actividadesDeLaPersona | orderBy:sortType:sortReverse | filter:filtro">
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividadDeLaPersona.Id}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividadDeLaPersona.Descripcion}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-block btn-primary" data-ng-click="removeActividad($event)" id="{{actividadDeLaPersona.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
                                         </tr>
 
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+
+
                     </div>
                 </form>
-
 
 
 
@@ -375,7 +374,7 @@
                 <form class="form-horizontal">
                     <div class="form-group">
                         <div class="col-md-6">
-                            <button class="btn btn-block btn-primary" type="button"  data-toggle="modal" data-target="#CCTModal"  data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
+                            <button class="btn btn-block btn-primary" type="button" data-toggle="modal" data-target="#CCTModal" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
                         </div>
                         <div class="modal fade" style="overflow-y:scroll" id="CCTModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -386,11 +385,11 @@
                                         </button>
                                         <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">CCT</h5>
                                         <div style="background-color:#ffffff;color:#009881">
-                                            
+
                                             <div class="col-md-12">
                                                 <textarea class="form-control" readonly></textarea>
                                             </div>
-                                      
+
 
                                         </div>
                                         <br />
@@ -430,7 +429,7 @@
                                                 </thead>
 
                                                 <tbody>
-                                                    <tr ng-repeat="ConvenioColectivoDeTrabajo in ConveniosColectivos | orderBy:sortType:sortReverse | filter:filtro">
+                                                    <tr ng-repeat="ConvenioColectivoDeTrabajo in conveniosColectivos | orderBy:sortType:sortReverse | filter:filtro">
                                                         <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{ConvenioColectivoDeTrabajo.Id}}</td>
                                                         <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{ConvenioColectivoDeTrabajo.Convenio}}</td>
                                                         <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-block btn-primary" data-ng-click="addActividad($event)" id="{{ConvenioColectivoDeTrabajo.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
@@ -443,7 +442,7 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="col-md-6 ">
                             <div class="block-content">
                                 <table class="table">
@@ -454,13 +453,11 @@
                                     </thead>
                                     <tbody>
                                         <tr style="font-size:12px">
-                                            <td>CCT 1</td>
+                                        <tr ng-repeat="cctDeLaPersona in cctsDeLaPersona | orderBy:sortType:sortReverse | filter:filtro">
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{cctDeLaPersona.Id}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{cctDeLaPersona.Descripcion}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-block btn-primary" data-ng-click="removeCCT($event)" id="{{cctDeLaPersona.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
                                         </tr>
-                                        <tr style="font-size:12px">
-
-                                            <td>CCT 2</td>
-                                        </tr>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -472,10 +469,10 @@
             </div>
         </div>
 
-            
 
 
-            <!-- END Section Content -->
+
+        <!-- END Section Content -->
     </section>
 
 </div>

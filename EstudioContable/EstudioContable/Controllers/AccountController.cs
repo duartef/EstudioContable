@@ -252,6 +252,65 @@ namespace EstudioContable.Controllers
         }
 
         //
+        // POST: /Account/RemoveActividadToPersonaHumana
+        [HttpPost]
+        [AllowAnonymous]
+        public string RemoveActividad(ActividadDeLaPersonaHumana actividad)
+        {
+            try
+            {
+                db.ActividadesDeLaPersonaHumana.Remove(actividad);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
+
+        //
+        // POST: /Account/AddCCT
+        [HttpPost]
+        [AllowAnonymous]
+        public string AddCCT(ConvenioDeLaPersonaHumana convenio)
+        {
+            try
+            {
+                db.ConveniosDeLaPersonaHumana.Add(convenio);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
+        //
+        // POST: /Account/RemoveCCT
+        [HttpPost]
+        [AllowAnonymous]
+        public string RemoveCCT(ConvenioDeLaPersonaHumana convenio)
+        {
+            try
+            {
+                db.ConveniosDeLaPersonaHumana.Remove(convenio);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
+
+        //
         // POST: /Account/RegisterCliente
         [HttpPost]
         [AllowAnonymous]
