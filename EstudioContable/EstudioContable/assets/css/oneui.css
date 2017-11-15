@@ -1981,6 +1981,7 @@ a.list-group-item:focus {
 }
 .modal-body {
   padding: 20px;
+  overflow-y: auto;
 }
 .modal-footer {
   padding: 12px 20px;
