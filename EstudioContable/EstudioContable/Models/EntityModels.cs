@@ -68,17 +68,37 @@ namespace EstudioContable.Models
     {
         [Key]
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         //Persona Juridica
         public string TipoDePersonaJuridica { get; set; }
-        public string Denominacion { get; set; }
+        public string Denomicacion { get; set; }
+        public string cuit { get; set; }
         public string DomicilioLegal { get; set; }
-        public string ResolucionNro { get; set; }
-        public DateTime ResolucionFecha { get; set; }
-        public string TomoNro { get; set; }
-        public string FolioDesde { get; set; }
-        public string FolioHasta { get; set; }
-        public string MatriculaNro { get; set; }
+        public string Localidad { get; set; }
+        public string Provincia { get; set; }
+        public string AgenciaAfip { get; set; } 
+        public string Celular { get; set; }
+        public string TelefonoLaboral { get; set; }
+        public string EmailLaboral { get; set; }
+        public string EmailPersonal { get; set; }
+        public string DomicioComercial { get; set; }
+        public string LocalidadComercial { get; set; }
+        public string ProvinciaComercial { get; set; }
+        public string NumeroIngresosBrutos { get; set; }
+        public DateTime FechaCierre { get; set; }
+        public string Actividades { get; set; }
+        public string EsEmpleador { get; set; }
+        public string CCT { get; set; }
+        public string Frecuencia { get; set; }
+        public string ResponsableEstudio { get; set; }
+        public string ResNum { get; set; }
+        public string TomoN { get; set; }
+        public DateTime FechaRes { get; set; }
+        public string FolioD { get; set; }
+        public string FolioH { get; set; }
+        public string MatriculaNum { get; set; }
+        public string Claves { get; set; }
+        public string Observaciones { get; set; }
     }
 
     public class Socio
@@ -153,6 +173,14 @@ namespace EstudioContable.Models
         public string Convenio { get; set; }
     }
 
+    public class ConvenioDeLaPersonaJuridica
+    {
+        [Key]
+        public int Id { get; set; }
+        public int CctId { get; set; }
+        public int PersonaJuridicaId { get; set; }
+    }
+
     public class Actividad
     {
         [Key]
@@ -169,6 +197,14 @@ namespace EstudioContable.Models
         public int PersonaHumanaId { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
+    }
+
+    public class ActividadDeLaPersonaJurica
+    {
+        [Key]
+        public int Id { get; set; }
+        public int ActividadId { get; set; }
+        public int PersonaJuricaId { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
