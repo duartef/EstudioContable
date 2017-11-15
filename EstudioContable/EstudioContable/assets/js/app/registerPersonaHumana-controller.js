@@ -107,15 +107,18 @@
     }
 
     $scope.refreshActividades = function () {
+        $scope.helpers.uiLoader('show');
         var a = String($scope.personaHumanaId);
         $http.get('/api/Service/GetActividadesDeLaPersonaHumana/' + a).then(
            function (response) {
                if (response != null && response.data != null) {
                    $scope.actividadesDeLaPersona = response.data;
                }
+               $scope.helpers.uiLoader('hide');
            },
            function (error) {
                $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+               $scope.helpers.uiLoader('hide');
            }
         );
     }
