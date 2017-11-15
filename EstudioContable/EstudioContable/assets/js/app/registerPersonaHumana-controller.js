@@ -1,12 +1,13 @@
 ﻿App.controller('RegisterPersonaHumanaController', ['$scope', '$window', '$http', function ($scope, $window, $http) {
     $scope.$parent.header = { title: "Registro de Persona Humana", description: "Crea una cuenta." };
     $scope.showErrorMessage = false;
-    $scope.actividades = [];
-    $scope.conveniosColectivos = [];
     $scope.personaHumanaCreada = false;
     $scope.personaHumanaId = '';
+
+    $scope.actividades = [];
+    $scope.conveniosColectivos = [];
     $scope.actividadesDeLaPersona = [];
-    $scope.cctDeLaPersona = [];
+    $scope.cctsDeLaPersona = [];
 
     $scope.personaHumana = {
         nombre: '',
@@ -35,7 +36,42 @@
         situacionImpositiva: '',
         observaciones: ''
     }
+       
 
+    ///////////Actividades////////////////
+    $scope.addActividad = function (event) {
+        if (event.target.id == null || event.target.id == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/AddActividad',
+                dataType: 'json',
+                data: {
+                    ActividadId: event.target.id,
+                    PersonaHumanaId: $scope.personaHumanaId
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Actividad agregadad con éxito");
+                    $scope.refreshActividades();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+    
     $scope.removeActividad = function (event) {
         if (event.target.id == null || event.target.id == '') {
             //alert("Ocurrio un error pruebe nuevamente por favor.")
@@ -60,10 +96,7 @@
                     $scope.showErrorMessage = true;
                 } else {
                     alert("Actividad eliminada con éxito");
-                    var index = array.indexOf(event.target.id);
-                    $scope.actividadesDeLaPersona.splice(index, 1);
-                    //$scope.personaHumanaCreada = true;
-                    //$window.location.href = "/Home/Index";
+                    $scope.refreshActividades();
                 }
                 $scope.helpers.uiLoader('hide');
             }, function (error) {
@@ -73,41 +106,40 @@
         }
     }
 
-    $scope.addActividad = function (event) {
-        if (event.target.id == null || event.target.id == '') {
-            //alert("Ocurrio un error pruebe nuevamente por favor.")
-        }
-        else {
-            $scope.helpers.uiLoader('show');
-            $http({
-                url: '/Account/AddActividad',
-                dataType: 'json',
-                data: {
-                    ActividadId: event.target.id,
-                    PersonaHumanaId: $scope.personaHumanaId
-                },
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }).
-            then(function (response) {
-                if (response != null && response.data.startsWith("Error") == true) {
-                    $scope.showErrorMessage = true;
-                } else {
-                    alert("Actividad agregadad con éxito");
-                    $scope.actividadesDeLaPersona.push($scope.actividades[event.target.id - 1]);
-                    //$scope.personaHumanaCreada = true;
-                    //$window.location.href = "/Home/Index";
-                }
-                $scope.helpers.uiLoader('hide');
-            }, function (error) {
-                $scope.showErrorMessage = true;
-                $scope.helpers.uiLoader('hide');
-            });
-        }
+    $scope.refreshActividades = function () {
+        var a = String($scope.personaHumanaId);
+        $http.get('/api/Service/GetActividadesDeLaPersonaHumana/' + a).then(
+           function (response) {
+               if (response != null && response.data != null) {
+                   $scope.actividadesDeLaPersona = response.data;
+               }
+           },
+           function (error) {
+               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+           }
+        );
     }
 
+    $http.get('/api/Service/GetAllActividades').then(
+       function (response) {
+           if (response != null && response.data != null) {
+               $scope.actividades = response.data;
+               //$("#myTable").dataTable().data = $scope.usuarios;
+           }
+
+
+
+           //$scope.helpers.uiLoader('hide');
+           //$scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       },
+       function (error) {
+           $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       }
+    );
+
+    ///////////Actividades////////////////
+
+    ///////////Convenios//////////////////
     $scope.addCCT = function (event) {
         if (event.target.id == null || event.target.id == '') {
             //alert("Ocurrio un error pruebe nuevamente por favor.")
@@ -131,9 +163,7 @@
                     $scope.showErrorMessage = true;
                 } else {
                     alert("Convenio agregado con éxito");
-                    $scope.cctDeLaPersona.push($scope.conveniosColectivos[event.target.id - 1]);
-                    //$scope.personaHumanaCreada = true;
-                    //$window.location.href = "/Home/Index";
+                    $scope.refreshConvenios();
                 }
                 $scope.helpers.uiLoader('hide');
             }, function (error) {
@@ -143,6 +173,20 @@
         }
     }
 
+    $scope.refreshConvenios = function () {
+        var a = String($scope.personaHumanaId);
+        $http.get('/api/Service/GetConveniossDeLaPersona/' + a).then(
+           function (response) {
+               if (response != null && response.data != null) {
+                   $scope.cctsDeLaPersona = response.data;
+               }
+           },
+           function (error) {
+               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+           }
+        );
+    }
+        
     $scope.removeCCT = function (event) {
         if (event.target.id == null || event.target.id == '') {
             //alert("Ocurrio un error pruebe nuevamente por favor.")
@@ -167,10 +211,7 @@
                     $scope.showErrorMessage = true;
                 } else {
                     alert("Convenio eliminado con éxito");
-                    var index = array.indexOf(event.target.id);
-                    $scope.cctDeLaPersona.splice(index, 1);
-                    //$scope.personaHumanaCreada = true;
-                    //$window.location.href = "/Home/Index";
+                    $scope.refreshConvenios();
                 }
                 $scope.helpers.uiLoader('hide');
             }, function (error) {
@@ -179,24 +220,7 @@
             });
         }
     }
-
-    $http.get('/api/Service/GetAllActividades').then(
-       function (response) {
-           if (response != null && response.data != null) {
-               $scope.actividades = response.data;
-               //$("#myTable").dataTable().data = $scope.usuarios;
-           }
-
-
-
-           //$scope.helpers.uiLoader('hide');
-           //$scope.helpers.uiBlocks('#popUpWin', 'state_normal');
-       },
-       function (error) {
-           $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
-       }
-    );
-
+    
     $http.get('/api/Service/GetAllConvenios').then(
        function (response) {
            if (response != null && response.data != null) {
@@ -209,13 +233,16 @@
        }
     );
 
+    ///////////Convenios//////////////////
+
+
     $scope.validationOptions = {
         rules: {
             nombre: {
                 required: true,
             },
             apellido: {
-                required: true,
+                required: false,
             },
             dni: {
                 required: true,
@@ -342,7 +369,7 @@
                     $scope.showErrorMessage = true;
                 } else {
                     $scope.personaHumanaId = response.data;
-                    //$window.location.href = "/Home/Index";
+                    alert("Persona guardada con éxito");
                 }
                 $scope.helpers.uiLoader('hide');
             }, function (error) {

@@ -217,13 +217,13 @@
                         <label class="col-xs-6" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Es Empleador?</label>
                         <div class="col-xs-6">
                             <div class="radio">
-                                <label for="EsEmpleadorSi">
-                                    <input type="radio" id="EsEmpleadorSi" name="EsEmpleadorSi" ng-model="personaHumana.esEmpleador" value="Si">Si
+                                <label for="example-radio1">
+                                    <input type="radio" id="example-radio1" name="example-radios" value="option1">Si
                                 </label>
                             </div>
                             <div class="radio">
-                                <label for="EsEmpleadorNo">
-                                    <input type="radio" id="EsEmpleadorNo" name="EsEmpleadorNo" ng-model="personaHumana.esEmpleador" value="No">No
+                                <label for="example-radio2">
+                                    <input type="radio" id="example-radio2" name="example-radios" value="option2">No
                                 </label>
                             </div>
                         </div>
@@ -238,12 +238,12 @@
                     </div>
 
                     @*<div class="form-group">
-                    <div class="col-xs-12 text-center">
-                        <label class="css-input switch switch-sm switch-success">
-                            <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
-                        </label>
-                    </div>
-                </div>*@
+                            <div class="col-xs-12 text-center">
+                                <label class="css-input switch switch-sm switch-success">
+                                    <input type="checkbox" id="frontend-signup-terms" name="frontend-signup-terms"><span></span> I agree with <a data-toggle="modal" data-target="#modal-signup-terms" href="#">terms &amp; conditions</a>
+                                </label>
+                            </div>
+                        </div>*@
                     <div class="alert alert-danger alert-dismissable" ng-show="showErrorMessage">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                         <h3 class="font-w300 push-15">Error</h3>
@@ -251,7 +251,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-floppy-o pull-right"></i>Guardar</button>
+                            <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>Guardar</button>
                         </div>
                     </div>
                 </form>
@@ -271,7 +271,7 @@
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" style="overflow-y:scroll" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document" style="overflow-y:initial!important">
+                            <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -280,7 +280,12 @@
                                         <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">Actividades</h5>
                                         <div style="background-color:#ffffff;color:#009881">
                                             <br />
-                                            
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" readonly></textarea>
+                                            </div>
+                                            @*<p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Ordenado por: {{ sortType }}</p>
+                                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
+                                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px" hidden="hidden">Search Query: {{ filtro }}</p>*@
 
                                         </div>
 
@@ -298,7 +303,7 @@
 
 
                                         <div class="form-group">
-                                            <table class="table table-bordered table-striped"  style="overflow-y:auto;display:block;float:left">
+                                            <table class="table table-bordered table-striped">
 
                                                 <thead>
                                                     <tr>
@@ -321,7 +326,7 @@
 
                                                 <tbody>
                                                     <tr ng-repeat="actividad in actividades | orderBy:sortType:sortReverse | filter:filtro">
-                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{actividad.Id}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividad.Id}}</td>
                                                         <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividad.Descripcion}}</td>
                                                         <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-block btn-primary" data-ng-click="addActividad($event)" id="{{actividad.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
                                                     </tr>
@@ -335,20 +340,20 @@
                         </div>
 
                         @*------------------Tabla Actividades------------------*@
-                        <div class="col-md-6 ">
+                        <div class="col-xs-6 ">
                             <div class="block-content">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Actividades</th>
+                                            <th>Lista Actividades</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr style="font-size:12px">
                                         <tr ng-repeat="actividadDeLaPersona in actividadesDeLaPersona | orderBy:sortType:sortReverse | filter:filtro">
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{actividadDeLaPersona.Id}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividadDeLaPersona.Id}}</td>
                                             <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividadDeLaPersona.Descripcion}}</td>
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-primary" data-ng-click="removeActividad($event)" id="{{actividadDeLaPersona.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-times"></i></button></td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-block btn-primary" data-ng-click="removeActividad($event)" id="{{actividadDeLaPersona.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
                                         </tr>
 
                                     </tbody>
@@ -368,12 +373,10 @@
                 @*--------------Form CCT---------------*@
                 <form class="form-horizontal">
                     <div class="form-group">
-                        
                         <div class="col-md-6">
                             <button class="btn btn-block btn-primary" type="button" data-toggle="modal" data-target="#CCTModal" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
                         </div>
-                        @*------Modal------*@
-                        <div class="modal fade" style="overflow-y:auto" id="CCTModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" style="overflow-y:scroll" id="CCTModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -383,9 +386,9 @@
                                         <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">CCT</h5>
                                         <div style="background-color:#ffffff;color:#009881">
 
-                                            @*<div class="col-md-12">
-                                            <textarea class="form-control" readonly></textarea>
-                                        </div>*@
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" readonly></textarea>
+                                            </div>
 
 
                                         </div>
@@ -427,9 +430,9 @@
 
                                                 <tbody>
                                                     <tr ng-repeat="ConvenioColectivoDeTrabajo in conveniosColectivos | orderBy:sortType:sortReverse | filter:filtro">
-                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"  hidden="hidden">{{ConvenioColectivoDeTrabajo.Id}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{ConvenioColectivoDeTrabajo.Id}}</td>
                                                         <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{ConvenioColectivoDeTrabajo.Convenio}}</td>
-                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-block btn-primary" data-ng-click="addCCT($event)" id="{{ConvenioColectivoDeTrabajo.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus"></i></button></td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-block btn-primary" data-ng-click="addCCT($event)" id="{{ConvenioColectivoDeTrabajo.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
                                                     </tr>
                                                 </tbody>
 
@@ -450,10 +453,10 @@
                                     </thead>
                                     <tbody>
                                         <tr style="font-size:12px">
-                                        <tr ng-repeat="cct in cctDeLaPersona | orderBy:sortType:sortReverse | filter:filtro">
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{cct.Id}}</td>
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{cct.Descripcion}}</td>
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-primary" data-ng-click="removeCCT($event)" id="{{cct.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-times"></i></button></td>
+                                        <tr ng-repeat="cctDeLaPersona in cctsDeLaPersona | orderBy:sortType:sortReverse | filter:filtro">
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{cctDeLaPersona.Id}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{cctDeLaPersona.Convenio}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-block btn-primary" data-ng-click="removeCCT($event)" id="{{cctDeLaPersona.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -464,13 +467,7 @@
                 </form>
 
             </div>
-            <div class="form-group">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881" onclick="location.href = '/Home/Index'">Finalizar</button>
-                </div>
-            </div>
-           
-                 
+        </div>
 
 
 

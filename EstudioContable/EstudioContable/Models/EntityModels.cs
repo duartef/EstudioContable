@@ -150,12 +150,14 @@ namespace EstudioContable.Models
         public int Id { get; set; }
         public int CctId { get; set; }
         public int PersonaHumanaId { get; set; }
+        public string Convenio { get; set; }
     }
 
     public class Actividad
     {
         [Key]
         public int Id { get; set; }
+        public string Codigo { get; set; }
         public string Descripcion { get; set; }
     }
 
@@ -165,6 +167,8 @@ namespace EstudioContable.Models
         public int Id { get; set; }
         public int ActividadId { get; set; }
         public int PersonaHumanaId { get; set; }
+        public string Codigo { get; set; }
+        public string Descripcion { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

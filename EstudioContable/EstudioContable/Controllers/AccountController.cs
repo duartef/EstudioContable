@@ -240,6 +240,10 @@ namespace EstudioContable.Controllers
         {
             try
             {
+                Actividad aux = db.Actividades.Find(actividad.ActividadId);
+                actividad.Descripcion = aux.Descripcion;
+                actividad.Codigo = aux.Codigo;
+
                 db.ActividadesDeLaPersonaHumana.Add(actividad);
                 db.SaveChanges();
 
@@ -259,7 +263,8 @@ namespace EstudioContable.Controllers
         {
             try
             {
-                db.ActividadesDeLaPersonaHumana.Remove(actividad);
+                ActividadDeLaPersonaHumana aux = db.ActividadesDeLaPersonaHumana.Find(actividad.Id);
+                db.ActividadesDeLaPersonaHumana.Remove(aux);
                 db.SaveChanges();
 
                 return "Ok";
@@ -279,6 +284,9 @@ namespace EstudioContable.Controllers
         {
             try
             {
+                ConvenioColectivoDeTrabajo aux = db.ConveniosColectivos.Find(convenio.CctId);
+                convenio.Convenio = aux.Convenio;
+
                 db.ConveniosDeLaPersonaHumana.Add(convenio);
                 db.SaveChanges();
 
@@ -298,7 +306,8 @@ namespace EstudioContable.Controllers
         {
             try
             {
-                db.ConveniosDeLaPersonaHumana.Remove(convenio);
+                ConvenioDeLaPersonaHumana aux = db.ConveniosDeLaPersonaHumana.Find(convenio.Id);
+                db.ConveniosDeLaPersonaHumana.Remove(aux);
                 db.SaveChanges();
 
                 return "Ok";

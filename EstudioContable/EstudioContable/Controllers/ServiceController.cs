@@ -69,6 +69,38 @@ namespace EstudioContable.Controllers
 
         }
 
+        [Route("api/Service/GetActividadesDeLaPersonaHumana/{personaHumanaId}")]
+        public IEnumerable<ActividadDeLaPersonaHumana> GetActividadesDeLaPersonaHumana(string personaHumanaId)
+        {
+            try
+            {
+                int phId = Convert.ToInt32(personaHumanaId);
+                var a = db.ActividadesDeLaPersonaHumana.Where(x => x.PersonaHumanaId == phId);
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<ActividadDeLaPersonaHumana>();
+            }
+
+        }
+
+        [Route("api/Service/GetConveniossDeLaPersona/{personaHumanaId}")]
+        public IEnumerable<ConvenioDeLaPersonaHumana> GetConveniossDeLaPersona(string personaHumanaId)
+        {
+            try
+            {
+                int phId = Convert.ToInt32(personaHumanaId);
+                var a = db.ConveniosDeLaPersonaHumana.Where(x => x.PersonaHumanaId == phId);
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<ConvenioDeLaPersonaHumana>();
+            }
+
+        }
+
         [Route("api/Service/GetAllUsuarios")]
         public IEnumerable<ApplicationUser> GetAllUsuarios()
         {
