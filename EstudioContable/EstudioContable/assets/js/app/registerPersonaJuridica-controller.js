@@ -1,38 +1,37 @@
 ﻿App.controller('RegisterPersonaJuridicaController', ['$scope', '$window', '$http', function ($scope, $window, $http) {
     $scope.$parent.header = { title: "Registro de Persona Juridica", description: "Crea una cuenta." };
     $scope.showErrorMessage = false;
-    
+
 
     $scope.personaJuridica = {
-    Denomicacion: '',
-    cuit: '',
-    TipoDePersonaJuridica: '',
-    DomicilioLegal: '',
-    Localidad: '',
-    Provincia: '',
-    AgenciaAfip: '',
-    Celular: '',
-    TelefonoLaboral: '',
-    EmailLaboral: '',
-    EmailPersonal: '',
-    DomicioComercial: '',
-    LocalidadComercial: '',
-    ProvinciaComercial: '',
-    NumeroIngresosBrutos: '',
-    FechaCierre: '',
-    Actividades: '',
-    EsEmpleador: '',
-    CCT: '',
-    Frecuencia: '',
-    ResponsableEstudio: '',
-    ResNum: '',
-    TomoN: '',
-    FechaRes: '',
-    FolioD: '',
-    FolioH: '',
-    MatriculaNum: '',
-    Observacione: '',
-        
+        Denomicacion: '',
+        cuit: '',
+        TipoDePersonaJuridica: '',
+        DomicilioLegal: '',
+        Localidad: '',
+        Provincia: '',
+        AgenciaAfip: '',
+        Celular: '',
+        TelefonoLaboral: '',
+        EmailLaboral: '',
+        EmailPersonal: '',
+        DomicioComercial: '',
+        LocalidadComercial: '',
+        ProvinciaComercial: '',
+        NumeroIngresosBrutos: '',
+        FechaCierre: '',
+        Actividades: '',
+        EsEmpleador: '',
+        CCT: '',
+        Frecuencia: '',
+        ResponsableEstudio: '',
+        ResNum: '',
+        TomoN: '',
+        FechaRes: '',
+        FolioD: '',
+        FolioH: '',
+        MatriculaNum: '',
+        Observaciones: ''
     }
 
     $scope.validationOptions = {
@@ -54,13 +53,13 @@
                 required: true,
             },
             Provincia: {
-               required: true
+                required: true
             },
             AgenciaAfip: {
-               required: false
+                required: false
             },
             Celular: {
-              required: true
+                required: true
             },
             TelefonoLaboral: {
                 required: true,
@@ -140,7 +139,7 @@
 
         if (form.validate()) {
             $scope.helpers.uiLoader('show');
-           
+
             $http({
                 url: '/Account/RegisterPersonaJuridica',
                 dataType: 'json',
@@ -153,7 +152,7 @@
                     Provincia: $scope.personaJuridica.Provincia,
                     Celular: $scope.personaJuridica.Celular,
                     EmailLaboral: $scope.personaJuridica.EmailLaboral
-                   
+
                 },
                 method: 'POST',
                 headers: {
