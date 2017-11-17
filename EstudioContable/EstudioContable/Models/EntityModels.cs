@@ -179,6 +179,7 @@ namespace EstudioContable.Models
         public int Id { get; set; }
         public int CctId { get; set; }
         public int PersonaJuridicaId { get; set; }
+        public string Convenio { get; set; }
     }
 
     public class Actividad
@@ -199,12 +200,14 @@ namespace EstudioContable.Models
         public string Descripcion { get; set; }
     }
 
-    public class ActividadDeLaPersonaJurica
+    public class ActividadDeLaPersonaJuridica
     {
         [Key]
         public int Id { get; set; }
         public int ActividadId { get; set; }
         public int PersonaJuricaId { get; set; }
+        public string Codigo { get; set; }
+        public string Descripcion { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -233,8 +236,10 @@ namespace EstudioContable.Models
         public DbSet<Sindico> Sindicos { get; set; }
         public DbSet<ConvenioColectivoDeTrabajo> ConveniosColectivos { get; set; }
         public DbSet<ConvenioDeLaPersonaHumana> ConveniosDeLaPersonaHumana { get; set; }
+        public DbSet<ConvenioDeLaPersonaJuridica> ConveniosDeLaPersonaJuridica { get; set; }
         public DbSet<Actividad> Actividades { get; set; }
         public DbSet<ActividadDeLaPersonaHumana> ActividadesDeLaPersonaHumana { get; set; }
+        public DbSet<ActividadDeLaPersonaJuridica> ActividadesDeLaPersonaJuridica { get; set; }
 
         public static ApplicationDbContext Create()
         {

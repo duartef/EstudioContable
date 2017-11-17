@@ -10,31 +10,33 @@
     $scope.cctsDeLaPersona = [];
 
     $scope.personaHumana = {
-        nombre: '',
-        apellido: '',
-        dni: '',
-        cuit: '',
-        nacionalidad: '',
-        fechaNacimiento: '',
-        estadoCivil: '',
-        profesion: '',
-        celular: '',
-        telefonoLaboral: '',
-        emailLaboral: '',
-        emailPersonal: '',
-        domicilio: '',
-        localidad: '',
-        provincia: '',
-        domicilioComercial: '',
-        localidadComercial: '',
-        provinciaComercial: '',
-        nroIngresosBrutos: '',
-        fechaCierreEjercicios: '',
-        esEmpleador: '',
-        frecAtencion: '',
-        responsable: '',
-        situacionImpositiva: '',
-        observaciones: ''
+        Nombre: '',
+        Apellido: '',
+        DNI: '',
+        CUIT: '',
+        Nacionalidad: '',
+        FechaNacimiento: '',
+        EstadoCivil: '',
+        Profesion: '',
+        Celular: '',
+        TelefonoLaboral: '',
+        EmailLaboral: '',
+        EmailPersonal: '',
+        Domicilio: '',
+        Localidad: '',
+        Provincia: '',
+        //AgenciaAfip: '',
+        DomicilioComercial: '',
+        LocalidadComercial: '',
+        ProvinciaComercial: '',
+        NroIngresosBrutos: '',
+        FechaCierre: '',
+        EsEmpleador: '',
+        Frecuencia: '',
+        ResponsableEstudio: '',
+        SituacionImpositiva: '',
+        //Claves: '',
+        Observaciones: ''
     }
        
 
@@ -241,69 +243,72 @@
 
     $scope.validationOptions = {
         rules: {
-            nombre: {
+            Nombre: {
                 required: true,
             },
-            apellido: {
+            Apellido: {
                 required: false,
             },
-            dni: {
+            DNI: {
                 required: true,
             },
-            cuit: {
+            CUIT: {
                 required: true
             },
-            nacionalidad: {
+            Nacionalidad: {
                 required: true
             },
-            fechaNacimiento: {
+            FechaNacimiento: {
                 required: false
                 //dataType: Date
             },
-            estadoCivil: {
+            EstadoCivil: {
                 required: false
             },
-            profesion: {
+            Profesion: {
                 required: false
             },
-            celular: {
+            Celular: {
                 required: true
                 //dataType: tel
             },
-            telefonoLaboral: {
+            TelefonoLaboral: {
                 required: false
                 //dataType: tel
             },
-            emailLaboral: {
+            EmailLaboral: {
                 required: true,
                 email: true
             },
-            emailPersonal: {
+            EmailPersonal: {
                 required: false,
                 email: true
             },
-            domicilio: {
+            Domicilio: {
                 required: false
             },
-            localidad: {
+            Localidad: {
                 required: false
             },
-            provincia: {
+            Provincia: {
                 required: false
             },
-            domicilioComercial: {
+            //AgenciaAfip: {
+            //    required: false
+            //},
+            DomicilioComercial: {
                 required: false
             },
-            localidadComercial: {
+            LocalidadComercial: {
                 required: false
             },
-            provinciaComercial: {
+            ProvinciaComercial: {
                 required: false
             },
-            nroIngresosBrutos: {
+            NroIngresosBrutos: {
                 required: false
             },
-            fechaCierreEjercicios: {
+            FechaCierre: {
                 required: false
                 //dataType: Date
             },
@@ -311,16 +316,16 @@
                 required: false
                 //dataType: Boolean
             },
-            frecAtencion: {
+            Frecuencia: {
                 required: false
             },
-            responsable: {
+            ResponsableEstudio: {
                 required: false
             },
-            situacionImpositiva: {
+            SituacionImpositiva: {
                 required: false
             },
-            observaciones: {
+            Observaciones: {
                 required: false
             }
         }
@@ -336,31 +341,32 @@
                 url: '/Account/RegisterPersonaHumana',
                 dataType: 'json',
                 data: {
-                    Nombre: $scope.personaHumana.nombre,
-                    Apellido: $scope.personaHumana.apellido,
-                    Dni: $scope.personaHumana.dni,
-                    Cuit: $scope.personaHumana.cuit,
-                    Nacionalidad: $scope.personaHumana.nacionalidad,
-                    FechaNacimiento: $scope.personaHumana.fechaNacimiento,
-                    EstadoCivil: $scope.personaHumana.estadoCivil,
-                    Profesion: $scope.personaHumana.profesion,
-                    Celular: $scope.personaHumana.celular,
-                    TelefonoLaboral: $scope.personaHumana.telefonoLaboral,
-                    EmailLaboral: $scope.personaHumana.emailLaboral,
-                    EmailPersonal: $scope.personaHumana.emailPersonal,
-                    Domicilio: $scope.personaHumana.domicilio,
-                    Localidad: $scope.personaHumana.localidad,
-                    Provincia: $scope.personaHumana.provincia,
-                    DomicilioComercial: $scope.personaHumana.domicilioComercial,
-                    LocalidadComercial: $scope.personaHumana.localidadComercial,
-                    ProvinciaComercial: $scope.personaHumana.provinciaComercial,
-                    NroIngresosBrutos: $scope.personaHumana.nroIngresosBrutos,
-                    FechaCierreEjercicios: $scope.personaHumana.fechaCierreEjercicios,
+                    Nombre: $scope.personaHumana.Nombre,
+                    Apellido: $scope.personaHumana.Apellido,
+                    Dni: $scope.personaHumana.DNI,
+                    Cuit: $scope.personaHumana.CUIT,
+                    Nacionalidad: $scope.personaHumana.Nacionalidad,
+                    FechaNacimiento: $scope.personaHumana.FechaNacimiento,
+                    EstadoCivil: $scope.personaHumana.EstadoCivil,
+                    Profesion: $scope.personaHumana.Profesion,
+                    Celular: $scope.personaHumana.Celular,
+                    TelefonoLaboral: $scope.personaHumana.TelefonoLaboral,
+                    EmailLaboral: $scope.personaHumana.EmailLaboral,
+                    EmailPersonal: $scope.personaHumana.EmailPersonal,
+                    Domicilio: $scope.personaHumana.Domicilio,
+                    Localidad: $scope.personaHumana.Localidad,
+                    Provincia: $scope.personaHumana.Provincia,
+                    //AgenciaAfip: $scope.personaHumana.AgenciaAfip,
+                    DomicilioComercial: $scope.personaHumana.DomicilioComercial,
+                    LocalidadComercial: $scope.personaHumana.LocalidadComercial,
+                    ProvinciaComercial: $scope.personaHumana.ProvinciaComercial,
+                    NroIngresosBrutos: $scope.personaHumana.NroIngresosBrutos,
+                    FechaCierreEjercicios: $scope.personaHumana.FechaCierre,
                     EsEmpleador: $scope.personaHumana.esEmpleador,
-                    FrecAtencion: $scope.personaHumana.frecAtencion,
-                    Responsable: $scope.personaHumana.responsable,
-                    SituacionImpositiva: $scope.personaHumana.situacionImpositiva,
-                    Observaciones: $scope.personaHumana.observaciones
+                    FrecAtencion: $scope.personaHumana.Frecuencia,
+                    Responsable: $scope.personaHumana.ResponsableEstudio,
+                    SituacionImpositiva: $scope.personaHumana.SituacionImpositiva,
+                    Observaciones: $scope.personaHumana.Observaciones
                 },
                 method: 'POST',
                 headers: {

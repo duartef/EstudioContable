@@ -232,6 +232,38 @@ namespace EstudioContable.Controllers
             }
         }
 
+        // POST: /Account/RegisterPersonaJuridica
+        [HttpPost]
+        [AllowAnonymous]
+        public string RegisterPersonaJuridica(PersonaJuridica pj)
+        {
+            try
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = pj.EmailLaboral,
+                    Email = pj.EmailLaboral
+                };
+
+                var result = UserManager.Create(user, new PasswordHasher().HashPassword("EstudioVilla18"));
+                if (result.Succeeded)
+                {
+                    UserManager.AddToRole(user.Id, "Cliente");
+                    //return 0;
+                }
+
+                pj.UserId = user.Id;
+
+                db.PersonasJuridicas.Add(pj);
+                db.SaveChanges();
+                return pj.Id.ToString();
+                //return 0;
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
         //
         // POST: /Account/AddActividadToPersonaHumana
         [HttpPost]
@@ -275,6 +307,27 @@ namespace EstudioContable.Controllers
             }
         }
 
+        // POST: /Account/AddActividadToPersonaJuridica
+        [HttpPost]
+        [AllowAnonymous]
+        public string AddActividadJuridica(ActividadDeLaPersonaJuridica actividad)
+        {
+            try
+            {
+                Actividad aux = db.Actividades.Find(actividad.ActividadId);
+                actividad.Descripcion = aux.Descripcion;
+                actividad.Codigo = aux.Codigo;
+
+                db.ActividadesDeLaPersonaJuridica.Add(actividad);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
 
         //
         // POST: /Account/AddCCT
@@ -298,6 +351,27 @@ namespace EstudioContable.Controllers
             }
         }
 
+        // POST: /Account/AddCCTJuridica
+        [HttpPost]
+        [AllowAnonymous]
+        public string AddCCTJuridica(ConvenioDeLaPersonaJuridica convenio)
+        {
+            try
+            {
+                ConvenioColectivoDeTrabajo aux = db.ConveniosColectivos.Find(convenio.CctId);
+                convenio.Convenio = aux.Convenio;
+
+                db.ConveniosDeLaPersonaJuridica.Add(convenio);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
         //
         // POST: /Account/RemoveCCT
         [HttpPost]
@@ -308,6 +382,25 @@ namespace EstudioContable.Controllers
             {
                 ConvenioDeLaPersonaHumana aux = db.ConveniosDeLaPersonaHumana.Find(convenio.Id);
                 db.ConveniosDeLaPersonaHumana.Remove(aux);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
+        // POST: /Account/RemoveCCTJuridica
+        [HttpPost]
+        [AllowAnonymous]
+        public string RemoveCCTJuridica(ConvenioDeLaPersonaJuridica convenio)
+        {
+            try
+            {
+                ConvenioDeLaPersonaJuridica aux = db.ConveniosDeLaPersonaJuridica.Find(convenio.Id);
+                db.ConveniosDeLaPersonaJuridica.Remove(aux);
                 db.SaveChanges();
 
                 return "Ok";

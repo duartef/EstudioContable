@@ -14,14 +14,14 @@
                     <div class="form-group">
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="nombre" name="nombre" ng-model="personaHumana.nombre">
+                                <input class="form-control" type="text" id="nombre" name="nombre" ng-model="personaHumana.Nombre">
                                 <label for="nombre">Nombre</label>
                             </div>
                         </div>
 
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="apellido" name="apellido" ng-model="personaHumana.apellido">
+                                <input class="form-control" type="text" id="apellido" name="apellido" ng-model="personaHumana.Apellido">
                                 <label for="apellido">Apellido</label>
                             </div>
                         </div>
@@ -30,13 +30,13 @@
                     <div class="form-group">
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="dni" name="dni" ng-model="personaHumana.dni" />
+                                <input class="form-control" type="text" id="dni" name="dni" ng-model="personaHumana.DNI" />
                                 <label for="dni">DNI</label>
                             </div>
                         </div>
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="cuit" name="cuit" ng-model="personaHumana.cuit" />
+                                <input class="form-control" type="text" id="cuit" name="cuit" ng-model="personaHumana.CUIT" />
                                 <label for="cuit">CUIT</label>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="col-md-6">
                             <div class="form-material form-material-primary ">
                                 <label for="nacionalidad" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Nacionalidad</em></label>
-                                <select class="form-control" id="nacionalidad" name="nacionalidad" ng-model="personaHumana.nacionalidad">
+                                <select class="form-control" id="nacionalidad" name="nacionalidad" ng-model="personaHumana.Nacionalidad">
                                     <option value="Argentina">Argentina</option>
                                     <option value="Brasileña">Brasileña</option>
                                     <option value="Uruguaya">Uruguaya</option>
@@ -57,7 +57,7 @@
                         <div class="col-xs-6">
                             <label>Fecha de Nacimiento</label>
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="date" id="fechaNacimiento" name="fechaNacimiento" ng-model="personaHumana.fechaNacimiento">
+                                <input class="form-control" type="date" id="fechaNacimiento" name="fechaNacimiento" ng-model="personaHumana.FechaNacimiento">
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                         <div class="col-md-6">
                             <div class="form-material form-material-primary ">
                                 <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Estado Civil</em></label>
-                                <select class="form-control" id="estadoCivil" name="estadoCivil" ng-model="personaHumana.estadoCivil">
+                                <select class="form-control" id="estadoCivil" name="estadoCivil" ng-model="personaHumana.EstadoCivil">
                                     <option value="Soltero">Soltero</option>
                                     <option value="Casado">Casado</option>
                                     <option value="Divorciado">Divorciado</option>
@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="profesion" name="profesion" ng-model="personaHumana.profesion">
+                                <input class="form-control" type="text" id="profesion" name="profesion" ng-model="personaHumana.Profesion">
                                 <label for="profesion">Profesion</label>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                     <div class="form-group">
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="tel" id="celular" name="celular" ng-model="personaHumana.celular" />
+                                <input class="form-control" type="tel" id="celular" name="celular" ng-model="personaHumana.Celular" />
                                 <label for="celular">Celular</label>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
 
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="tel" id="telefonoLaboral" name="telefonoLaboral" ng-model="personaHumana.telefonoLaboral" />
+                                <input class="form-control" type="tel" id="telefonoLaboral" name="telefonoLaboral" ng-model="personaHumana.TelefonoLaboral" />
                                 <label for="telefonoLaboral">Telefono Laboral</label>
                             </div>
                         </div>
@@ -101,13 +101,13 @@
                     <div class="form-group">
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="email" id="emailLaboral" name="emailLaboral" ng-model="personaHumana.emailLaboral">
+                                <input class="form-control" type="email" id="emailLaboral" name="emailLaboral" ng-model="personaHumana.EmailLaboral">
                                 <label for="emailLaboral">Email Laboral</label>
                             </div>
                         </div>
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="email" id="emailPersonal" name="emailPersonal" ng-model="personaHumana.emailPersonal">
+                                <input class="form-control" type="email" id="emailPersonal" name="emailPersonal" ng-model="personaHumana.EmailPersonal">
                                 <label for="emailPersonal">Email Personal</label>
                             </div>
                         </div>
@@ -115,23 +115,34 @@
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="domicilio" name="domicilio" ng-model="personaHumana.domicilio">
+                                <input class="form-control" type="text" id="domicilio" name="domicilio" ng-model="personaHumana.Domicilio">
                                 <label for="domicilio">Domicio</label>
                             </div>
                         </div>
                     </div>
+                    @*<div class="form-group">
+                            <div class="col-xs-6">
+                                <div class="form-material form-material-primary ">
+                                    <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Agencia Afip</em></label>
+                                    <select class="form-control" name="Actividades" ng-model="personaHumana.AgenciaAfip">
+                                        <option value="SantaRosa">Santa Rosa</option>
+                                        <option value="GralPico">General Pico</option>
+                                    </select>
+                                </div>
+                            </div>
+                    </div>*@
 
                     <div class="form-group">
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="localidad" name="localidad" ng-model="personaHumana.localidad">
+                                <input class="form-control" type="text" id="localidad" name="localidad" ng-model="personaHumana.Localidad">
                                 <label for="localidad">Localidad</label>
                             </div>
                         </div>
 
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="provincia" name="provincia" ng-model="personaHumana.provincia">
+                                <input class="form-control" type="text" id="provincia" name="provincia" ng-model="personaHumana.Provincia">
                                 <label for="provincia">Provincia</label>
                             </div>
                         </div>
@@ -139,7 +150,7 @@
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="domicilioComercial" name="domicilioComercial" ng-model="personaHumana.domicilioComercial">
+                                <input class="form-control" type="text" id="domicilioComercial" name="domicilioComercial" ng-model="personaHumana.DomicilioComercial">
                                 <label for="domicilioComercial">Domicio Comercial</label>
                             </div>
                         </div>
@@ -148,14 +159,14 @@
                     <div class="form-group">
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="localidadComercial" name="localidadComercial" ng-model="personaHumana.localidadComercial">
+                                <input class="form-control" type="text" id="localidadComercial" name="localidadComercial" ng-model="personaHumana.LocalidadComercial">
                                 <label for="localidadComercial">Localidad</label>
                             </div>
                         </div>
 
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="provinciaComercial" name="provinciaComercial" ng-model="personaHumana.provinciaComercial">
+                                <input class="form-control" type="text" id="provinciaComercial" name="provinciaComercial" ng-model="personaHumana.ProvinciaComercial">
                                 <label for="provinciaComercial">Provincia</label>
                             </div>
                         </div>
@@ -165,7 +176,7 @@
                         <div class="col-md-6">
                             <div class="form-material form-material-primary ">
                                 <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Frecuencia de Atencion</label>
-                                <select class="form-control" id="frecAtencion" name="frecAtencion" ng-model="personaHumana.frecAtencion">
+                                <select class="form-control" id="frecAtencion" name="frecAtencion" ng-model="personaHumana.Frecuencia">
                                     <option value="Mensual">Mensual</option>
                                     <option value="Anual">Anual</option>
                                 </select>
@@ -175,7 +186,7 @@
                         <div class="col-md-6">
                             <div class="form-material form-material-primary ">
                                 <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Responsable en el Estudio</label>
-                                <select class="form-control" id="responsable" name="responsable" ng-model="personaHumana.responsable">
+                                <select class="form-control" id="responsable" name="responsable" ng-model="personaHumana.ResponsableEstudio">
                                     <option value="SociedadAnonima">Responsable 1</option>
                                     <option value="SociedadAnonima">Responsable 2</option>
                                 </select>
@@ -184,7 +195,7 @@
                         <div class="form-group">
                             <div class="col-xs-6">
                                 <div class="form-material form-material-primary floating">
-                                    <input class="form-control" type="text" id="nroIngresosBrutos" name="nroIngresosBrutos" ng-model="personaHumana.nroIngresosBrutos">
+                                    <input class="form-control" type="text" id="nroIngresosBrutos" name="nroIngresosBrutos" ng-model="personaHumana.NroIngresosBrutos">
                                     <label for="nroIngresosBrutos">Numero de Ingresos Brutos</label>
                                 </div>
                             </div>
@@ -192,7 +203,7 @@
                             <div class="col-xs-6">
                                 <label>Fecha de Cierre de Ejericio</label>
                                 <div class="form-material form-material-primary floating">
-                                    <input class="form-control" type="date" id="fechaCierreEjercicios" name="fechaCierreEjercicios" ng-model="personaHumana.fechaCierreEjercicios">
+                                    <input class="form-control" type="date" id="fechaCierreEjercicios" name="fechaCierreEjercicios" ng-model="personaHumana.FechaCierre">
                                 </div>
                             </div>
                         </div>
@@ -205,7 +216,7 @@
                         <div class="col-md-6">
                             <div class="form-material form-material-primary ">
                                 <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Situacion Impositiva</label>
-                                <select class="form-control" id="situacionImpositiva" name="situacionImpositiva" ng-model="personaHumana.situacionImpositiva">
+                                <select class="form-control" id="situacionImpositiva" name="situacionImpositiva" ng-model="personaHumana.SituacionImpositiva">
                                     <option value="Monotributista">Monotributista</option>
                                     <option value="RegimenGeneral">Regimen General</option>
                                 </select>
@@ -229,11 +240,17 @@
                         </div>
                     </div>
 
+                    @*<div class="form-group">
+                        <label class="col-xs-12" for="example-textarea-input" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Claves</label>
+                        <div class="col-xs-12">
+                            <textarea class="form-control" id="Claves" name="Claves" rows="6" placeholder="Observaciones" ng-model="personaHumana.Claves"></textarea>
+                        </div>
+                    </div>*@
 
                     <div class="form-group">
                         <label class="col-xs-12" for="example-textarea-input" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Observaciones</label>
                         <div class="col-xs-12">
-                            <textarea class="form-control" id="observaciones" name="observaciones" rows="6" placeholder="Observaciones" ng-model="personaHumana.observaciones"></textarea>
+                            <textarea class="form-control" id="observaciones" name="observaciones" rows="6" placeholder="Observaciones" ng-model="personaHumana.Observaciones"></textarea>
                         </div>
                     </div>
 

@@ -85,6 +85,23 @@ namespace EstudioContable.Controllers
 
         }
 
+        [Route("api/Service/GetActividadesDeLaPersonaJuridica/{personaJuridicaId}")]
+        public IEnumerable<ActividadDeLaPersonaJuridica> GetActividadesDeLaPersonaJuridica(string PersonaJuricaId)
+        {
+            try
+            {
+                int pjId = Convert.ToInt32(PersonaJuricaId);
+                var a = db.ActividadesDeLaPersonaJuridica.Where(x => x.PersonaJuricaId == pjId);
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<ActividadDeLaPersonaJuridica>();
+            }
+
+        }
+
+
         [Route("api/Service/GetConveniossDeLaPersona/{personaHumanaId}")]
         public IEnumerable<ConvenioDeLaPersonaHumana> GetConveniossDeLaPersona(string personaHumanaId)
         {
@@ -97,6 +114,22 @@ namespace EstudioContable.Controllers
             catch (Exception ex)
             {
                 return new List<ConvenioDeLaPersonaHumana>();
+            }
+
+        }
+
+        [Route("api/Service/GetConveniossDeLaPersonaJuridica/{PersonaJuridicaId}")]
+        public IEnumerable<ConvenioDeLaPersonaJuridica> GetConveniossDeLaPersonaJuridica(string PersonaJuridicaId)
+        {
+            try
+            {
+                int pjId = Convert.ToInt32(PersonaJuridicaId);
+                var a = db.ConveniosDeLaPersonaJuridica.Where(x => x.PersonaJuridicaId == pjId);
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<ConvenioDeLaPersonaJuridica>();
             }
 
         }

@@ -2,12 +2,17 @@
     $scope.$parent.header = { title: "Registro de Persona Juridica", description: "Crea una cuenta." };
     $scope.showErrorMessage = false;
 
+    $scope.actividades = [];
+    $scope.conveniosColectivos = [];
+    $scope.actividadesDeLaPersonaJuridica = [];
+    $scope.cctsDeLaPersonaJuridica = [];
+
 
     $scope.personaJuridica = {
         Denomicacion: '',
-        cuit: '',
+        CUIT: '',
         TipoDePersonaJuridica: '',
-        DomicilioLegal: '',
+        Domicilio: '',
         Localidad: '',
         Provincia: '',
         AgenciaAfip: '',
@@ -31,6 +36,7 @@
         FolioD: '',
         FolioH: '',
         MatriculaNum: '',
+        //Claves: '',
         Observaciones: ''
     }
 
@@ -39,7 +45,7 @@
             Denomicacion: {
                 required: true,
             },
-            cuit: {
+            CUIT: {
                 required: true,
                 //maxlength: 9
             },
@@ -145,14 +151,33 @@
                 dataType: 'json',
                 data: {
                     Denomicacion: $scope.personaJuridica.Denomicacion,
-                    cuit: $scope.personaJuridica.cuit,
+                    cuit: $scope.personaJuridica.CUIT,
                     TipoDePersonaJuridica: $scope.personaJuridica.TipoDePersonaJuridica,
-                    DomicilioLegal: $scope.personaJuridica.DomicilioLegal,
+                    DomicilioLegal: $scope.personaJuridica.Domicilio,
                     Localidad: $scope.personaJuridica.Localidad,
                     Provincia: $scope.personaJuridica.Provincia,
+                    AgenciaAfip: $scope.personaJuridica.AgenciaAfip,
                     Celular: $scope.personaJuridica.Celular,
-                    EmailLaboral: $scope.personaJuridica.EmailLaboral
-
+                    TelefonoLaboral: $scope.personaJuridica.TelefonoLaboral,
+                    EmailLaboral: $scope.personaJuridica.EmailLaboral,
+                    EmailPersonal: $scope.personaJuridica.EmailPersonal,
+                    DomicioComercial: $scope.personaJuridica.DomicioComercial,
+                    LocalidadComercial: $scope.personaJuridica.LocalidadComercial,
+                    ProvinciaComercial: $scope.personaJuridica.ProvinciaComercial,
+                    NumeroIngresosBrutos: $scope.personaJuridica.NumeroIngresosBrutos,
+                    FechaCierre: $scope.personaJuridica.FechaCierre,
+                    Actividades: $scope.personaJuridica.Actividades,
+                    EsEmpleador: $scope.personaJuridica.EsEmpleador,
+                    CCT: $scope.personaJuridica.CCT,
+                    Frecuencia: $scope.personaJuridica.Frecuencia,
+                    ResponsableEstudio: $scope.personaJuridica.ResponsableEstudio,
+                    ResNum: $scope.personaJuridica.ResNum,
+                    TomoN: $scope.personaJuridica.TomoN,
+                    FechaRes: $scope.personaJuridica.FechaRes,
+                    FolioD: $scope.personaJuridica.FolioD,
+                    FolioH: $scope.personaJuridica.FolioH,
+                    MatriculaNum: $scope.personaJuridica.MatriculaNum,
+                    Observaciones: $scope.personaJuridica.Observaciones,
                 },
                 method: 'POST',
                 headers: {
@@ -160,10 +185,11 @@
                 }
             }).
             then(function (response) {
-                if (response != null && response.data > 0) {
+                if (response != null && response.data.startsWith("Error") == true) {
                     $scope.showErrorMessage = true;
                 } else {
-                    $window.location.href = "/Home/Index";
+                    $scope.PersonaJuridicaId = response.data;
+                    alert("Persona guardada con éxito");
                 }
                 $scope.helpers.uiLoader('hide');
             }, function (error) {
@@ -172,6 +198,206 @@
             });
         }
     }
+
+  /////////////////////////Add actividad & Remove////
+
+    $scope.addActividadPJ = function (event) {
+        if (event.target.id == null || event.target.id == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/AddActividadJuridica',
+                dataType: 'json',
+                data: {
+                    ActividadId: event.target.id,
+                    PersonaJuridicaID: $scope.personaJuridicaID
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Actividad agregadad con éxito");
+                    $scope.refreshActividades();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+
+    $scope.removeActividad = function (event) {
+        if (event.target.id == null || event.target.id == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/RemoveActividad',
+                dataType: 'json',
+                data: {
+                    Id: event.target.id,
+                    ActividadId: 0,
+                    PersonaJuridicaId: $scope.PersonaJuridicaId
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Actividad eliminada con éxito");
+                    $scope.refreshActividades();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+
+    $scope.refreshActividades = function () {
+        $scope.helpers.uiLoader('show');
+        var a = String($scope.personaJuridicaId);
+        $http.get('api/Service/GetActividadesDeLaPersonaJuridica/' + a).then(
+           function (response) {
+               if (response != null && response.data != null) {
+                   $scope.actividadesDeLaPersonaJuridica = response.data;
+               }
+               $scope.helpers.uiLoader('hide');
+           },
+           function (error) {
+               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+               $scope.helpers.uiLoader('hide');
+           }
+        );
+    }
+
+    $http.get('/api/Service/GetAllActividades').then(
+       function (response) {
+           if (response != null && response.data != null) {
+               $scope.actividades = response.data;
+               //$("#myTable").dataTable().data = $scope.usuarios;
+           }
+
+
+
+           //$scope.helpers.uiLoader('hide');
+           //$scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       },
+       function (error) {
+           $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       }
+    );
+
+    ///////////////END ADD ACTIVIDADPJ///////////////////////////
+
+    /////////////////////CONVENIOS////////////////////////////////
+
+    $scope.addCCT = function (event) {
+        if (event.target.id == null || event.target.id == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/AddCCTJuridica',
+                dataType: 'json',
+                data: {
+                    CctId: event.target.id,
+                    PersonaJuridicaId: $scope.PersonaJuridicaId
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Convenio agregado con éxito");
+                    $scope.refreshConvenios();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+    ////////////este no se/////////////////
+    $scope.refreshConvenios = function () {
+        var a = String($scope.PersonaJuridicaId);
+        $http.get('/api/Service/GetConveniossDeLaPersonaJuridica/' + a).then(
+           function (response) {
+               if (response != null && response.data != null) {
+                   $scope.cctsDeLaPersonaJuridica = response.data;
+               }
+           },
+           function (error) {
+               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+           }
+        );
+    }
+
+    $scope.removeCCTJuridica = function (event) {
+        if (event.target.id == null || event.target.id == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/AddCCTJuridica',
+                dataType: 'json',
+                data: {
+                    Id: event.target.id,
+                    CctId: 0,
+                    PersonaJuridicaId: $scope.PersonaJuridicaId
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Convenio eliminado con éxito");
+                    $scope.refreshConvenios();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+
+    $http.get('/api/Service/GetAllConvenios').then(
+       function (response) {
+           if (response != null && response.data != null) {
+               $scope.conveniosColectivos = response.data;
+               //$("#myTable").dataTable().data = $scope.usuarios;
+           }
+       },
+       function (error) {
+           $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       }
+    );
 
     $scope.helpers.uiLoader('hide');
 }]);

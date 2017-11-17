@@ -1,4 +1,6 @@
 ﻿App.controller('RegisterDirectorioController', ['$scope', '$window', '$http', function ($scope, $window, $http) {
+
+    var vm = this;
     $scope.$parent.header = { title: "Registro de Directorio", description: "Crea el Directorio." };
     $scope.showErrorMessage = false;
 
