@@ -25,7 +25,7 @@
         Domicilio: '',
         Localidad: '',
         Provincia: '',
-        //AgenciaAfip: '',
+        AgenciaAfip: '',
         DomicilioComercial: '',
         LocalidadComercial: '',
         ProvinciaComercial: '',
@@ -35,7 +35,7 @@
         Frecuencia: '',
         ResponsableEstudio: '',
         SituacionImpositiva: '',
-        //Claves: '',
+        Claves: '',
         Observaciones: ''
     }
        
@@ -356,7 +356,7 @@
                     Domicilio: $scope.personaHumana.Domicilio,
                     Localidad: $scope.personaHumana.Localidad,
                     Provincia: $scope.personaHumana.Provincia,
-                    //AgenciaAfip: $scope.personaHumana.AgenciaAfip,
+                    AgenciaAfip: $scope.personaHumana.AgenciaAfip,
                     DomicilioComercial: $scope.personaHumana.DomicilioComercial,
                     LocalidadComercial: $scope.personaHumana.LocalidadComercial,
                     ProvinciaComercial: $scope.personaHumana.ProvinciaComercial,
@@ -366,6 +366,7 @@
                     FrecAtencion: $scope.personaHumana.Frecuencia,
                     Responsable: $scope.personaHumana.ResponsableEstudio,
                     SituacionImpositiva: $scope.personaHumana.SituacionImpositiva,
+                    Claves: $scope.personaHumana.Claves,
                     Observaciones: $scope.personaHumana.Observaciones
                 },
                 method: 'POST',

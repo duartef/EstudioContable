@@ -62,6 +62,8 @@ namespace EstudioContable.Models
         public string Responsable { get; set; }
         public string SituacionImpositiva { get; set; }
         public string Observaciones { get; set; }
+        public string Claves { get; set; }
+        public string AgenciaAfip { get; set; }
     }
 
     public class PersonaJuridica
