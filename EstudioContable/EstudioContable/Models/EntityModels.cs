@@ -76,7 +76,7 @@ namespace EstudioContable.Models
         public string DomicilioLegal { get; set; }
         public string Localidad { get; set; }
         public string Provincia { get; set; }
-        public string AgenciaAfip { get; set; } 
+        public string AgenciaAfip { get; set; }
         public string Celular { get; set; }
         public string TelefonoLaboral { get; set; }
         public string EmailLaboral { get; set; }
@@ -165,7 +165,7 @@ namespace EstudioContable.Models
     //    public string Profesion { get; set; }
     //    public string Domicilio { get; set; }
     //    public string Tipo { get; set; } //Titular o Suplente
-    }
+    //}
 
     public class ConvenioColectivoDeTrabajo
     {
