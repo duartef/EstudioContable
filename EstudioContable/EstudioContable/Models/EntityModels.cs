@@ -215,7 +215,7 @@ namespace EstudioContable.Models
         [Key]
         public int Id { get; set; }
         public int ActividadId { get; set; }
-        public int PersonaJuricaId { get; set; }
+        public int PersonaJuridicaId { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
     }
@@ -228,8 +228,8 @@ namespace EstudioContable.Models
             try
             {
                 // 
-                Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
-                //Database.SetInitializer<ApplicationDbContext>(new CreateDatabaseIfNotExists<ApplicationDbContext>());
+                //Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
+                Database.SetInitializer<ApplicationDbContext>(new CreateDatabaseIfNotExists<ApplicationDbContext>());
                 Database.Initialize(true);
             }
             catch (Exception ex)
@@ -243,7 +243,7 @@ namespace EstudioContable.Models
         public DbSet<PersonaJuridica> PersonasJuridicas { get; set; }
         public DbSet<Socio> Socios { get; set; }
         public DbSet<Director> Directores { get; set; }
-        public DbSet<Sindico> Sindicos { get; set; }
+        //public DbSet<Sindico> Sindicos { get; set; }
         public DbSet<ConvenioColectivoDeTrabajo> ConveniosColectivos { get; set; }
         public DbSet<ConvenioDeLaPersonaHumana> ConveniosDeLaPersonaHumana { get; set; }
         public DbSet<ConvenioDeLaPersonaJuridica> ConveniosDeLaPersonaJuridica { get; set; }

@@ -6,7 +6,7 @@
     $scope.conveniosColectivos = [];
     $scope.actividadesDeLaPersonaJuridica = [];
     $scope.cctsDeLaPersonaJuridica = [];
-
+    $scope.PersonaJuridicaId = '';
 
     $scope.personaJuridica = {
         Denomicacion: '',
@@ -36,7 +36,7 @@
         FolioD: '',
         FolioH: '',
         MatriculaNum: '',
-        //Claves: '',
+        Claves: '',
         Observaciones: ''
     }
 
@@ -132,8 +132,6 @@
         }
     }
 
-
-
     $scope.register = function (form) {
         $scope.showErrorMessage = false;
 
@@ -169,7 +167,8 @@
                     FolioD: $scope.personaJuridica.FolioD,
                     FolioH: $scope.personaJuridica.FolioH,
                     MatriculaNum: $scope.personaJuridica.MatriculaNum,
-                    Observaciones: $scope.personaJuridica.Observaciones,
+                    Claves : $scope.personaJuridica.Claves,
+                    Observaciones: $scope.personaJuridica.Observaciones
                 },
                 method: 'POST',
                 headers: {
@@ -204,7 +203,7 @@
                 dataType: 'json',
                 data: {
                     ActividadId: event.target.id,
-                    PersonaJuridicaID: $scope.personaJuridicaID
+                    PersonaJuridicaID: $scope.PersonaJuridicaId
                 },
                 method: 'POST',
                 headers: {
@@ -262,8 +261,8 @@
 
     $scope.refreshActividades = function () {
         $scope.helpers.uiLoader('show');
-        var a = String($scope.personaJuridicaId);
-        $http.get('api/Service/GetActividadesDeLaPersonaJuridica/' + a).then(
+        var a = String($scope.PersonaJuridicaId);
+        $http.get('/api/Service/GetActividadesDeLaPersonaJuridica/' + a).then(
            function (response) {
                if (response != null && response.data != null) {
                    $scope.actividadesDeLaPersonaJuridica = response.data;
@@ -281,13 +280,7 @@
        function (response) {
            if (response != null && response.data != null) {
                $scope.actividades = response.data;
-               //$("#myTable").dataTable().data = $scope.usuarios;
            }
-
-
-
-           //$scope.helpers.uiLoader('hide');
-           //$scope.helpers.uiBlocks('#popUpWin', 'state_normal');
        },
        function (error) {
            $scope.helpers.uiBlocks('#popUpWin', 'state_normal');

@@ -24,7 +24,7 @@ namespace EstudioContable.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -36,9 +36,9 @@ namespace EstudioContable.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -56,7 +56,7 @@ namespace EstudioContable.Controllers
 
         //
         // GET: /Account/AccountsList
-        [Authorize (Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult AccountsList(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -97,7 +97,7 @@ namespace EstudioContable.Controllers
             {
                 return 1;
             }
-            
+
         }
 
         //
@@ -129,7 +129,7 @@ namespace EstudioContable.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -189,7 +189,7 @@ namespace EstudioContable.Controllers
         {
             try
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.UserName};
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.UserName };
                 var result = UserManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -202,6 +202,44 @@ namespace EstudioContable.Controllers
             catch (Exception ex)
             {
                 return 1;
+            }
+        }
+
+        //
+        // POST: /Account/RegisterDirector
+        [HttpPost]
+        [AllowAnonymous]
+        public string RegisterDirector(Director director)
+        {
+            try
+            {
+                db.Directores.Add(director);
+                db.SaveChanges();
+                //Error
+                return director.Id.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
+        //
+        // POST: /Account/RegisterSocio
+        [HttpPost]
+        [AllowAnonymous]
+        public string RegisterSocio(Socio socio)
+        {
+            try
+            {
+                db.Socios.Add(socio);
+                db.SaveChanges();
+                //Error
+                return socio.Id.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
             }
         }
 

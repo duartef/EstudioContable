@@ -42,7 +42,21 @@
                                 </td>
                                 <td>
                                     <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
-                                        Email
+                                        Apellido
+                                        <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                        <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                        Cuit
+                                        <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                        <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                        Tipo
                                         <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
                                         <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
                                     </a>
@@ -51,10 +65,12 @@
                         </thead>
 
                         <tbody>
-                            <tr @*ng-repeat="actividad in actividades | orderBy:sortType:sortReverse | filter:filtro"*@>
-                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden"></td>
-                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">Nombre</td>
-                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">Email</td>
+                            <tr ng-repeat="usuario in usuarios | orderBy:sortType:sortReverse | filter:filtro">
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden" {{usuario.Id}}></td>
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{usuario.Nombre}}</td>
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{usuario.Apellido}}</td>
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{usuario.Cuit}}</td>
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{usuario.Tipo}}</td>
                                 <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-primary" @*data-ng-click="addActividad($event)" id="{{actividad.Id}}"*@ style="background-color:#009881; border-color:#009881"><i class="fa fa-plus"></i></button></td>
                             </tr>
                         </tbody>

@@ -91,7 +91,7 @@ namespace EstudioContable.Controllers
             try
             {
                 int pjId = Convert.ToInt32(PersonaJuricaId);
-                var a = db.ActividadesDeLaPersonaJuridica.Where(x => x.PersonaJuricaId == pjId);
+                var a = db.ActividadesDeLaPersonaJuridica.Where(x => x.PersonaJuridicaId == pjId);
                 return a;
             }
             catch (Exception ex)
@@ -134,6 +134,60 @@ namespace EstudioContable.Controllers
 
         }
 
+        [Route("api/Service/GetAllPersonas")]
+        public IEnumerable<object> GetAllPersonas()
+        {
+            try
+            {
+
+                var p = db.PersonasHumanas.ToList();
+                var phs = from t in p
+                          select new
+                          {
+                              Id = t.Id,
+                              Nombre = t.Nombre,
+                              Apellido = t.Apellido,
+                              Cuit = t.Cuit,
+                              Tipo = "Persona Humana"
+                          };
+
+                var pjs = from q in db.PersonasJuridicas
+                          select new
+                          {
+                              Id = q.Id,
+                              Nombre = "",
+                              Apellido = q.Denomicacion,
+                              Cuit = q.cuit,
+                              Tipo = "Persona Jurídica"
+                          };
+
+                var personas = (from t in db.PersonasHumanas
+                                select new
+                                {
+                                    Id = t.Id,
+                                    Nombre = t.Nombre,
+                                    Apellido = t.Apellido,
+                                    Cuit = t.Cuit,
+                                    Tipo = "Persona Humana"
+                                }).Union(from q in db.PersonasJuridicas
+                                         select new
+                                         {
+                                             Id = q.Id,
+                                             Nombre = "",
+                                             Apellido = q.Denomicacion,
+                                             Cuit = q.cuit,
+                                             Tipo = "Persona Jurídica"
+                                         });
+
+                return personas;
+            }
+            catch (Exception ex)
+            {
+                return new List<object>();
+            }
+
+        }
+
         [Route("api/Service/GetAllUsuarios")]
         public IEnumerable<ApplicationUser> GetAllUsuarios()
         {
@@ -146,7 +200,7 @@ namespace EstudioContable.Controllers
             {
                 return new List<ApplicationUser>();
             }
-            
+
         }
 
         [Route("api/Service/GetClientes")]
@@ -167,5 +221,21 @@ namespace EstudioContable.Controllers
                 return null;
             }
         }
+
+        //    [Route("api/Service/GetPersonasTodas")]
+        //    public IEnumerable<ApplicationUser> GetPersonasTodas()
+        //    {
+        //        try
+        //        {
+        //            var innerJoinQuery =
+        //from cust in customers
+        //join dist in distributors on cust.City equals dist.City
+        //select new { CustomerName = cust.Name, DistributorName = dist.Name };
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            return null;
+        //        }
+        //    }
     }
 }
