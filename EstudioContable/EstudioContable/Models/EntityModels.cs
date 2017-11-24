@@ -86,9 +86,7 @@ namespace EstudioContable.Models
         public string ProvinciaComercial { get; set; }
         public string NumeroIngresosBrutos { get; set; }
         public DateTime FechaCierre { get; set; }
-        public string Actividades { get; set; }
         public string EsEmpleador { get; set; }
-        public string CCT { get; set; }
         public string Frecuencia { get; set; }
         public string ResponsableEstudio { get; set; }
         public string ResNum { get; set; }
@@ -109,13 +107,19 @@ namespace EstudioContable.Models
         //Socio
         public string Apellido { get; set; }
         public string Nombre { get; set; }
-        public string Dni { get; set; }
-        public string Cuit { get; set; }
+        public string DNI { get; set; }
+        public string CUIT { get; set; }
         public string Nacionalidad { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string EstadoCivil { get; set; }
         public string Profesion { get; set; }
+        public string Celular { get; set; }
+        public string TelefonoLaboral { get; set; }
+        public string Email { get; set; }
         public string Domicilio { get; set; }
+        public string Localidad { get; set; }
+        public string Provincia { get; set; }
+        public string CuotasAcciones { get; set; }
         public decimal PorcentajeParticipacion { get; set; }
     }
 
@@ -127,34 +131,40 @@ namespace EstudioContable.Models
         //Director
         public string Apellido { get; set; }
         public string Nombre { get; set; }
-        public string Dni { get; set; }
-        public string Cuit { get; set; }
+        public string TelefonoLaboral { get; set; }
+        public string DNI { get; set; }
+        public string CUIT { get; set; }
         public string Nacionalidad { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public DateTime FinMandato { get; set; }
         public string EstadoCivil { get; set; }
         public string Profesion { get; set; }
+        public string Celular { get; set; }
+        public string EmailLaboral { get; set; }
         public string Domicilio { get; set; }
-        public string Tipo { get; set; } //Titular o Suplente
+        public string Localidad { get; set; }
+        public string Provincia { get; set; }
+        public string Cargo { get; set; } //Titular o Suplente
+        public DateTime FechaDesignacion { get; set; }
+        public DateTime VencimientoMandato { get; set; }
     }
 
-    public class Sindico
-    {
-        [Key]
-        public int Id { get; set; }
-        public int PersonaJuridicaId { get; set; }
-        //Sindico
-        public string Apellido { get; set; }
-        public string Nombre { get; set; }
-        public string Dni { get; set; }
-        public string Cuit { get; set; }
-        public string Nacionalidad { get; set; }
-        public DateTime FechaNacimiento { get; set; }
-        public DateTime FinMandato { get; set; }
-        public string EstadoCivil { get; set; }
-        public string Profesion { get; set; }
-        public string Domicilio { get; set; }
-        public string Tipo { get; set; } //Titular o Suplente
+    //public class Sindico
+    //{
+    //    [Key]
+    //    public int Id { get; set; }
+    //    public int PersonaJuridicaId { get; set; }
+    //    //Sindico
+    //    public string Apellido { get; set; }
+    //    public string Nombre { get; set; }
+    //    public string Dni { get; set; }
+    //    public string Cuit { get; set; }
+    //    public string Nacionalidad { get; set; }
+    //    public DateTime FechaNacimiento { get; set; }
+    //    public DateTime FinMandato { get; set; }
+    //    public string EstadoCivil { get; set; }
+    //    public string Profesion { get; set; }
+    //    public string Domicilio { get; set; }
+    //    public string Tipo { get; set; } //Titular o Suplente
     }
 
     public class ConvenioColectivoDeTrabajo

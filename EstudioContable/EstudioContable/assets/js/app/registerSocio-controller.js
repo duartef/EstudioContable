@@ -98,7 +98,17 @@
                     Nacionalidad: $scope.Socio.Nacionalidad,
                     FechaNacimiento: $scope.Socio.FechaNacimiento,
                     EstadoCivil: $scope.Socio.EstadoCivil,
-                    Profesion: $scope.Socio.Profesion
+                    Profesion: $scope.Socio.Profesion,
+                    Celular: $scope.Socio.Celular,
+                    TelefonoLaboral: $scope.Socio.TelefonoLaboral,
+                    EmailLaboral: $scope.Socio.EmailLaboral,
+                    Domicilio: $scope.Socio.Domicilio,
+                    Localidad: $scope.Socio.Localidad,
+                    Provincia: $scope.Socio.Provincia,
+                    CuotasAcciones: $scope.Socio.CuotasAcciones,
+                    PorcentajeParticipacion: $scope.Socio.PorcentajeParticipacion,
+                    
+
                 },
                 method: 'POST',
                 headers: {

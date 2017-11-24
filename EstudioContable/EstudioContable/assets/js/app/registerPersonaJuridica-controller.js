@@ -93,18 +93,12 @@
                 required: false,
                 //dataType: Date
             },
-            Actividades: {
-                required: true
-            },
             EsEmpleador: {
                 required: false
             },
             DomicioComercial: {
                 required: false,
                 //dataType: Boolean
-            },
-            CCT: {
-                required: false,
             },
             Frecuencia: {
                 required: false
@@ -166,9 +160,7 @@
                     ProvinciaComercial: $scope.personaJuridica.ProvinciaComercial,
                     NumeroIngresosBrutos: $scope.personaJuridica.NumeroIngresosBrutos,
                     FechaCierre: $scope.personaJuridica.FechaCierre,
-                    Actividades: $scope.personaJuridica.Actividades,
                     EsEmpleador: $scope.personaJuridica.EsEmpleador,
-                    CCT: $scope.personaJuridica.CCT,
                     Frecuencia: $scope.personaJuridica.Frecuencia,
                     ResponsableEstudio: $scope.personaJuridica.ResponsableEstudio,
                     ResNum: $scope.personaJuridica.ResNum,
