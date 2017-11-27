@@ -85,8 +85,6 @@
         }
     }
 
-    
-
     $scope.register = function (form) {
         $scope.showErrorMessage = false;
 

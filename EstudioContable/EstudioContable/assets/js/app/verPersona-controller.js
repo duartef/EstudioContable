@@ -15,5 +15,51 @@
         alert(error);
     });
 
+    function arrayObjectIndexOf(myArray, searchTerm, property) {
+        for (var i = 0, len = myArray.length; i < len; i++) {
+            if (myArray[i][property] === searchTerm) return i;
+        }
+        return -1;
+    }
+
+    $scope.verPersona = function (event) {
+        if (event.target.id == null || event.target.id == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            var indexOfId = $scope.usuarios.findIndex(i => String(i.Id) === event.target.id);
+            var usuarioSeleccionado = $scope.usuarios[indexOfId];
+            if (usuarioSeleccionado.Tipo == "Persona Humana") {
+                $window.location.href = '/Account/VerPersonaHumana?id=' + usuarioSeleccionado.Id;
+            }
+
+            //$http({
+            //    url: '/Account/RemoveActividad',
+            //    dataType: 'json',
+            //    data: {
+            //        Id: event.target.id,
+            //        ActividadId: 0,
+            //        PersonaJuridicaId: $scope.PersonaJuridicaId
+            //    },
+            //    method: 'POST',
+            //    headers: {
+            //        "Content-Type": "application/json"
+            //    }
+            //}).
+            //then(function (response) {
+            //    if (response != null && response.data.startsWith("Error") == true) {
+            //        $scope.showErrorMessage = true;
+            //    } else {
+            //        alert("Actividad eliminada con éxito");
+            //        $scope.refreshActividades();
+            //    }
+            //    $scope.helpers.uiLoader('hide');
+            //}, function (error) {
+            //    $scope.showErrorMessage = true;
+            //    $scope.helpers.uiLoader('hide');
+            //});
+        }
+    }
+
     $scope.helpers.uiLoader('hide');
 }]);

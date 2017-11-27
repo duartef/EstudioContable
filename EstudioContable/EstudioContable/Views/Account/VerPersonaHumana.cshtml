@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "VerPersonaHumana";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-white" ng-controller="VerPersonaHumanaController" style="background-color:#fff">
+    <section class="content content-boxed">
+        <!-- Section Content -->
+        <div class="row items-push push-50-t push-30">
+            <div class="col-md-6 col-md-offset-3">
+                <form class="form-horizontal" name="registerPHForm" ng-submit="register(registerPHForm)" ng-validate="validationOptions">
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="nombre" name="nombre" ng-model="personaHumana.Nombre" value="{{personaHumana.Nombre}}">
+                                <label for="nombre">Nombre</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="apellido" name="apellido" ng-di ng-model="personaHumana.Apellido" value="{{personaHumana.Apellido}}">
+                                <label for="apellido">Apellido</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+

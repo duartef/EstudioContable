@@ -313,6 +313,7 @@
     <Content Include="assets\js\app\registerSocio-controller.js" />
     <Content Include="assets\js\app\testDatatable-controller.js" />
     <Content Include="assets\js\app\verPersona-controller.js" />
+    <Content Include="assets\js\app\verPersonaHumana-controller.js" />
     <Content Include="assets\js\base_tables_datatables.js" />
     <Content Include="assets\chosen\chosen-sprite.png" />
     <Content Include="assets\chosen\chosen.min.css" />
@@ -1261,6 +1262,7 @@
     <Content Include="Views\Home\Profesionales.cshtml" />
     <Content Include="Views\Home\Organizacion.cshtml" />
     <Content Include="Views\Account\verPersona.cshtml" />
+    <Content Include="Views\Account\VerPersonaHumana.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

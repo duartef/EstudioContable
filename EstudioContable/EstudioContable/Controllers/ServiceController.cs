@@ -134,6 +134,22 @@ namespace EstudioContable.Controllers
 
         }
 
+        [Route("api/Service/GetPersonaHumana/{personaHumanaId}")]
+        public PersonaHumana GetPersonaHumana(string personaHumanaId)
+        {
+            try
+            {
+                int phId = Convert.ToInt32(personaHumanaId);
+                var a = db.PersonasHumanas.First(x => x.Id == phId);
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new PersonaHumana();
+            }
+
+        }
+
         [Route("api/Service/GetAllPersonas")]
         public IEnumerable<object> GetAllPersonas()
         {
