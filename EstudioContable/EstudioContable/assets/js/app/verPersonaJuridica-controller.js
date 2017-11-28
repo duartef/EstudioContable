@@ -1,43 +1,45 @@
-﻿App.controller('VerPersonaHumanaController', ['$scope', '$location', '$window', '$http', function ($scope, $location, $window, $http) {
+﻿App.controller('VerPersonaJuridicaController', ['$scope', '$location', '$window', '$http', function ($scope, $location, $window, $http) {
     $scope.$parent.header = { title: "Ver Persona", description: "Ver Persona." };
 
     $scope.personaHumana = {
-        Nombre: '',
-        Apellido: '',
-        DNI: '',
+        Denomicacion: '',
         CUIT: '',
-        Nacionalidad: '',
-        FechaNacimiento: '',
-        EstadoCivil: '',
-        Profesion: '',
-        Celular: '',
-        TelefonoLaboral: '',
-        EmailLaboral: '',
-        EmailPersonal: '',
+        TipoDePersonaJuridica: '',
         Domicilio: '',
         Localidad: '',
         Provincia: '',
         AgenciaAfip: '',
-        DomicilioComercial: '',
+        Celular: '',
+        TelefonoLaboral: '',
+        EmailLaboral: '',
+        EmailPersonal: '',
+        DomicioComercial: '',
         LocalidadComercial: '',
         ProvinciaComercial: '',
-        NroIngresosBrutos: '',
-        FechaCierreEjercicios: '',
+        NumeroIngresosBrutos: '',
+        FechaCierre: '',
+        Actividades: '',
         EsEmpleador: '',
+        CCT: '',
         Frecuencia: '',
         ResponsableEstudio: '',
-        SituacionImpositiva: '',
+        ResNum: '',
+        TomoN: '',
+        FechaRes: '',
+        FolioD: '',
+        FolioH: '',
+        MatriculaNum: '',
         Claves: '',
         Observaciones: ''
     }
 
-    function getPersonaHumana() {
+    function getPersonaJuridica() {
         var id = $location.search().id;
 
-        $http.get('/api//Service/GetPersonaHumana/' + id).then(
+        $http.get('/api//Service/GetPersonaJuridica/' + id).then(
         function (response) {
             if (response != null && response.data != null) {
-                $scope.personaHumana = response.data;
+                $scope.personaJuridica = response.data;
                 $scope.helpers.uiLoader('hide');
             }
         },
@@ -45,19 +47,20 @@
             $scope.helpers.uiLoader('hide');
         });
     }
-    ///////////Actividades////////////////
-    $scope.addActividad = function (event) {
+    /////////////////////////Add actividad & Remove////
+
+    $scope.addActividadPJ = function (event) {
         if (event.target.id == null || event.target.id == '') {
             //alert("Ocurrio un error pruebe nuevamente por favor.")
         }
         else {
             $scope.helpers.uiLoader('show');
             $http({
-                url: '/Account/AddActividad',
+                url: '/Account/AddActividadJuridica',
                 dataType: 'json',
                 data: {
                     ActividadId: event.target.id,
-                    PersonaHumanaId: $scope.personaHumanaId
+                    PersonaJuridicaID: $scope.PersonaJuridicaId
                 },
                 method: 'POST',
                 headers: {
@@ -91,7 +94,7 @@
                 data: {
                     Id: event.target.id,
                     ActividadId: 0,
-                    PersonaHumanaId: $scope.personaHumanaId
+                    PersonaJuridicaId: $scope.PersonaJuridicaId
                 },
                 method: 'POST',
                 headers: {
@@ -115,11 +118,11 @@
 
     $scope.refreshActividades = function () {
         $scope.helpers.uiLoader('show');
-        var a = String($scope.personaHumanaId);
-        $http.get('/api/Service/GetActividadesDeLaPersonaHumana/' + a).then(
+        var a = String($scope.PersonaJuridicaId);
+        $http.get('/api/Service/GetActividadesDeLaPersonaJuridica/' + a).then(
            function (response) {
                if (response != null && response.data != null) {
-                   $scope.actividadesDeLaPersona = response.data;
+                   $scope.actividadesDeLaPersonaJuridica = response.data;
                }
                $scope.helpers.uiLoader('hide');
            },
@@ -134,22 +137,17 @@
        function (response) {
            if (response != null && response.data != null) {
                $scope.actividades = response.data;
-               //$("#myTable").dataTable().data = $scope.usuarios;
            }
-
-
-
-           //$scope.helpers.uiLoader('hide');
-           //$scope.helpers.uiBlocks('#popUpWin', 'state_normal');
        },
        function (error) {
            $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
        }
     );
 
-    ///////////Actividades////////////////
+    ///////////////END ADD ACTIVIDADPJ///////////////////////////
 
-    ///////////Convenios//////////////////
+    /////////////////////CONVENIOS////////////////////////////////
+
     $scope.addCCT = function (event) {
         if (event.target.id == null || event.target.id == '') {
             //alert("Ocurrio un error pruebe nuevamente por favor.")
@@ -157,11 +155,11 @@
         else {
             $scope.helpers.uiLoader('show');
             $http({
-                url: '/Account/AddCCT',
+                url: '/Account/AddCCTJuridica',
                 dataType: 'json',
                 data: {
                     CctId: event.target.id,
-                    PersonaHumanaId: $scope.personaHumanaId
+                    PersonaJuridicaId: $scope.PersonaJuridicaId
                 },
                 method: 'POST',
                 headers: {
@@ -182,13 +180,13 @@
             });
         }
     }
-
+    ////////////este no se/////////////////
     $scope.refreshConvenios = function () {
-        var a = String($scope.personaHumanaId);
-        $http.get('/api/Service/GetConveniossDeLaPersona/' + a).then(
+        var a = String($scope.PersonaJuridicaId);
+        $http.get('/api/Service/GetConveniossDeLaPersonaJuridica/' + a).then(
            function (response) {
                if (response != null && response.data != null) {
-                   $scope.cctsDeLaPersona = response.data;
+                   $scope.cctsDeLaPersonaJuridica = response.data;
                }
            },
            function (error) {
@@ -197,19 +195,19 @@
         );
     }
 
-    $scope.removeCCT = function (event) {
+    $scope.removeCCTJuridica = function (event) {
         if (event.target.id == null || event.target.id == '') {
             //alert("Ocurrio un error pruebe nuevamente por favor.")
         }
         else {
             $scope.helpers.uiLoader('show');
             $http({
-                url: '/Account/RemoveCCT',
+                url: '/Account/AddCCTJuridica',
                 dataType: 'json',
                 data: {
                     Id: event.target.id,
                     CctId: 0,
-                    PersonaHumanaId: $scope.personaHumanaId
+                    PersonaJuridicaId: $scope.PersonaJuridicaId
                 },
                 method: 'POST',
                 headers: {
@@ -243,7 +241,7 @@
        }
     );
 
-    getPersonaHumana();
+    getPersonaJuridica();
 
     //$scope.helpers.uiLoader('hide');
 }]);

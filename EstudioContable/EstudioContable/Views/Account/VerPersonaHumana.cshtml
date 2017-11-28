@@ -20,14 +20,451 @@
 
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating open">
-                                <input class="form-control" type="text" id="apellido" name="apellido" ng-di ng-model="personaHumana.Apellido" value="{{personaHumana.Apellido}}">
+                                <input class="form-control" type="text" id="apellido" name="apellido" ng-model="personaHumana.Apellido" value="{{personaHumana.Apellido}}">
                                 <label for="apellido">Apellido</label>
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="DNI" name="DNI" ng-model="personaHumana.DNI" value="{{personaHumana.DNI}}">
+                                <label for="DNI">DNI</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="CUIT" name="CUIT" ng-model="personaHumana.CUIT" value="{{personaHumana.CUIT}}">
+                                <label for="CUIT">CUIT</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary floating open">
+                                <label for="nacionalidad" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Nacionalidad</em></label>
+                                <select class="form-control" id="nacionalidad" name="nacionalidad" ng-model="personaHumana.Nacionalidad" value="{{personaHumana.Nacionalidad}}">
+                                    <option value="Argentina">Argentina</option>
+                                    <option value="Brasileña">Brasileña</option>
+                                    <option value="Uruguaya">Uruguaya</option>
+                                    <option value="Chilena">Chilena</option>
+                                    <option value="Paraguaya">Paraguaya</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <label>Fecha de Nacimiento</label>
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="date" id="fechaNacimiento" name="fechaNacimiento" ng-model="personaHumana.FechaNacimiento" value="{{personaHumana.FechaNacimiento}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="Profesion" name="EstadoCivil" ng-model="personaHumana.EstadoCivil" value="{{personaHumana.EstadoCivil}}">
+                                <label for="EstadoCivil">Estado Civil</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="Profesion" name="Profesion" ng-di ng-model="personaHumana.Profesion" value="{{personaHumana.Profesion}}">
+                                <label for="Profesion">Profesion</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="Celular" name="Celular" ng-model="personaHumana.Celular" value="{{personaHumana.Celular}}">
+                                <label for="Celular">Celular</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="TelefonoLaboral" name="TelefonoLaboral" ng-di ng-model="personaHumana.TelefonoLaboral" value="{{personaHumana.TelefonoLaboral}}">
+                                <label for="TelefonoLaboral">TelefonoLaboral</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="EmailLaboral" name="EmailLaboral" ng-model="personaHumana.EmailLaboral" value="{{personaHumana.EmailLaboral}}">
+                                <label for="EmailLaboral">EmailLaboral</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="EmailPersonal" name="EmailPersonal" ng-di ng-model="personaHumana.EmailPersonal" value="{{personaHumana.EmailPersonal}}">
+                                <label for="EmailPersonal">EmailPersonal</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="Domicilio" name="Domicilio" ng-model="personaHumana.Domicilio" value="{{personaHumana.Domicilio}}">
+                                <label for="Domicilio">Domicilio</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="Localidad" name="Localidad" ng-di ng-model="personaHumana.Localidad" value="{{personaHumana.Localidad}}">
+                                <label for="Localidad">Localidad</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="Provincia" name="Provincia" ng-model="personaHumana.Provincia" value="{{personaHumana.Provincia}}">
+                                <label for="Provincia">Provincia</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Agencia Afip</em></label>
+                                <select class="form-control" name="AgenciaAfip" ng-model="personaHumana.AgenciaAfip" value="{{personaHumana.AgenciaAfip}}">
+                                    <option value="SantaRosa">Santa Rosa</option>
+                                    <option value="GralPico">General Pico</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="DomicilioComercial" name="DomicilioComercial" ng-model="personaHumana.DomicilioComercial" value="{{personaHumana.DomicilioComercial}}">
+                                <label for="DomicilioComercial">Domicilio Comercial</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="LocalidadComercial" name="LocalidadComercial" ng-di ng-model="personaHumana.LocalidadComercial" value="{{personaHumana.LocalidadComercial}}">
+                                <label for="LocalidadComercial">Localidad Comercial</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="ProvinciaComercial" name="ProvinciaComercial" ng-model="personaHumana.ProvinciaComercial" value="{{personaHumana.ProvinciaComercial}}">
+                                <label for="ProvinciaComercial">Provincia Comercial</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="text" id="NroIngresosBrutos" name="NroIngresosBrutos" ng-di ng-model="personaHumana.NroIngresosBrutos" value="{{personaHumana.NroIngresosBrutos}}">
+                                <label for="NroIngresosBrutos">Nro Ingresos Brutos</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label>Fecha de Cierre de Ejericio</label>
+                            <div class="form-material form-material-primary floating open">
+                                <input class="form-control" type="date" id="fechaCierreEjercicios" name="fechaCierreEjercicios" ng-model="personaHumana.FechaCierreEjercicios" value="{{personaHumana.FechaCierreEjercicios}}">
+                            </div>
+                        </div>
+
+                        <label class="col-xs-6" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Es Empleador?</label>
+                        <div class="col-xs-6">
+                            <div class="radio">
+                                <label for="example-radio1">
+                                    <input type="radio" id="example-radio1" name="example-radios" value="option1">Si
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="example-radio2">
+                                    <input type="radio" id="example-radio2" name="example-radios" value="option2">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Responsable en el Estudio</label>
+                                <select class="form-control" id="responsable" name="responsable" ng-model="personaHumana.ResponsableEstudio" value="{{personaHumana.ResponsableEstudio}}">
+                                    <option value="SociedadAnonima">Responsable 1</option>
+                                    <option value="SociedadAnonima">Responsable 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating open">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Frecuencia de Atencion</label>
+                                <select class="form-control" id="frecAtencion" name="frecAtencion" ng-model="personaHumana.Frecuencia" value="{{personaHumana.Frecuencia}}">
+                                    <option value="Mensual">Mensual</option>
+                                    <option value="Anual">Anual</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary floating open">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Situacion Impositiva</label>
+                                <select class="form-control" id="situacionImpositiva" name="situacionImpositiva" ng-model="personaHumana.SituacionImpositiva" value="{{personaHumana.SituacionImpositiva}}">
+                                    <option value="Monotributista">Monotributista</option>
+                                    <option value="RegimenGeneral">Regimen General</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12" for="example-textarea-input" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Claves</label>
+                        <div class="col-xs-12">
+                            <textarea class="form-control" id="Claves" name="Claves" rows="6" placeholder="Claves" ng-model="personaHumana.Claves" value="{{personaHumana.Claves}}"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-12" for="example-textarea-input" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Observaciones</label>
+                        <div class="col-xs-12">
+                            <textarea class="form-control" id="observaciones" name="observaciones" rows="6" placeholder="Observaciones" ng-model="personaHumana.Observaciones" value="{{personaHumana.Observaciones}}"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-floppy-o pull-right"></i>Guardar</button>
+                        </div>
+                    </div>
                 </form>
+                <br />
+
+                @*-----------------actividades----------------------------*@
+
+                <form class="form-horizontal" name="addActividadToPhForm">
+                    <div class="form-group">
+
+                        <div class="col-md-6">
+                            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881;color:#fff">
+                                <i class="fa fa-plus pull-right"></i>
+                                Actividades
+                            </button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" style="overflow-y:scroll" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">Actividades</h5>
+
+                                        <div style="background-color:#ffffff;color:#009881">
+                                            <br />
+
+                                            @*<p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Ordenado por: {{ sortType }}</p>
+                                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
+                                                <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px" hidden="hidden">Search Query: {{ filtro }}</p>*@
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <div class="input-group" style="padding-left:20px;padding-right:20px">
+
+                                                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+                                                    <input type="text" class="form-control" placeholder="Buscar.." ng-model="filtro">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <table class="table table-bordered table-striped">
+
+                                                <thead>
+                                                    <tr>
+                                                        <td hidden="hidden">
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+                                                                Id
+                                                                <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                                                Codigo
+                                                                <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                                                Descripcion
+                                                                <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr ng-repeat="actividad in actividades | orderBy:sortType:sortReverse | filter:filtro">
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{actividad.Id}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividad.Codigo}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividad.Descripcion}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-primary" data-ng-click="addActividad($event)" id="{{actividad.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*------------------Tabla Actividades------------------*@
+                        <div class="col-xs-6 ">
+                            <div class="block-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="font-family:'Source Serif Pro'">Actividades</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="font-size:12px">
+                                        <tr ng-repeat="actividadDeLaPersona in actividadesDeLaPersona | orderBy:sortType:sortReverse | filter:filtro">
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{actividadDeLaPersona.Id}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{actividadDeLaPersona.Descripcion}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="w3-button w3-circle" data-ng-click="removeActividad($event)" id="{{actividadDeLaPersona.Id}}" style="background-color:#ff0000; border-color:#ff0000; color:#fff"><i class="fa fa-times"></i></button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </form>
+
+
+                @*--------------Form CCT---------------*@
+                <form form class="form-horizontal" name="addCCTToPhForm">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <button class="btn btn-block btn-primary" type="button" data-toggle="modal" data-target="#CCTModal" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
+                        </div>
+                        <div class="modal fade" style="overflow-y:scroll" id="CCTModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">CCT</h5>
+                                        <div style="background-color:#ffffff;color:#009881">
+
+                                            @*<div class="col-md-12">
+                                                    <textarea class="form-control" readonly></textarea>
+                                                </div>*@
+
+
+                                        </div>
+                                        <br />
+
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <div class="input-group" style="padding-left:20px;padding-right:20px">
+
+                                                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+                                                    <input type="text" class="form-control" placeholder="Buscar.." ng-model="filtro">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <table class="table table-bordered table-striped">
+
+                                                <thead>
+                                                    <tr>
+                                                        <td hidden="hidden">
+                                                            @*<a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+                                                                    Id
+                                                                    <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                    <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                                                                </a>*@
+                                                        </td>
+                                                        <td>
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                                                Convenio
+                                                                <span ng-show="sortType == 'Convenio' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Convenio' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr ng-repeat="ConvenioColectivoDeTrabajo in conveniosColectivos | orderBy:sortType:sortReverse | filter:filtro">
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{ConvenioColectivoDeTrabajo.Id}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{ConvenioColectivoDeTrabajo.Convenio}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-primary" data-ng-click="addCCT($event)" id="{{ConvenioColectivoDeTrabajo.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus"></i></button></td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <div class="block-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="font-family:'Source Serif Pro'">CCT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="font-size:12px">
+                                        <tr ng-repeat="cctDeLaPersona in cctsDeLaPersona | orderBy:sortType:sortReverse | filter:filtro">
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{cctDeLaPersona.Id}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{cctDeLaPersona.Convenio}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="w3-button w3-circle" data-ng-click="removeCCT($event)" id="{{cctDeLaPersona.Id}}" style="background-color:#ff0000; border-color:#ff0000; color:#fff"><i class="fa fa-times"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+
+                <div class="form-group">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <br />
+                        <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881" onclick="location.href = '/Account/verPersona'">Volver</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 </div>
+       
+    
+
 
