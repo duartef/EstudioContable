@@ -1,11 +1,12 @@
 ﻿App.controller('VerPersonaHumanaController', ['$scope', '$location', '$window', '$http', function ($scope, $location, $window, $http) {
     $scope.$parent.header = { title: "Ver Persona", description: "Ver Persona." };
 
+    $scope.personaHumanaId = '';
     $scope.personaHumana = {
         Nombre: '',
         Apellido: '',
-        DNI: '',
-        CUIT: '',
+        Dni: '',
+        Cuit: '',
         Nacionalidad: '',
         FechaNacimiento: '',
         EstadoCivil: '',
@@ -32,12 +33,14 @@
     }
 
     function getPersonaHumana() {
-        var id = $location.search().id;
+        $scope.personaHumanaId = $location.search().id;
 
-        $http.get('/api//Service/GetPersonaHumana/' + id).then(
+        $http.get('/api//Service/GetPersonaHumana/' + $scope.personaHumanaId).then(
         function (response) {
             if (response != null && response.data != null) {
                 $scope.personaHumana = response.data;
+                $scope.refreshActividades();
+                $scope.refreshConvenios();
                 $scope.helpers.uiLoader('hide');
             }
         },

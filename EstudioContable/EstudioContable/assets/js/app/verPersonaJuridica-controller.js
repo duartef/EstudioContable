@@ -1,6 +1,8 @@
 ﻿App.controller('VerPersonaJuridicaController', ['$scope', '$location', '$window', '$http', function ($scope, $location, $window, $http) {
     $scope.$parent.header = { title: "Ver Persona", description: "Ver Persona." };
 
+    $scope.PersonaJuridicaId = '';
+
     $scope.personaHumana = {
         Denomicacion: '',
         CUIT: '',
@@ -34,12 +36,14 @@
     }
 
     function getPersonaJuridica() {
-        var id = $location.search().id;
+        $scope.PersonaJuridicaId = $location.search().id;
 
         $http.get('/api//Service/GetPersonaJuridica/' + id).then(
         function (response) {
             if (response != null && response.data != null) {
                 $scope.personaJuridica = response.data;
+                $scope.refreshActividades();
+                $scope.refreshConvenios();
                 $scope.helpers.uiLoader('hide');
             }
         },
