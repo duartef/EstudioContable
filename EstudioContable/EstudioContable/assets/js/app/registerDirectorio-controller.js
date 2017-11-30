@@ -92,7 +92,7 @@
             $scope.helpers.uiLoader('show');
 
             $http({
-                url: '/Account/RegisterPersonaJuridica',
+                url: '/Account/RegisterDirector',
                 dataType: 'json',
                 data: {
                     Nombre: $scope.Director.nombre,
@@ -103,7 +103,13 @@
                     FechaNacimiento: $scope.Director.fechaNacimiento,
                     EstadoCivil: $scope.Director.estadoCivil,
                     Celular: $scope.Director.profesion,
-                    EmailLaboral: $scope.Director.profesion,
+                    EmailLaboral: $scope.Director.EmailLaboral,
+                    Domicilio: $scope.Director.Domicilio,
+                    Localidad: $scope.Director.Localidad,
+                    Provincia: $scope.Director.Provincia,
+                    Cargo: $scope.Director.Cargo,
+                    FechaDesignacion: $scope.Director.FechaDesignacion,
+                    VencimientoMandato: $scope.Director.VencimientoMandato,
                 },
                 method: 'POST',
                 headers: {
@@ -124,5 +130,6 @@
         }
     }
 
+    
     $scope.helpers.uiLoader('hide');
 }]);
