@@ -312,6 +312,7 @@
     <Content Include="assets\js\app\registerPersonaJuridica-controller.js" />
     <Content Include="assets\js\app\registerSocio-controller.js" />
     <Content Include="assets\js\app\testDatatable-controller.js" />
+    <Content Include="assets\js\app\ui-utils.min.js" />
     <Content Include="assets\js\app\verPersona-controller.js" />
     <Content Include="assets\js\app\verPersonaHumana-controller.js" />
     <Content Include="assets\js\app\verPersonaJuridica-controller.js" />

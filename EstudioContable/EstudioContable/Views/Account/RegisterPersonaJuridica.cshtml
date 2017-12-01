@@ -22,7 +22,7 @@
 
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="cuit" name="cuit" ng-model="personaJuridica.CUIT">
+                                <input class="form-control" mask="99-99999999-9" type="text" id="cuit" name="cuit" ng-model="personaJuridica.CUIT">
                                 <label for="cuit">Cuit</label>
                             </div>
                         </div>
@@ -296,7 +296,7 @@
                                 <h3 class="block-title">Director</h3>
                             </div>
                             <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#DirectorioModal" style="background-color:#009881; border-color:#009881">
-                                <i class="fa fa-plus pull-right"></i>Director
+                                <i class="fa fa-user-plus pull-right"></i>Director
                             </button>
 
                             <!-- Modal -->
@@ -406,7 +406,7 @@
                                             <div class="form-group">
                                                 <div class="col-xs-6">
                                                     <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="email" id="Localidad" name="Localidad" ng-model="director.Localidad">
+                                                        <input class="form-control" type="text" id="Localidad" name="Localidad" ng-model="director.Localidad">
                                                         <label for="Localidad">Localidad</label>
                                                     </div>
                                                 </div>
@@ -502,7 +502,7 @@
                                 <h3 class="block-title">Socio</h3>
                             </div>
                             <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#SocioModal" style="background-color:#009881; border-color:#009881">
-                                <i class="fa fa-plus pull-right"></i>Socio
+                                <i class="fa fa fa-user-plus pull-right"></i>Socio
                             </button>
                             <!-- Modal -->
                             <div class="modal fade" id="SocioModal" tabindex="-1" role="dialog" aria-labelledby="SocioModal" aria-hidden="true">
@@ -926,6 +926,8 @@
         <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881" onclick="location.href = '/Home/Index'">Finalizar</button>
     </div>
 </div>
+<br />
+
 
 @*--------------------------------Directorio-------------------------*@
 @*<div ng-controller="RegisterDirectorioController">
