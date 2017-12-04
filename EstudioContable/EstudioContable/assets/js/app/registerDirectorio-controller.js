@@ -21,12 +21,13 @@
         Provincia: '',
         Cargo: '',
         FechaDesignacion: '',
-        VencimientoMandato: ''
+        VencimientoMandato: '',
+        PersonaJuridicaId: ''
     }
 
-   $scope.validationOptions = {
-      rules: {
-           Nombre: {
+    $scope.validationOptions = {
+        rules: {
+            Nombre: {
                 required: true,
             },
             Apellido: {
@@ -85,31 +86,33 @@
         }
     }
 
-    $scope.register = function (form) {
+    $scope.addDirector = function (form) {
         $scope.showErrorMessage = false;
 
-        if (form.validate()) {
+        //if (form.validate()) {
+        if (true) {
             $scope.helpers.uiLoader('show');
 
             $http({
                 url: '/Account/RegisterDirector',
                 dataType: 'json',
                 data: {
-                    Nombre: $scope.Director.nombre,
-                    Apellido: $scope.Director.apellido,
-                    Dni: $scope.Director.dni,
-                    Cuit: $scope.Director.cuit,
-                    Nacionalidad: $scope.Director.nacionalidad,
-                    FechaNacimiento: $scope.Director.fechaNacimiento,
-                    EstadoCivil: $scope.Director.estadoCivil,
-                    Celular: $scope.Director.profesion,
-                    EmailLaboral: $scope.Director.EmailLaboral,
-                    Domicilio: $scope.Director.Domicilio,
-                    Localidad: $scope.Director.Localidad,
-                    Provincia: $scope.Director.Provincia,
-                    Cargo: $scope.Director.Cargo,
-                    FechaDesignacion: $scope.Director.FechaDesignacion,
-                    VencimientoMandato: $scope.Director.VencimientoMandato,
+                    Nombre: $scope.director.nombre,
+                    Apellido: $scope.director.apellido,
+                    Dni: $scope.director.dni,
+                    Cuit: $scope.director.cuit,
+                    Nacionalidad: $scope.director.nacionalidad,
+                    FechaNacimiento: $scope.director.fechaNacimiento,
+                    EstadoCivil: $scope.director.estadoCivil,
+                    Celular: $scope.director.profesion,
+                    EmailLaboral: $scope.director.EmailLaboral,
+                    Domicilio: $scope.director.Domicilio,
+                    Localidad: $scope.director.Localidad,
+                    Provincia: $scope.director.Provincia,
+                    Cargo: $scope.director.Cargo,
+                    FechaDesignacion: $scope.director.FechaDesignacion,
+                    VencimientoMandato: $scope.director.VencimientoMandato,
+                    PersonaJuridicaId: $scope.PersonaJuridicaId
                 },
                 method: 'POST',
                 headers: {
@@ -130,6 +133,5 @@
         }
     }
 
-    
     $scope.helpers.uiLoader('hide');
 }]);

@@ -310,6 +310,7 @@
     <Content Include="assets\js\app\registerEmpleado-controller.js" />
     <Content Include="assets\js\app\registerPersonaHumana-controller.js" />
     <Content Include="assets\js\app\registerPersonaJuridica-controller.js" />
+    <Content Include="assets\js\app\registerPersonaJuridica2-controller.js" />
     <Content Include="assets\js\app\registerSocio-controller.js" />
     <Content Include="assets\js\app\testDatatable-controller.js" />
     <Content Include="assets\js\app\ui-utils.min.js" />
@@ -1266,6 +1267,7 @@
     <Content Include="Views\Account\verPersona.cshtml" />
     <Content Include="Views\Account\VerPersonaHumana.cshtml" />
     <Content Include="Views\Account\VerPersonaJuridica.cshtml" />
+    <Content Include="Views\Account\RegisterPersonaJuridica2.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -289,7 +289,7 @@
         <div class="row items-push push-50-t push-30">
             <div class="col-md-6 col-md-offset-3">
 
-                <form class="form-horizontal" name="registerDirectorio">
+                <form class="form-horizontal" name="registerDirectorio" ng-submit="addDirector(registerDirectorio)" ng-validate="validationOptions">
                     <div class="form-group">
                         <div class="col-xs-6">
                             <div class="block-header">
@@ -450,7 +450,7 @@
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-primary" style="background-color:#009881; border-color:#009881">Agregar</button>
+                                            <button type="button" class="btn btn-primary" style="background-color:#009881; border-color:#009881" data-ng-click="addDirector($event)">Agregar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -802,8 +802,6 @@
                                 </table>
                             </div>
                         </div>
-
-
                     </div>
                 </form>
             </div>

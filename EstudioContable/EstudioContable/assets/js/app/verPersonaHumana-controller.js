@@ -25,8 +25,8 @@
         NroIngresosBrutos: '',
         FechaCierreEjercicios: '',
         EsEmpleador: '',
-        Frecuencia: '',
-        ResponsableEstudio: '',
+        FrecAtencion: '',
+        Responsable: '',
         SituacionImpositiva: '',
         Claves: '',
         Observaciones: ''
@@ -39,6 +39,11 @@
         function (response) {
             if (response != null && response.data != null) {
                 $scope.personaHumana = response.data;
+                //var datePartials = $scope.personaHumana.FechaNacimiento.split("-");
+                //var dateModel = new Date(datePartials[0], datePartials[1] - 1, datePartials[2]);
+                $scope.personaHumana.FechaNacimiento = new Date($scope.personaHumana.FechaNacimiento);
+                $scope.personaHumana.FechaCierreEjercicios = new Date($scope.personaHumana.FechaCierreEjercicios);
+
                 $scope.refreshActividades();
                 $scope.refreshConvenios();
                 $scope.helpers.uiLoader('hide');

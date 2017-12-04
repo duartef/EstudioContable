@@ -135,7 +135,8 @@
     $scope.register = function (form) {
         $scope.showErrorMessage = false;
 
-        if (form.validate()) {
+        //if (form.validate()) {
+        if (true) {
             $scope.helpers.uiLoader('show');
 
             $http({
@@ -167,7 +168,7 @@
                     FolioD: $scope.personaJuridica.FolioD,
                     FolioH: $scope.personaJuridica.FolioH,
                     MatriculaNum: $scope.personaJuridica.MatriculaNum,
-                    Claves : $scope.personaJuridica.Claves,
+                    Claves: $scope.personaJuridica.Claves,
                     Observaciones: $scope.personaJuridica.Observaciones
                 },
                 method: 'POST',
@@ -190,7 +191,7 @@
         }
     }
 
-  /////////////////////////Add actividad & Remove////
+    /////////////////////////Add actividad & Remove////
 
     $scope.addActividadPJ = function (event) {
         if (event.target.id == null || event.target.id == '') {
