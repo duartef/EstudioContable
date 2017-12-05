@@ -97,14 +97,14 @@
                 url: '/Account/RegisterDirector',
                 dataType: 'json',
                 data: {
-                    Nombre: $scope.director.nombre,
-                    Apellido: $scope.director.apellido,
-                    Dni: $scope.director.dni,
-                    Cuit: $scope.director.cuit,
-                    Nacionalidad: $scope.director.nacionalidad,
-                    FechaNacimiento: $scope.director.fechaNacimiento,
-                    EstadoCivil: $scope.director.estadoCivil,
-                    Celular: $scope.director.profesion,
+                    Nombre: $scope.director.Nombre,
+                    Apellido: $scope.director.Apellido,
+                    Dni: $scope.director.DNI,
+                    Cuit: $scope.director.CUIT,
+                    Nacionalidad: $scope.director.Nacionalidad,
+                    FechaNacimiento: $scope.director.FechaNacimiento,
+                    EstadoCivil: $scope.director.EstadoCivil,
+                    Profesion: $scope.director.Profesion,
                     EmailLaboral: $scope.director.EmailLaboral,
                     Domicilio: $scope.director.Domicilio,
                     Localidad: $scope.director.Localidad,
@@ -123,7 +123,7 @@
                 if (response != null && response.data > 0) {
                     $scope.showErrorMessage = true;
                 } else {
-                    $window.location.href = "/Home/Index";
+                    //$window.location.href = "/Home/Index";
                 }
                 $scope.helpers.uiLoader('hide');
             }, function (error) {

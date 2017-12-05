@@ -231,7 +231,6 @@ namespace EstudioContable.Controllers
             {
                 db.Directores.Add(director);
                 db.SaveChanges();
-                //Error
                 return director.Id.ToString();
             }
             catch (Exception ex)
@@ -250,7 +249,6 @@ namespace EstudioContable.Controllers
             {
                 db.Socios.Add(socio);
                 db.SaveChanges();
-                //Error
                 return socio.Id.ToString();
             }
             catch (Exception ex)

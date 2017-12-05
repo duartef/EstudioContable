@@ -19,6 +19,7 @@
         Provincia: '',
         CuotasAcciones: '',
         PorcentajeParticipacion: '',
+        PersonaJuridicaId: ''
     }
 
     $scope.validationOptions = {
@@ -88,7 +89,7 @@
             $scope.helpers.uiLoader('show');
 
             $http({
-                url: '/Account/RegisterPersonaJuridica',
+                url: '/Account/RegisterSocio',
                 dataType: 'json',
                 data: {
                     Nombre: $scope.Socio.Nombre,
@@ -107,8 +108,7 @@
                     Provincia: $scope.Socio.Provincia,
                     CuotasAcciones: $scope.Socio.CuotasAcciones,
                     PorcentajeParticipacion: $scope.Socio.PorcentajeParticipacion,
-                    
-
+                    PersonaJuridicaId: $scope.PersonaJuridicaId
                 },
                 method: 'POST',
                 headers: {
@@ -119,7 +119,7 @@
                 if (response != null && response.data > 0) {
                     $scope.showErrorMessage = true;
                 } else {
-                    $window.location.href = "/Home/Index";
+                    //$window.location.href = "/Home/Index";
                 }
                 $scope.helpers.uiLoader('hide');
             }, function (error) {

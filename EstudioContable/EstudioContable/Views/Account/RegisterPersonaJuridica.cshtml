@@ -160,16 +160,16 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-xs-12" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Es Empleador?</em></label>
+                        <label class="col-xs-6" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Es Empleador?</label>
                         <div class="col-xs-6">
-                            <div class="radio">
-                                <label for="Si">
-                                    <input type="radio" id="example-radio1" name="Si" value="Si">Si
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" name="esEmpleador" ng-model="personaJuridica.esEmpleador" ng-value="true">Si
                                 </label>
                             </div>
-                            <div class="radio">
-                                <label for="No">
-                                    <input type="radio" id="example-radio2" name="No" value="No">No
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" name="esEmpleador" ng-model="personaJuridica.esEmpleador" ng-value="false">No
                                 </label>
                             </div>
                         </div>
@@ -280,416 +280,420 @@
         </div>
         <!-- END Section Content -->
     </section>
-</div>
 
-@*-----------------------Director--------------------*@
-<div ng-controller="RegisterDirectorioController">
-    <section class="content content-boxed">
-        <!-- Section Content -->
-        <div class="row items-push push-50-t push-30">
-            <div class="col-md-6 col-md-offset-3">
+    @*-----------------------Director--------------------*@
+    <div ng-controller="RegisterDirectorioController">
+        <section class="content content-boxed">
+            <!-- Section Content -->
+            <div class="row items-push push-50-t push-30">
+                <div class="col-md-6 col-md-offset-3">
 
-                <form class="form-horizontal" name="registerDirectorio" ng-submit="addDirector(registerDirectorio)" ng-validate="validationOptions">
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <div class="block-header">
-                                <h3 class="block-title">Director</h3>
-                            </div>
-                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#DirectorioModal" style="background-color:#009881; border-color:#009881">
-                                <i class="fa fa-user-plus pull-right"></i>Director
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="DirectorioModal" tabindex="-1" role="dialog" aria-labelledby="DirectorModal" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <h5 class="modal-title">Directorio</h5>
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Nombre" name="Nombre" ng-model="director.Nombre">
-                                                        <label for="name">Nombre</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Apellido" name="Apellido" ng-model="director.Apellido">
-                                                        <label for="cuit">Apellido</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="DNI" name="DNI" ng-model="director.DNI">
-                                                        <label for="DNI">DNI</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="CUIT" name="CUIT" ng-model="director.CUIT">
-                                                        <label for="CUIT">CUIT</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-6">
-                                                    <div class="form-material form-material-primary ">
-                                                        <label for="Nacionalidad">Nacionalidad</label>
-                                                        <select class="form-control" id="Nacionalidad" name="Nacionalidad" ng-model="director.Nacionalidad">
-                                                            <option value="Argentina">Argentina</option>
-                                                            <option value="Brasileña">Brasileña</option>
-                                                            <option value="Uruguaya">Uruguaya</option>
-                                                            <option value="Chilena">Chilena</option>
-                                                            <option value="Paraguaya">Paraguaya</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <label>Fecha de Nacimiento</label>
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="date" id="FechaNacimiento" name="FechaNacimiento" ng-model="director.FechaNacimiento">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-6">
-                                                    <div class="form-material form-material-primary ">
-                                                        <label for="EstadoCivil">Estado Civil</label>
-                                                        <select class="form-control" id="EstadoCivil" name="EstadoCivil" ng-model="director.EstadoCivil">
-                                                            <option value="Soltero">Soltero</option>
-                                                            <option value="Casado">Casado</option>
-                                                            <option value="Divorciado">Divorciado</option>
-                                                            <option value="Viudo">Viudo</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Profesion" name="Profesion" ng-model="director.Profesion">
-                                                        <label for="Profesion">Profesion</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Celular" name="Celular" ng-model="director.Celular">
-                                                        <label for="Celular"> Celular</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="TelefonoLaboral" name="TelefonoLaboral" ng-model="director.TelefonoLaboral">
-                                                        <label for="Celular"> Teléfono Laboral</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="email" id="EmailLaboral" name="EmailLaboral" ng-model="director.EmailLaboral">
-                                                        <label for="EmailLaboral">Email</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Domicilio" name="Domicilio" ng-model="director.Domicilio">
-                                                        <label for="Domicilio">Domicilio</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Localidad" name="Localidad" ng-model="director.Localidad">
-                                                        <label for="Localidad">Localidad</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Provincia" name="Provincia" ng-model="director.Provincia">
-                                                        <label for="Provincia">Provincia</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary ">
-                                                        <label for="Cargo">Cargo</label>
-                                                        <select class="form-control" id="Cargo" name="Cargo" ng-model="director.Cargo">
-                                                            <option value="Presidente">Presidente</option>
-                                                            <option value="Director Suplente">Director Suplente</option>
-                                                            <option value="Gerente">Gerente</option>
-                                                            <option value="Fiduciario"> Fiduciario</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <label for="FechaDesignacion">Fecha de Designacion</label>
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="date" id="FechaDesignacion" name="FechaDesignacion" ng-model="director.FechaDesignacion">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <label>Vencimiento del Mandato</label>
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="date" id="VencimientoMandato" name="VencimientoMandato" ng-model="director.VencimientoMandato">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                            <button type="button" class="btn btn-primary" style="background-color:#009881; border-color:#009881" data-ng-click="addDirector($event)">Agregar</button>
-                                        </div>
-                                    </div>
+                    <form class="form-horizontal" name="registerDirectorio" ng-submit="addDirector(registerDirectorio)" ng-validate="validationOptions">
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <div class="block-header">
+                                    <h3 class="block-title">Director</h3>
                                 </div>
-                            </div>
-                        </div>
+                                <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#DirectorioModal" style="background-color:#009881; border-color:#009881">
+                                    <i class="fa fa-user-plus pull-right"></i>Director
+                                </button>
 
-                        <div class="col-xs-6 ">
-                            <div class="block-content">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th style="font-family:'Source Serif Pro'">Lista Directores</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr style="font-size:12px">
-                                            @*<tr ng-repeat="Director in Directores | orderBy:sortType:sortReverse | filter:filtro">*@
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{Director.Id}}</td>
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{Director.Nombre}}</td>
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{Director.Apellido}}</td>
-                                            @*<td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="w3-button w3-circle" data-ng-click="removeActividad($event)" id="{{Director.Id}}" style="background-color:#ff0000; border-color:#ff0000; color:#fff"><i class="fa fa-times"></i></button></td>*@
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- END Section Content -->
-    </section>
-</div>
-
-@*-------------------------Socio-----------------*@
-<div ng-controller="RegisterSocioController">
-    <section class="content content-boxed">
-        <!-- Section Content -->
-        <div class="row items-push push-50-t push-30">
-            <div class="col-md-6 col-md-offset-3">
-                <form class="form-horizontal" name="registerSocio">
-                    @*-------------------------------Socio-----------------------------*@
-
-                    <div class="form-group">
-
-                        <div class="col-xs-6 ">
-                            <div class="block-header">
-                                <h3 class="block-title">Socio</h3>
-                            </div>
-                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#SocioModal" style="background-color:#009881; border-color:#009881">
-                                <i class="fa fa fa-user-plus pull-right"></i>Socio
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="SocioModal" tabindex="-1" role="dialog" aria-labelledby="SocioModal" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <h5 class="modal-title" id="exampleModalLabel">Socio</h5>
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Nombre" name="Nombre" ng-model="Socio.Nombre">
-                                                        <label for="name">Nombre</label>
+                                <!-- Modal -->
+                                <div class="modal fade" id="DirectorioModal" tabindex="-1" role="dialog" aria-labelledby="DirectorModal" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h5 class="modal-title">Directorio</h5>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Nombre" name="Nombre" ng-model="director.Nombre">
+                                                            <label for="name">Nombre</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Apellido" name="Apellido" ng-model="director.Apellido">
+                                                            <label for="cuit">Apellido</label>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="DNI" name="DNI" ng-model="director.DNI">
+                                                            <label for="DNI">DNI</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="CUIT" name="CUIT" ng-model="director.CUIT">
+                                                            <label for="CUIT">CUIT</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6">
+                                                        <div class="form-material form-material-primary ">
+                                                            <label for="Nacionalidad">Nacionalidad</label>
+                                                            <select class="form-control" id="Nacionalidad" name="Nacionalidad" ng-model="director.Nacionalidad">
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Brasileña">Brasileña</option>
+                                                                <option value="Uruguaya">Uruguaya</option>
+                                                                <option value="Chilena">Chilena</option>
+                                                                <option value="Paraguaya">Paraguaya</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <label>Fecha de Nacimiento</label>
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="date" id="FechaNacimiento" name="FechaNacimiento" ng-model="director.FechaNacimiento">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6">
+                                                        <div class="form-material form-material-primary ">
+                                                            <label for="EstadoCivil">Estado Civil</label>
+                                                            <select class="form-control" id="EstadoCivil" name="EstadoCivil" ng-model="director.EstadoCivil">
+                                                                <option value="Soltero">Soltero</option>
+                                                                <option value="Casado">Casado</option>
+                                                                <option value="Divorciado">Divorciado</option>
+                                                                <option value="Viudo">Viudo</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Profesion" name="Profesion" ng-model="director.Profesion">
+                                                            <label for="Profesion">Profesion</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Celular" name="Celular" ng-model="director.Celular">
+                                                            <label for="Celular"> Celular</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="TelefonoLaboral" name="TelefonoLaboral" ng-model="director.TelefonoLaboral">
+                                                            <label for="Celular"> Teléfono Laboral</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="email" id="EmailLaboral" name="EmailLaboral" ng-model="director.EmailLaboral">
+                                                            <label for="EmailLaboral">Email</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Domicilio" name="Domicilio" ng-model="director.Domicilio">
+                                                            <label for="Domicilio">Domicilio</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Localidad" name="Localidad" ng-model="director.Localidad">
+                                                            <label for="Localidad">Localidad</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Provincia" name="Provincia" ng-model="director.Provincia">
+                                                            <label for="Provincia">Provincia</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary ">
+                                                            <label for="Cargo">Cargo</label>
+                                                            <select class="form-control" id="Cargo" name="Cargo" ng-model="director.Cargo">
+                                                                <option value="Presidente">Presidente</option>
+                                                                <option value="Director Suplente">Director Suplente</option>
+                                                                <option value="Gerente">Gerente</option>
+                                                                <option value="Fiduciario"> Fiduciario</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <label for="FechaDesignacion">Fecha de Designacion</label>
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="date" id="FechaDesignacion" name="FechaDesignacion" ng-model="director.FechaDesignacion">
 
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Apellido" name="Apellido" ng-model="Socio.Apellido">
-                                                        <label for="cuit">Apellido</label>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="DNI" name="DNI" ng-model="Socio.DNI">
-                                                        <label for="DNI">DNI</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="CUIT" name="CUIT" ng-model="Socio.CUIT">
-                                                        <label for="CUIT">CUIT</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-6">
-                                                    <div class="form-material form-material-primary ">
-                                                        <label for="surname">Nacionalidad</label>
-                                                        <select class="form-control" id="Nacionalidad" name="Nacionalidad" ng-model="Socio.Nacionalidad">
-                                                            <option value="Argentina">Argentina</option>
-                                                            <option value="Brasileña">Brasileña</option>
-                                                            <option value="Uruguaya">Uruguaya</option>
-                                                            <option value="Chilena">Chilena</option>
-                                                            <option value="Paraguaya">Paraguaya</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <label>Fecha de Nacimiento</label>
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="date" id="FechaNacimiento" name="FechaNacimiento" ng-model="Socio.FechaNacimiento">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-md-6">
-                                                    <div class="form-material form-material-primary ">
-                                                        <label for="surname">Estado Civil</label>
-                                                        <select class="form-control" id="EstadoCivil" name="EstadoCivil" ng-model="Socio.EstadoCivil">
-                                                            <option value="Soltero">Soltero</option>
-                                                            <option value="Casado">Casado</option>
-                                                            <option value="Divorciado">Divorciado</option>
-                                                            <option value="Viudo">Viudo</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Profesion" name="Profesion" ng-model="Socio.Profesion">
-                                                        <label for="Profesion">Profesion</label>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Celular" name="Celular" ng-model="Socio.Celular">
-                                                        <label for="Celular">Celular</label>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="TelefonoLaboral" name="TelefonoLaboral" ng-model="Socio.TelefonoLaboral">
-                                                        <label for="TelefonoLaboral">Telefono Laboral</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="email" id="Email" name="Email" ng-model="Socio.Email">
-                                                        <label for="Email">Email</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Domicilio" name="Domicilio"
-                                                               ng-model="Socio.Domicilio">
-                                                        <label for="Domicilio">Domicilio</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Localidad" name="Localidad" ng-model="Socio.Localidad">
-                                                        <label for="Localidad">Localidad</label>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <label>Vencimiento del Mandato</label>
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="date" id="VencimientoMandato" name="VencimientoMandato" ng-model="director.VencimientoMandato">
+                                                        </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="Provincia" name="Provincia" ng-model="Socio.Provincia">
-                                                        <label for="Provincia">Provincia</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="email" id="CuotasAcciones" name="CuotasAcciones" ng-model="Socio.CuotasAcciones">
-                                                        <label for="CuotasAcciones">Cantidad de Cuotas/Acciones</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-material form-material-primary floating">
-                                                        <input class="form-control" type="text" id="PorcentajeParticipacion" name="PorcentajeParticipacion"
-                                                               ng-model="Socio.PorcentajeParticipacion">
-                                                        <label for="PorcentajeParticipacion">Porcentaje de Participacion</label>
-                                                    </div>
-                                                </div>
                                             </div>
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="submit" class="btn btn-primary" style="background-color:#009881; border-color:#009881">Agregar</button>
+                                                <button type="button" class="btn btn-primary" style="background-color:#009881; border-color:#009881" data-ng-click="addDirector($event)">Agregar</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-xs-6 ">
-                            <div class="block-content">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Lista Socios</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr style="font-size:12px">
-                                            <td>Socio 1</td>
-                                        </tr>
-                                        <tr style="font-size:12px">
+                            <div class="col-xs-6 ">
+                                <div class="block-content">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th style="font-family:'Source Serif Pro'">Lista Directores</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="font-size:12px">
+                                                @*<tr ng-repeat="Director in Directores | orderBy:sortType:sortReverse | filter:filtro">*@
+                                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{Director.Id}}</td>
+                                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{Director.Nombre}}</td>
+                                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{Director.Apellido}}</td>
+                                                @*<td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="w3-button w3-circle" data-ng-click="removeActividad($event)" id="{{Director.Id}}" style="background-color:#ff0000; border-color:#ff0000; color:#fff"><i class="fa fa-times"></i></button></td>*@
+                                            </tr>
 
-                                            <td>Socio 2</td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-        <!-- END Section Content -->
-    </section>
+            <!-- END Section Content -->
+        </section>
+    </div>
+
+    @*-------------------------Socio-----------------*@
+    <div ng-controller="RegisterSocioController">
+        <section class="content content-boxed">
+            <!-- Section Content -->
+            <div class="row items-push push-50-t push-30">
+                <div class="col-md-6 col-md-offset-3">
+                    <form class="form-horizontal" name="registerSocio">
+                        @*-------------------------------Socio-----------------------------*@
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6 ">
+                                <div class="block-header">
+                                    <h3 class="block-title">Socio</h3>
+                                </div>
+                                <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#SocioModal" style="background-color:#009881; border-color:#009881">
+                                    <i class="fa fa fa-user-plus pull-right"></i>Socio
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="SocioModal" tabindex="-1" role="dialog" aria-labelledby="SocioModal" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h5 class="modal-title" id="exampleModalLabel">Socio</h5>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Nombre" name="Nombre" ng-model="Socio.Nombre">
+                                                            <label for="name">Nombre</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Apellido" name="Apellido" ng-model="Socio.Apellido">
+                                                            <label for="cuit">Apellido</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="DNI" name="DNI" ng-model="Socio.DNI">
+                                                            <label for="DNI">DNI</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="CUIT" name="CUIT" ng-model="Socio.CUIT">
+                                                            <label for="CUIT">CUIT</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6">
+                                                        <div class="form-material form-material-primary ">
+                                                            <label for="surname">Nacionalidad</label>
+                                                            <select class="form-control" id="Nacionalidad" name="Nacionalidad" ng-model="Socio.Nacionalidad">
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Brasileña">Brasileña</option>
+                                                                <option value="Uruguaya">Uruguaya</option>
+                                                                <option value="Chilena">Chilena</option>
+                                                                <option value="Paraguaya">Paraguaya</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <label>Fecha de Nacimiento</label>
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="date" id="FechaNacimiento" name="FechaNacimiento" ng-model="Socio.FechaNacimiento">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-6">
+                                                        <div class="form-material form-material-primary ">
+                                                            <label for="surname">Estado Civil</label>
+                                                            <select class="form-control" id="EstadoCivil" name="EstadoCivil" ng-model="Socio.EstadoCivil">
+                                                                <option value="Soltero">Soltero</option>
+                                                                <option value="Casado">Casado</option>
+                                                                <option value="Divorciado">Divorciado</option>
+                                                                <option value="Viudo">Viudo</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Profesion" name="Profesion" ng-model="Socio.Profesion">
+                                                            <label for="Profesion">Profesion</label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Celular" name="Celular" ng-model="Socio.Celular">
+                                                            <label for="Celular">Celular</label>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="TelefonoLaboral" name="TelefonoLaboral" ng-model="Socio.TelefonoLaboral">
+                                                            <label for="TelefonoLaboral">Telefono Laboral</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="email" id="Email" name="Email" ng-model="Socio.Email">
+                                                            <label for="Email">Email</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Domicilio" name="Domicilio"
+                                                                   ng-model="Socio.Domicilio">
+                                                            <label for="Domicilio">Domicilio</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Localidad" name="Localidad" ng-model="Socio.Localidad">
+                                                            <label for="Localidad">Localidad</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="Provincia" name="Provincia" ng-model="Socio.Provincia">
+                                                            <label for="Provincia">Provincia</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="CuotasAcciones" name="CuotasAcciones" ng-model="Socio.CuotasAcciones">
+                                                            <label for="CuotasAcciones">Cantidad de Cuotas/Acciones</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-material form-material-primary floating">
+                                                            <input class="form-control" type="text" id="PorcentajeParticipacion" name="PorcentajeParticipacion"
+                                                                   ng-model="Socio.PorcentajeParticipacion">
+                                                            <label for="PorcentajeParticipacion">Porcentaje de Participacion</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                    <button type="submit" class="btn btn-primary" style="background-color:#009881; border-color:#009881">Agregar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 ">
+                                <div class="block-content">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Lista Socios</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="font-size:12px">
+                                                <td>Socio 1</td>
+                                            </tr>
+                                            <tr style="font-size:12px">
+
+                                                <td>Socio 2</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <!-- END Section Content -->
+        </section>
+    </div>
+
 </div>
 
-@*----------------------Actividades--------------------*@
 
+
+
+
+@*----------------------Actividades--------------------*@
 <div ng-controller="RegisterPersonaJuridicaController">
     <section class="content content-boxed">
         <!-- Section Content -->
@@ -927,214 +931,3 @@
 <br />
 
 
-@*--------------------------------Directorio-------------------------*@
-@*<div ng-controller="RegisterDirectorioController">
-        <section class="content content-boxed">
-            <!-- Section Content -->
-            <div class="row items-push push-50-t push-30">
-                <div class="col-md-6 col-md-offset-3">
-                    <form class="form-horizontal" name="registerDirectorio">
-                        <div class="form-group">
-                            <div class="col-xs-6 ">
-                                <div class="block-header">
-                                    <h3 class="block-title">Director</h3>
-                                </div>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DirectocioModal" style="background-color:#009881; border-color:#009881">
-                                    <i class="fa fa-plus pull-right"></i>
-                                    Director
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="DirectocioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Director</h5>
-                                                <div class="form-group">
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="text" id="Nombre" name="Nombre" ng-model="Director.Nombre">
-                                                            <label for="Nombre">Nombre</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="text" id="Apellido" name="Apellido" ng-model="Director.Apellido">
-                                                            <label for="Apellido">Apellido</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="text" id="DNI" name="DNI" ng-model="Director.DNI">
-                                                            <label for="DNI">DNI</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="text" id="CUIT" name="CUIT" ng-model="Director.CUIT">
-                                                            <label for="CUIT">CUIT</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-6">
-                                                        <div class="form-material form-material-primary ">
-                                                            <label for="Nacionalidad">Nacionalidad</label>
-                                                            <select class="form-control" id="Nacionalidad" name="Nacionalidad" ng-model="Director.Nacionalidad">
-                                                                <option value="Argentina">Argentina</option>
-                                                                <option value="Brasileña">Brasileña</option>
-                                                                <option value="Uruguaya">Uruguaya</option>
-                                                                <option value="Chilena">Chilena</option>
-                                                                <option value="Paraguaya">Paraguaya</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <label>Fecha de Nacimiento</label>
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="date" id="FechaNacimiento" name="FechaNacimiento" ng-model="Director.FechaNacimiento">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="col-md-6">
-                                                        <div class="form-material form-material-primary ">
-                                                            <label for="EstadoCivil">Estado Civil</label>
-                                                            <select class="form-control" id="EstadoCivil" name="EstadoCivil" ng-model="Director.EstadoCivil">
-                                                                <option value="Soltero">Soltero</option>
-                                                                <option value="Casado">Casado</option>
-                                                                <option value="Divorciado">Divorciado</option>
-                                                                <option value="Viudo">Viudo</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="text" id="Profesion" name="Profesion" ng-model="Director.Profesion">
-                                                            <label for="Profesion">Profesion</label>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="text" id="Celular" name="Celular" ng-model="Director.Celular">
-                                                            <label for="Celular"> Celular</label>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="text" id="TelefonoLaboral" name="TelefonoLaboral" ng-controller="Director.TelefonoLaboral">
-                                                            <label for="TelefonoLaboral">Telefono Laboral</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="email" id="EmailLaboral" name="EmailLaboral" ng-controller="Director.EmailLaboral">
-                                                            <label for="EmailLaboral">Email</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="text" id="Domicilio" name="Domicilio" ng-controller="Director.Domicilio">
-                                                            <label for="Domicilio">Domicilio</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="email" id="Localidad" name="Localidad" ng-controller="Director.Localidad">
-                                                            <label for="Localidad">Localidad</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="text" id="Provincia" name="Provincia" ng-controller="Director.Provincia">
-                                                            <label for="Provincia">Provincia</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="col-md-6">
-                                                        <div class="form-material form-material-primary ">
-                                                            <label for="Cargo">Cargo</label>
-                                                            <select class="form-control" id="Cargo" name="Cargo" ng-model="Director.Cargo">
-                                                                <option value="Presidente">Presidente</option>
-                                                                <option value="Director Suplente">Director Suplente</option>
-                                                                <option value="Gerente">Gerente</option>
-                                                                <option value="Fiduciario"> Fiduciario</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="date" id="FechaDesignacion" name="FechaDesignacion" ng-controller="Director.FechaDesignacion">
-                                                            <label for="FechaDesignacion">Fecha de Designacion</label>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <div class="col-xs-6">
-                                                        <label>Vencimiento del Mandato</label>
-                                                        <div class="form-material form-material-primary floating">
-                                                            <input class="form-control" type="date" id="VencimientoMandato" name="VencimientoMandato" ng-controller="Director.VencimientoMandato">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary" style="background-color:#009881; border-color:#009881">Agregar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-6 ">
-                                <div class="block-content">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Lista Directores</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr style="font-size:12px">
-                                                <td>Director 1</td>
-                                            </tr>
-                                            <tr style="font-size:12px">
-
-                                                <td>Director 2</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- END Section Content -->
-        </section>
-    </div>*@

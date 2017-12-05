@@ -227,14 +227,14 @@
 
                         <label class="col-xs-6" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Es Empleador?</label>
                         <div class="col-xs-6">
-                            <div class="radio">
-                                <label for="example-radio1">
-                                    <input type="radio" id="example-radio1" name="example-radios" value="option1">Si
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" name="esEmpleador" ng-model="personaHumana.esEmpleador" ng-value="true">Si
                                 </label>
                             </div>
-                            <div class="radio">
-                                <label for="example-radio2">
-                                    <input type="radio" id="example-radio2" name="example-radios" value="option2">No
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" name="esEmpleador" ng-model="personaHumana.esEmpleador" ng-value="false">No
                                 </label>
                             </div>
                         </div>
@@ -278,7 +278,7 @@
 
                 @*------------------Form Actividad----------------------*@
 
-                <form class="form-horizontal" name="addActividadToPhForm">
+                <form class="form-horizontal" ng-show="personaHumanaId != ''" name="addActividadToPhForm">
                     <div class="form-group">
 
                         <div class="col-md-6">
