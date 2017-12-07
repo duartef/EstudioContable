@@ -6,6 +6,8 @@
     $scope.conveniosColectivos = [];
     $scope.actividadesDeLaPersonaJuridica = [];
     $scope.cctsDeLaPersonaJuridica = [];
+    $scope.DirectoresDelPJ = [];
+    $scope.SociosDelPJ = [];
     $scope.PersonaJuridicaId = '';
 
     $scope.personaJuridica = {
@@ -189,6 +191,22 @@
                 $scope.helpers.uiLoader('hide');
             });
         }
+    }
+
+    ///////////////////Refresh Socios//////////////////////
+
+    $scope.refreshSocios = function () {
+        var a = String($scope.PersonaJuridicaId);
+        $http.get('/api/Service/GetSocioDelPJ/' + a).then(
+           function (response) {
+               if (response != null && response.data != null) {
+                   $scope.SociosDelPJ = response.data;
+               }
+           },
+           function (error) {
+               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+           }
+        );
     }
 
     /////////////////////////Add actividad & Remove////

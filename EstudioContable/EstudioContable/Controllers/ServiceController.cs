@@ -150,6 +150,8 @@ namespace EstudioContable.Controllers
 
         }
 
+
+
         [Route("api/Service/GetPersonaJuridica/{personaJuridicaId}")]
         public PersonaJuridica GetPersonaJuridica(string personaJuridicaId)
         {
@@ -162,6 +164,38 @@ namespace EstudioContable.Controllers
             catch (Exception ex)
             {
                 return new PersonaJuridica();
+            }
+
+        }
+
+        [Route("api/Service/GetSociosDelPJ/{SocioId}")]
+        public IEnumerable<Socio> GetSociosDelPJ(string pjId)
+        {
+            try
+            {
+                int PersonaJuridicaId = Convert.ToInt32(pjId);
+                var a = db.Socios.Where(x => x.PersonaJuridicaId == PersonaJuridicaId);
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<Socio>();
+            }
+
+        }
+
+        [Route("api/Service/GetDirectoresDelPJ/{DirectorId}")]
+        public IEnumerable<Director> GetDirectoresDelPJ(string pjId)
+        {
+            try
+            {
+                int PersonaJuridicaId = Convert.ToInt32(pjId);
+                var a = db.Directores.Where(x => x.PersonaJuridicaId == PersonaJuridicaId);
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<Director>();
             }
 
         }

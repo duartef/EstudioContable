@@ -159,8 +159,18 @@
                             </div>
                         </div>
                     </div>
+                   
                     <div class="form-group">
-                        <label class="col-xs-6" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Es Empleador?</label>
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Frecuencia de Atencion</em></label>
+                                <select class="form-control" id="Frecuencia" name="Frecuencia" ng-model="personaJuridica.Frecuencia">
+                                    <option value="Mensual">Mensual</option>
+                                    <option value="Anual">Anual</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label class="col-md-6" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400">Es Empleador?</label>
                         <div class="col-xs-6">
                             <div class="radio-inline">
                                 <label>
@@ -172,29 +182,9 @@
                                     <input type="radio" name="esEmpleador" ng-model="personaJuridica.esEmpleador" ng-value="false">No
                                 </label>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <div class="form-material form-material-primary ">
-                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Frecuencia de Atencion</em></label>
-                                <select class="form-control" id="Frecuencia" name="Frecuencia" ng-model="personaJuridica.Frecuencia">
-                                    <option value="Mensual">Mensual</option>
-                                    <option value="Anual">Anual</option>
-                                </select>
-                            </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="form-material form-material-primary ">
-                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Responsable en el Estudio</em></label>
-                                <select class="form-control" id="ResponsableEstudio" name="ResponsableEstudio" ng-model="personaJuridica.ResponsableEstudio">
-                                    <option value="Responsable1">Responsable 1</option>
-                                    <option value="Responsable2">Responsable 2</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
@@ -239,6 +229,15 @@
                             <div class="form-material form-material-primary floating">
                                 <input class="form-control" type="text" id="MatriculaNum" name="MatriculaNum" ng-model="personaJuridica.MatriculaNum">
                                 <label for="MatriculaNum">Matricula Numero</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-material form-material-primary ">
+                                <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Responsable en el Estudio</em></label>
+                                <select class="form-control" id="ResponsableEstudio" name="ResponsableEstudio" ng-model="personaJuridica.ResponsableEstudio">
+                                    <option value="Responsable1">Responsable 1</option>
+                                    <option value="Responsable2">Responsable 2</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -466,7 +465,7 @@
                                         </thead>
                                         <tbody>
                                             <tr style="font-size:12px">
-                                                @*<tr ng-repeat="Director in Directores | orderBy:sortType:sortReverse | filter:filtro">*@
+                                                <tr ng-repeat="Director in DirectoresDelPJ | orderBy:sortType:sortReverse | filter:filtro">
                                                 <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{Director.Id}}</td>
                                                 <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{Director.Nombre}}</td>
                                                 <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{Director.Apellido}}</td>
@@ -662,16 +661,16 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Lista Socios</th>
+                                                <th style="font-family:'Source Serif Pro'">Lista Socios</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr style="font-size:12px">
-                                                <td>Socio 1</td>
-                                            </tr>
-                                            <tr style="font-size:12px">
-
-                                                <td>Socio 2</td>
+                                            <tr ng-repeat="Socio in SociosDelPJ | orderBy:sortType:sortReverse | filter:filtro">
+                                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{Socio.Id}}</td>
+                                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{Socio.Nombre}}</td>
+                                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{Socio.Apellido}}</td>
+                                                @*<td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="w3-button w3-circle" data-ng-click="removeActividad($event)" id="{{Director.Id}}" style="background-color:#ff0000; border-color:#ff0000; color:#fff"><i class="fa fa-times"></i></button></td>*@
                                             </tr>
 
                                         </tbody>

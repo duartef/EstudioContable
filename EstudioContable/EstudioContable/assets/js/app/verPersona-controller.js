@@ -32,6 +32,14 @@
             if (usuarioSeleccionado.Tipo == "Persona Humana") {
                 $window.location.href = '/Account/VerPersonaHumana?id=' + usuarioSeleccionado.Id;
             }
+            else {
+                if (usuarioSeleccionado.Tipo == "Persona Juridica") {
+                    $window.location.href = '/Account/VerPersonaJuridica?id=' + usuarioSeleccionado.Id;
+                }
+                else {
+                    alert("Error!")
+                }
+            }
 
             //$http({
             //    url: '/Account/RemoveActividad',

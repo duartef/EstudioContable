@@ -42,6 +42,9 @@
         function (response) {
             if (response != null && response.data != null) {
                 $scope.personaJuridica = response.data;
+                $scope.personaJuridica.FechaCierre = new Date($scope.personaJuridica.FechaCierre);
+                $scope.personaJuridica.FechaRes = new Date($scope.personaJuridica.FechaRes);
+
                 $scope.refreshActividades();
                 $scope.refreshConvenios();
                 $scope.helpers.uiLoader('hide');
