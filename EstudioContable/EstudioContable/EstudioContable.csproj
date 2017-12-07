@@ -334,6 +334,8 @@
     <Content Include="assets\js\core\jquery.scrollLock.min.js" />
     <Content Include="assets\js\core\jquery.slimscroll.min.js" />
     <Content Include="assets\js\core\jquery.validate.min.js" />
+    <Content Include="assets\js\core\mask.min.js" />
+    <Content Include="assets\js\core\ngMask.min.js" />
     <Content Include="assets\js\core\ngStorage.min.js" />
     <Content Include="assets\js\core\ocLazyLoad.min.js" />
     <Content Include="assets\js\app\directives.js" />

@@ -40,6 +40,7 @@ namespace EstudioContable
                       "~/assets/js/core/angular-ui-router.min.js",
                       "~/assets/js/core/ngStorage.min.js",
                       "~/assets/js/plugins/select2/select2.js",
+                      "~/assets/js/core/ngMask.min.js",
                       "~/assets/js/core/ocLazyLoad.min.js",
                       "~/assets/js/core/angular-validate.min.js",
                       "~/assets/js/app/app.js",

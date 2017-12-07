@@ -4,6 +4,7 @@ var App = angular.module('app', [
     'ui.bootstrap',
     'oc.lazyLoad',
     'ngValidate',
+    'ngMask',
     'angularUtils.directives.dirPagination'
 ]);
 
