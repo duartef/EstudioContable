@@ -22,12 +22,12 @@
         return -1;
     }
 
-    $scope.verPersona = function (event) {
-        if (event.target.id == null || event.target.id == '') {
+    $scope.verPersona = function (usuario) {
+        if (usuario == null || usuario == '') {
             //alert("Ocurrio un error pruebe nuevamente por favor.")
         }
         else {
-            var indexOfId = $scope.usuarios.findIndex(i => String(i.Id) === event.target.id);
+            var indexOfId = $scope.usuarios.findIndex(i => String(i.Id) === usuario.id);
             var usuarioSeleccionado = $scope.usuarios[indexOfId];
             if (usuarioSeleccionado.Tipo == "Persona Humana") {
                 $window.location.href = '/Account/VerPersonaHumana?id=' + usuarioSeleccionado.Id;
