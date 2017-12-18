@@ -38,7 +38,7 @@
     function getPersonaJuridica() {
         $scope.PersonaJuridicaId = $location.search().id;
 
-        $http.get('/api//Service/GetPersonaJuridica/' + id).then(
+        $http.get('/api//Service/GetPersonaJuridica/' + $scope.PersonaJuridicaId).then(
         function (response) {
             if (response != null && response.data != null) {
                 $scope.personaJuridica = response.data;

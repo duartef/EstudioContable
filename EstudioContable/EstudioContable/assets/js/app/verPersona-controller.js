@@ -33,7 +33,7 @@
                 $window.location.href = '/Account/VerPersonaHumana?id=' + usuarioSeleccionado.Id;
             }
             else {
-                if (usuarioSeleccionado.Tipo == "Persona Juridica") {
+                if (usuarioSeleccionado.Tipo == "Persona Jurídica") {
                     $window.location.href = '/Account/VerPersonaJuridica?id=' + usuarioSeleccionado.Id;
                 }
                 else {

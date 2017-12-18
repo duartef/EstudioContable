@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-xs-6">
                             <div class="form-material form-material-primary floating">
-                                <input class="form-control" type="text" id="cuit" name="cuit" ng-model="personaHumana.CUIT" />
+                                <input class="form-control" type="text" id="cuit" name="cuit" mask='99-99999999-9' ng-model="personaHumana.CUIT" />
                                 <label for="cuit">CUIT</label>
                             </div>
                         </div>
@@ -392,7 +392,7 @@
 
 
                 @*--------------Form CCT---------------*@
-                <form form class="form-horizontal" name="addCCTToPhForm">
+                <form form class="form-horizontal" ng-show="personaHumanaId != ''" name="addCCTToPhForm">
                     <div class="form-group">
                         <div class="col-md-6">
                             <button ng-disabled="personaHumanaId == ''" class="btn btn-block btn-primary" type="button" data-toggle="modal" data-target="#CCTModal" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
@@ -488,7 +488,7 @@
                 </form>
 
 
-                <div class="form-group">
+                <div class="form-group" ng-show="personaHumanaId != ''">
                     <div class="col-sm-6 col-sm-offset-3">
                         <br />
                         <button class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881" onclick="location.href = '/Home/Index'">Finalizar</button>
