@@ -101,6 +101,45 @@ namespace EstudioContable.Models
         public string Observaciones { get; set; }
     }
 
+    public class ObligacionAg
+    {
+        public int Id { get; set; }
+        //ObligacionAg
+        public string Nombre { get; set; }
+        public string Año { get; set; }
+    }
+
+    public class Obligacion
+    {
+        public int Id { get; set; }
+        public string ObligacionAgId { get; set; }
+        //Obligacion
+        public string Nombre { get; set; }
+    }
+
+    public class ConfigObligacion
+    {
+        public int Id { get; set; }
+        public string ObligacionId { get; set; }
+        //ConfigObligacion
+        public string TerminacionCuit { get; set; }
+        public string Dia { get; set; }
+    }
+
+    public class ObligacionPh
+    {
+        public int Id { get; set; }
+        public string PersonaHumanaId { get; set; }
+        public string ConfigObligacionId { get; set; }
+    }
+
+    public class ObligacionPj
+    {
+        public int Id { get; set; }
+        public string PersonaJuridicaId { get; set; }
+        public string ConfigObligacionId { get; set; }
+    }
+
     public class Socio
     {
         [Key]
