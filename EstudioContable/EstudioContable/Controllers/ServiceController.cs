@@ -184,13 +184,14 @@ namespace EstudioContable.Controllers
 
         }
 
-        [Route("api/Service/GetDirectoresDelPJ/{DirectorId}")]
-        public IEnumerable<Director> GetDirectoresDelPJ(string pjId)
+        [Route("api/Service/GetDirectoresDelPJ/{PersonaJuridicaId}")]
+        public IEnumerable<Director> GetDirectoresDelPJ(string PersonaJuridicaId)
         {
             try
             {
-                int PersonaJuridicaId = Convert.ToInt32(pjId);
-                var a = db.Directores.Where(x => x.PersonaJuridicaId == PersonaJuridicaId);
+                int pjId = Convert.ToInt32(PersonaJuridicaId);
+                //int PersonaJuridicaId = 37;
+                var a = db.Directores.Where(x => x.PersonaJuridicaId == pjId);
                 return a;
             }
             catch (Exception ex)

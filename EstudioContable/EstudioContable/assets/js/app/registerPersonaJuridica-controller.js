@@ -193,21 +193,7 @@
         }
     }
 
-    ///////////////////Refresh Socios//////////////////////
-
-    $scope.refreshSocios = function () {
-        var a = String($scope.PersonaJuridicaId);
-        $http.get('/api/Service/GetSocioDelPJ/' + a).then(
-           function (response) {
-               if (response != null && response.data != null) {
-                   $scope.SociosDelPJ = response.data;
-               }
-           },
-           function (error) {
-               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
-           }
-        );
-    }
+    
 
     /////////////////////////Add actividad & Remove////
 
@@ -402,6 +388,235 @@
            $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
        }
     );
+
+    ///////////////////// END CONVENIOS////////////////////////////////
+
+
+    /////////////////////DIRECTORIO////////////////////////////////
+
+    $scope.director = {
+        Nombre: '',
+        Apellido: '',
+        TelefonoLaboral: '',
+        DNI: '',
+        CUIT: '',
+        Nacionalidad: '',
+        FechaNacimiento: '',
+        EstadoCivil: '',
+        Profesion: '',
+        Celular: '',
+        EmailLaboral: '',
+        Domicilio: '',
+        Localidad: '',
+        Provincia: '',
+        Cargo: '',
+        FechaDesignacion: '',
+        VencimientoMandato: '',
+        PersonaJuridicaId: ''
+    }
+    $scope.direcotresPj = [];
+
+    $('#DirectorioModal').on('show.bs.modal', function () {
+        document.getElementById("registerDirectorio").reset();
+    });
+
+    $scope.refreshDirectores = function () {
+        var a = String($scope.PersonaJuridicaId);
+        $http.get('/api/Service/GetDirectoresDelPJ/' + a).then(
+           function (response) {
+               if (response != null && response.data != null) {
+                   $scope.direcotresPj = response.data;
+               }
+           },
+           function (error) {
+               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+           }
+        );
+    }
+
+    $http.get('/api/Service/GetDirectoresDelPJ/37').then(
+       function (response) {
+           if (response != null && response.data != null) {
+               $scope.direcotresPj = response.data;
+               //$("#myTable").dataTable().data = $scope.usuarios;
+           }
+       },
+       function (error) {
+           $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       }
+    );
+
+    $scope.addDirectorio = function (event) {
+        $scope.showErrorMessage = false;
+
+        //if (form.validate()) {
+        if (true) {
+            $scope.helpers.uiLoader('show');
+
+            $http({
+                url: '/Account/RegisterDirector',
+                dataType: 'json',
+                data: {
+                    Nombre: $scope.director.Nombre,
+                    Apellido: $scope.director.Apellido,
+                    Dni: $scope.director.DNI,
+                    Cuit: $scope.director.CUIT,
+                    Nacionalidad: $scope.director.Nacionalidad,
+                    FechaNacimiento: $scope.director.FechaNacimiento,
+                    EstadoCivil: $scope.director.EstadoCivil,
+                    Profesion: $scope.director.Profesion,
+                    EmailLaboral: $scope.director.EmailLaboral,
+                    Domicilio: $scope.director.Domicilio,
+                    Localidad: $scope.director.Localidad,
+                    Provincia: $scope.director.Provincia,
+                    Cargo: $scope.director.Cargo,
+                    FechaDesignacion: $scope.director.FechaDesignacion,
+                    VencimientoMandato: $scope.director.VencimientoMandato,
+                    PersonaJuridicaId: $scope.PersonaJuridicaId
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Director agregado con éxito");
+                    $scope.refreshDirectores();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+
+    $scope.removeDirector = function (directorSeleccionado) {
+        if (directorSeleccionado == null || directorSeleccionado == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/RemoveDirectorPJ',
+                dataType: 'json',
+                data: {
+                    Id: directorSeleccionado.Id,
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Director eliminado con éxito");
+                    $scope.refreshDirectores();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+
+    ///////////////////// END DIRECTORIO////////////////////////////////
+
+    ///////////////////SOCIOS//////////////////////
+
+    $scope.Socio = {
+        Nombre: '',
+        Apellido: '',
+        DNI: '',
+        CUIT: '',
+        Nacionalidad: '',
+        FechaNacimiento: '',
+        EstadoCivil: '',
+        Profesion: '',
+        Celular: '',
+        TelefonoLaboral: '',
+        Email: '',
+        Domicilio: '',
+        Localidad: '',
+        Provincia: '',
+        CuotasAcciones: '',
+        PorcentajeParticipacion: '',
+        PersonaJuridicaId: ''
+    }
+
+    $('#SocioModal').on('show.bs.modal', function () {
+        document.getElementById("registerSocio").reset();
+    });
+
+    $scope.addSocio = function (event) {
+        $scope.showErrorMessage = false;
+
+        //if (form.validate()) {
+        if (true) {
+            $scope.helpers.uiLoader('show');
+
+            $http({
+                url: '/Account/RegisterSocio',
+                dataType: 'json',
+                data: {
+                    Nombre: $scope.Socio.Nombre,
+                    Apellido: $scope.Socio.Apellido,
+                    Dni: $scope.Socio.DNI,
+                    Cuit: $scope.Socio.CUIT,
+                    Nacionalidad: $scope.Socio.Nacionalidad,
+                    FechaNacimiento: $scope.Socio.FechaNacimiento,
+                    EstadoCivil: $scope.Socio.EstadoCivil,
+                    Profesion: $scope.Socio.Profesion,
+                    Celular: $scope.Socio.Celular,
+                    TelefonoLaboral: $scope.Socio.TelefonoLaboral,
+                    EmailLaboral: $scope.Socio.EmailLaboral,
+                    Domicilio: $scope.Socio.Domicilio,
+                    Localidad: $scope.Socio.Localidad,
+                    Provincia: $scope.Socio.Provincia,
+                    CuotasAcciones: $scope.Socio.CuotasAcciones,
+                    PorcentajeParticipacion: $scope.Socio.PorcentajeParticipacion,
+                    PersonaJuridicaId: $scope.PersonaJuridicaId
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Socio agregado con éxito");
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+
+    $scope.refreshSocios = function () {
+        var a = String($scope.PersonaJuridicaId);
+        $http.get('/api/Service/GetSocioDelPJ/' + a).then(
+           function (response) {
+               if (response != null && response.data != null) {
+                   $scope.SociosDelPJ = response.data;
+               }
+           },
+           function (error) {
+               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+           }
+        );
+    }
+
+    ///////////////////// END SOCIOS////////////////////////////////
 
     $scope.helpers.uiLoader('hide');
 }]);

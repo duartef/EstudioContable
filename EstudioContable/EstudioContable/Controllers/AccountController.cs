@@ -426,6 +426,7 @@ namespace EstudioContable.Controllers
             try
             {
                 ConvenioColectivoDeTrabajo aux = db.ConveniosColectivos.Find(convenio.CctId);
+
                 convenio.Convenio = aux.Convenio;
 
                 db.ConveniosDeLaPersonaJuridica.Add(convenio);
@@ -468,6 +469,25 @@ namespace EstudioContable.Controllers
             {
                 ConvenioDeLaPersonaJuridica aux = db.ConveniosDeLaPersonaJuridica.Find(convenio.Id);
                 db.ConveniosDeLaPersonaJuridica.Remove(aux);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
+        // POST: /Account/RemoveDirectorPJ
+        [HttpPost]
+        [AllowAnonymous]
+        public string RemoveDirectorPJ(Director director)
+        {
+            try
+            {
+                Director aux = db.Directores.Find(director.Id);
+                db.Directores.Remove(aux);
                 db.SaveChanges();
 
                 return "Ok";

@@ -307,6 +307,7 @@
     <Content Include="assets\js\app\Profesionales-controller.js" />
     <Content Include="assets\js\app\register-controller.js" />
     <Content Include="assets\js\app\registerDirectorio-controller.js" />
+    <Content Include="assets\js\app\registerDirectorio2-controller.js" />
     <Content Include="assets\js\app\registerEmpleado-controller.js" />
     <Content Include="assets\js\app\registerPersonaHumana-controller.js" />
     <Content Include="assets\js\app\registerPersonaJuridica-controller.js" />

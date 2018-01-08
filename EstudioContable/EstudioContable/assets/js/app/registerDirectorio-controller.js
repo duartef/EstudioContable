@@ -1,10 +1,10 @@
 ﻿App.controller('RegisterDirectorioController', ['$scope', '$window', '$http', function ($scope, $window, $http) {
-
+                
     var vm = this;
-    $scope.$parent.header = { title: "Registro de Directorio", description: "Crea el Directorio." };
-    $scope.showErrorMessage = false;
+    //$scope.$parent.header = { title: "Registro de Directorio", description: "Crea el Directorio." };
+    //$scope.showErrorMessage = false;
 
-    $scope.director = {
+    vm.director = {
         Nombre: '',
         Apellido: '',
         TelefonoLaboral: '',
@@ -25,7 +25,7 @@
         PersonaJuridicaId: ''
     }
 
-    $scope.validationOptions = {
+    vm.validationOptions = {
         rules: {
             Nombre: {
                 required: true,
@@ -86,7 +86,7 @@
         }
     }
 
-    $scope.addDirector = function (form) {
+    vm.addDirector = function (form) {
         $scope.showErrorMessage = false;
 
         //if (form.validate()) {
@@ -133,5 +133,5 @@
         }
     }
 
-    $scope.helpers.uiLoader('hide');
+    vm.helpers.uiLoader('hide');
 }]);
