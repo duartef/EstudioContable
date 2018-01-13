@@ -878,10 +878,10 @@
                         </thead>
                         <tbody>
                             <tr style="font-size:12px">
-                            <tr ng-repeat="Socio in SociosDelPJ | orderBy:sortType:sortReverse | filter:filtro">
-                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{Socio.Id}}</td>
-                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{Socio.Nombre}}</td>
-                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{Socio.Apellido}}</td>
+                            <tr ng-repeat="socio in sociosPj | orderBy:sortType:sortReverse | filter:filtro">
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{socio.Id}}</td>
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{socio.Nombre}}</td>
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{socio.Apellido}}</td>
                             </tr>
 
                         </tbody>

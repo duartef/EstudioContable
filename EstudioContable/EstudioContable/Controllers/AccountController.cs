@@ -521,6 +521,25 @@ namespace EstudioContable.Controllers
             }
         }
 
+        // POST: /Account/RemoveSocioPJ
+        [HttpPost]
+        [AllowAnonymous]
+        public string RemoveSocioPJ(Socio socio)
+        {
+            try
+            {
+                Socio aux = db.Socios.Find(socio.Id);
+                db.Socios.Remove(aux);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
 
         //
         // POST: /Account/RegisterCliente

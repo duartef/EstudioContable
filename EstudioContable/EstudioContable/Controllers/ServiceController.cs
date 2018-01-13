@@ -86,11 +86,11 @@ namespace EstudioContable.Controllers
         }
 
         [Route("api/Service/GetActividadesDeLaPersonaJuridica/{personaJuridicaId}")]
-        public IEnumerable<ActividadDeLaPersonaJuridica> GetActividadesDeLaPersonaJuridica(string PersonaJuricaId)
+        public IEnumerable<ActividadDeLaPersonaJuridica> GetActividadesDeLaPersonaJuridica(string personaJuridicaId)
         {
             try
             {
-                int pjId = Convert.ToInt32(PersonaJuricaId);
+                int pjId = Convert.ToInt32(personaJuridicaId);
                 var a = db.ActividadesDeLaPersonaJuridica.Where(x => x.PersonaJuridicaId == pjId);
                 return a;
             }
@@ -168,13 +168,13 @@ namespace EstudioContable.Controllers
 
         }
 
-        [Route("api/Service/GetSociosDelPJ/{SocioId}")]
-        public IEnumerable<Socio> GetSociosDelPJ(string pjId)
+        [Route("api/Service/GetSociosDelPJ/{PersonaJuridicaId}")]
+        public IEnumerable<Socio> GetSociosDelPJ(string PersonaJuridicaId)
         {
             try
             {
-                int PersonaJuridicaId = Convert.ToInt32(pjId);
-                var a = db.Socios.Where(x => x.PersonaJuridicaId == PersonaJuridicaId);
+                int pjId = Convert.ToInt32(PersonaJuridicaId);
+                var a = db.Socios.Where(x => x.PersonaJuridicaId == pjId);
                 return a;
             }
             catch (Exception ex)

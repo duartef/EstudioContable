@@ -328,7 +328,7 @@
             });
         }
     }
-    ////////////este no se/////////////////
+
     $scope.refreshConvenios = function () {
         var a = String($scope.PersonaJuridicaId);
         $http.get('/api/Service/GetConveniossDeLaPersonaJuridica/' + a).then(
@@ -434,17 +434,17 @@
         );
     }
 
-    $http.get('/api/Service/GetDirectoresDelPJ/37').then(
-       function (response) {
-           if (response != null && response.data != null) {
-               $scope.direcotresPj = response.data;
-               //$("#myTable").dataTable().data = $scope.usuarios;
-           }
-       },
-       function (error) {
-           $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
-       }
-    );
+    //$http.get('/api/Service/GetDirectoresDelPJ/37').then(
+    //   function (response) {
+    //       if (response != null && response.data != null) {
+    //           $scope.direcotresPj = response.data;
+    //           //$("#myTable").dataTable().data = $scope.usuarios;
+    //       }
+    //   },
+    //   function (error) {
+    //       $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+    //   }
+    //);
 
     $scope.addDirectorio = function (event) {
         $scope.showErrorMessage = false;
@@ -550,9 +550,23 @@
         PersonaJuridicaId: ''
     }
 
+    $scope.sociosPj = [];
+
     $('#SocioModal').on('show.bs.modal', function () {
         document.getElementById("registerSocio").reset();
     });
+
+    //$http.get('/api/Service/GetSociosDelPJ/37').then(
+    //   function (response) {
+    //       if (response != null && response.data != null) {
+    //           $scope.direcotresPj = response.data;
+    //           //$("#myTable").dataTable().data = $scope.usuarios;
+    //       }
+    //   },
+    //   function (error) {
+    //       $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+    //   }
+    //);
 
     $scope.addSocio = function (event) {
         $scope.showErrorMessage = false;
@@ -593,6 +607,7 @@
                     $scope.showErrorMessage = true;
                 } else {
                     alert("Socio agregado con éxito");
+                    $scope.refreshSocios();
                 }
                 $scope.helpers.uiLoader('hide');
             }, function (error) {
@@ -607,13 +622,45 @@
         $http.get('/api/Service/GetSocioDelPJ/' + a).then(
            function (response) {
                if (response != null && response.data != null) {
-                   $scope.SociosDelPJ = response.data;
+                   $scope.sociosPj = response.data;
                }
            },
            function (error) {
                $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
            }
         );
+    }
+
+    $scope.removeSocio = function (socioSeleccionado) {
+        if (socioSeleccionado == null || socioSeleccionado == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/RemoveSocioPJ',
+                dataType: 'json',
+                data: {
+                    Id: socioSeleccionado.Id,
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Socio eliminado con éxito");
+                    $scope.refreshSocios();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
     }
 
     ///////////////////// END SOCIOS////////////////////////////////
