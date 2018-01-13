@@ -251,6 +251,66 @@
        }
     );
 
+    $scope.register = function (form) {
+        $scope.showErrorMessage = false;
+
+        if (form.validate()) {
+            $scope.helpers.uiLoader('show');
+
+            $http({
+                url: '/Account/ActualizarPersonaHumana',
+                dataType: 'json',
+                data: {
+                    Id: $scope.personaHumana.Id,
+                    UserId: $scope.personaHumana.UserId,
+                    Nombre: $scope.personaHumana.Nombre,
+                    Apellido: $scope.personaHumana.Apellido,
+                    Dni: $scope.personaHumana.Dni,
+                    Cuit: $scope.personaHumana.Cuit,
+                    Nacionalidad: $scope.personaHumana.Nacionalidad,
+                    FechaNacimiento: $scope.personaHumana.FechaNacimiento,
+                    EstadoCivil: $scope.personaHumana.EstadoCivil,
+                    Profesion: $scope.personaHumana.Profesion,
+                    Celular: $scope.personaHumana.Celular,
+                    TelefonoLaboral: $scope.personaHumana.TelefonoLaboral,
+                    EmailLaboral: $scope.personaHumana.EmailLaboral,
+                    EmailPersonal: $scope.personaHumana.EmailPersonal,
+                    Domicilio: $scope.personaHumana.Domicilio,
+                    Localidad: $scope.personaHumana.Localidad,
+                    Provincia: $scope.personaHumana.Provincia,
+                    AgenciaAfip: $scope.personaHumana.AgenciaAfip,
+                    DomicilioComercial: $scope.personaHumana.DomicilioComercial,
+                    LocalidadComercial: $scope.personaHumana.LocalidadComercial,
+                    ProvinciaComercial: $scope.personaHumana.ProvinciaComercial,
+                    NroIngresosBrutos: $scope.personaHumana.NroIngresosBrutos,
+                    FechaCierreEjercicios: $scope.personaHumana.FechaCierreEjercicios,
+                    EsEmpleador: $scope.personaHumana.esEmpleador,
+                    FrecAtencion: $scope.personaHumana.FrecAtencion,
+                    Responsable: $scope.personaHumana.Responsable,
+                    SituacionImpositiva: $scope.personaHumana.SituacionImpositiva,
+                    Claves: $scope.personaHumana.Claves,
+                    Observaciones: $scope.personaHumana.Observaciones
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    $scope.personaHumanaId = response.data;
+                    alert("Persona guardada con éxito");
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+
     getPersonaHumana();
 
     //$scope.helpers.uiLoader('hide');

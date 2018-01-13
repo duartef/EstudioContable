@@ -363,8 +363,8 @@
                     NroIngresosBrutos: $scope.personaHumana.NroIngresosBrutos,
                     FechaCierreEjercicios: $scope.personaHumana.FechaCierreEjercicios,
                     EsEmpleador: $scope.personaHumana.esEmpleador,
-                    FrecAtencion: $scope.personaHumana.Frecuencia,
-                    Responsable: $scope.personaHumana.ResponsableEstudio,
+                    FrecAtencion: $scope.personaHumana.FrecAtencion,
+                    Responsable: $scope.personaHumana.Responsable,
                     SituacionImpositiva: $scope.personaHumana.SituacionImpositiva,
                     Claves: $scope.personaHumana.Claves,
                     Observaciones: $scope.personaHumana.Observaciones

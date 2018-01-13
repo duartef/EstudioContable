@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EstudioContable.Models;
 using System.ServiceModel.Web;
+using System.Data.Entity.Migrations;
 
 namespace EstudioContable.Controllers
 {
@@ -299,6 +300,28 @@ namespace EstudioContable.Controllers
             }
         }
 
+        // POST: /Account/ActualizarPersonaHumana
+        [HttpPost]
+        [AllowAnonymous]
+        public string ActualizarPersonaHumana(PersonaHumana ph)
+        {
+            try
+            {
+                //Acá encuentro a la persona
+                //PersonaHumana aux = db.PersonasHumanas.First(x => x.Id == ph.Id);
+                //La modifico
+                db.PersonasHumanas.AddOrUpdate(ph);
+                //Guardo los cambios
+                db.SaveChanges();
+
+                return ph.Id.ToString();
+                //return 0;
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
         // POST: /Account/RegisterPersonaJuridica
         [HttpPost]
         [AllowAnonymous]
