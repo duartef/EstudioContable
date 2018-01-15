@@ -168,12 +168,13 @@ namespace EstudioContable.Controllers
 
         }
 
-        [Route("api/Service/GetSociosDelPJ/{PersonaJuridicaId}")]
-        public IEnumerable<Socio> GetSociosDelPJ(string PersonaJuridicaId)
+        [Route("api/Service/GetSociosDelPJ/{personaJuridicaId}")]
+        public IEnumerable<Socio> GetSociosDelPJ(string personaJuridicaId)
         {
             try
             {
-                int pjId = Convert.ToInt32(PersonaJuridicaId);
+
+                int pjId = Convert.ToInt32(personaJuridicaId);
                 var a = db.Socios.Where(x => x.PersonaJuridicaId == pjId);
                 return a;
             }

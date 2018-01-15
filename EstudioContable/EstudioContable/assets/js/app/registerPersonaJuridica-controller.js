@@ -619,7 +619,7 @@
 
     $scope.refreshSocios = function () {
         var a = String($scope.PersonaJuridicaId);
-        $http.get('/api/Service/GetSocioDelPJ/' + a).then(
+        $http.get('/api/Service/GetSociosDelPJ/' + a).then(
            function (response) {
                if (response != null && response.data != null) {
                    $scope.sociosPj = response.data;
