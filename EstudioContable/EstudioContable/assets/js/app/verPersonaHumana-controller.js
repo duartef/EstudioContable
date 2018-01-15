@@ -284,7 +284,7 @@
                     ProvinciaComercial: $scope.personaHumana.ProvinciaComercial,
                     NroIngresosBrutos: $scope.personaHumana.NroIngresosBrutos,
                     FechaCierreEjercicios: $scope.personaHumana.FechaCierreEjercicios,
-                    EsEmpleador: $scope.personaHumana.esEmpleador,
+                    EsEmpleador: $scope.personaHumana.EsEmpleador,
                     FrecAtencion: $scope.personaHumana.FrecAtencion,
                     Responsable: $scope.personaHumana.Responsable,
                     SituacionImpositiva: $scope.personaHumana.SituacionImpositiva,
