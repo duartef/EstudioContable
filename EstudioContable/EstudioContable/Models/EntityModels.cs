@@ -74,7 +74,7 @@ namespace EstudioContable.Models
         //Persona Juridica
         public string TipoDePersonaJuridica { get; set; }
         public string Denomicacion { get; set; }
-        public string cuit { get; set; }
+        public string CUIT { get; set; }
         public string DomicilioLegal { get; set; }
         public string Localidad { get; set; }
         public string Provincia { get; set; }

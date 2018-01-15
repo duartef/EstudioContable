@@ -589,7 +589,7 @@
                     Profesion: $scope.Socio.Profesion,
                     Celular: $scope.Socio.Celular,
                     TelefonoLaboral: $scope.Socio.TelefonoLaboral,
-                    EmailLaboral: $scope.Socio.EmailLaboral,
+                    Email: $scope.Socio.Email,
                     Domicilio: $scope.Socio.Domicilio,
                     Localidad: $scope.Socio.Localidad,
                     Provincia: $scope.Socio.Provincia,

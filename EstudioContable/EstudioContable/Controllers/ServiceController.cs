@@ -225,7 +225,7 @@ namespace EstudioContable.Controllers
                               Id = q.Id,
                               Nombre = "",
                               Apellido = q.Denomicacion,
-                              Cuit = q.cuit,
+                              Cuit = q.CUIT,
                               Tipo = "Persona Jurídica"
                           };
 
@@ -243,7 +243,7 @@ namespace EstudioContable.Controllers
                                              Id = q.Id,
                                              Nombre = "",
                                              Apellido = q.Denomicacion,
-                                             Cuit = q.cuit,
+                                             Cuit = q.CUIT,
                                              Tipo = "Persona Jurídica"
                                          });
 
