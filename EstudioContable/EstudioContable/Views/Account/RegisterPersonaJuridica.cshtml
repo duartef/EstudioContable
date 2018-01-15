@@ -235,8 +235,11 @@
                             <div class="form-material form-material-primary ">
                                 <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Responsable en el Estudio</em></label>
                                 <select class="form-control" id="ResponsableEstudio" name="ResponsableEstudio" ng-model="personaJuridica.ResponsableEstudio">
-                                    <option value="Responsable1">Responsable 1</option>
-                                    <option value="Responsable2">Responsable 2</option>
+                                    <option value="CeciliaSubelet">Cecilia Subelet</option>
+                                    <option value="GastonBrignardello">Gastón Brignardello</option>
+                                    <option value="JuanIgnacioHuarteCavassa">Juan Ignacio Huarte Cavassa</option>
+                                    <option value="OscarVilla">Oscar Villa</option>
+                                    <option value="MauriVilla">Mauri Villa</option>
                                 </select>
                             </div>
                         </div>
@@ -281,14 +284,14 @@
     </section>
 
     @*----------------------Actividades--------------------*@
-    <section class="content content-boxed">
+    <section class="content content-boxed" ng-show="personaJuridicaId != ''">
         <div class="row items-push push-50-t push-30">
             <div class="col-md-6 col-md-offset-3">
                 <form class="form-horizontal" name="addActividadToPJForm">
                     <div class="form-group">
 
                         <div class="col-md-6" align="left">
-                            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881;color:#fff">
+                            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881;color:#fff" ng-disabled="personaJuridicaId == ''">
                                 <i class="fa fa-plus pull-right"></i>
                                 Actividades
                             </button>
@@ -399,13 +402,13 @@
     </section>
 
     @*----------------------CCT--------------------*@
-    <section class="content content-boxed">
+    <section class="content content-boxed" ng-show="personaJuridicaId != ''">
         <div class="row items-push push-50-t push-30">
             <div class="col-md-6 col-md-offset-3">
                 <form form class="form-horizontal" name="addCCTToPJForm">
                     <div class="form-group">
                         <div class="col-md-6" align="left">
-                            <button class="btn btn-block btn-primary" type="button" data-toggle="modal" data-target="#CCTModal" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
+                            <button class="btn btn-block btn-primary" type="button" data-toggle="modal" data-target="#CCTModal" data-ng-click="addCCT($event)" style="background-color:#009881; border-color:#009881" ng-disabled="personaJuridicaId == ''"><i class="fa fa-plus pull-right"></i>CCT</button>
                             </div>
 
                             <div class="modal fade" style="overflow-y:scroll" id="CCTModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -501,12 +504,12 @@
     </section>
 
     @*----------------------Directorio--------------------*@
-    <section class="content content-boxed">
+    <section class="content content-boxed" ng-show="personaJuridicaId != ''">
         <div class="row items-push push-50-t push-30">
             <div class="col-md-6 col-md-offset-3">
 
                 <div class="col-md-6" align="left">
-                    <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#DirectorioModal" style="background-color:#009881; border-color:#009881">
+                    <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#DirectorioModal" style="background-color:#009881; border-color:#009881" ng-disabled="personaJuridicaId == ''">
                         <i class="fa fa-user-plus pull-right"></i>Agregar Director
                     </button>
                     </div>
@@ -704,7 +707,7 @@
         <div class="row items-push push-50-t push-30">
             <div class="col-md-6 col-md-offset-3">
                 <div class="col-md-6" align="left">
-                    <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#SocioModal" style="background-color:#009881; border-color:#009881">
+                    <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#SocioModal" style="background-color:#009881; border-color:#009881" >
                         <i class="fa fa fa-user-plus pull-right"></i>Agregar Socio
                     </button>
                     </div>
@@ -720,7 +723,7 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <form class="form-horizontal" name="registerSocio" id="registerSocio">
+                                    <form class="form-horizontal" name="registerSocio" id="registerSocio" >
 
                                         <div class="form-group">
                                             <div class="col-xs-6">

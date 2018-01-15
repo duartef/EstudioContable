@@ -143,39 +143,56 @@
                     }
                     <li>
                         @*<a href="/Contenido/Index">Estudio</a>*@
+                        
                         <a class="nav-submenu" style="font-size:18px" href="javascript:void(0)">Estudio</a>
                         <ul>
-                            <li>
-                                <a href="/Home/About">Perfil</a>
+                                         <li>
+                                            <a href="/Home/About">Perfil</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Home/Organizacion">Organización</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Home/Profesionales">Profesionales</a>
+                                        </li>
+                                        @*<li>
+                <a href="/Home/EnConstruccion">Usuarios</a>
+            </li>*@
+                                    </ul>
                             </li>
                             <li>
-                                <a href="/Home/Organizacion">Organización</a>
+                                <a href="/Documentos/Index">Servicios</a>
                             </li>
                             <li>
-                                <a href="/Home/Profesionales">Profesionales</a>
+                                <a href="/Tools/CalculadoraLaboral">Contacto</a>
                             </li>
-                            @*<li>
-                                    <a href="/Home/EnConstruccion">Usuarios</a>
-                                </li>*@
+                            <li>
+                                <a href="/Home/EnConstruccion">Sitios de interés</a>
+                            </li>
+                    <li>
+                        <a class="nav-submenu" style="font-size:18px" href="javascript:void(0)">Administración</a>
+                        <ul>
+                            
+                                    <li>
+                                        <a href="/Account/RegisterPersonaHumana"><i class="fa fa fa-user-plus pull-left"></i> Persona Humana</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Account/RegisterPersonaJuridica"><i class="fa fa fa-user-plus pull-left"></i> Persona Juridica</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Account/verPersona"><i class="fa fa fa-search-plus pull-left"></i> Ver Personas</a>
+                                    </li>
+                               
                         </ul>
                     </li>
-                    <li>
-                        <a href="/Documentos/Index">Servicios</a>
-                    </li>
-                    <li>
-                        <a href="/Tools/CalculadoraLaboral">Contacto</a>
-                    </li>
-                    <li>
-                        <a href="/Home/EnConstruccion">Sitios de interés</a>
-                    </li>
-                    
-                    @if (User.IsInRole("Cliente"))
-                    {
-                        <li>
-                            <a href="/Account/Cliente">Mis Datos</a>
-                        </li>
-                    }
-                </ul>
+
+                        @if (User.IsInRole("Cliente"))
+                        {
+                                <li>
+                                    <a href="/Account/Cliente">Mis Datos</a>
+                                </li>
+                            }
+                        </ul>
                 <!-- END Main Header Navigation -->
                 <!-- Header Navigation Left -->
                 @*<ul class="nav-header pull-left">
