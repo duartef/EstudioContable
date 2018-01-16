@@ -1260,6 +1260,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Views\Account\AccountsList.cshtml" />
     <Content Include="Views\Account\TestDatatable.cshtml" />
+    <None Include="Properties\PublishProfiles\EstudioContable.pubxml" />
     <None Include="Properties\PublishProfiles\Publish.pubxml" />
     <Content Include="Views\Account\Cliente.cshtml" />
     <Content Include="Views\Account\RegisterPersonaJuridica.cshtml" />
