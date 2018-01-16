@@ -421,6 +421,26 @@ namespace EstudioContable.Controllers
             }
         }
 
+        //
+        // POST: /Account/RemoveActividadToPersonaJuridica
+        [HttpPost]
+        [AllowAnonymous]
+        public string RemoveActividadJuridica(ActividadDeLaPersonaJuridica actividad)
+        {
+            try
+            {
+                ActividadDeLaPersonaJuridica aux = db.ActividadesDeLaPersonaJuridica.Find(actividad.Id);
+                db.ActividadesDeLaPersonaJuridica.Remove(aux);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
         // POST: /Account/AddActividadToPersonaJuridica
         [HttpPost]
         [AllowAnonymous]
