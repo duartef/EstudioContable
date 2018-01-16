@@ -483,7 +483,7 @@
                     Cargo: $scope.director.Cargo,
                     FechaDesignacion: $scope.director.FechaDesignacion,
                     VencimientoMandato: $scope.director.VencimientoMandato,
-                    PersonaJuridicaId: $scope.PersonaJuridicaId
+                    PersonaJuridicaId: $scope.personaJuridica.Id
                 },
                 method: 'POST',
                 headers: {
@@ -594,7 +594,7 @@
                     Provincia: $scope.Socio.Provincia,
                     CuotasAcciones: $scope.Socio.CuotasAcciones,
                     PorcentajeParticipacion: $scope.Socio.PorcentajeParticipacion,
-                    PersonaJuridicaId: $scope.PersonaJuridicaId
+                    PersonaJuridicaId: $scope.personaJuridica.Id
                 },
                 method: 'POST',
                 headers: {
