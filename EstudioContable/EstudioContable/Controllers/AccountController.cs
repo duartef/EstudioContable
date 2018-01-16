@@ -322,6 +322,30 @@ namespace EstudioContable.Controllers
                 return "Error: " + ex.Message;
             }
         }
+
+        // POST: /Account/ActualizarPersonaJuridica
+        [HttpPost]
+        [AllowAnonymous]
+        public string ActualizarPersonaJuridica(PersonaJuridica pj)
+        {
+            try
+            {
+                //Acá encuentro a la persona
+                //PersonaHumana aux = db.PersonasHumanas.First(x => x.Id == ph.Id);
+                //La modifico
+                db.PersonasJuridicas.AddOrUpdate(pj);
+                //Guardo los cambios
+                db.SaveChanges();
+
+                return pj.Id.ToString();
+                //return 0;
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
         // POST: /Account/RegisterPersonaJuridica
         [HttpPost]
         [AllowAnonymous]

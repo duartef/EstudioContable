@@ -139,14 +139,17 @@
                 //var dateModel = new Date(datePartials[0], datePartials[1] - 1, datePartials[2]);
                 $scope.personaJuridica.FechaCierre = new Date($scope.personaJuridica.FechaCierre);
                 $scope.personaJuridica.FechaRes = new Date($scope.personaJuridica.FechaRes);
-           
 
                 $scope.refreshActividades();
                 $scope.refreshConvenios();
+                $scope.refreshSocios();
+                $scope.refreshDirectores();
+
                 $scope.helpers.uiLoader('hide');
             }
         },
         function (error) {
+            $scope.showErrorMessage = true;
             $scope.helpers.uiLoader('hide');
         });
     }
@@ -159,9 +162,10 @@
             $scope.helpers.uiLoader('show');
 
             $http({
-                url: '/Account/RegisterPersonaJuridica',
+                url: '/Account/ActualizarPersonaJuridica',
                 dataType: 'json',
                 data: {
+                    Id: $scope.personaJuridica.Id,
                     Denomicacion: $scope.personaJuridica.Denomicacion,
                     CUIT: $scope.personaJuridica.CUIT,
                     TipoDePersonaJuridica: $scope.personaJuridica.TipoDePersonaJuridica,
@@ -213,6 +217,7 @@
 
 
     /////////////////////////Add actividad & Remove////
+    $scope.actividadesDeLaPersonaJuridica = [];
 
     $scope.addActividadPJ = function (event) {
         if (event.target.id == null || event.target.id == '') {
@@ -283,7 +288,7 @@
 
     $scope.refreshActividades = function () {
         $scope.helpers.uiLoader('show');
-        var a = String($scope.PersonaJuridicaId);
+        var a = String($scope.personaJuridica.Id);
         $http.get('/api/Service/GetActividadesDeLaPersonaJuridica/' + a).then(
            function (response) {
                if (response != null && response.data != null) {
@@ -312,6 +317,7 @@
     ///////////////END ADD ACTIVIDADPJ///////////////////////////
 
     /////////////////////CONVENIOS////////////////////////////////
+    $scope.cctsDeLaPersonaJuridica = [];
 
     $scope.addCCT = function (event) {
         if (event.target.id == null || event.target.id == '') {
@@ -347,7 +353,7 @@
     }
 
     $scope.refreshConvenios = function () {
-        var a = String($scope.PersonaJuridicaId);
+        var a = String($scope.personaJuridica.Id);
         $http.get('/api/Service/GetConveniossDeLaPersonaJuridica/' + a).then(
            function (response) {
                if (response != null && response.data != null) {
@@ -438,7 +444,7 @@
     });
 
     $scope.refreshDirectores = function () {
-        var a = String($scope.PersonaJuridicaId);
+        var a = String($scope.personaJuridica.Id);
         $http.get('/api/Service/GetDirectoresDelPJ/' + a).then(
            function (response) {
                if (response != null && response.data != null) {
@@ -450,19 +456,7 @@
            }
         );
     }
-
-    //$http.get('/api/Service/GetDirectoresDelPJ/37').then(
-    //   function (response) {
-    //       if (response != null && response.data != null) {
-    //           $scope.direcotresPj = response.data;
-    //           //$("#myTable").dataTable().data = $scope.usuarios;
-    //       }
-    //   },
-    //   function (error) {
-    //       $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
-    //   }
-    //);
-
+    
     $scope.addDirectorio = function (event) {
         $scope.showErrorMessage = false;
 
@@ -573,18 +567,6 @@
         document.getElementById("registerSocio").reset();
     });
 
-    //$http.get('/api/Service/GetSociosDelPJ/37').then(
-    //   function (response) {
-    //       if (response != null && response.data != null) {
-    //           $scope.direcotresPj = response.data;
-    //           //$("#myTable").dataTable().data = $scope.usuarios;
-    //       }
-    //   },
-    //   function (error) {
-    //       $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
-    //   }
-    //);
-
     $scope.addSocio = function (event) {
         $scope.showErrorMessage = false;
 
@@ -635,8 +617,8 @@
     }
 
     $scope.refreshSocios = function () {
-        var a = String($scope.PersonaJuridicaId);
-        $http.get('/api/Service/GetSocioDelPJ/' + a).then(
+        var a = String($scope.personaJuridica.Id);
+        $http.get('/api/Service/GetSociosDelPJ/' + a).then(
            function (response) {
                if (response != null && response.data != null) {
                    $scope.sociosPj = response.data;
