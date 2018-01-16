@@ -230,19 +230,19 @@
         }
     }
 
-    $scope.removeActividad = function (event) {
-        if (event.target.id == null || event.target.id == '') {
+    $scope.removeActividad = function (actividadSeleccionada) {
+        if (actividadSeleccionada == null || actividadSeleccionada == '') {
             //alert("Ocurrio un error pruebe nuevamente por favor.")
         }
         else {
             $scope.helpers.uiLoader('show');
             $http({
-                url: '/Account/RemoveActividad',
+                url: '/Account/RemoveActividadJuridica',
                 dataType: 'json',
                 data: {
-                    Id: event.target.id,
+                    Id: actividadSeleccionada.Id,
                     ActividadId: 0,
-                    PersonaJuridicaId: $scope.PersonaJuridicaId
+                    PersonaJuridicaId: $scope.personaJuridicaId
                 },
                 method: 'POST',
                 headers: {
@@ -343,19 +343,19 @@
         );
     }
 
-    $scope.removeCCTJuridica = function (event) {
-        if (event.target.id == null || event.target.id == '') {
+    $scope.removeCCTJuridica = function (cctSeleccionado) {
+        if (cctSeleccionado == null || cctSeleccionado == '') {
             //alert("Ocurrio un error pruebe nuevamente por favor.")
         }
         else {
             $scope.helpers.uiLoader('show');
             $http({
-                url: '/Account/AddCCTJuridica',
+                url: '/Account/RemoveCCTJuridica',
                 dataType: 'json',
                 data: {
-                    Id: event.target.id,
+                    Id: cctSeleccionado.Id,
                     CctId: 0,
-                    PersonaJuridicaId: $scope.PersonaJuridicaId
+                    PersonaJuridicaId: $scope.personaJuridicaId
                 },
                 method: 'POST',
                 headers: {

@@ -235,8 +235,11 @@
                             <div class="form-material form-material-primary floating open">
                                 <label for="surname" style="font-family:'Source Sans Pro';font-size:15px; font-weight:400"><em>Responsable en el Estudio</em></label>
                                 <select class="form-control" id="ResponsableEstudio" name="ResponsableEstudio" ng-model="personaJuridica.ResponsableEstudio" value="{{personaJuridica.ResponsableEstudio}}">
-                                    <option value="Responsable1">Responsable 1</option>
-                                    <option value="Responsable2">Responsable 2</option>
+                                    <option value="CeciliaSubelet">Cecilia Subelet</option>
+                                    <option value="GastonBrignardello">Gastón Brignardello</option>
+                                    <option value="JuanIgnacioHuarteCavassa">Juan Ignacio Huarte Cavassa</option>
+                                    <option value="OscarVilla">Oscar Villa</option>
+                                    <option value="MauriVilla">Mauri Villa</option>
                                 </select>
                             </div>
                         </div>
@@ -667,7 +670,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button class="btn btn-primary" data-ng-click="addDirectorio($event)" id="{{PersonaJuridicaId}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus"></i></button>
+                                <button class="btn btn-primary" data-ng-click="addDirectorio($event)" id="{{PersonaJuridicaId}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-user-plus"></i></button>
                             </div>
                         </div>
                     </div>
@@ -861,7 +864,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button class="btn btn-primary" data-ng-click="addSocio($event)" id="{{PersonaJuridicaId}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus"></i></button>
+                                <button class="btn btn-primary" data-ng-click="addSocio($event)" id="{{PersonaJuridicaId}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-user-plus"></i></button>
                             </div>
                         </div>
                     </div>
