@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "NuevaObligacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-white" ng-controller="NuevaObligacionController">
+    <h1 style="text-align:center">Nueva Obligación</h1>
+    <section class="content content-boxed">
+        <!-- Section Content -->
+        <div class="row items-push push-50-t push-30">
+            <div class="col-md-6 col-md-offset-3">
+                <form class="form-horizontal" name="nuevaObligacionForm" ng-submit="register(registerObligacion)" ng-validate="validationOptions">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="nombre" name="nombre" @*ng-model="personaHumana.Nombre"*@>
+                                <label for="nombre">Nombre</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="form-material form-material-primary floating">
+                                <input class="form-control" type="text" id="apellido" name="apellido" @*ng-model="personaHumana.Apellido"*@>
+                                <label for="apellido">Año</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <button  class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-floppy-o pull-right"></i>Guardar</button>
+                            
+                        </div>
+                    </div>
+                    </form>
+                @*------------------Agregar Registro-------------------*@
+                <form class="form-horizontal" ng-show="personaHumanaId != ''" name="addActividadToPhForm">
+                    <div class="form-group">
+
+                        @*<div class="col-md-6">
+                            <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881;color:#fff">
+                                <i class="fa fa-plus pull-right"></i>
+                                Nuevo Registro
+                            </button>
+                        </div>*@
+                        <!-- Modal -->
+                        <div class="modal fade" style="overflow-y:scroll" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">Registros Obligación</h5>
+
+                                        <div style="background-color:#ffffff;color:#009881">
+                                            <br />
+
+                                            @*<p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Ordenado por: {{ sortType }}</p>
+                                    <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px">Orden Ascendente: {{ sortReverse }}</p>
+                                    <p style="font-family:'Source Serif Pro';color:#808080;font-size:14px" hidden="hidden">Search Query: {{ filtro }}</p>*@
+
+                                        </div>
+
+
+                                        @*<div class="form-group">
+                                            <div class="form-group">
+                                                <div class="input-group" style="padding-left:20px;padding-right:20px">
+
+                                                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+                                                    <input type="text" class="form-control" placeholder="Buscar.." ng-model="filtro">
+                                                </div>
+                                            </div>
+                                        </div>*@
+
+
+                                        <div class="form-group">
+                                            
+                                            <div class="col-xs-12">
+                                                <div class="form-material form-material-primary floating">
+                                                    <input class="form-control" type="text" id="nombre" name="nombre" @*ng-model="personaHumana.Nombre"*@>
+                                                    <label for="nombre">Nombre</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <button  class="btn btn-block btn-primary" type="submit" style="background-color:#009881; border-color:#009881"><i class="fa fa-floppy-o pull-right"></i>Guardar</button>
+                            
+                                            </div>
+                                        </div>
+                    
+                                            <table class="table table-bordered table-striped">
+
+                                                <thead>
+                                                    <tr>
+                                                        <td hidden="hidden">
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+                                                                Id
+                                                                <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                                                Terminación de CUIT
+                                                                <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                                                Fecha
+                                                                <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr @*ng-repeat="actividad in actividades | orderBy:sortType:sortReverse | filter:filtro"*@>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{actividad.Id}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">1</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"></td>
+                                                        @*<td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-primary" data-ng-click="addActividad($event)" id="{{actividad.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i></button></td>*@
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*------------------Tabla Actividades------------------*@
+                        <div class="col-xs-12 ">
+                            <div class="block-content">
+                                <table class="table">
+                                    <thead  width="100%" style="text-align:justify">
+                                        <tr>
+                                            <th style="font-family:'Source Serif Pro'" align="justify">Registros Obligación <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#009881; border-color:#009881;color:#fff">
+                                        <i class="fa fa-plus pull-right"></i></button></th>
+                                            </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="font-size:12px">
+                                        <tr ng-repeat="actividadDeLaPersona in actividadesDeLaPersona | orderBy:sortType:sortReverse | filter:filtro">
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">ID</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">Nombre</td>
+                                            
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="w3-button w3-circle" @*data-ng-click="removeActividad($event)" id="{{actividadDeLaPersona.Id}}"*@ style="background-color:#ff0000; border-color:#ff0000; color:#fff"><i class="fa fa-times"></i></button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+                </div>
+            </div>
+        </section>
+    </div>

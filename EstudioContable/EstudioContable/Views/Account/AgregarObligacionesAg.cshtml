@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Agregar Obligaciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="bg-white" ng-controller="AgregarObligaciobesAgController" style="background-color:#fff">
+    <section class="content content-boxed">
+        <div class="row items-push push-50-t push-30">
+            <div class="col-md-6 col-md-offset-3" style="background-color:#fff">
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <div class="input-group" style="padding-left:20px;padding-right:20px">
+
+                            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+                            <input type="text" class="form-control" placeholder="Buscar.." ng-model="filtro">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                </div>
+
+                <div class="col-md-6">
+                    <button @*ng-disabled="personaHumana.esEmpleador == 'false' "*@ class="btn btn-block btn-primary" type="button" data-toggle="modal" style="background-color:#009881; border-color:#009881" onclick="location.href = '/Account/NuevaObligacion'"><i class="fa fa-plus pull-right"></i>Agregar Obligación</button>
+                </div>
+                <br><br>
+
+
+                    <div class="form-group" style="background-color:#fff">
+                        <table class="table table-bordered table-striped">
+
+                            <thead>
+                                <tr>
+                                    <td hidden="hidden">
+                                        <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+                                            Id
+                                            <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                                            <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                            Nombre
+                                            <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                            <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                        </a>
+                                    </td>
+                                    @*<td>
+                                <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                    Apellido/Denominación
+                                    <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                    Cuit
+                                    <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                    Tipo
+                                    <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </td>*@
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr ng-repeat="usuario in usuarios | orderBy:sortType:sortReverse | filter:filtro">
+                                    <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden" {{usuario.Id}}></td>
+                                    <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">Nombre</td>
+
+                                    <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px;" align="center"><button class="btn btn-primary" data-ng-click="verPersona(usuario)" id="{{usuario.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-search pull-right"></i></button></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                <div class="col-md-6">
+                </div>
+
+                <div class="col-md-6">
+                    <button @*ng-disabled="personaHumana.esEmpleador == 'false' "*@ class="btn btn-block btn-primary" type="button" data-toggle="modal"  style="background-color:#009881; border-color:#009881" onclick="location.href = '/Account/NuevaObligacion'"><i class="fa fa-plus pull-right"></i>Agregar Obligación</button>
+                </div>
+
+                </div>
+        </div>
+    </section>
+</div>
