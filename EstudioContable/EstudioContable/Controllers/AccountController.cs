@@ -175,6 +175,20 @@ namespace EstudioContable.Controllers
             return View();
         }
 
+        // GET: /Account/AgregarObligacionesAg
+        [AllowAnonymous]
+        public ActionResult AgregarObligacionesAg()
+        {
+            return View();
+        }
+
+        // GET: /Account/NuevaObligacion
+        [AllowAnonymous]
+        public ActionResult NuevaObligacion()
+        {
+            return View();
+        }
+
         //
         // GET: /Account/RegisterPersonaHumana
         [AllowAnonymous]
