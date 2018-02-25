@@ -106,7 +106,7 @@ namespace EstudioContable.Models
         public int Id { get; set; }
         //ObligacionAg
         public string Nombre { get; set; }
-        public string Año { get; set; }
+        public string Ano { get; set; }
     }
 
     public class Obligacion
@@ -120,10 +120,10 @@ namespace EstudioContable.Models
     public class ConfigObligacion
     {
         public int Id { get; set; }
-        public string ObligacionId { get; set; }
+        public int ObligacionId { get; set; }
         //ConfigObligacion
-        public string TerminacionCuit { get; set; }
-        public string Dia { get; set; }
+        public int TerminacionCuit { get; set; }
+        public int Dia { get; set; }
     }
 
     public class ObligacionPh
@@ -291,6 +291,11 @@ namespace EstudioContable.Models
         public DbSet<Actividad> Actividades { get; set; }
         public DbSet<ActividadDeLaPersonaHumana> ActividadesDeLaPersonaHumana { get; set; }
         public DbSet<ActividadDeLaPersonaJuridica> ActividadesDeLaPersonaJuridica { get; set; }
+        public DbSet<ObligacionAg> ObligacionesAg { get; set; }
+        public DbSet<Obligacion> Obligaciones { get; set; }
+        public DbSet<ConfigObligacion> ConfigObligaciones { get; set; }
+        public DbSet<ObligacionPh> ObligacionesPh { get; set; }
+        public DbSet<ObligacionPj> ObligacionesPj { get; set; }
 
         public static ApplicationDbContext Create()
         {

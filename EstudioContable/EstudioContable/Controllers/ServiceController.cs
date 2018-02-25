@@ -150,7 +150,22 @@ namespace EstudioContable.Controllers
 
         }
 
+        [Route("api/Service/GetConfigsObligaciones/{obligacionId}")]
+        public IEnumerable<ConfigObligacion> GetConfigsObligaciones(string obligacionId)
+        {
+            try
+            {
+                int obligacion = Convert.ToInt32(obligacionId);
+                //int PersonaJuridicaId = 37;
+                var a = db.ConfigObligaciones.Where(x => x.ObligacionId == obligacion);
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<ConfigObligacion>();
+            }
 
+        }
 
         [Route("api/Service/GetPersonaJuridica/{personaJuridicaId}")]
         public PersonaJuridica GetPersonaJuridica(string personaJuridicaId)
@@ -200,6 +215,19 @@ namespace EstudioContable.Controllers
                 return new List<Director>();
             }
 
+        }
+
+        [Route("api/Service/GetAllObligaciones")]
+        public IEnumerable<ObligacionAg> GetAllObligaciones()
+        {
+            try
+            {
+                return db.ObligacionesAg.ToList();
+            }
+            catch (Exception ex)
+            {
+                return new List<ObligacionAg>();
+            }
         }
 
         [Route("api/Service/GetAllPersonas")]

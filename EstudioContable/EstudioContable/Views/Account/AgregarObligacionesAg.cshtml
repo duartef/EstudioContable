@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                 </div>
 
@@ -30,68 +30,48 @@
                 <br><br>
 
 
-                    <div class="form-group" style="background-color:#fff">
-                        <table class="table table-bordered table-striped">
+                <div class="form-group" style="background-color:#fff">
+                    <table class="table table-bordered table-striped">
 
-                            <thead>
-                                <tr>
-                                    <td hidden="hidden">
-                                        <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
-                                            Id
-                                            <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
-                                            <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
-                                            Nombre
-                                            <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
-                                            <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
-                                        </a>
-                                    </td>
-                                    @*<td>
-                                <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
-                                    Apellido/Denominación
-                                    <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
-                                    <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
-                                </a>
-                            </td>
-                            <td>
-                                <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
-                                    Cuit
-                                    <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
-                                    <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
-                                </a>
-                            </td>
-                            <td>
-                                <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
-                                    Tipo
-                                    <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
-                                    <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
-                                </a>
-                            </td>*@
-                                </tr>
-                            </thead>
+                        <thead>
+                            <tr>
+                                <td hidden="hidden">
+                                    <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+                                        Id
+                                        <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                                        <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                        Nombre
+                                        <span ng-show="sortType == 'Descripcion' && !sortReverse" class="fa fa-caret-down"></span>
+                                        <span ng-show="sortType == 'Descripcion' && sortReverse" class="fa fa-caret-up"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </thead>
 
-                            <tbody>
-                                <tr ng-repeat="usuario in usuarios | orderBy:sortType:sortReverse | filter:filtro">
-                                    <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden" {{usuario.Id}}></td>
-                                    <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">Nombre</td>
+                        <tbody>
+                            <tr ng-repeat="obligacionAg in obligacionesAg | orderBy:sortType:sortReverse | filter:filtro">
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden" {{obligacionAg.Id}}></td>
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{obligacionAg.Nombre}}</td>
+                                <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px;" align="center">
+                                    <button class="btn btn-primary" data-ng-click="verObligacionAg(obligacionAg)" id="{{usuario.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-search pull-right"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
 
-                                    <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px;" align="center"><button class="btn btn-primary" data-ng-click="verPersona(usuario)" id="{{usuario.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-search pull-right"></i></button></td>
-                                </tr>
-                            </tbody>
-
-                        </table>
-                    </div>
+                    </table>
+                </div>
                 <div class="col-md-6">
                 </div>
 
                 <div class="col-md-6">
-                    <button @*ng-disabled="personaHumana.esEmpleador == 'false' "*@ class="btn btn-block btn-primary" type="button" data-toggle="modal"  style="background-color:#009881; border-color:#009881" onclick="location.href = '/Account/NuevaObligacion'"><i class="fa fa-plus pull-right"></i>Agregar Obligación</button>
+                    <button @*ng-disabled="personaHumana.esEmpleador == 'false' "*@ class="btn btn-block btn-primary" type="button" data-toggle="modal" style="background-color:#009881; border-color:#009881" onclick="location.href = '/Account/NuevaObligacion'"><i class="fa fa-plus pull-right"></i>Agregar Obligación</button>
                 </div>
 
-                </div>
+            </div>
         </div>
     </section>
 </div>

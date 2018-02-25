@@ -454,6 +454,96 @@
 
                 </form>
 
+                @*--------------Obligaciones---------------*@
+                <form form class="form-horizontal" name="addObligacionToPhForm">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <button class="btn btn-block btn-primary" type="button" data-toggle="modal" data-target="#ObligacionesModal" data-ng-click="addObligacion($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
+                        </div>
+                        <div class="modal fade" style="overflow-y:scroll" id="ObligacionesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">Obligaciones</h5>
+                                        <div style="background-color:#ffffff;color:#009881">
+
+                                        </div>
+                                        <br />
+
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <div class="input-group" style="padding-left:20px;padding-right:20px">
+
+                                                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+                                                    <input type="text" class="form-control" placeholder="Buscar.." ng-model="filtro">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <table class="table table-bordered table-striped">
+
+                                                <thead>
+                                                    <tr>
+                                                        <td hidden="hidden">
+                                                            @*<a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+                                                    Id
+                                                    <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                                                    <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                                                </a>*@
+                                                        </td>
+                                                        <td>
+                                                            <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
+                                                                Obligación
+                                                                <span ng-show="sortType == 'Obligación' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                <span ng-show="sortType == 'Obligación' && sortReverse" class="fa fa-caret-up"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr ng-repeat="obligacion in obligaciones | orderBy:sortType:sortReverse | filter:filtro">
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{obligacion.Id}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{obligacion.Nombre}}</td>
+                                                        <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-primary" data-ng-click="addObligacion($event)" id="{{obligacion.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus"></i></button></td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <div class="block-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="font-family:'Source Serif Pro'">CCT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="font-size:12px">
+                                        <tr ng-repeat="obligacionDeLaPersona in obligacionesDeLaPersonaHumana | orderBy:sortType:sortReverse | filter:filtro">
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{obligacionDeLaPersona.Id}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{obligacionDeLaPersona.Nombre}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="w3-button w3-circle" data-ng-click="removeObligacion($event)" id="{{obligacionDeLaPersona.Id}}" style="background-color:#ff0000; border-color:#ff0000; color:#fff"><i class="fa fa-times"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
 
                 <div class="form-group">
                     <div class="col-sm-6 col-sm-offset-3">
@@ -465,7 +555,7 @@
         </div>
     </section>
 </div>
-       
-    
+
+
 
 

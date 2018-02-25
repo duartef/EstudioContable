@@ -297,12 +297,14 @@
     <Content Include="assets\img\photos\photo9.jpg" />
     <Content Include="assets\js\app\about-controller.js" />
     <Content Include="assets\js\app\accountsList-controller.js" />
+    <Content Include="assets\js\app\AgregarObligacionesAg-controller.js" />
     <Content Include="assets\js\app\app.js" />
     <Content Include="assets\js\app\chosen.jquery.min.js" />
     <Content Include="assets\js\app\cliente-controller.js" />
     <Content Include="assets\js\app\controllers.js" />
     <Content Include="assets\js\app\index-controller.js" />
     <Content Include="assets\js\app\login-controller.js" />
+    <Content Include="assets\js\app\NuevaObligacion-controller.js" />
     <Content Include="assets\js\app\Organizacion-controller.js" />
     <Content Include="assets\js\app\Profesionales-controller.js" />
     <Content Include="assets\js\app\register-controller.js" />
@@ -311,7 +313,6 @@
     <Content Include="assets\js\app\registerEmpleado-controller.js" />
     <Content Include="assets\js\app\registerPersonaHumana-controller.js" />
     <Content Include="assets\js\app\registerPersonaJuridica-controller.js" />
-    <Content Include="assets\js\app\registerPersonaJuridica2-controller.js" />
     <Content Include="assets\js\app\registerSocio-controller.js" />
     <Content Include="assets\js\app\testDatatable-controller.js" />
     <Content Include="assets\js\app\ui-utils.min.js" />
@@ -1272,7 +1273,8 @@
     <Content Include="Views\Account\verPersona.cshtml" />
     <Content Include="Views\Account\VerPersonaHumana.cshtml" />
     <Content Include="Views\Account\VerPersonaJuridica.cshtml" />
-    <Content Include="Views\Account\RegisterPersonaJuridica2.cshtml" />
+    <Content Include="Views\Account\NuevaObligacion.cshtml" />
+    <Content Include="Views\Account\AgregarObligacionesAg.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -360,8 +360,80 @@ namespace EstudioContable.Controllers
             }
         }
 
-        // POST: /Account/RegisterPersonaJuridica
+
+        // POST: /Account/RegisterObligacion
         [HttpPost]
+        [AllowAnonymous]
+        public string RegisterObligacion(Obligacion obligacion)
+        {
+            try
+            {
+                db.Obligaciones.Add(obligacion);
+                db.SaveChanges();
+
+                for (int i = 0; i < 9; i++)
+                {
+                    ConfigObligacion config = new Models.ConfigObligacion();
+                    config.Dia = 1;
+                    config.ObligacionId = obligacion.Id;
+                    config.TerminacionCuit = i;
+
+                    db.ConfigObligaciones.Add(config);
+                }
+
+                db.SaveChanges();
+
+                return obligacion.Id.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
+
+        // POST: /Account/RegisterObligacionAg
+        [HttpPost]
+        [AllowAnonymous]
+        public string RegisterObligacionAg(ObligacionAg obligacionAg)
+        {
+            try
+            {
+                db.ObligacionesAg.Add(obligacionAg);
+                db.SaveChanges();
+                return obligacionAg.Id.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
+        // POST: /Account/UpdateConfig
+        [HttpPost]
+        [AllowAnonymous]
+        public string UpdateConfig(ConfigObligacion config)
+        {
+            try
+            {
+                //Acá encuentro a la config
+                ConfigObligacion aux = db.ConfigObligaciones.First(x => x.Id == config.Id);
+                aux.Dia = config.Dia;
+                //La modifico
+                db.ConfigObligaciones.AddOrUpdate(aux);
+                //Guardo los cambios
+                db.SaveChanges();
+
+                return aux.Id.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
+       // POST: /Account/RegisterPersonaJuridica
+       [HttpPost]
         [AllowAnonymous]
         public string RegisterPersonaJuridica(PersonaJuridica pj)
         {
