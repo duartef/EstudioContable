@@ -457,8 +457,11 @@
                 @*--------------Obligaciones---------------*@
                 <form form class="form-horizontal" name="addObligacionToPhForm">
                     <div class="form-group">
-                        <div class="col-md-6">
-                            <button class="btn btn-block btn-primary" type="button" data-toggle="modal" data-target="#ObligacionesModal" data-ng-click="addObligacion($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus pull-right"></i>CCT</button>
+                        <div class="col-md-11">
+                            Obligaciones
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-block btn-primary" type="button" data-toggle="modal" data-target="#ObligacionesModal" data-ng-click="addObligacion($event)" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus"></i></button>
                         </div>
                         <div class="modal fade" style="overflow-y:scroll" id="ObligacionesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -522,19 +525,21 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 ">
+                        <div class="col-md-12">
                             <div class="block-content">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th style="font-family:'Source Serif Pro'">CCT</th>
+                                            <th style="font-family:'Source Serif Pro'">Obligación</th>
+                                            <th style="font-family:'Source Serif Pro'">Vencimiento</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr style="font-size:12px">
-                                        <tr ng-repeat="obligacionDeLaPersona in obligacionesDeLaPersonaHumana | orderBy:sortType:sortReverse | filter:filtro">
+                                        <tr ng-repeat="obligacionDeLaPersona in obligacionesPh | orderBy:sortType:sortReverse | filter:filtro">
                                             <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{obligacionDeLaPersona.Id}}</td>
                                             <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{obligacionDeLaPersona.Nombre}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{obligacionDeLaPersona.Dia}}</td>
                                             <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="w3-button w3-circle" data-ng-click="removeObligacion($event)" id="{{obligacionDeLaPersona.Id}}" style="background-color:#ff0000; border-color:#ff0000; color:#fff"><i class="fa fa-times"></i></button></td>
                                         </tr>
                                     </tbody>

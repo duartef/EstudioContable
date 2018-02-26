@@ -71,50 +71,9 @@
                                         <div class="form-group" ng-show="obligacionId != ''">
                                             <div ng-repeat="config in configs | orderBy:sortType:sortReverse | filter:filtro">
                                                 <input class="form-control" type="text" id="configDia" name="configDia" ng-model="Dia" value="{{config.Dia}}">
-                                                <label for="configDia">Cuit Terminado en 0</label>
+                                                <label for="configDia">Cuit Terminado en {{condig.TerminacionCuit}}</label>
                                                 <button class="btn fa fa-floppy-o" type="button" ng-click="updateConfig(config.Id, Dia)"></button>
                                             </div>
-
-                                            @*<div class="form-material form-material-primary floating">
-                                                <input class="form-control" type="text" id="cuit0" name="cuit0" ng-model="obligacionConfig.Dia">
-                                                <label for="cuit0">Cuit Terminado en 0</label>
-                                            </div>
-                                            <div class="form-material form-material-primary floating">
-                                                <input class="form-control" type="text" id="cuit1" name="cuit1" ng-model="obligacionConfig.Dia">
-                                                <label for="cuit1">Cuit Terminado en 1</label>
-                                            </div>
-                                            <div class="form-material form-material-primary floating">
-                                                <input class="form-control" type="text" id="cuit2" name="cuit2" ng-model="obligacionConfig.Dia">
-                                                <label for="cuit2">Cuit Terminado en 2</label>
-                                            </div>
-                                            <div class="form-material form-material-primary floating">
-                                                <input class="form-control" type="text" id="cuit3" name="cuit3" ng-model="obligacionConfig.Dia">
-                                                <label for="cuit3">Cuit Terminado en 3</label>
-                                            </div>
-                                            <div class="form-material form-material-primary floating">
-                                                <input class="form-control" type="text" id="cuit4" name="cuit4" ng-model="obligacionConfig.Dia">
-                                                <label for="cuit4">Cuit Terminado en 4</label>
-                                            </div>
-                                            <div class="form-material form-material-primary floating">
-                                                <input class="form-control" type="text" id="cuit5" name="cuit5" ng-model="obligacionConfig.Dia">
-                                                <label for="cuit5">Cuit Terminado en 5</label>
-                                            </div>
-                                            <div class="form-material form-material-primary floating">
-                                                <input class="form-control" type="text" id="cuit6" name="cuit6" ng-model="obligacionConfig.Dia">
-                                                <label for="cuit6">Cuit Terminado en 6</label>
-                                            </div>
-                                            <div class="form-material form-material-primary floating">
-                                                <input class="form-control" type="text" id="cuit7" name="cuit7" ng-model="obligacionConfig.Dia">
-                                                <label for="cuit7">Cuit Terminado en 7</label>
-                                            </div>
-                                            <div class="form-material form-material-primary floating">
-                                                <input class="form-control" type="text" id="cuit8" name="cuit8" ng-model="obligacionConfig.Dia">
-                                                <label for="cuit8">Cuit Terminado en 8</label>
-                                            </div>
-                                            <div class="form-material form-material-primary floating">
-                                                <input class="form-control" type="text" id="cuit9" name="cuit9" ng-model="obligacionConfig.Dia">
-                                                <label for="cuit9">Cuit Terminado en 9</label>
-                                            </div>*@
                                         </div>
 
                                     </div>
@@ -122,14 +81,17 @@
                             </div>
                         </div>
 
-                        @*------------------Tabla Actividades------------------*@
+                        @*------------------Tabla de Registro de Obligaciones------------------*@
                         <div class="col-xs-12 ">
                             <div class="block-content">
                                 <table class="table">
                                     <thead width="100%" style="text-align:justify">
                                         <tr>
-                                            <th style="font-family:'Source Serif Pro'" align="justify">
-                                                Registros Obligación <button class="btn" data-toggle="modal" data-target="#exampleModal" type="button" style="background-color:#009881; border-color:#009881;color:#fff">
+                                            <th class="col-xs-11" style="font-family:'Source Serif Pro'" align="justify">
+                                                Registros Obligación
+                                            </th>
+                                            <th class="col-xs-1" style="font-family:'Source Serif Pro'" align="justify">
+                                                <button class="btn" data-toggle="modal" data-target="#exampleModal" type="button" style="background-color:#009881; border-color:#009881;color:#fff">
                                                     <i class="fa fa-plus"></i>
                                                 </button>
                                             </th>
@@ -137,10 +99,9 @@
                                     </thead>
                                     <tbody>
                                         <tr style="font-size:12px">
-                                        <tr ng-repeat="actividadDeLaPersona in actividadesDeLaPersona | orderBy:sortType:sortReverse | filter:filtro">
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">ID</td>
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">Nombre</td>
-
+                                        <tr ng-repeat="obligacion in obligaciones | orderBy:sortType:sortReverse | filter:filtro">
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{obligacion.Id}}</td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{obligacion.Nombre}}</td>
                                             <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="w3-button w3-circle" @*data-ng-click="removeActividad($event)" id="{{actividadDeLaPersona.Id}}"*@ style="background-color:#ff0000; border-color:#ff0000; color:#fff"><i class="fa fa-times"></i></button></td>
                                         </tr>
 

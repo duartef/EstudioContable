@@ -62,6 +62,7 @@
         ObligacionAgId: '',
         Nombre: ''
     }
+    $scope.obligaciones = [];
 
     $scope.validateObligacion = {
         rules: {
@@ -93,6 +94,7 @@
                 } else {
                     $scope.obligacionId = response.data;
                     $scope.refreshConfigs();
+                    $scope.refreshObligaciones();
                     alert("Obligación guardada con éxito");
                 }
                 $scope.helpers.uiLoader('hide');
@@ -101,6 +103,23 @@
                 $scope.helpers.uiLoader('hide');
             });
         }
+    }
+
+    $scope.refreshObligaciones = function () {
+        $scope.helpers.uiLoader('show');
+        var a = String($scope.obligacionAgId);
+        $http.get('/api/Service/GetObligacionesDeLaAgrupacion/' + a).then(
+           function (response) {
+               if (response != null && response.data != null) {
+                   $scope.obligaciones = response.data;
+               }
+               $scope.helpers.uiLoader('hide');
+           },
+           function (error) {
+               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+               $scope.helpers.uiLoader('hide');
+           }
+        );
     }
 
     //Registros de Obligacion

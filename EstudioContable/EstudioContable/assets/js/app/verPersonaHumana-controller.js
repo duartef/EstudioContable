@@ -46,6 +46,7 @@
 
                 $scope.refreshActividades();
                 $scope.refreshConvenios();
+                $scope.refreshObligaciones();
                 $scope.helpers.uiLoader('hide');
             }
         },
@@ -53,6 +54,7 @@
             $scope.helpers.uiLoader('hide');
         });
     }
+
     ///////////Actividades////////////////
     $scope.addActividad = function (event) {
         if (event.target.id == null || event.target.id == '') {
@@ -250,6 +252,119 @@
            $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
        }
     );
+
+    ///////////Convenios////////////////
+
+
+    ///////////Obligaciones////////////////
+    $scope.obligacionesPh = [];
+    $scope.obligaciones = [];
+
+    $scope.addObligacion = function (event) {
+        if (event.target.id == null || event.target.id == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/AddObligacionToPh',
+                dataType: 'json',
+                data: {
+                    ObligacionId: event.target.id,
+                    PersonaHumanaId: $scope.personaHumanaId
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Obligación agregada con éxito");
+                    $scope.refreshObligaciones();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+
+    $scope.removeObligacion = function (event) {
+        if (event.target.id == null || event.target.id == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/removeObligacion',
+                dataType: 'json',
+                data: {
+                    Id: event.target.id,
+                    ObligacionId: 0,
+                    PersonaHumanaId: $scope.personaHumanaId
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Obligación eliminada con éxito");
+                    $scope.refreshObligaciones();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
+
+    $scope.refreshObligaciones = function () {
+        $scope.helpers.uiLoader('show');
+        var a = String($scope.personaHumanaId);
+        $http.get('/api/Service/GetObligacionesDeLaPersonaHumana/' + a).then(
+           function (response) {
+               if (response != null && response.data != null) {
+                   $scope.obligacionesPh = response.data;
+               }
+               $scope.helpers.uiLoader('hide');
+           },
+           function (error) {
+               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+               $scope.helpers.uiLoader('hide');
+           }
+        );
+    }
+
+    $http.get('/api/Service/GetAllObligaciones').then(
+       function (response) {
+           if (response != null && response.data != null) {
+               $scope.obligaciones = response.data;
+               //$("#myTable").dataTable().data = $scope.usuarios;
+           }
+
+
+
+           //$scope.helpers.uiLoader('hide');
+           //$scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       },
+       function (error) {
+           $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       }
+    );
+
+    ///////////Obligaciones////////////////
+
+
+
 
     $scope.register = function (form) {
         $scope.showErrorMessage = false;

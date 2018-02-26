@@ -167,6 +167,73 @@ namespace EstudioContable.Controllers
 
         }
 
+        [Route("api/Service/GetObligacionesDeLaAgrupacion/{obligacionAgId}")]
+        public IEnumerable<Obligacion> GetObligacionesDeLaAgrupacion(string obligacionAgId)
+        {
+            try
+            {
+                int obligacionAg = Convert.ToInt32(obligacionAgId);
+                //int PersonaJuridicaId = 37;
+                var a = db.Obligaciones.Where(x => x.ObligacionAgId == obligacionAg);
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new List<Obligacion>();
+            }
+
+        }
+
+        [Route("api/Service/GetObligacionesDeLaPersonaHumana/{personaHumanaId}")]
+        public IEnumerable<object> GetObligacionesDeLaPersonaHumana(string personaHumanaId)
+        {
+            try
+            {
+                int phId = Convert.ToInt32(personaHumanaId);
+                /*
+                 * var query =
+            (from a in _seciDataContext.ActivityPointerSet
+             join c in _seciDataContext.new_contactoSet on a.RegardingObjectId.Id equals c.Id into temp
+             from query2 in temp.DefaultIfEmpty()
+             where a.ScheduledStart < now && a.StateCode.Value == 0 && a.OwnerId.Id == ownerId && query2.statuscode.Value == 100000002
+             select a
+             ).ToList();
+             */
+
+                //var oblis = from a in db.Obligaciones
+                //            join b in db.ConfigObligaciones on a.Id equals b.ObligacionId into temp
+                //            from c in temp.DefaultIfEmpty()
+                //            where 
+
+                var obligs = (from a in db.ObligacionesPh
+                              join b in db.ConfigObligaciones on a.ConfigObligacionId equals b.Id into temp
+                              from c in temp.DefaultIfEmpty()
+                              join d in db.Obligaciones on c.ObligacionId equals d.Id into temp2
+                              from e in temp2.DefaultIfEmpty()
+                              where a.PersonaHumanaId == phId
+                              select new {
+                                  Id = e.Id,
+                              Nombre = e.Nombre,
+                              Dia = c.Dia}).ToList();
+
+
+                return obligs;
+                List < ObligacionPh > obligacionesPh = db.ObligacionesPh.Where(x => x.PersonaHumanaId == phId).ToList();
+                //List<ConfigObligacion>
+
+                var configsPh = db.ConfigObligaciones.Where(x => obligacionesPh.Exists(y => y.ConfigObligacionId == x.Id)).ToList();
+                //List<int> phIds = configsPh.Select(x => x.ObligacionId).
+
+                List<Obligacion> obligaciones = db.Obligaciones.Where(x => configsPh.Exists(y => y.ObligacionId == x.Id)).ToList();
+
+                return obligaciones;
+            }
+            catch (Exception ex)
+            {
+                return new List<Obligacion>();
+            }
+        }
+
         [Route("api/Service/GetPersonaJuridica/{personaJuridicaId}")]
         public PersonaJuridica GetPersonaJuridica(string personaJuridicaId)
         {

@@ -112,7 +112,7 @@ namespace EstudioContable.Models
     public class Obligacion
     {
         public int Id { get; set; }
-        public string ObligacionAgId { get; set; }
+        public int ObligacionAgId { get; set; }
         //Obligacion
         public string Nombre { get; set; }
     }
@@ -129,15 +129,15 @@ namespace EstudioContable.Models
     public class ObligacionPh
     {
         public int Id { get; set; }
-        public string PersonaHumanaId { get; set; }
-        public string ConfigObligacionId { get; set; }
+        public int PersonaHumanaId { get; set; }
+        public int ConfigObligacionId { get; set; }
     }
 
     public class ObligacionPj
     {
         public int Id { get; set; }
-        public string PersonaJuridicaId { get; set; }
-        public string ConfigObligacionId { get; set; }
+        public int PersonaJuridicaId { get; set; }
+        public int ConfigObligacionId { get; set; }
     }
 
     public class Socio

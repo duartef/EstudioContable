@@ -464,6 +464,7 @@ namespace EstudioContable.Controllers
                 return "Error: " + ex.Message;
             }
         }
+
         //
         // POST: /Account/AddActividadToPersonaHumana
         [HttpPost]
@@ -477,6 +478,39 @@ namespace EstudioContable.Controllers
                 actividad.Codigo = aux.Codigo;
 
                 db.ActividadesDeLaPersonaHumana.Add(actividad);
+                db.SaveChanges();
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
+
+        //
+        // POST: /Account/AddObligacionToPh
+        [HttpPost]
+        [AllowAnonymous]
+        public string AddObligacionToPh(int ObligacionId, int PersonaHumanaId)
+        {
+            try
+            {
+                PersonaHumana ph = db.PersonasHumanas.Find(PersonaHumanaId);
+                string cuitPoronga = ph.Cuit;
+                int largoCuit = cuitPoronga.Length - 1;
+                string a = cuitPoronga[largoCuit].ToString();
+
+                int s = Convert.ToInt32(a);
+
+                ConfigObligacion config = db.ConfigObligaciones.First(x => x.ObligacionId == ObligacionId && x.TerminacionCuit == s);
+                
+                ObligacionPh obligacionPh = new Models.ObligacionPh();
+                obligacionPh.ConfigObligacionId = config.Id;
+                obligacionPh.PersonaHumanaId = ph.Id;
+
+                db.ObligacionesPh.Add(obligacionPh);
                 db.SaveChanges();
 
                 return "Ok";
