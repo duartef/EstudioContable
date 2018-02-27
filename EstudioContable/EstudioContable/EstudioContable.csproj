@@ -317,6 +317,7 @@
     <Content Include="assets\js\app\testDatatable-controller.js" />
     <Content Include="assets\js\app\ui-utils.min.js" />
     <Content Include="assets\js\app\verDirector-Controller.js" />
+    <Content Include="assets\js\app\VerObligacion-controller.js" />
     <Content Include="assets\js\app\verPersona-controller.js" />
     <Content Include="assets\js\app\verPersonaHumana-controller.js" />
     <Content Include="assets\js\app\verPersonaJuridica-controller.js" />
@@ -1275,6 +1276,7 @@
     <Content Include="Views\Account\VerPersonaJuridica.cshtml" />
     <Content Include="Views\Account\NuevaObligacion.cshtml" />
     <Content Include="Views\Account\AgregarObligacionesAg.cshtml" />
+    <Content Include="Views\Account\VerObligacion.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

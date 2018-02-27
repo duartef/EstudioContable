@@ -250,6 +250,22 @@ namespace EstudioContable.Controllers
 
         }
 
+        [Route("api/Service/GetObligacionAg/{obligacionAgId}")]
+        public ObligacionAg GetObligacionAg(string obligacionAgId)
+        {
+            try
+            {
+                int obligAgId = Convert.ToInt32(obligacionAgId);
+                var a = db.ObligacionesAg.First(x => x.Id == obligAgId);
+                return a;
+            }
+            catch (Exception ex)
+            {
+                return new ObligacionAg();
+            }
+
+        }
+
         [Route("api/Service/GetSociosDelPJ/{personaJuridicaId}")]
         public IEnumerable<Socio> GetSociosDelPJ(string personaJuridicaId)
         {

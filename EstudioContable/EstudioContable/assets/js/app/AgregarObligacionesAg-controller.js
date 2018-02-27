@@ -21,7 +21,7 @@
         }
         else {
             //ToDo: Ver ObligacionAg
-            $window.location.href = '/Account/VerObligacionAg?id=' + obligacionAg.Id;
+            $window.location.href = '/Account/VerObligacion?id=' + obligacionAg.Id;
         }
     }    
 

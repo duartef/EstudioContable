@@ -189,6 +189,13 @@ namespace EstudioContable.Controllers
             return View();
         }
 
+        // GET: /Account/VerObligacion
+        [AllowAnonymous]
+        public ActionResult VerObligacion()
+        {
+            return View();
+        }
+
         //
         // GET: /Account/RegisterPersonaHumana
         [AllowAnonymous]
