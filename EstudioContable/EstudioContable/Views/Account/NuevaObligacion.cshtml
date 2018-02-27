@@ -71,7 +71,7 @@
                                         <div class="form-group" ng-show="obligacionId != ''">
                                             <div ng-repeat="config in configs | orderBy:sortType:sortReverse | filter:filtro">
                                                 <input class="form-control" type="text" id="configDia" name="configDia" ng-model="Dia" value="{{config.Dia}}">
-                                                <label for="configDia">Cuit Terminado en {{condig.TerminacionCuit}}</label>
+                                                <label for="configDia">Cuit Terminado en {{config.TerminacionCuit}}</label>
                                                 <button class="btn fa fa-floppy-o" type="button" ng-click="updateConfig(config.Id, Dia)"></button>
                                             </div>
                                         </div>

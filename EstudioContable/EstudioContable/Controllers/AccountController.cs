@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using EstudioContable.Models;
 using System.ServiceModel.Web;
 using System.Data.Entity.Migrations;
+using System.Collections.Generic;
 
 namespace EstudioContable.Controllers
 {
@@ -378,7 +379,7 @@ namespace EstudioContable.Controllers
                 db.Obligaciones.Add(obligacion);
                 db.SaveChanges();
 
-                for (int i = 0; i < 9; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     ConfigObligacion config = new Models.ConfigObligacion();
                     config.Dia = 1;
@@ -419,19 +420,29 @@ namespace EstudioContable.Controllers
         // POST: /Account/UpdateConfig
         [HttpPost]
         [AllowAnonymous]
-        public string UpdateConfig(ConfigObligacion config)
+        public string UpdateConfig(ConfigObligacion[] configs)
         {
             try
             {
-                //Acá encuentro a la config
-                ConfigObligacion aux = db.ConfigObligaciones.First(x => x.Id == config.Id);
-                aux.Dia = config.Dia;
-                //La modifico
-                db.ConfigObligaciones.AddOrUpdate(aux);
-                //Guardo los cambios
-                db.SaveChanges();
+                List<ConfigObligacion> configsObligaciones = configs.ToList();
+                foreach (ConfigObligacion config in configsObligaciones)
+                {
+                    //Acá encuentro a la config
+                    ConfigObligacion aux = db.ConfigObligaciones.First(x => x.Id == config.Id);
+                    aux.Dia = config.Dia;
+                    //La modifico
+                    db.ConfigObligaciones.AddOrUpdate(aux);
+                    db.SaveChanges();
+                }
+                ////Acá encuentro a la config
+                //ConfigObligacion aux = db.ConfigObligaciones.First(x => x.Id == config.Id);
+                //aux.Dia = config.Dia;
+                ////La modifico
+                //db.ConfigObligaciones.AddOrUpdate(aux);
+                ////Guardo los cambios
+                //db.SaveChanges();
 
-                return aux.Id.ToString();
+                return "OK";
             }
             catch (Exception ex)
             {

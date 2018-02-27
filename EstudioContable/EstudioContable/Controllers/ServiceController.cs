@@ -301,15 +301,15 @@ namespace EstudioContable.Controllers
         }
 
         [Route("api/Service/GetAllObligaciones")]
-        public IEnumerable<ObligacionAg> GetAllObligaciones()
+        public IEnumerable<Obligacion> GetAllObligaciones()
         {
             try
             {
-                return db.ObligacionesAg.ToList();
+                return db.Obligaciones.ToList();
             }
             catch (Exception ex)
             {
-                return new List<ObligacionAg>();
+                return new List<Obligacion>();
             }
         }
 
