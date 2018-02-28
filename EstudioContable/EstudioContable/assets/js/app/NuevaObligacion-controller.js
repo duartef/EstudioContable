@@ -127,6 +127,16 @@
     //Config de Obligacion
 
     $scope.configs = [];
+    $scope.cuit0 = "";
+    $scope.cuit1 = "";
+    $scope.cuit2 = "";
+    $scope.cuit3 = "";
+    $scope.cuit4 = "";
+    $scope.cuit5 = "";
+    $scope.cuit6 = "";
+    $scope.cuit7 = "";
+    $scope.cuit8 = "";
+    $scope.cuit9 = "";
 
     $scope.refreshConfigs = function () {
         $scope.helpers.uiLoader('show');
@@ -135,6 +145,16 @@
            function (response) {
                if (response != null && response.data != null) {
                    $scope.configs = response.data;
+                   $scope.cuit0 = $scope.configs[0].Dia;
+                   $scope.cuit1 = $scope.configs[1].Dia;
+                   $scope.cuit2 = $scope.configs[2].Dia;
+                   $scope.cuit3 = $scope.configs[3].Dia;
+                   $scope.cuit4 = $scope.configs[4].Dia;
+                   $scope.cuit5 = $scope.configs[5].Dia;
+                   $scope.cuit6 = $scope.configs[6].Dia;
+                   $scope.cuit7 = $scope.configs[7].Dia;
+                   $scope.cuit8 = $scope.configs[8].Dia;
+                   $scope.cuit9 = $scope.configs[9].Dia;
                }
                $scope.helpers.uiLoader('hide');
            },
@@ -145,13 +165,23 @@
         );
     }
 
-    $scope.updateConfig = function (id, dia) {
+    $scope.updateConfig = function () {
+        $scope.configs[0].Dia = $scope.cuit0;
+        $scope.configs[1].Dia = $scope.cuit1;
+        $scope.configs[2].Dia = $scope.cuit2;
+        $scope.configs[3].Dia = $scope.cuit3;
+        $scope.configs[4].Dia = $scope.cuit4;
+        $scope.configs[5].Dia = $scope.cuit5;
+        $scope.configs[6].Dia = $scope.cuit6;
+        $scope.configs[7].Dia = $scope.cuit7;
+        $scope.configs[8].Dia = $scope.cuit8;
+        $scope.configs[9].Dia = $scope.cuit9;
+
         $http({
             url: '/Account/UpdateConfig',
             dataType: 'json',
             data: {
-                Id: id,
-                Dia: dia
+                Configs: $scope.configs
             },
             method: 'POST',
             headers: {
