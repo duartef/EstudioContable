@@ -268,7 +268,7 @@ namespace EstudioContable.Models
         {
             try
             {
-                // 
+                 
                 //Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
                 Database.SetInitializer<ApplicationDbContext>(new CreateDatabaseIfNotExists<ApplicationDbContext>());
                 Database.Initialize(true);

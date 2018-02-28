@@ -186,13 +186,13 @@
         $scope.configs[0].Dia = $scope.cuit0;
         $scope.configs[1].Dia = $scope.cuit1;
         $scope.configs[2].Dia = $scope.cuit2;
-        //$scope.configs[3].Dia = $scope.cuit3;
-        //$scope.configs[4].Dia = $scope.cuit4;
-        //$scope.configs[5].Dia = $scope.cuit5;
-        //$scope.configs[6].Dia = $scope.cuit6;
-        //$scope.configs[7].Dia = $scope.cuit7;
-        //$scope.configs[8].Dia = $scope.cuit8;
-        //$scope.configs[9].Dia = $scope.cuit9;
+        $scope.configs[3].Dia = $scope.cuit3;
+        $scope.configs[4].Dia = $scope.cuit4;
+        $scope.configs[5].Dia = $scope.cuit5;
+        $scope.configs[6].Dia = $scope.cuit6;
+        $scope.configs[7].Dia = $scope.cuit7;
+        $scope.configs[8].Dia = $scope.cuit8;
+        $scope.configs[9].Dia = $scope.cuit9;
 
         $http({
             url: '/Account/UpdateConfig',
