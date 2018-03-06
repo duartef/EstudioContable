@@ -510,8 +510,13 @@
                                                     </tr>
                                                 </thead>
 
-                                                <tbody>
-                                                    <tr ng-repeat="obligacion in obligaciones | orderBy:sortType:sortReverse | filter:filtro">
+                                                <tbody ng-repeat="obligacionAg in obligacionesAg | orderBy:sortType:sortReverse | filter:filtro">
+                                                    <tr>
+                                                        <td style="font-size:14px" hidden="hidden">{{obligacionAg.Id}}</td>
+                                                        <td style="font-size:14px">{{obligacionAg.Nombre}}</td>
+                                                        <td style="font-size:14px"><button class="btn btn-primary" data-ng-click="addObligacionAg($event)" id="{{obligacionAg.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus"></i></button></td>
+                                                    </tr>
+                                                    <tr ng-repeat="obligacion in obligaciones | orderBy:sortType:sortReverse | filter:filtro" ng-show="obligacion.ObligacionAgId == obligacionAg.Id">
                                                         <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{obligacion.Id}}</td>
                                                         <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{obligacion.Nombre}}</td>
                                                         <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="btn btn-primary" data-ng-click="addObligacion($event)" id="{{obligacion.Id}}" style="background-color:#009881; border-color:#009881"><i class="fa fa-plus"></i></button></td>

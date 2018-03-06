@@ -300,6 +300,19 @@ namespace EstudioContable.Controllers
 
         }
 
+        [Route("api/Service/GetAllObligacionesAg")]
+        public IEnumerable<ObligacionAg> GetAllObligacionesAg()
+        {
+            try
+            {
+                return db.ObligacionesAg.ToList();
+            }
+            catch (Exception ex)
+            {
+                return new List<ObligacionAg>();
+            }
+        }
+
         [Route("api/Service/GetAllObligaciones")]
         public IEnumerable<Obligacion> GetAllObligaciones()
         {

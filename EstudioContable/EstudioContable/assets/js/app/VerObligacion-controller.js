@@ -182,6 +182,13 @@
         );
     }
 
+    $scope.openConfigs = function(obligacion){
+        $scope.obligacionId = obligacion.Id;
+        $scope.obligacion = obligacion;
+        $scope.refreshConfigs();
+        //$scope.refreshObligaciones();
+    }
+
     $scope.updateConfig = function () {
         $scope.configs[0].Dia = $scope.cuit0;
         $scope.configs[1].Dia = $scope.cuit1;
@@ -248,6 +255,10 @@
     }
 
     //Config de Obligacion
+
+    //$('#exampleModal').on('show.bs.modal', function () {
+    //    document.getElementById("registerDirectorio").reset();
+    //});
 
     getObligacionAg();
 

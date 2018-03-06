@@ -259,6 +259,40 @@
     ///////////Obligaciones////////////////
     $scope.obligacionesPh = [];
     $scope.obligaciones = [];
+    $scope.obligacionesAg = [];
+
+    $scope.addObligacionAg = function (event) {
+        if (event.target.id == null || event.target.id == '') {
+            //alert("Ocurrio un error pruebe nuevamente por favor.")
+        }
+        else {
+            $scope.helpers.uiLoader('show');
+            $http({
+                url: '/Account/AddObligacionAgToPh',
+                dataType: 'json',
+                data: {
+                    ObligacionId: event.target.id,
+                    PersonaHumanaId: $scope.personaHumanaId
+                },
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).
+            then(function (response) {
+                if (response != null && response.data.startsWith("Error") == true) {
+                    $scope.showErrorMessage = true;
+                } else {
+                    alert("Obligación agregada con éxito");
+                    $scope.refreshObligaciones();
+                }
+                $scope.helpers.uiLoader('hide');
+            }, function (error) {
+                $scope.showErrorMessage = true;
+                $scope.helpers.uiLoader('hide');
+            });
+        }
+    }
 
     $scope.addObligacion = function (event) {
         if (event.target.id == null || event.target.id == '') {
@@ -348,6 +382,23 @@
        function (response) {
            if (response != null && response.data != null) {
                $scope.obligaciones = response.data;
+               //$("#myTable").dataTable().data = $scope.usuarios;
+           }
+
+
+
+           //$scope.helpers.uiLoader('hide');
+           //$scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       },
+       function (error) {
+           $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+       }
+    );
+
+    $http.get('/api/Service/GetAllObligacionesAg').then(
+       function (response) {
+           if (response != null && response.data != null) {
+               $scope.obligacionesAg = response.data;
                //$("#myTable").dataTable().data = $scope.usuarios;
            }
 

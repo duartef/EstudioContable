@@ -3,7 +3,7 @@
 
     $scope.obligacionesAg = [];
     
-    $http.get('/api/Service/GetAllObligaciones').then(
+    $http.get('/api/Service/GetAllObligacionesAg').then(
     function (response) {
         if (response != null && response.data != null) {
             $scope.obligacionesAg = response.data;

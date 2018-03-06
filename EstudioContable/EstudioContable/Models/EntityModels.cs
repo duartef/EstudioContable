@@ -131,6 +131,8 @@ namespace EstudioContable.Models
         public int Id { get; set; }
         public int PersonaHumanaId { get; set; }
         public int ConfigObligacionId { get; set; }
+        public decimal Monto { get; set; }
+        public string Observaciones { get; set; }
     }
 
     public class ObligacionPj
@@ -138,6 +140,8 @@ namespace EstudioContable.Models
         public int Id { get; set; }
         public int PersonaJuridicaId { get; set; }
         public int ConfigObligacionId { get; set; }
+        public decimal Monto { get; set; }
+        public string Observaciones { get; set; }
     }
 
     public class Socio

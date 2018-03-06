@@ -506,6 +506,46 @@ namespace EstudioContable.Controllers
             }
         }
 
+        //
+        // POST: /Account/AddObligacionAgToPh
+        [HttpPost]
+        [AllowAnonymous]
+        public string AddObligacionAgToPh(int ObligacionAgId, int PersonaHumanaId)
+        {
+            try
+            {
+                PersonaHumana ph = db.PersonasHumanas.Find(PersonaHumanaId);
+                string cuitPoronga = ph.Cuit;
+                int largoCuit = cuitPoronga.Length - 1;
+                string a = cuitPoronga[largoCuit].ToString();
+
+                int s = Convert.ToInt32(a);
+
+                List<Obligacion> obligaciones = db.Obligaciones.Where(x => x.ObligacionAgId == ObligacionAgId).ToList();
+
+                foreach (Obligacion obligacion in obligaciones)
+                {
+                    ConfigObligacion config = db.ConfigObligaciones.First(x => x.ObligacionId == obligacion.Id && x.TerminacionCuit == s);
+                    ObligacionPh aux = db.ObligacionesPh.FirstOrDefault(x => x.ConfigObligacionId == config.Id);
+                    if (aux == null)
+                    {
+                        ObligacionPh obligacionPh = new ObligacionPh();
+                        obligacionPh.ConfigObligacionId = config.Id;
+                        obligacionPh.PersonaHumanaId = ph.Id;
+
+                        db.ObligacionesPh.Add(obligacionPh);
+                        db.SaveChanges();
+                    }
+                }
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
 
         //
         // POST: /Account/AddObligacionToPh
