@@ -300,6 +300,40 @@ namespace EstudioContable.Controllers
 
         }
 
+        [Route("api/Service/GetObligacionPh/{obligacionPhId}")]
+        public object GetObligacionPh(string obligacionPhId)
+        {
+            try
+            {
+                int id = Convert.ToInt32(obligacionPhId);
+
+                //ObligacionPh s = db.ObligacionesPh.First(x => x.Id == id);
+
+                var oblig = (from a in db.ObligacionesPh
+                              join b in db.ConfigObligaciones on a.ConfigObligacionId equals b.Id into temp
+                              from c in temp.DefaultIfEmpty()
+                              join d in db.Obligaciones on c.ObligacionId equals d.Id into temp2
+                              from e in temp2.DefaultIfEmpty()
+                              where a.Id == id
+                              select new
+                              {
+                                  Id = id,
+                                  Nombre = e.Nombre,
+                                  TerminacionCuit = c.TerminacionCuit,
+                                  DiaVencimiento = c.Dia,
+                                  Monto = a.Monto,
+                                  Observaciones = a.Monto
+                              }).FirstOrDefault();
+                
+                return oblig;
+            }
+            catch (Exception ex)
+            {
+                return new List<Director>();
+            }
+
+        }
+
         [Route("api/Service/GetAllObligacionesAg")]
         public IEnumerable<ObligacionAg> GetAllObligacionesAg()
         {

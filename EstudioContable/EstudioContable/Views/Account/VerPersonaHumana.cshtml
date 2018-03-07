@@ -495,10 +495,10 @@
                                                     <tr>
                                                         <td hidden="hidden">
                                                             @*<a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
-                                                    Id
-                                                    <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
-                                                    <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
-                                                </a>*@
+                                                                    Id
+                                                                    <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                                                                    <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                                                                </a>*@
                                                         </td>
                                                         <td>
                                                             <a style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" href="#" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">
@@ -536,7 +536,7 @@
                                     <thead>
                                         <tr>
                                             <th style="font-family:'Source Serif Pro'; text-align: center">Obligación</th>
-                                            <th style="font-family:'Source Serif Pro'; text-align: center"">Día de Vencimiento</th>
+                                            <th style="font-family:'Source Serif Pro'; text-align: center">Día de Vencimiento</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -545,12 +545,69 @@
                                             <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px" hidden="hidden">{{obligacionDeLaPersona.Id}}</td>
                                             <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{obligacionDeLaPersona.Nombre}}</td>
                                             <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">{{obligacionDeLaPersona.Dia}}</td>
-                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px"><button class="w3-button w3-circle" data-ng-click="removeObligacion($event)" id="{{obligacionDeLaPersona.Id}}" style="background-color:#ff0000; border-color:#ff0000; color:#fff"><i class="fa fa-times"></i></button></td>
+                                            <td style="font-family:'Source Serif Pro';color:#808080;background-color:#ffffff;font-size:14px">
+                                                <button class="w3-button w3-circle" type="button" data-toggle="modal" data-target="#ObligacionModal" data-ng-click="verObligacionPH($event)" id="{{obligacionDeLaPersona.Id}}" style="background-color:#ff0000; border-color:#ff0000; color:#fff">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+
+                        <div class="modal fade" style="overflow-y:scroll" id="ObligacionModal" tabindex="-1" role="dialog" aria-labelledby="ObligacionModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h5 style="font-family:'Source Serif Pro';color:#808080" class="modal-title" id="exampleModalLabel">Obligación</h5>
+                                        <div style="background-color:#ffffff;color:#009881">
+
+                                        </div>
+                                        <br />
+
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <div class="form-material form-material-primary floating">
+                                                    <input class="form-control" type="text" id="Nombre" name="Nombre" ng-model="obligacionSeleccionada.Nombre">
+                                                    <label for="name">Nombre</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="form-material form-material-primary floating">
+                                                    <input class="form-control" type="text" id="TerminacionCuit" name="TerminacionCuit" ng-model="obligacionSeleccionada.TerminacionCuit">
+                                                    <label for="TerminacionCuit">Terminación Cuit</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="form-material form-material-primary floating">
+                                                    <input class="form-control" type="text" id="DiaVencimiento" name="DiaVencimiento" ng-model="obligacionSeleccionada.DiaVencimiento">
+                                                    <label for="TerminacionCuit">Día Vencimiento</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="form-material form-material-primary floating">
+                                                    <input class="form-control" type="number" id="Monto" name="Monto" ng-model="obligacionSeleccionada.Monto">
+                                                    <label for="TerminacionCuit">Monto</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-material form-material-primary floating">
+                                                    <textarea class="form-control" id="Observaciones" name="Observaciones" rows="6" placeholder="Observaciones" ng-model="obligacionSeleccionada.Observaciones" value="{{personaHumana.Observaciones}}">
+                                                    </textarea>
+                                                    <label for="Observaciones">Observaciones</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
 
                 </form>

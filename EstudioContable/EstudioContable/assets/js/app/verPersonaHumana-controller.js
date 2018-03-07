@@ -260,6 +260,18 @@
     $scope.obligacionesPh = [];
     $scope.obligaciones = [];
     $scope.obligacionesAg = [];
+    $scope.obligacionPh = {
+        Id: '',
+        Nombre: '',
+        TerminacionCuit: '',
+        DiaVencimiento: '',
+        Monto: '',
+        Observaciones: ''
+    };
+
+    $('#ObligacionModal').on('show.bs.modal', function () {
+        document.getElementById("addObligacionToPhForm").reset();
+    });
 
     $scope.addObligacionAg = function (event) {
         if (event.target.id == null || event.target.id == '') {
@@ -368,6 +380,23 @@
            function (response) {
                if (response != null && response.data != null) {
                    $scope.obligacionesPh = response.data;
+               }
+               $scope.helpers.uiLoader('hide');
+           },
+           function (error) {
+               $scope.helpers.uiBlocks('#popUpWin', 'state_normal');
+               $scope.helpers.uiLoader('hide');
+           }
+        );
+    }
+
+    $scope.verObligacionPH = function () {
+        $scope.helpers.uiLoader('show');
+        var a = String($scope.personaHumanaId);
+        $http.get('/api/Service/GetObligacionPh/' + a).then(
+           function (response) {
+               if (response != null && response.data != null) {
+                   $scope.obligacionPh = response.data;
                }
                $scope.helpers.uiLoader('hide');
            },
